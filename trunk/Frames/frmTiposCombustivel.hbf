@@ -1,0 +1,177 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.00.218.1168
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmTiposCombustivel
+  Segment = main
+  Extends = Form
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Tipos de Combustível"
+  Modal = False
+  Help = ""
+  DIA = 1
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 34
+    Top = 18
+    Anchors = 0
+    Visible = True
+    Caption = "Tipos Cadastrados"
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = Label5
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 35
+    Top = 31
+    Anchors = 0
+    Visible = True
+    Caption = "Lista de Tipos de Combustível"
+    Font = "Standard"
+  end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 6
+    Top = 19
+    Anchors = 0
+    Visible = True
+    Image = "FormsListagem"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin GridEx
+    Name = gridTipos
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 57
+    Width = 144
+    Height = 79
+    Anchors = 0
+    Visible = True
+    Columns = "AQDOAAUAOQBaAAsAAAAAAAAAAAAoAAMA"
+    SelectionMode = 1
+    VertScroll = "scroll"
+    HorzScroll = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 46
+    Anchors = 0
+    Visible = True
+    Caption = "Nome"
+    Font = "Bold"
+  end
+  begin Scrollbar
+    Name = scroll
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 149
+    Top = 53
+    Width = 7
+    Height = 88
+    Anchors = 0
+    Visible = True
+    Min = 0
+    Max = 100
+    LargeChange = 10
+  end
+  begin Button
+    Name = btnVoltar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 83
+    Top = 143
+    Width = 44
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Voltar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnNovo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 33
+    Top = 143
+    Width = 42
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Novo"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+Private Sub Form_Load()
+	gridTipos.Populate DbTiposC
+End Sub
+
+
+
+Private Sub btnNovo_Click()
+	Dim frm As New frmManterTipoCombustivel
+	frm.bNew = True
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub gridTipos_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
+	DbTiposC.LookupUniqueID lItemData
+	Dim frm As New frmManterTipoCombustivel
+	frm.bNew = False
+	frm.Show hbFormModeless+hbFormGoto
+
+End Sub
+
+Private Sub gridTipos_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
+	DbTiposC.LookupUniqueID lItemData
+	vValue(0) = DbTiposC.Nome
+End Sub
+
+Private Sub btnVoltar_Click()
+	Dim frm As New frmMain
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
