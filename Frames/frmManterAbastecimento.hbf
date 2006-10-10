@@ -1,0 +1,687 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.00.218.1168
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmManterAbastecimento
+  Segment = main
+  Extends = Form
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Abastecimento"
+  Modal = False
+  Help = ""
+  DIA = 1
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 10
+    Top = 48
+    Anchors = 0
+    Visible = True
+    Caption = "Data:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 88
+    Top = 48
+    Anchors = 0
+    Visible = True
+    Caption = "Hora:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 11
+    Top = 64
+    Anchors = 0
+    Visible = True
+    Caption = "Tipo:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 13
+    Top = 118
+    Anchors = 0
+    Visible = True
+    Caption = "Valores"
+    Font = "Bold"
+  end
+  begin Field
+    Name = fldValorLitro
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 42
+    Top = 127
+    Width = 37
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnOk
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 15
+    Top = 145
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "OK"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Picture
+    Name = picEdicaoCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 11
+    Top = 18
+    Anchors = 0
+    Visible = True
+    Image = "FormsEdicao"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = lblCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 38
+    Top = 17
+    Anchors = 0
+    Visible = True
+    Caption = "Abastecimento"
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = Label5
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 37
+    Top = 31
+    Anchors = 0
+    Visible = True
+    Caption = "Criação / Edição de Abastec."
+    Font = "Standard"
+  end
+  begin Button
+    Name = btnCancelar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 60
+    Top = 145
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Cancelar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label6
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 85
+    Top = 129
+    Anchors = 0
+    Visible = True
+    Caption = "Total:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldValorTotal
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 110
+    Top = 127
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label7
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 6
+    Top = 77
+    Anchors = 0
+    Visible = True
+    Caption = "Posto:"
+    Font = "Standard"
+  end
+  begin Selector
+    Name = slcData
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 36
+    Top = 49
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Data"
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 1
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Selector
+    Name = slcHora
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 112
+    Top = 49
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Hora"
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 2
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Popup
+    Name = popTipo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 32
+    Top = 64
+    Width = 116
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Tipo de Combustível"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label8
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 19
+    Top = 129
+    Anchors = 0
+    Visible = True
+    Caption = "Litro:"
+    Font = "Standard"
+  end
+  begin Popup
+    Name = popPosto
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 32
+    Top = 77
+    Width = 96
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Posto"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label9
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 85
+    Top = 1
+    Anchors = 0
+    Visible = True
+    Caption = "Carro:"
+    Font = "Standard"
+  end
+  begin Popup
+    Name = popCarro
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 110
+    Top = 1
+    Width = 49
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Carro"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label10
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 12
+    Top = 92
+    Anchors = 0
+    Visible = True
+    Caption = "Odômetro"
+    Font = "Bold"
+  end
+  begin Label
+    Name = Label11
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 17
+    Top = 104
+    Anchors = 0
+    Visible = True
+    Caption = "Inicial:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldKmInicial
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 41
+    Top = 102
+    Width = 38
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label12
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 89
+    Top = 104
+    Anchors = 0
+    Visible = True
+    Caption = "Final:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldKmFinal
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 110
+    Top = 102
+    Width = 39
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = False
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnExcluir
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 105
+    Top = 145
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Excluir"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+Public bNew as Boolean
+Public KmInicialPosterior As Double
+Public UniqueIDAnterior As Long
+Public TemAnterior As Boolean
+Public TemPosterior As Boolean
+
+Private Function ValidarEdicao() As Boolean
+	Dim ID As Long
+	Dim Sql As String
+	Dim IdCarro As Long
+	Dim Data As String
+	Dim KmAntigo As Double
+	Dim KmNovo As Double
+
+	Me.TemAnterior = False
+	Me.TemPosterior = False
+
+	KmNovo 	= CDbl(Me.fldKmInicial.Text)
+	If Me.bNew Then
+		ID = -1000
+	Else
+		ID		= DbAbaste.UniqueID
+	End If
+	Data 		= CStr(Me.slcData.Date)
+	IdCarro = Me.popCarro.ItemData(Me.popCarro.ListIndex)
+	Sql 		= "IdCarro=" & IdCarro & " And Hora <=" & Me.slcHora.Time & " And Data<='" & Data & "' And UniqueID<>" & ID & " ORDER BY Data Desc"
+	DbAbaste.OpenRecordset Sql,hbModeOpenAlways+hbModeReadWrite
+	If DbAbaste.RecordCount > 0 Then
+		DbAbaste.MoveFirst
+		Me.UniqueIDAnterior = DbAbaste.UniqueID
+		Me.TemAnterior = True
+		KmAntigo = CDbl(DbAbaste.KmInicial)
+		If KmNovo <= KmAntigo Then
+			ValidarEdicao = False
+			Exit Function
+		End If
+	End If
+
+	Sql 	= "IdCarro=" & IdCarro & " And Hora >=" & Me.slcHora.Time & " And Data>='" & Data & "' And UniqueID<>" & ID & " ORDER BY Data Asc"
+	DbAbaste.OpenRecordset Sql,hbModeOpenAlways+hbModeReadWrite
+	If DbAbaste.RecordCount > 0 Then
+		DbAbaste.MoveFirst
+		KmAntigo = CDbl(DbAbaste.KmInicial)
+		Me.KmInicialPosterior = KmAntigo
+		Me.TemPosterior = True
+		If KmNovo >= KmAntigo Then
+			ValidarEdicao = False
+			Exit Function
+		End If
+	End If
+	ValidarEdicao = True
+End Function
+
+
+
+Private Sub btnOk_Click()
+
+	'Guardar o ID, pois a função ValidarEdicao modifica a posição do recordset.
+	Dim Id As Long
+	Id = DbAbaste.UniqueID
+
+	Dim Km As String
+
+	' Verificar os Campos.
+	If Me.Validar() Then
+
+		'Verificar se pode incluir na data definida pelo usuário.DbAbaste.RecordCount > 0 And
+		If Me.ValidarEdicao() Then
+			DbAbaste.OpenTable hbModeOpenAlways+hbModeReadWrite
+			If Not Me.bNew Then
+				DbAbaste.LookupUniqueID Id
+				DbAbaste.Delete hbRecordRemove
+			End If
+
+			'Existe um abastecimento realizado antes da data deste.
+			If Me.TemAnterior Then
+				DbAbaste.LookupUniqueID Me.UniqueIDAnterior
+				DbAbaste.Edit
+				DbAbaste.KmFinal = Me.fldKmInicial.Text
+				DbAbaste.Update
+			End If
+
+			'Existe um abastecimento realizado após a data deste.
+			If Me.TemPosterior Then
+				Km = CStr(Me.KmInicialPosterior)
+			Else
+				Km = "0"
+			End If
+			DbAbaste.AddNew
+			DbAbaste.IdCarro = Me.popCarro.ItemData(Me.popCarro.ListIndex)
+			DbAbaste.Data = Me.slcData.Date
+			DbAbaste.Hora = Me.slcHora.Time
+			DbAbaste.IdTipoComb = Me.popTipo.ItemData(Me.popTipo.ListIndex)
+			DbAbaste.IdPosto = Me.popPosto.ItemData(Me.popPosto.ListIndex)
+			DbAbaste.KmInicial = Me.fldKmInicial.Text
+			DbAbaste.KmFinal = Km
+			DbAbaste.ValorLitro = CDbl(Me.fldValorLitro.Text)
+			DbAbaste.ValorTotal = CDbl(Me.fldValorTotal.Text)
+			DbAbaste.Update
+			Me.btnCancelar_Click
+		Else
+			MsgBox "Edição Não pode ser realizada, pois gera conflitos entre os abastecimentos."
+		End If
+	End If
+End Sub
+
+
+Private Function Validar() As Boolean
+	If Me.popCarro.ListIndex = -1	Then
+		MsgBox "Selecione um Carro."
+		Validar = False
+		Exit Function
+	End If
+	If Me.popPosto.ListIndex = -1 Then
+		MsgBox "Selecione um Posto."
+		Validar = False
+		Exit Function
+	End If
+	If Me.popTipo.ListIndex = -1 Then
+		MsgBox "Selecione um Tipo de Combustível."
+		Validar = False
+		Exit Function
+	End If
+	If Me.fldKmInicial.Text = "" Or Not IsNumeric(Me.fldKmInicial.Text) Then
+		MsgBox "Preencha Corretamente o Campo Km Inicial."
+		Validar = False
+		Exit Function
+	End If
+	If Me.fldValorLitro.Text = "" Or Not IsNumeric(Me.fldValorLitro.Text) Then
+		MsgBox "Preencha Corretamente o Campo Valor do Litro."
+		Validar = False
+		Exit Function
+	End If
+	If Me.fldValorTotal.Text = "" Or Not IsNumeric(Me.fldValorTotal.Text) Then
+		MsgBox "Preencha Corretamente o Campo Valor do Total."
+		Validar = False
+		Exit Function
+	End If
+	Validar = True
+End Function
+
+Private Sub btnCancelar_Click()
+	Dim frm As New frmAbastecimentos
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub Form_Load()
+	DbPostos.MoveFirst
+	While Not DbPostos.EOF
+		Me.popPosto.AddItem DbPostos.Nome,DbPostos.UniqueID
+		DbPostos.MoveNext
+	Wend
+
+	DbCarros.MoveFirst
+	While Not DbCarros.EOF
+		Me.popCarro.AddItem DbCarros.Modelo,DbCarros.UniqueID
+		DbCarros.MoveNext
+	Wend
+
+	DbTiposC.MoveFirst
+	While Not DbTiposC.EOF
+		Me.popTipo.AddItem DbTiposC.Nome,DbTiposC.UniqueID
+		DbTiposC.MoveNext
+	Wend
+
+	If Not Me.bNew Then
+		DbCarros.LookupUniqueID DbAbaste.IdCarro
+		Me.slcData.Date = DbAbaste.Data
+		Me.slcHora.Time = DbAbaste.Hora
+		Me.popCarro.ListIndex = Me.popCarro.FindItemData(DbAbaste.IdCarro)
+		Me.popPosto.ListIndex = Me.popPosto.FindItemData(DbAbaste.IdPosto)
+		Me.popTipo.ListIndex = Me.popTipo.FindItemData(DbAbaste.IdTipoComb)
+		Me.fldKmInicial.Text = DbAbaste.KmInicial
+		Me.fldKmFinal.Text = DbAbaste.KmFinal
+		Me.fldValorLitro.Text = CStr(DbAbaste.ValorLitro)
+		Me.fldValorTotal.Text = CStr(DbAbaste.ValorTotal)
+	Else
+		Me.slcData.Date = Now()
+	End If
+End Sub
+
+Private Sub Excluir()
+	Dim IdCarro As Long
+	Dim IdAbast As Long
+	IdCarro = DbAbaste.IdCarro
+	IdAbast = DbAbaste.UniqueID
+
+	DbAbaste.OpenRecordset "IdCarro=" & IdCarro & " Order By Data Asc, Hora Asc", hbModeOpenAlways+hbModeReadWrite
+	DbAbaste.LookupUniqueID IdAbast
+	DbAbaste.MovePrevious
+	If DbAbaste.BOF Then
+		DbAbaste.MoveNext
+		DbAbaste.Delete hbRecordRemove
+		Exit Sub
+	End If
+	DbAbaste.MoveNext
+	DbAbaste.MoveNext
+	If DbAbaste.EOF Then
+		DbAbaste.MovePrevious
+		DbAbaste.MovePrevious
+		DbAbaste.Edit
+		DbAbaste.KmFinal = "0"
+		DbAbaste.Update
+		DbAbaste.MoveNext
+		DbAbaste.Delete hbRecordRemove
+		Exit Sub
+	End If
+
+	Dim KmInicial As String
+	KmInicial = DbAbaste.KmInicial
+	DbAbaste.MovePrevious
+	DbAbaste.MovePrevious
+	DbAbaste.Edit
+	DbAbaste.KmFinal = KmInicial
+	DbAbaste.Update
+	DbAbaste.MoveNext
+	DbAbaste.Delete hbRecordRemove
+End Sub
+
+Private Sub btnExcluir_Click()
+	If Me.bNew Then
+		MsgBox "Não é possível remover um abastecimento ainda não criado."
+		Exit Sub
+	End If
+	Me.Excluir
+	Me.btnCancelar_Click
+End Sub

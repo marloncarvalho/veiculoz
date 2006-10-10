@@ -1,0 +1,430 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.00.218.1168
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmRelatorioPiorDesempenho
+  Segment = main
+  Extends = Form
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Pior Desempenho"
+  Modal = False
+  Help = ""
+  DIA = 0
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Button
+    Name = Button1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 34
+    Top = 143
+    Width = 44
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Consultar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 20
+    Top = 61
+    Anchors = 0
+    Visible = True
+    Caption = "Posto:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 6
+    Top = 73
+    Anchors = 0
+    Visible = True
+    Caption = "Consumo:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 23
+    Top = 85
+    Anchors = 0
+    Visible = True
+    Caption = "Data:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label5
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 25
+    Top = 98
+    Anchors = 0
+    Visible = True
+    Caption = "Tipo:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label6
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 20
+    Top = 49
+    Anchors = 0
+    Visible = True
+    Caption = "Carro:"
+    Font = "Standard"
+  end
+  begin Popup
+    Name = Popup1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 46
+    Top = 49
+    Width = 94
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Selecione um Carro"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label7
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 19
+    Top = 110
+    Anchors = 0
+    Visible = True
+    Caption = "Litros:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label8
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 25
+    Top = 122
+    Anchors = 0
+    Visible = True
+    Caption = "Kms:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldPosto
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 47
+    Top = 59
+    Width = 99
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = False
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Field
+    Name = fldConsumo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 47
+    Top = 71
+    Width = 100
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = False
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Field
+    Name = fldData
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 47
+    Top = 83
+    Width = 36
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = False
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Field
+    Name = fldTipo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 46
+    Top = 96
+    Width = 100
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = False
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Field
+    Name = fldLitros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 46
+    Top = 108
+    Width = 57
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = False
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Field
+    Name = fldKms
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 46
+    Top = 120
+    Width = 101
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = False
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = Button2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 82
+    Top = 143
+    Width = 44
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Voltar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Picture
+    Name = picEdicaoCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 8
+    Top = 21
+    Anchors = 0
+    Visible = True
+    Image = "FormsEdicao"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = lblCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 35
+    Top = 20
+    Anchors = 0
+    Visible = True
+    Caption = "Pior de Todos"
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = Label9
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 34
+    Top = 34
+    Anchors = 0
+    Visible = True
+    Caption = "Pior Posto para Abastecer"
+    Font = "Standard"
+  end
+end
+
+Private Sub Button1_Click()
+	If Me.Popup1.ListIndex = -1 Then
+		MsgBox "Selecione um Carro."
+		Exit Sub
+	End If
+	Dim Db As New pvHbAbastecimentos
+	Dim IdPosto As Long
+	Dim Consumo As Double
+	Dim Data As String
+	Dim Hora As String
+	Dim IdTipo As Long
+	Dim Litros As Double
+	Dim Kms As Double
+	Consumo = 10000
+	Litros = 0
+	Kms = 0
+	IdTipo = -1
+	IdPosto = -1
+	Db.OpenRecordset "KmFinal<>0 AND IdCarro=" & me.Popup1.ItemData(me.Popup1.ListIndex),hbModeOpenAlways+hbModeReadOnly
+	While Not Db.EOF
+		Dim dConsumo As Double
+		Dim dKmRodados As Double
+		Dim dLitros As Double
+		dKmRodados = CDbl(Db.KmFinal) - CDbl(Db.KmInicial)
+		dLitros = Db.ValorTotal / Db.ValorLitro
+		dConsumo = dKmRodados / dLitros
+		If dConsumo < Consumo Then
+			IdPosto = Db.IdPosto
+			IdTipo = Db.IdTipoComb
+			Consumo = dConsumo
+			Kms = dKmRodados
+			Litros = dLitros
+			Data = Db.Data
+			Hora = Db.Hora
+		End If
+		Db.MoveNext
+	Wend
+
+	If IdTipo > -1 And IdPosto > -1 Then
+		Dim DbP As New pvHbPostos
+		Dim DbT As New pvHbTiposCombustiveis
+		DbP.OpenTable hbModeReadOnly
+		DbT.OpenTable hbModeOpenAlways
+		DbP.LookupUniqueID IdPosto
+		DbT.LookupUniqueID idTipo
+		Me.fldPosto.Text = DbP.Nome
+		Me.fldConsumo.Text = Mid(CStr(Consumo),1,8) & " KMs por Litro"
+		Me.fldData.Text = CStr(Data)
+		Me.fldTipo.Text = DbT.Nome
+		Me.fldLitros.Text = CStr(Litros)
+		Me.fldKms.Text = CStr(Kms) & " Kms Rodados"
+		Db.Close
+		DbP.Close
+		DbT.Close
+	Else
+		MsgBox "Ainda não é possível determinar o pior posto."
+	End If
+End Sub
+
+
+Private Sub Button2_Click()
+	Dim frm As New frmMain
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+
+Private Sub Form_Load()
+	DbCarros.MoveFirst
+	While Not DbCarros.EOF
+		Me.Popup1.AddItem DbCarros.Modelo,DbCarros.UniqueID
+		DbCarros.MoveNext
+	Wend
+End Sub

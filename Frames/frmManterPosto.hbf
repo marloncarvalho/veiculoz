@@ -1,0 +1,410 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.00.218.1168
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmManterPosto
+  Segment = main
+  Extends = Form
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Posto"
+  Modal = False
+  Help = ""
+  DIA = 1
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 10
+    Top = 55
+    Anchors = 0
+    Visible = True
+    Caption = "Nome:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldNome
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 38
+    Top = 53
+    Width = 110
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 18
+    Top = 68
+    Anchors = 0
+    Visible = True
+    Caption = "Rua:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldRua
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 38
+    Top = 66
+    Width = 109
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 7
+    Top = 81
+    Anchors = 0
+    Visible = True
+    Caption = "Bairro:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 94
+    Anchors = 0
+    Visible = True
+    Caption = "Estado:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldEstado
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 38
+    Top = 92
+    Width = 46
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnOk
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 16
+    Top = 141
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "OK"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Picture
+    Name = picEdicaoCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 8
+    Top = 22
+    Anchors = 0
+    Visible = True
+    Image = "FormsEdicao"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = lblCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 35
+    Top = 21
+    Anchors = 0
+    Visible = True
+    Caption = "Edição de Postos"
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = Label5
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 34
+    Top = 35
+    Anchors = 0
+    Visible = True
+    Caption = "Criação / Edição de Postos"
+    Font = "Standard"
+  end
+  begin Button
+    Name = btnCancelar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 60
+    Top = 141
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Cancelar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Field
+    Name = fldBairro
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 38
+    Top = 79
+    Width = 96
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label6
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 107
+    Anchors = 0
+    Visible = True
+    Caption = "Cidade:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldCidade
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 37
+    Top = 105
+    Width = 96
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label7
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 120
+    Anchors = 0
+    Visible = True
+    Caption = "Distrib.:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldDistrib
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 38
+    Top = 118
+    Width = 108
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnExcluir
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 104
+    Top = 141
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Excluir"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+Public bNew as Boolean
+
+Private Function Validar() As Boolean
+	If Me.fldNome.Text = "" Then
+		MsgBox "Preencha Corretamente o Campo Nome."
+		Validar = False
+		Exit Function
+	End If
+	If Me.fldDistrib.Text = "" Then
+		MsgBox "Preencha Corretamente o Campo Distribuidora."
+		Validar = False
+		Exit Function
+	End If
+	Validar = True
+End Function
+
+Private Sub btnOk_Click()
+	If Validar() Then
+		If Me.bNew Then
+			DbPostos.AddNew
+		Else
+			DbPostos.Edit
+		End If
+			DbPostos.Nome = Me.fldNome.Text
+			DbPostos.Rua = Me.fldRua.Text
+			DbPostos.Bairro = Me.fldBairro.Text
+			DbPostos.Estado = Me.fldEstado.Text
+			DbPostos.Cidade = Me.fldCidade.Text
+			DbPostos.Distribuidora = Me.fldDistrib.Text
+			DbPostos.Update
+			Dim frm As New frmPostos
+			frm.Show hbFormModeless+hbFormGoto
+		End If
+End Sub
+
+
+Private Sub Form_Load()
+	If Not Me.bNew Then
+		Me.fldNome.Text = DbPostos.Nome
+		Me.fldRua.Text = DbPostos.Rua
+		Me.fldBairro.Text = DbPostos.Bairro
+		Me.fldEstado.Text = DbPostos.Estado
+		Me.fldCidade.Text = DbPostos.Cidade
+		Me.fldDistrib.Text = DbPostos.Distribuidora
+	End If
+End Sub
+
+
+Private Sub btnCancelar_Click()
+		Dim frm As New frmPostos
+		frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub btnExcluir_Click()
+	If Not Me.bNew Then
+		Dim Db As New pvHbAbastecimentos
+		Db.OpenRecordset "IdPosto="&	DbPostos.UniqueID,hbModeOpenAlways+hbModeReadOnly
+		If Db.RecordCount > 0 Then
+			MsgBox "Posto não pode ser excluído, pois existem abastecimentos."
+		Else
+			DbPostos.Delete hbRecordRemove
+			Me.btnCancelar_Click
+		End If
+	Else
+		MsgBox "Não é possível excluir um Posto ainda não criado."
+	End If
+End Sub

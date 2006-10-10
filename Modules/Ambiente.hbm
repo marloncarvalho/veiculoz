@@ -1,0 +1,9 @@
+' Peter Holmes Consulting HB++ Module file
+' Version 2.00.218.1168
+' *** DO NOT EDIT ***
+
+begin Module
+  Name = Ambiente
+  Segment = main
+end
+Public Versao As String

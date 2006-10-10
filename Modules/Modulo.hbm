@@ -1,0 +1,101 @@
+' Peter Holmes Consulting HB++ Module file
+' Version 2.00.218.1168
+' *** DO NOT EDIT ***
+
+begin Module
+  Name = ModuloBD
+  Segment = main
+end
+Public DbCarros As New pvHbCarros
+Public DbPostos As New pvHbPostos
+Public DbTiposC As New pvHbTiposCombustiveis
+Public DbAbaste As New pvHbAbastecimentos
+
+Public Function OpenDatabaseAbastecimento(ByVal eAccessMode as HbMode) as pvHbAbastecimentos
+  Dim db as New pvHbAbastecimentos
+  Dim e as Integer
+
+  On Error Goto NotFound
+Start:
+  'try to open the tblAutograph database in hbModeOpenExisting mode
+  'if this database don't exist, this will raise error #43
+  db.OpenRecordset "Category>=0 Order By Data Asc", hbModeOpenExisting+eAccessMode
+  Set OpenDatabaseAbastecimento=db
+  Exit Function
+
+NotFound:
+  e=Err.Number
+  If e<>43 Then Err.Raise e
+  'the database doesn't exist, we create it ; the database will be opened in Read Write Mode
+  db.OpenTable hbModeCreateAlways+hbModeReadWrite
+  'retry opening the database with eAccessMode parameter mode
+  Goto Start
+End Function
+
+Public Function OpenDatabaseTiposCombustivel(ByVal eAccessMode as HbMode) as pvHbTiposCombustiveis
+  Dim db as New pvHbTiposCombustiveis
+  Dim e as Integer
+
+  On Error Goto NotFound
+Start:
+  'try to open the tblAutograph database in hbModeOpenExisting mode
+  'if this database don't exist, this will raise error #43
+  db.OpenRecordset "Category>=0 Order By Nome Asc", hbModeOpenExisting+eAccessMode
+  Set OpenDatabaseTiposCombustivel=db
+  Exit Function
+
+NotFound:
+  e=Err.Number
+  If e<>43 Then Err.Raise e
+  'the database doesn't exist, we create it ; the database will be opened in Read Write Mode
+  db.OpenTable hbModeCreateAlways+hbModeReadWrite
+  'retry opening the database with eAccessMode parameter mode
+  Goto Start
+End Function
+
+
+Public Function OpenDatabaseCarros(ByVal eAccessMode as HbMode) as pvHbCarros
+  Dim db as New pvHbCarros
+  Dim e as Integer
+
+  On Error Goto NotFound
+Start:
+  'try to open the tblAutograph database in hbModeOpenExisting mode
+  'if this database don't exist, this will raise error #43
+  db.OpenRecordset "Category>=0 Order By Modelo Asc", hbModeOpenExisting+eAccessMode
+  Set OpenDatabaseCarros=db
+  Exit Function
+
+NotFound:
+  e=Err.Number
+  If e<>43 Then Err.Raise e
+  'the database doesn't exist, we create it ; the database will be opened in Read Write Mode
+  db.OpenTable hbModeCreateAlways+hbModeReadWrite
+  'retry opening the database with eAccessMode parameter mode
+  Goto Start
+End Function
+
+
+
+'Abrir BD de Postos
+'
+Public Function OpenDatabasePostos(ByVal eAccessMode as HbMode) as pvHbPostos
+  Dim db as New pvHbPostos
+  Dim e as Integer
+
+  On Error Goto NotFound
+Start:
+  'try to open the tblAutograph database in hbModeOpenExisting mode
+  'if this database don't exist, this will raise error #43
+  db.OpenRecordset "Category>=0 Order By Nome Asc", hbModeOpenExisting+eAccessMode
+  Set OpenDatabasePostos=db
+  Exit Function
+
+NotFound:
+  e=Err.Number
+  If e<>43 Then Err.Raise e
+  'the database doesn't exist, we create it ; the database will be opened in Read Write Mode
+  db.OpenTable hbModeCreateAlways+hbModeReadWrite
+  'retry opening the database with eAccessMode parameter mode
+  Goto Start
+End Function
