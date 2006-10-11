@@ -96,7 +96,7 @@ begin Project
       Palette = 4
       Compression = 255
       TransparencyColor = 0
-      Filename = "Databases\\images\\bottom.bmp"
+      Filename = "images\\bottom.bmp"
     end
   end
   begin Table
