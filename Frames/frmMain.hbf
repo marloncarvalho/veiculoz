@@ -218,7 +218,7 @@ Private Sub mnuAbastecimentos_Click()
 End Sub
 
 Private Sub Form_Paint()
-	Versao = "1.0 Build 20061009"
+	Versao = "1.0 Build 20061014"
 	Me.lblVersao.Caption = "Versão " & Versao
 End Sub
 
