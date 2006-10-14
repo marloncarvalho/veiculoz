@@ -24,7 +24,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 10
+    Left = 6
     Top = 48
     Anchors = 0
     Visible = True
@@ -36,7 +36,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 88
+    Left = 89
     Top = 48
     Anchors = 0
     Visible = True
@@ -225,7 +225,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 36
+    Left = 32
     Top = 49
     Width = 40
     Height = 12
@@ -247,8 +247,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 112
-    Top = 49
+    Left = 113
+    Top = 48
     Width = 40
     Height = 12
     Anchors = 0
@@ -471,6 +471,7 @@ Private Function ValidarEdicao() As Boolean
 	Dim Data As String
 	Dim KmAntigo As Double
 	Dim KmNovo As Double
+	Dim Hora As Long
 
 	Me.TemAnterior = False
 	Me.TemPosterior = False
@@ -483,27 +484,27 @@ Private Function ValidarEdicao() As Boolean
 	End If
 	Data 		= CStr(Me.slcData.Date)
 	IdCarro = Me.popCarro.ItemData(Me.popCarro.ListIndex)
-	Sql 		= "IdCarro=" & IdCarro & " And Hora <=" & Me.slcHora.Time & " And Data<='" & Data & "' And UniqueID<>" & ID & " ORDER BY Data Desc"
+	Sql 		= "IdCarro=" & IdCarro & " And Data<='" & Data & "' And UniqueID<>" & ID & " ORDER BY Data Desc, Hora Desc"
 	DbAbaste.OpenRecordset Sql,hbModeOpenAlways+hbModeReadWrite
 	If DbAbaste.RecordCount > 0 Then
 		DbAbaste.MoveFirst
 		Me.UniqueIDAnterior = DbAbaste.UniqueID
 		Me.TemAnterior = True
 		KmAntigo = CDbl(DbAbaste.KmInicial)
-		If KmNovo <= KmAntigo Then
+		If KmNovo <= KmAntigo Or (DbAbaste.Data = Me.slcData.Date And DbAbaste.Hora >= Me.slcHora.Time) Then
 			ValidarEdicao = False
 			Exit Function
 		End If
 	End If
 
-	Sql 	= "IdCarro=" & IdCarro & " And Hora >=" & Me.slcHora.Time & " And Data>='" & Data & "' And UniqueID<>" & ID & " ORDER BY Data Asc"
+	Sql 	= "IdCarro=" & IdCarro & " And Data>='" & Data & "' And UniqueID<>" & ID & " ORDER BY Data Asc, Hora Asc"
 	DbAbaste.OpenRecordset Sql,hbModeOpenAlways+hbModeReadWrite
 	If DbAbaste.RecordCount > 0 Then
 		DbAbaste.MoveFirst
 		KmAntigo = CDbl(DbAbaste.KmInicial)
 		Me.KmInicialPosterior = KmAntigo
 		Me.TemPosterior = True
-		If KmNovo >= KmAntigo Then
+		If KmNovo >= KmAntigo Or (DbAbaste.Data = Me.slcData.Date And DbAbaste.Hora <= Me.slcHora.Time) Then
 			ValidarEdicao = False
 			Exit Function
 		End If
