@@ -32,7 +32,7 @@ begin Project
     Version = "1.0"
     Icon = "IconeAplicacao"
     SmallIcon = "IconeAplicacao"
-    MinOSVersion = 50
+    MinOSVersion = 30
     Locale = 1033
     Database = "veiculoz"
     Creator = "MSC1"
