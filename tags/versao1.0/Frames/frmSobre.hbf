@@ -1,0 +1,126 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.00.218.1168
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmSobre
+  Segment = main
+  Extends = Form
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Sobre"
+  Modal = False
+  Help = ""
+  DIA = 1
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 64
+    Top = 26
+    Anchors = 0
+    Visible = True
+    Image = "ImagemAplicacao"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 39
+    Top = 80
+    Anchors = 0
+    Visible = True
+    Caption = "Controle de Veículos"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 6
+    Top = 92
+    Anchors = 0
+    Visible = True
+    Caption = "Contatos: marlon@silvacarvalho.net"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 54
+    Top = 130
+    Anchors = 0
+    Visible = True
+    Caption = "Licença LGPL"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 21
+    Top = 142
+    Anchors = 0
+    Visible = True
+    Caption = "palmsoftwares.blogspot.com"
+    Font = "Standard"
+  end
+  begin Button
+    Name = btnOk
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 60
+    Top = 111
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "OK"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Private Sub btnOk_Click()
+	Dim frm As New frmMain
+	frm.Show hbFormModeless+hbFormGoto
+End Sub

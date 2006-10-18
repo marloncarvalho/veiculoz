@@ -1,0 +1,278 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.00.218.1168
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmMain
+  Segment = main
+  Extends = Form
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "VeículoZ"
+  Modal = False
+  Help = ""
+  DIA = 1
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Picture
+    Name = picPrincipal
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 64
+    Top = 59
+    Anchors = 0
+    Visible = True
+    Image = "ImagemAplicacao"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 26
+    Top = 17
+    Anchors = 0
+    Visible = True
+    Caption = "Controle de Veículos"
+    Font = "Bold"
+  end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 39
+    Top = 30
+    Anchors = 0
+    Visible = True
+    Caption = ""
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 21
+    Top = 136
+    Anchors = 0
+    Visible = True
+    Caption = "Este software é Open Source"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label5
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 31
+    Top = 147
+    Anchors = 0
+    Visible = True
+    Caption = "Licença LGPL - Freeware"
+    Font = "Standard"
+  end
+  begin Label
+    Name = lblVersao
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 27
+    Top = 119
+    Anchors = 0
+    Visible = True
+    Caption = "Versão 0.1 Build 20060922"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 21
+    Top = 28
+    Anchors = 0
+    Visible = True
+    Caption = "palmsoftwares.blogspot.com"
+    Font = "Standard"
+  end
+  begin MenuBar
+    begin MenuTitle
+      Caption = "Cadastro"
+      begin MenuItem
+        Name = mnuAbastecimentos
+        Index = 0
+        Caption = "Abastecimentos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuNovoCarro
+        Index = 0
+        Caption = "Carros"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuPosto
+        Index = 0
+        Caption = "Postos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuTiposCombustivel
+        Index = 0
+        Caption = "Tipos Combustível"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuSair
+        Index = 0
+        Caption = "Sair"
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Relatórios"
+      begin MenuItem
+        Name = mnuRelDespesas
+        Index = 0
+        Caption = "Despesas"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelConsumoMedio
+        Index = 0
+        Caption = "Consumo Médio"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelMelhorDesempenho
+        Index = 0
+        Caption = "Melhor Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelPiorDesempenho
+        Index = 0
+        Caption = "Pior Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuGastosPorPosto
+        Index = 0
+        Caption = "Gastos Por Posto"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuConsumoTipoComb
+        Index = 0
+        Caption = "Consumo por Tipo Comb."
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Ajuda"
+      begin MenuItem
+        Name = mnuSobre
+        Index = 0
+        Caption = "Sobre"
+        Shortcut = ""
+      end
+    end
+  end
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Private Sub mnuSobre_Click()
+	Dim frm As New frmSobre
+	frm.Show hbFormPopup+hbFormGoto
+End Sub
+
+Private Sub mnuNovoCarro_Click()
+	Dim frm As New frmCarros
+	frm.Show hbFormModal+hbFormGoto
+End Sub
+
+Private Sub mnuPosto_Click()
+	Dim frm As New frmPostos
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub mnuTiposCombustivel_Click()
+	Dim frm As New frmTiposCombustivel
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub mnuAbastecimentos_Click()
+	Dim frm As New frmAbastecimentos
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub Form_Paint()
+	Versao = "1.0 Build 20061014"
+	Me.lblVersao.Caption = "Versão " & Versao
+End Sub
+
+Private Sub mnuRelDespesas_Click()
+	Dim frm As New frmRelatorioDespesas
+	frm.show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub mnuRelConsumoMedio_Click()
+	Dim frm As New frmRelatorioConsumoMedio
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub mnuSair_Click()
+	Dim app As new clsApplication
+	app.Quit
+End Sub
+
+Private Sub mnuRelMelhorDesempenho_Click()
+	Dim frm As New frmRelatorioMelhorDesempenho
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+
+Private Sub mnuRelPiorDesempenho_Click()
+	Dim frm As New frmRelatorioPiorDesempenho
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub mnuGastosPorPosto_Click()
+	Dim frm As New frmRelatorioGastosPorPosto
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+
+
+Private Sub mnuConsumoTipoComb_Click()
+	Dim frm As New frmRelatorioConsumoPorTipo
+	frm.Show hbFormModeless+hbFormGoto
+End Sub

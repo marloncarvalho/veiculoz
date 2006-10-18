@@ -1,0 +1,45 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.00.218.1168
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsApplication
+  Segment = main
+  Extends = Application
+  Instantiable = True
+  Extendable = False
+  Clonable = False
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Private Sub Application_NormalLaunch()
+  Dim f As New frmMain
+	Set DbCarros = OpenDatabaseCarros(hbModeOpenAlways+hbModeReadWrite)
+	Set DbPostos = OpenDatabasePostos(hbModeOpenAlways+hbModeReadWrite)
+	Set DbAbaste = OpenDatabaseAbastecimento(hbModeOpenAlways+hbModeReadWrite)
+	Set DbTiposC = OpenDatabaseTiposCombustivel(hbModeOpenAlways+hbModeReadWrite)
+  f.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub Terminate()
+  If Not DbCarros Is Nothing Then DbCarros.Close
+  If Not DbPostos Is Nothing Then DbPostos.Close
+  If Not DbAbaste Is Nothing Then DbAbaste.Close
+  If Not DbTiposC Is Nothing Then DbTiposC.Close
+  Set ScreenMode=DefaultScreenMode
+End Sub

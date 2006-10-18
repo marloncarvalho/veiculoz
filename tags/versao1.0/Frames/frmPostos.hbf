@@ -1,0 +1,210 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.00.218.1168
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmPostos
+  Segment = main
+  Extends = Form
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Postos"
+  Modal = False
+  Help = ""
+  DIA = 1
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 34
+    Top = 18
+    Anchors = 0
+    Visible = True
+    Caption = "Postos Cadastrados"
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = Label5
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 35
+    Top = 31
+    Anchors = 0
+    Visible = True
+    Caption = "Lista de Postos"
+    Font = "Standard"
+  end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 6
+    Top = 19
+    Anchors = 0
+    Visible = True
+    Image = "FormsListagem"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin GridEx
+    Name = gridPostos
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 57
+    Width = 144
+    Height = 79
+    Anchors = 0
+    Visible = True
+    Columns = "AgBpAQUAOQBPAAsAAAAAAAAAAAAoAAMABQA5ADIACwAAAAAAAAAAACgAAwA="
+    SelectionMode = 1
+    VertScroll = "scroll"
+    HorzScroll = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 46
+    Anchors = 0
+    Visible = True
+    Caption = "Nome"
+    Font = "Bold"
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 83
+    Top = 46
+    Anchors = 0
+    Visible = True
+    Caption = "Distribuidora"
+    Font = "Bold"
+  end
+  begin Scrollbar
+    Name = scroll
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 149
+    Top = 53
+    Width = 7
+    Height = 88
+    Anchors = 0
+    Visible = True
+    Min = 0
+    Max = 100
+    LargeChange = 10
+  end
+  begin Button
+    Name = btnNovo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 32
+    Top = 143
+    Width = 42
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Novo"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnVoltar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 84
+    Top = 143
+    Width = 44
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Voltar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Private Sub Form_Load()
+	Me.gridPostos.Populate DbPostos
+End Sub
+
+
+Private Sub gridPostos_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
+	DbPostos.LookupUniqueID lItemData
+	vValue(0) = DbPostos.Nome
+	vValue(1) = DbPostos.Distribuidora
+End Sub
+
+
+
+
+Private Sub gridPostos_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
+	DbPostos.LookupUniqueID lItemData
+	Dim frm As New frmManterPosto
+	frm.bNew = False
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+
+Private Sub btnNovo_Click()
+	Dim frm As New frmManterPosto
+	frm.bNew = True
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+
+Private Sub btnVoltar_Click()
+	Dim frm As New frmMain
+	frm.Show hbFormModeless+hbFormGoto
+End Sub

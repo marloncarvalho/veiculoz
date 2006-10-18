@@ -1,0 +1,438 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.00.218.1168
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmManterCarro
+  Segment = main
+  Extends = Form
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Carro"
+  Modal = False
+  Help = ""
+  DIA = 1
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 11
+    Top = 55
+    Anchors = 0
+    Visible = True
+    Caption = "Modelo:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldModelo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 44
+    Top = 53
+    Width = 105
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 26
+    Top = 68
+    Anchors = 0
+    Visible = True
+    Caption = "Ano:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldAno
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 44
+    Top = 66
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = True
+    MaxChar = 7
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 15
+    Top = 81
+    Anchors = 0
+    Visible = True
+    Caption = "Marca:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 20
+    Top = 94
+    Anchors = 0
+    Visible = True
+    Caption = "Placa:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldPlaca
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 44
+    Top = 92
+    Width = 53
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnOk
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 15
+    Top = 140
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "OK"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Picture
+    Name = picEdicaoCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 8
+    Top = 22
+    Anchors = 0
+    Visible = True
+    Image = "FormsEdicao"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = lblCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 35
+    Top = 21
+    Anchors = 0
+    Visible = True
+    Caption = "Edição de Carros"
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = Label5
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 34
+    Top = 35
+    Anchors = 0
+    Visible = True
+    Caption = "Criação / Edição de Carros"
+    Font = "Standard"
+  end
+  begin Button
+    Name = btnCancelar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 60
+    Top = 140
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Cancelar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Field
+    Name = fldMarca
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 44
+    Top = 79
+    Width = 106
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label6
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 27
+    Top = 107
+    Anchors = 0
+    Visible = True
+    Caption = "Cor:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldCor
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 43
+    Top = 105
+    Width = 51
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label7
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 120
+    Anchors = 0
+    Visible = True
+    Caption = "Renavam:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldRenavam
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 44
+    Top = 118
+    Width = 106
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnExcluir
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 105
+    Top = 140
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Excluir"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Public bNew As Boolean
+
+Private Sub btnOk_Click()
+	If Me.Validar() Then
+		If Me.bNew Then
+			DbCarros.AddNew
+		Else
+			DbCarros.Edit
+		End If
+		DbCarros.Ano = Me.fldAno.Text
+		DbCarros.Modelo = Me.fldModelo.Text
+		DbCarros.Marca = Me.fldMarca.Text
+		DbCarros.Placa = Me.fldPlaca.Text
+		DbCarros.Renavam = Me.fldRenavam.Text
+		DbCarros.Cor = Me.fldCor.Text
+		DbCarros.Update
+		Dim frm As New frmCarros
+		frm.Show hbFormModeless+hbFormGoto
+	End If
+End Sub
+
+
+Private Sub btnCancelar_Click()
+	Dim frm As New frmCarros
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+
+Private Sub Form_Load()
+	If Not Me.bNew Then
+		Me.fldAno.Text = DbCarros.Ano
+		Me.fldModelo.Text = DbCarros.Modelo
+		Me.fldMarca.Text = DbCarros.Marca
+		Me.fldPlaca.Text = DbCarros.Placa
+		Me.fldRenavam.Text = DbCarros.Renavam
+		Me.fldCor.Text = DbCarros.Cor
+	End If
+End Sub
+
+Private Sub btnExcluir_Click()
+	If Not Me.bNew Then
+		Dim Db As New pvHbAbastecimentos
+		Db.OpenRecordset "IdCarro="&	DbCarros.UniqueID,hbModeOpenAlways+hbModeReadOnly
+		If Db.RecordCount > 0 Then
+			MsgBox "Carro não pode ser excluído, pois existem abastecimentos."
+		Else
+			DbCarros.Delete hbRecordRemove
+			Me.btnCancelar_Click
+		End If
+	Else
+		MsgBox "Não é possível excluir um Carro ainda não criado."
+	End If
+End Sub
+
+
+Private Function Validar() As Boolean
+	If Me.fldModelo.Text = "" Then
+		MsgBox "Preencha Corretamente o Campo Modelo."
+		Validar = False
+		Exit Function
+	End If
+	If Me.fldAno.Text = "" Then
+		MsgBox "Preencha Corretamente o Campo Ano."
+		Validar = False
+		Exit Function
+	End If
+	If Me.fldMarca.Text = "" Then
+		MsgBox "Preencha Corretamente o Campo Marca."
+		Validar = False
+		Exit Function
+	End If
+	If Me.fldAno.Text = "" Then
+		MsgBox "Preencha Corretamente o Campo Placa."
+		Validar = False
+		Exit Function
+	End If
+	Validar = True
+End Function

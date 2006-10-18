@@ -1,0 +1,159 @@
+' Peter Holmes Consulting HB++ Project file
+' Version 2.00.218.1168
+' *** DO NOT EDIT ***
+
+begin Project
+  Name = VeiculoZ
+  Configuration = Debug
+  Conduit = ""
+  Package = ""
+  File = "Classes\\clsApplication.hbc"
+  File = "Frames\\frmMain.hbf"
+  File = "Frames\\frmCarros.hbf"
+  File = "Modules\\Modulo.hbm"
+  File = "Frames\\frmManterCarro.hbf"
+  File = "Frames\\frmPostos.hbf"
+  File = "Frames\\frmManterPosto.hbf"
+  File = "Frames\\frmManterTipoCombustivel.hbf"
+  File = "Frames\\frmTiposCombustivel.hbf"
+  File = "Frames\\frmManterAbastecimento.hbf"
+  File = "Frames\\frmAbastecimentos.hbf"
+  File = "Modules\\Ambiente.hbm"
+  File = "Frames\\frmSobre.hbf"
+  File = "Frames\\frmRelatorioDespesas.hbf"
+  File = "Frames\\frmRelatorioConsumoMedio.hbf"
+  File = "Frames\\frmRelatorioMelhorDesempenho.hbf"
+  File = "Frames\\frmRelatorioPiorDesempenho.hbf"
+  File = "Frames\\frmRelatorioGastosPorPosto.hbf"
+  File = "Frames\\frmRelatorioConsumoPorTipo.hbf"
+  begin Configuration
+    Name = Debug
+    Title = "Veículoz"
+    Version = "1.0"
+    Icon = "IconeAplicacao"
+    SmallIcon = "IconeAplicacao"
+    MinOSVersion = 30
+    Locale = 1033
+    Database = "veiculoz"
+    Creator = "MSC1"
+    Type = "appl"
+    Beamable = True
+    Backup = False
+    Reset = False
+    Hidden = False
+    Const = "DEBUG"
+    Optimize = 0
+    Debug = True
+    CheckNull = True
+    CheckArray = True
+    CheckFPU = True
+  end
+  begin Configuration
+    Name = Release
+    Title = "Veículoz"
+    Version = "1.0"
+    Icon = "Aplicacao"
+    SmallIcon = "Aplicacao"
+    MinOSVersion = 50
+    Locale = 1033
+    Database = "veiculoz"
+    Creator = "MSC1"
+    Type = "appl"
+    Beamable = True
+    Backup = False
+    Reset = False
+    Hidden = False
+    Const = "NDEBUG"
+    Optimize = 1
+    Debug = False
+    CheckNull = False
+    CheckArray = False
+    CheckFPU = False
+  end
+  begin Table
+    Name = pvHbCarros
+    Creator = "*"
+    Type = "DATA"
+    Backup = False
+    Bundled = False
+    PDB = 0
+    Filename = "Databases/pvHbCarros.hbx"
+  end
+  begin ImageFamily
+    Name = FormsEdicao
+    begin Image
+      Density = 72
+      Palette = 4
+      Compression = 255
+      TransparencyColor = 0
+      Filename = "images\\kate.bmp"
+    end
+  end
+  begin ImageFamily
+    Name = FormsListagem
+    begin Image
+      Density = 72
+      Palette = 4
+      Compression = 255
+      TransparencyColor = 0
+      Filename = "images\\bottom.bmp"
+    end
+  end
+  begin Table
+    Name = pvHbPostos
+    Creator = "*"
+    Type = "DATA"
+    Backup = False
+    Bundled = False
+    PDB = 0
+    Filename = "Databases\\pvHbPostos.hbx"
+  end
+  begin Table
+    Name = pvHbAbastecimentos
+    Creator = "*"
+    Type = "DATA"
+    Backup = False
+    Bundled = False
+    PDB = 0
+    Filename = "Databases\\pvHbAbastecimento.hbx"
+  end
+  begin Table
+    Name = pvHbTiposCombustiveis
+    Creator = "*"
+    Type = "DATA"
+    Backup = False
+    Bundled = False
+    PDB = 0
+    Filename = "Databases\\pvHbTiposCombustiveis.hbx"
+  end
+  begin ImageFamily
+    Name = Relatorio
+    begin Image
+      Density = 72
+      Palette = 4
+      Compression = 255
+      TransparencyColor = -1
+      Filename = "images\\printer1.bmp"
+    end
+  end
+  begin ImageFamily
+    Name = ImagemAplicacao
+    begin Image
+      Density = 72
+      Palette = 4
+      Compression = 255
+      TransparencyColor = -1
+      Filename = "images\\ksysv.bmp"
+    end
+  end
+  begin ImageFamily
+    Name = IconeAplicacao
+    begin Image
+      Density = 72
+      Palette = 4
+      Compression = 255
+      TransparencyColor = -1
+      Filename = "images\\ksysv-mini.bmp"
+    end
+  end
+end

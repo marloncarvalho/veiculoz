@@ -1,0 +1,226 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.00.218.1168
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmManterTipoCombustivel
+  Segment = main
+  Extends = Form
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Tipos de Combustível"
+  Modal = False
+  Help = ""
+  DIA = 1
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 10
+    Top = 55
+    Anchors = 0
+    Visible = True
+    Caption = "Nome:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldNome
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 38
+    Top = 53
+    Width = 110
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnOk
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 16
+    Top = 141
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "OK"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Picture
+    Name = picEdicaoCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 8
+    Top = 22
+    Anchors = 0
+    Visible = True
+    Image = "FormsEdicao"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = lblCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 35
+    Top = 21
+    Anchors = 0
+    Visible = True
+    Caption = "Edição de Tipos"
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = Label5
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 34
+    Top = 35
+    Anchors = 0
+    Visible = True
+    Caption = "Criação / Edição de Tipos"
+    Font = "Standard"
+  end
+  begin Button
+    Name = btnCancelar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 60
+    Top = 141
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Cancelar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnExcluir
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 104
+    Top = 141
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Excluir"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Public bNew As Boolean
+
+Private Sub Form_Load()
+	If Not Me.bNew Then
+		Me.fldNome.Text = DbTiposC.Nome
+	End If
+End Sub
+
+Private Function Validar() As Boolean
+	If Me.fldNome.Text = "" Then
+		MsgBox "Preencha Corretamente o Campo Nome."
+		Validar = False
+		Exit Function
+	End If
+	Validar = True
+End Function
+
+Private Sub btnOk_Click()
+	If Validar() Then
+		If Me.bNew Then
+			DbTiposC.AddNew
+		Else
+			DbTiposC.Edit
+		End If
+		DbTiposC.Nome = Me.fldNome.Text
+		DbTiposC.Update
+		Dim frm as New frmTiposCombustivel
+		frm.Show hbFormModeless+hbFormGoto
+	End If
+End Sub
+
+
+Private Sub btnCancelar_Click()
+	Dim frm as New frmTiposCombustivel
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub btnExcluir_Click()
+	If Not Me.bNew Then
+		Dim Db As New pvHbAbastecimentos
+		Db.OpenRecordset "IdTipoComb="&	DbTiposC.UniqueID,hbModeOpenAlways+hbModeReadOnly
+		If Db.RecordCount > 0 Then
+			MsgBox "Tipo de Combustível não pode ser excluído, pois existem abastecimentos."
+		Else
+			DbTiposC.Delete hbRecordRemove
+			Me.btnCancelar_Click
+		End If
+	Else
+		MsgBox "Não é possível excluir um Tipo de Combustível ainda não criado."
+	End If
+End Sub

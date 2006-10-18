@@ -1,0 +1,375 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.00.218.1168
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmRelatorioGastosPorPosto
+  Segment = main
+  Extends = Form
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Gastos por Posto"
+  Modal = False
+  Help = ""
+  DIA = 0
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Scrollbar
+    Name = scroll
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 150
+    Top = 78
+    Width = 7
+    Height = 47
+    Anchors = 0
+    Visible = True
+    Min = 0
+    Max = 100
+    LargeChange = 10
+  end
+  begin GridEx
+    Name = gridAbastecimentos
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 79
+    Width = 144
+    Height = 47
+    Anchors = 0
+    Visible = True
+    Columns = "AwD2AQUAOQBPAAsAAAAAAAAAAAAoAAMABQA5ACUACwAAAAAAAAAAACgAAwAFADgAKAAKAAAAAAAAAAAAKAADAA=="
+    SelectionMode = 1
+    VertScroll = "scroll"
+    HorzScroll = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label6
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 123
+    Top = 66
+    Anchors = 0
+    Visible = True
+    Caption = "Litro"
+    Font = "Bold"
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 82
+    Top = 66
+    Anchors = 0
+    Visible = True
+    Caption = "Total"
+    Font = "Bold"
+  end
+  begin Label
+    Name = Label7
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 66
+    Anchors = 0
+    Visible = True
+    Caption = "Tipo Comb."
+    Font = "Bold"
+  end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 10
+    Top = 23
+    Anchors = 0
+    Visible = True
+    Image = "Relatorio"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label8
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 36
+    Top = 129
+    Anchors = 0
+    Visible = True
+    Caption = "Total Gastos:"
+    Font = "Bold"
+  end
+  begin Label
+    Name = lblTotal
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 108
+    Top = 129
+    Anchors = 0
+    Visible = True
+    Caption = "                    "
+    Font = "Standard"
+  end
+  begin Button
+    Name = btnPesquisar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 35
+    Top = 144
+    Width = 42
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Pesquisar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 40
+    Top = 40
+    Anchors = 0
+    Visible = True
+    Caption = "Data Inicial"
+    Font = "Standard"
+  end
+  begin Selector
+    Name = slcDataInicial
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 41
+    Top = 52
+    Width = 45
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Data"
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 1
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label9
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 101
+    Top = 40
+    Anchors = 0
+    Visible = True
+    Caption = "Data Final"
+    Font = "Standard"
+  end
+  begin Selector
+    Name = slcDataFinal
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 102
+    Top = 52
+    Width = 46
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Data"
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 1
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = Button1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 83
+    Top = 144
+    Width = 42
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Voltar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label10
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 40
+    Top = 17
+    Anchors = 0
+    Visible = True
+    Caption = "Carro:"
+    Font = "Standard"
+  end
+  begin Popup
+    Name = popCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 66
+    Top = 17
+    Width = 85
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Selecione"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label11
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 40
+    Top = 28
+    Anchors = 0
+    Visible = True
+    Caption = "Posto:"
+    Font = "Standard"
+  end
+  begin Popup
+    Name = popPosto
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 66
+    Top = 28
+    Width = 85
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Selecione"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Private Sub Form_Load()
+	DbCarros.MoveFirst
+	While Not DbCarros.EOF
+		Me.popCarros.AddItem DbCarros.Modelo,DbCarros.UniqueID
+		DbCarros.MoveNext
+	Wend
+	DbPostos.MoveFirst
+	While Not DbPostos.EOF
+		Me.popPosto.AddItem DbPostos.Nome,DbPostos.UniqueID
+		DbPostos.MoveNext
+	Wend
+	Me.slcDataInicial.Date = Now()
+	Me.slcDataFinal.Date = Now()
+End Sub
+
+Private Sub btnPesquisar_Click()
+	If Me.popCarros.ListIndex = -1 Then
+		MsgBox "Selecione um Carro."
+		Exit Sub
+	End If
+	If Me.popPosto.ListIndex = -1 Then
+		MsgBox "Selecione um Posto."
+		Exit Sub
+	End If
+	Dim Sql As String
+	Sql = " AND IdCarro=" & Me.popCarros.ItemData(Me.popCarros.ListIndex) & " AND IdPosto=" & Me.popPosto.ItemData(Me.popPosto.ListIndex)
+	DbAbaste.OpenRecordset "Data>='" & CStr(Me.slcDataInicial.Date) & "' AND Data<='" & CStr(Me.slcDataFinal.Date) & "'" & Sql,hbModeOpenAlways
+	Dim Total as Double
+	Total = 0
+	While Not DbAbaste.EOF
+		Total = Total + DbAbaste.ValorTotal
+		DbAbaste.MoveNext
+	Wend
+	DbAbaste.MoveFirst
+	Me.lblTotal.Caption = "R$ " & Total
+	Me.gridAbastecimentos.Populate DbAbaste
+End Sub
+
+
+Private Sub gridAbastecimentos_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
+	DbAbaste.LookupUniqueID lItemData
+	DbTiposC.LookupUniqueID DbAbaste.IdTipoComb
+	vValue(0) = DbTiposC.Nome
+	vValue(1) = DbAbaste.ValorTotal
+	vValue(2) = DbAbaste.ValorLitro
+End Sub
+
+
+Private Sub Button1_Click()
+	Dim frm As New frmMain
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
