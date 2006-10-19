@@ -1,0 +1,109 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsCarro
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+'Classe representando um Carro.
+'
+'Autor: Marlon Silva Carvalho
+
+'Identificador Único.
+Private lng_id As Long
+
+'Modelo do Carro.
+Private str_modelo As String
+
+'Marca do Carro (Fiat, Volks, Etc)
+Private str_marca As String
+
+'Placa do Carro.
+Private str_placa As String
+
+'Renavam do Carro.
+Private str_renavam as String
+
+'Cor do Carro.
+Private str_cor As String
+
+'Ano de Fabricação do Carro.
+private str_ano As String
+
+Public Property Get Id() As Long
+	Id = lng_id
+End Property
+
+Public Property Let Id(i As Long)
+	lng_id = i
+End Property
+
+Public Property Get Modelo() As String
+	Modelo = str_modelo
+End Property
+
+Public Property Let Modelo(m As String)
+	str_modelo = m
+End Property
+
+Public Property Get Marca() As String
+	Marca = str_marca
+End Property
+
+Public Property Let Marca(m As String)
+	str_marca = m
+End Property
+
+Public Property Get Placa() As String
+	Placa = str_placa
+End Property
+
+Public Property Let Placa(p As String)
+	str_placa = p
+End Property
+
+Public Property Get Renavam() As String
+	Renavam = str_renavam
+End Property
+
+Public Property Let Renavam(r As String)
+	str_renavam = r
+End Property
+
+Public Property Get Cor() As String
+	Cor = str_cor
+End Property
+
+Public Property Let Cor(c As String)
+	str_cor = c
+End Property
+
+Public Property Get Ano() As String
+	Ano = str_ano
+End Property
+
+Public Property Let Ano(a As String)
+	str_ano = a
+End Property

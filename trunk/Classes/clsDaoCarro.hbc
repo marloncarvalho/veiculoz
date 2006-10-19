@@ -1,0 +1,104 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsDaoCarro
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Private DbCar As New pvHbCarros
+
+'Construtor.
+Private Sub Initialize()
+  Dim e as Integer
+  DbCar.OpenRecordset "Category>=0 Order By Modelo Asc", hbModeOpenExisting+hbModeReadWrite
+End Sub
+
+' Obter a lista de carros cadastrados.
+'
+' @Returns Coleção de Carros.
+Public Function ObterCarros() As Collection
+	Dim Colecao As New Collection
+	Call DbCar.MoveFirst()
+	While Not DbCar.EOF
+		Dim C As clsCarro
+		Set C = CriarCarro(DbCar)
+		Colecao.Add(C)
+		Call DbCar.MoveNext()
+	Wend
+	Set ObterCarros = Colecao
+End Function
+
+
+'Atualizar ou Incluir Carros
+'
+'@Param Carro. Carro a ser atualizado ou incluído.
+Public Sub ManterCarro(Carro As clsCarro)
+	If Not IsEmpty(Carro.Id) And Carro.Id <> 0 Then
+		DbCar.LookupUniqueID Carro.Id
+		DbCar.Edit
+	Else
+		DbCar.AddNew
+	End If
+	DbCar.Ano = Carro.Ano
+	DbCar.Cor = Carro.Cor
+	DbCar.Renavam = Carro.Renavam
+	DbCar.Placa = Carro.Placa
+	DbCar.Modelo = Carro.Modelo
+	DbCar.Marca = Carro.Marca
+	DbCar.Update
+End Sub
+
+' Localizar um Carro.
+'
+' @Returns Carro Encontrado.
+Public Function ObterCarro(ByVal Id As Long) As clsCarro
+	DbCar.LookupUniqueID Id
+	Set ObterCarro = CriarCarro(DbCar)
+End Function
+
+Public Sub ExcluirCarro(Id As Long)
+	Dim Db As New pvHbAbastecimentos
+	Db.OpenRecordset "IdCarro="&	DbCarros.UniqueID,hbModeOpenAlways+hbModeReadOnly
+	If Db.RecordCount <= 0 Then
+		Db.Close
+		Err.Raise 100,"Carro não pode ser excluído, pois existem abastecimentos."
+	End If
+	Db.Close
+	DbCar.LookupUniqueID Id
+	DbCar.Delete(hbRecordRemove)
+	DbCar.Update
+End Sub
+
+Private Function CriarCarro(ByRef Db As pvHbCarros) As clsCarro
+	Dim Carro As New clsCarro
+	Carro.Id 			= Db.UniqueID
+	Carro.Cor 		= Db.Cor
+	Carro.Marca 	= Db.Marca
+	Carro.Modelo	= Db.Modelo
+	Carro.Placa		= Db.Placa
+	Carro.Renavam	= Db.Renavam
+	Carro.Ano 		= Db.Ano
+	Set CriarCarro = Carro
+End Function
