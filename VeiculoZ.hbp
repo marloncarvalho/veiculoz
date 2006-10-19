@@ -1,5 +1,5 @@
 ' Peter Holmes Consulting HB++ Project file
-' Version 2.00.218.1168
+' Version 2.11.291.937
 ' *** DO NOT EDIT ***
 
 begin Project
@@ -26,6 +26,9 @@ begin Project
   File = "Frames\\frmRelatorioPiorDesempenho.hbf"
   File = "Frames\\frmRelatorioGastosPorPosto.hbf"
   File = "Frames\\frmRelatorioConsumoPorTipo.hbf"
+  File = "Classes\\clsCarro.hbc"
+  File = "Classes\\clsDaoCarro.hbc"
+  File = "Classes\\clsDaoFactory.hbc"
   begin Configuration
     Name = Debug
     Title = "Veículoz"

@@ -1,5 +1,5 @@
 ' Peter Holmes Consulting HB++ Form file
-' Version 2.00.218.1168
+' Version 2.11.291.937
 ' *** DO NOT EDIT ***
 
 begin Form
@@ -359,54 +359,50 @@ end
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 Public bNew As Boolean
+Public IdEdicao As Long
 
 Private Sub btnOk_Click()
 	If Me.Validar() Then
-		If Me.bNew Then
-			DbCarros.AddNew
-		Else
-			DbCarros.Edit
-		End If
-		DbCarros.Ano = Me.fldAno.Text
-		DbCarros.Modelo = Me.fldModelo.Text
-		DbCarros.Marca = Me.fldMarca.Text
-		DbCarros.Placa = Me.fldPlaca.Text
-		DbCarros.Renavam = Me.fldRenavam.Text
-		DbCarros.Cor = Me.fldCor.Text
-		DbCarros.Update
+		Dim Carro As New clsCarro
+		Carro.Id = Me.IdEdicao
+		Carro.Ano = Me.fldAno.Text
+		Carro.Modelo = Me.fldModelo.Text
+		Carro.Marca = Me.fldMarca.Text
+		Carro.Placa = Me.fldPlaca.Text
+		Carro.Renavam = Me.fldRenavam.Text
+		Carro.Cor = Me.fldCor.Text
+		Factory.ObterDaoCarro().ManterCarro(Carro)
 		Dim frm As New frmCarros
 		frm.Show hbFormModeless+hbFormGoto
 	End If
 End Sub
-
 
 Private Sub btnCancelar_Click()
 	Dim frm As New frmCarros
 	frm.Show hbFormModeless+hbFormGoto
 End Sub
 
-
 Private Sub Form_Load()
-	If Not Me.bNew Then
-		Me.fldAno.Text = DbCarros.Ano
-		Me.fldModelo.Text = DbCarros.Modelo
-		Me.fldMarca.Text = DbCarros.Marca
-		Me.fldPlaca.Text = DbCarros.Placa
-		Me.fldRenavam.Text = DbCarros.Renavam
-		Me.fldCor.Text = DbCarros.Cor
+	If Not Me.bNew And Not IsEmpty(Me.IdEdicao) Then
+		Dim Carro As clsCarro
+		Set Carro = Factory.ObterDaoCarro().ObterCarro(Me.IdEdicao)
+		Me.fldAno.Text = Carro.Ano
+		Me.fldModelo.Text = Carro.Modelo
+		Me.fldMarca.Text = Carro.Marca
+		Me.fldPlaca.Text = Carro.Placa
+		Me.fldRenavam.Text = Carro.Renavam
+		Me.fldCor.Text = Carro.Cor
 	End If
 End Sub
 
 Private Sub btnExcluir_Click()
 	If Not Me.bNew Then
-		Dim Db As New pvHbAbastecimentos
-		Db.OpenRecordset "IdCarro="&	DbCarros.UniqueID,hbModeOpenAlways+hbModeReadOnly
-		If Db.RecordCount > 0 Then
-			MsgBox "Carro não pode ser excluído, pois existem abastecimentos."
-		Else
-			DbCarros.Delete hbRecordRemove
+		Try
+			Factory.ObterDaoCarro().ExcluirCarro(Me.IdEdicao)
 			Me.btnCancelar_Click
-		End If
+		Catch
+			Err.MsgBox
+		End Catch
 	Else
 		MsgBox "Não é possível excluir um Carro ainda não criado."
 	End If

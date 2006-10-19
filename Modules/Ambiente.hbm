@@ -1,5 +1,5 @@
 ' Peter Holmes Consulting HB++ Module file
-' Version 2.00.218.1168
+' Version 2.11.291.937
 ' *** DO NOT EDIT ***
 
 begin Module
@@ -24,3 +24,4 @@ end
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 Public Versao As String
+Public Factory As New clsDaoFactory

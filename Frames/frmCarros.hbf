@@ -1,5 +1,5 @@
 ' Peter Holmes Consulting HB++ Form file
-' Version 2.00.218.1168
+' Version 2.11.291.937
 ' *** DO NOT EDIT ***
 
 begin Form
@@ -188,15 +188,21 @@ end
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 Private Sub gridCarros_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
-	DbCarros.LookupUniqueID lItemData
-	vValue(0) = DbCarros.Modelo
-	vValue(1) = DbCarros.Placa
-	vValue(2) = DbCarros.Marca
+	Dim Carro As clsCarro
+	Set Carro = Factory.ObterDaoCarro().ObterCarro(lItemData)
+	vValue(0) = Carro.Modelo
+	vValue(1) = Carro.Placa
+	vValue(2) = Carro.Marca
 End Sub
 
 
 Private Sub Form_Load()
-	gridCarros.Populate DbCarros
+	Dim Colecao As Collection
+	Dim Carro As clsCarro
+	Set Colecao = Factory.ObterDaoCarro().ObterCarros()
+	For Each Carro In Colecao
+		Call gridCarros.AddItem(Carro.Id)
+	Next
 End Sub
 
 
@@ -208,9 +214,11 @@ End Sub
 
 
 Private Sub gridCarros_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
-	DbCarros.LookupUniqueID lItemData
+	Dim Carro As clsCarro
+	Set Carro = Factory.ObterDaoCarro().ObterCarro(lItemData)
 	Dim frm As New frmManterCarro
 	frm.bNew = False
+	frm.IdEdicao = Carro.Id
 	frm.Show hbFormModeless+hbFormGoto
 End Sub
 
