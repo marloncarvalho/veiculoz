@@ -1,5 +1,5 @@
 ' Peter Holmes Consulting HB++ Form file
-' Version 2.00.218.1168
+' Version 2.11.291.937
 ' *** DO NOT EDIT ***
 
 begin Form
@@ -176,23 +176,29 @@ end
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 Private Sub Form_Load()
-	Me.gridPostos.Populate DbPostos
+	Dim Colecao As Collection
+	Dim Posto As clsPosto
+	Set Colecao = Factory.ObterDaoPosto().ObterPostos()
+	For Each Posto In Colecao
+		Call gridPostos.AddItem(Posto.Id)
+	Next
 End Sub
 
 
 Private Sub gridPostos_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
-	DbPostos.LookupUniqueID lItemData
-	vValue(0) = DbPostos.Nome
-	vValue(1) = DbPostos.Distribuidora
+	Dim Posto As clsPosto
+	Set Posto = Factory.ObterDaoPosto().ObterPosto(lItemData)
+	vValue(0) = Posto.Nome
+	vValue(1) = Posto.Distribuidora
 End Sub
 
 
-
-
 Private Sub gridPostos_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
-	DbPostos.LookupUniqueID lItemData
+	Dim Posto As clsPosto
+	Set Posto = Factory.ObterDaoPosto().ObterPosto(lItemData)
 	Dim frm As New frmManterPosto
 	frm.bNew = False
+	frm.IdEdicao = Posto.Id
 	frm.Show hbFormModeless+hbFormGoto
 End Sub
 
