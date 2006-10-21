@@ -32,7 +32,13 @@ Private DbCar As New pvHbCarros
 'Construtor.
 Private Sub Initialize()
   Dim e as Integer
-  DbCar.OpenRecordset "Category>=0 Order By Modelo Asc", hbModeOpenExisting+hbModeReadWrite
+	Try
+	  DbCar.OpenRecordset "Category>=0 Order By Modelo Asc", hbModeOpenExisting+hbModeReadWrite
+	Catch
+		If Err.Number = 43 Then
+			DbCar.OpenRecordset "Category>=0 Order By Modelo Asc", hbModeCreateAlways+hbModeReadWrite
+		End If
+	End Catch
 End Sub
 
 ' Obter a lista de carros cadastrados.
@@ -80,8 +86,8 @@ End Function
 
 Public Sub ExcluirCarro(Id As Long)
 	Dim Db As New pvHbAbastecimentos
-	Db.OpenRecordset "IdCarro="&	DbCarros.UniqueID,hbModeOpenAlways+hbModeReadOnly
-	If Db.RecordCount <= 0 Then
+	Db.OpenRecordset "IdCarro="&	Id,hbModeOpenAlways+hbModeReadOnly
+	If Db.RecordCount > 0 Then
 		Db.Close
 		Err.Raise 100,"Carro não pode ser excluído, pois existem abastecimentos."
 	End If

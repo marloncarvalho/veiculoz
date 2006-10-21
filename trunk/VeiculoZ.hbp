@@ -29,6 +29,8 @@ begin Project
   File = "Classes\\clsCarro.hbc"
   File = "Classes\\clsDaoCarro.hbc"
   File = "Classes\\clsDaoFactory.hbc"
+  File = "Classes\\clsTipoCombustivel.hbc"
+  File = "Classes\\clsDaoTipoCombustivel.hbc"
   begin Configuration
     Name = Debug
     Title = "Veículoz"

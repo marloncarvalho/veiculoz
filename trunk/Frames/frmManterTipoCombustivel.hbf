@@ -1,5 +1,5 @@
 ' Peter Holmes Consulting HB++ Form file
-' Version 2.00.218.1168
+' Version 2.11.291.937
 ' *** DO NOT EDIT ***
 
 begin Form
@@ -174,10 +174,14 @@ end
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 Public bNew As Boolean
+Public IdEdicao As Long
 
 Private Sub Form_Load()
-	If Not Me.bNew Then
-		Me.fldNome.Text = DbTiposC.Nome
+	If Not Me.bNew And Not IsEmpty(Me.IdEdicao) Then
+		Dim Tipo As clsTipoCombustivel
+		Set Tipo = Factory.ObterDaoTipoCombustivel().ObterTipoCombustivel(Me.IdEdicao)
+		Me.fldNome.Text = Tipo.Nome
+		Set Tipo = Nothing
 	End If
 End Sub
 
@@ -192,13 +196,10 @@ End Function
 
 Private Sub btnOk_Click()
 	If Validar() Then
-		If Me.bNew Then
-			DbTiposC.AddNew
-		Else
-			DbTiposC.Edit
-		End If
-		DbTiposC.Nome = Me.fldNome.Text
-		DbTiposC.Update
+		Dim Tipo As New clsTipoCombustivel
+		Tipo.Nome = Me.fldNome.Text
+		Tipo.Id = Me.IdEdicao
+		Factory.ObterDaoTipoCombustivel().ManterTipoCombustivel(Tipo)
 		Dim frm as New frmTiposCombustivel
 		frm.Show hbFormModeless+hbFormGoto
 	End If
@@ -212,14 +213,12 @@ End Sub
 
 Private Sub btnExcluir_Click()
 	If Not Me.bNew Then
-		Dim Db As New pvHbAbastecimentos
-		Db.OpenRecordset "IdTipoComb="&	DbTiposC.UniqueID,hbModeOpenAlways+hbModeReadOnly
-		If Db.RecordCount > 0 Then
-			MsgBox "Tipo de Combustível não pode ser excluído, pois existem abastecimentos."
-		Else
-			DbTiposC.Delete hbRecordRemove
+		Try
+			Factory.ObterDaoTipoCombustivel().ExcluirTipoCombustivel(Me.IdEdicao)
 			Me.btnCancelar_Click
-		End If
+		Catch
+			Err.MsgBox
+		End Catch
 	Else
 		MsgBox "Não é possível excluir um Tipo de Combustível ainda não criado."
 	End If
