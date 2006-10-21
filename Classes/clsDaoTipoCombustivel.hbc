@@ -1,0 +1,89 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsDaoTipoCombustivel
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Private DbTipo As New pvHbTiposCombustiveis
+
+'Construtor.
+Private Sub Initialize()
+	Try
+	  DbTipo.OpenRecordset "Category>=0 Order By Nome Asc", hbModeOpenExisting+hbModeReadWrite
+	Catch
+	  DbTipo.OpenRecordset "Category>=0 Order By Nome Asc", hbModeCreateAlways+hbModeReadWrite
+	End Catch
+End Sub
+
+Public Function ObterTiposCombustivel() As Collection
+	Dim Colecao As New Collection
+	Call DbTipo.MoveFirst()
+	While Not DbTipo.EOF
+		Dim Tipo As clsTipoCombustivel
+		Set Tipo = CriarTipoCombustivel(DbTipo)
+		Colecao.Add(Tipo)
+		Call DbTipo.MoveNext()
+	Wend
+	Set ObterTiposCombustivel = Colecao
+End Function
+
+Public Function ObterTipoCombustivel(ByVal Id As Long) As clsTipoCombustivel
+	Dim Tipo As clsTipoCombustivel
+	DbTipo.LookupUniqueID Id
+	Set Tipo = CriarTipoCombustivel(DbTipo)
+	Set ObterTipoCombustivel = Tipo
+End Function
+
+Public Sub ManterTipoCombustivel(ByRef Tipo As clsTipoCombustivel)
+	If Not IsEmpty(Tipo.Id) And Tipo.Id <> 0 Then
+		DbTipo.LookupUniqueID Tipo.Id
+		DbTipo.Edit
+	Else
+		DbTipo.AddNew
+	End If
+	DbTipo.Nome = Tipo.Nome
+	DbTipo.Update
+End Sub
+
+Public Sub ExcluirTipoCombustivel(ByVal Id As Long)
+	Dim Db As New pvHbAbastecimentos
+	Db.OpenRecordset "IdTipoComb="&Id,hbModeOpenAlways+hbModeReadOnly
+	If Db.RecordCount > 0 Then
+		Db.Close
+		Err.Raise 101,"Tipo de Combustível não pode ser excluído, pois existem abastecimentos relacionados."
+	End If
+	Db.Close
+	DbTipo.LookupUniqueID Id
+	DbTipo.Delete(hbRecordRemove)
+	DbTipo.Update
+End Sub
+
+Private Function CriarTipoCombustivel(ByRef Db As pvHbTiposCombustiveis) As clsTipoCombustivel
+	Dim TipoCombustivel As New clsTipoCombustivel
+	TipoCombustivel.Id = Db.UniqueID
+	TipoCombustivel.Nome = Db.Nome
+	Set CriarTipoCombustivel = TipoCombustivel
+End Function

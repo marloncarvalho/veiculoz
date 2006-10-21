@@ -1,5 +1,5 @@
 ' Peter Holmes Consulting HB++ Form file
-' Version 2.00.218.1168
+' Version 2.11.291.937
 ' *** DO NOT EDIT ***
 
 begin Form
@@ -164,10 +164,13 @@ end
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 Private Sub Form_Load()
-	gridTipos.Populate DbTiposC
+	Dim Colecao As Collection
+	Dim Tipo As clsTipoCombustivel
+	Set Colecao = Factory.ObterDaoTipoCombustivel().ObterTiposCombustivel()
+	For Each Tipo In Colecao
+		Call gridTipos.AddItem(Tipo.Id)
+	Next
 End Sub
-
-
 
 Private Sub btnNovo_Click()
 	Dim frm As New frmManterTipoCombustivel
@@ -176,16 +179,22 @@ Private Sub btnNovo_Click()
 End Sub
 
 Private Sub gridTipos_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
-	DbTiposC.LookupUniqueID lItemData
+	Dim Tipo As clsTipoCombustivel
+	Dim Dao As clsDaoTipoCombustivel
+	Set Dao = Factory.ObterDaoTipoCombustivel()
+	Set Tipo = Dao.ObterTipoCombustivel(lItemData)
 	Dim frm As New frmManterTipoCombustivel
+	Set Dao = Nothing
 	frm.bNew = False
+	frm.IdEdicao = Tipo.Id
+	Set Tipo = Nothing
 	frm.Show hbFormModeless+hbFormGoto
-
 End Sub
 
 Private Sub gridTipos_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
-	DbTiposC.LookupUniqueID lItemData
-	vValue(0) = DbTiposC.Nome
+	Dim Tipo As clsTipoCombustivel
+	Set Tipo =Factory.ObterDaoTipoCombustivel().ObterTipoCombustivel(lItemData)
+	vValue(0) = Tipo.Nome
 End Sub
 
 Private Sub btnVoltar_Click()
