@@ -1,5 +1,5 @@
 ' Peter Holmes Consulting HB++ Form file
-' Version 2.00.218.1168
+' Version 2.11.291.937
 ' *** DO NOT EDIT ***
 
 begin Form
@@ -359,6 +359,7 @@ end
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 Public bNew as Boolean
+Public IdEdicao As Long
 
 Private Function Validar() As Boolean
 	If Me.fldNome.Text = "" Then
@@ -376,32 +377,31 @@ End Function
 
 Private Sub btnOk_Click()
 	If Validar() Then
-		If Me.bNew Then
-			DbPostos.AddNew
-		Else
-			DbPostos.Edit
-		End If
-			DbPostos.Nome = Me.fldNome.Text
-			DbPostos.Rua = Me.fldRua.Text
-			DbPostos.Bairro = Me.fldBairro.Text
-			DbPostos.Estado = Me.fldEstado.Text
-			DbPostos.Cidade = Me.fldCidade.Text
-			DbPostos.Distribuidora = Me.fldDistrib.Text
-			DbPostos.Update
-			Dim frm As New frmPostos
-			frm.Show hbFormModeless+hbFormGoto
-		End If
+		Dim Posto As New clsPosto
+		Posto.Id = Me.IdEdicao
+		Posto.Nome = Me.fldNome.Text
+		Posto.Rua = Me.fldRua.Text
+		Posto.Bairro = Me.fldBairro.Text
+		Posto.Estado = Me.fldEstado.Text
+		Posto.Cidade = Me.fldCidade.Text
+		Posto.Distribuidora = Me.fldDistrib.Text
+		Factory.ObterDaoPosto().ManterPosto(Posto)
+		Dim frm As New frmPostos
+		frm.Show hbFormModeless+hbFormGoto
+	End If
 End Sub
 
 
 Private Sub Form_Load()
-	If Not Me.bNew Then
-		Me.fldNome.Text = DbPostos.Nome
-		Me.fldRua.Text = DbPostos.Rua
-		Me.fldBairro.Text = DbPostos.Bairro
-		Me.fldEstado.Text = DbPostos.Estado
-		Me.fldCidade.Text = DbPostos.Cidade
-		Me.fldDistrib.Text = DbPostos.Distribuidora
+	If Not Me.bNew And Not IsEmpty(Me.IdEdicao) Then
+		Dim Posto As clsPosto
+		Set Posto = Factory.ObterDaoPosto().ObterPosto(Me.IdEdicao)
+		Me.fldNome.Text = Posto.Nome
+		Me.fldRua.Text = Posto.Rua
+		Me.fldBairro.Text = Posto.Bairro
+		Me.fldEstado.Text = Posto.Estado
+		Me.fldCidade.Text = Posto.Cidade
+		Me.fldDistrib.Text = Posto.Distribuidora
 	End If
 End Sub
 
@@ -413,14 +413,12 @@ End Sub
 
 Private Sub btnExcluir_Click()
 	If Not Me.bNew Then
-		Dim Db As New pvHbAbastecimentos
-		Db.OpenRecordset "IdPosto="&	DbPostos.UniqueID,hbModeOpenAlways+hbModeReadOnly
-		If Db.RecordCount > 0 Then
-			MsgBox "Posto não pode ser excluído, pois existem abastecimentos."
-		Else
-			DbPostos.Delete hbRecordRemove
+		Try
+			Factory.ObterDaoPosto().ExcluirPosto(Me.IdEdicao)
 			Me.btnCancelar_Click
-		End If
+		Catch
+			Err.MsgBox
+		End Catch
 	Else
 		MsgBox "Não é possível excluir um Posto ainda não criado."
 	End If

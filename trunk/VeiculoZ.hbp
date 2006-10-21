@@ -4,7 +4,7 @@
 
 begin Project
   Name = VeiculoZ
-  Configuration = Debug
+  Configuration = Release
   Conduit = ""
   Package = ""
   File = "Classes\\clsApplication.hbc"
@@ -31,10 +31,12 @@ begin Project
   File = "Classes\\clsDaoFactory.hbc"
   File = "Classes\\clsTipoCombustivel.hbc"
   File = "Classes\\clsDaoTipoCombustivel.hbc"
+  File = "Classes\\clsPosto.hbc"
+  File = "Classes\\clsDaoPosto.hbc"
   begin Configuration
     Name = Debug
     Title = "Veículoz"
-    Version = "1.0"
+    Version = "2.0"
     Icon = "IconeAplicacao"
     SmallIcon = "IconeAplicacao"
     MinOSVersion = 30
@@ -56,10 +58,10 @@ begin Project
   begin Configuration
     Name = Release
     Title = "Veículoz"
-    Version = "1.0"
+    Version = "2.0"
     Icon = "Aplicacao"
     SmallIcon = "Aplicacao"
-    MinOSVersion = 50
+    MinOSVersion = 30
     Locale = 1033
     Database = "veiculoz"
     Creator = "MSC1"

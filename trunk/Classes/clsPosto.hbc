@@ -1,0 +1,109 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsPosto
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+'Classe representando um Carro.
+'
+'Autor: Marlon Silva Carvalho
+
+'Identificador Único.
+Private lng_id As Long
+
+'Nome do Posto
+Private str_nome As String
+
+'Localização do Posto
+Private str_rua As String
+
+'Localização do Posto
+Private str_bairro As String
+
+'Localização do Posto
+Private str_estado As String
+
+'Localização do Posto
+Private str_cidade As String
+
+'Distribuidora de Combustível
+Private str_distrib As String
+
+Public Property Get Id() As Long
+	Id = lng_id
+End Property
+
+Public Property Let Id(i As Long)
+	lng_id = i
+End Property
+
+Public Property Get Nome() As String
+	Nome = str_nome
+End Property
+
+Public Property Let Nome(s As String)
+	str_nome = s
+End Property
+
+Public Property Get Rua() As String
+	Rua = str_rua
+End Property
+
+Public Property Let Rua(r As String)
+	str_rua = r
+End Property
+
+Public Property Get Bairro() As String
+	Bairro = str_bairro
+End Property
+
+Public Property Let Bairro(b As String)
+	str_bairro = b
+End Property
+
+Public Property Get Estado() As String
+	Estado = str_estado
+End Property
+
+Public Property Let Estado(e As String)
+	str_estado = e
+End Property
+
+Public Property Get Cidade() As String
+	Cidade = str_cidade
+End Property
+
+Public Property Let Cidade(s As String)
+	str_cidade = s
+End Property
+
+Public Property Get Distribuidora() As String
+	Distribuidora = str_distrib
+End Property
+
+Public Property Let Distribuidora(d As String)
+	str_distrib = d
+End Property
