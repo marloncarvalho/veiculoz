@@ -33,6 +33,10 @@ begin Project
   File = "Classes\\clsDaoTipoCombustivel.hbc"
   File = "Classes\\clsPosto.hbc"
   File = "Classes\\clsDaoPosto.hbc"
+  File = "Classes\\clsAbastecimento.hbc"
+  File = "Classes\\clsDaoAbastecimento.hbc"
+  File = "Modules\\DateFunctions.hbm"
+  File = "Classes\\clsHandleMenu.hbc"
   begin Configuration
     Name = Debug
     Title = "Veículoz"
@@ -102,8 +106,8 @@ begin Project
       Density = 72
       Palette = 4
       Compression = 255
-      TransparencyColor = 0
-      Filename = "images\\bottom.bmp"
+      TransparencyColor = -1
+      Filename = "Images\\filefind.bmp"
     end
   end
   begin Table
@@ -161,6 +165,16 @@ begin Project
       Compression = 255
       TransparencyColor = -1
       Filename = "images\\ksysv-mini.bmp"
+    end
+  end
+  begin ImageFamily
+    Name = ImagemTelaPrincipal
+    begin Image
+      Density = 72
+      Palette = 4
+      Compression = 255
+      TransparencyColor = -1
+      Filename = "Images\\economy-car.bmp"
     end
   end
 end
