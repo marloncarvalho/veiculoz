@@ -1,11 +1,11 @@
 ' Peter Holmes Consulting HB++ Form file
-' Version 2.00.218.1168
+' Version 2.11.291.937
 ' *** DO NOT EDIT ***
 
 begin Form
   Name = frmManterAbastecimento
   Segment = main
-  Extends = Form
+  Extends = clsHandleMenu
   Left = 0
   Top = 0
   Width = 160
@@ -457,6 +457,91 @@ begin Form
     Above = ""
     Below = ""
   end
+  begin MenuBar
+    begin MenuTitle
+      Caption = "Cadastro"
+      begin MenuItem
+        Name = mnuAbastecimentos
+        Index = 0
+        Caption = "Abastecimentos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuNovoCarro
+        Index = 0
+        Caption = "Carros"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuPosto
+        Index = 0
+        Caption = "Postos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuTiposCombustivel
+        Index = 0
+        Caption = "Tipos Combustível"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuSair
+        Index = 0
+        Caption = "Sair"
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Relatórios"
+      begin MenuItem
+        Name = mnuRelDespesas
+        Index = 0
+        Caption = "Despesas"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelConsumoMedio
+        Index = 0
+        Caption = "Consumo Médio"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelMelhorDesempenho
+        Index = 0
+        Caption = "Melhor Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelPiorDesempenho
+        Index = 0
+        Caption = "Pior Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuGastosPorPosto
+        Index = 0
+        Caption = "Gastos Por Posto"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuConsumoTipoComb
+        Index = 0
+        Caption = "Consumo por Tipo Comb."
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Ajuda"
+      begin MenuItem
+        Name = mnuSobre
+        Index = 0
+        Caption = "Sobre"
+        Shortcut = ""
+      end
+    end
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
@@ -480,10 +565,11 @@ Public KmInicialPosterior As Double
 Public UniqueIDAnterior As Long
 Public TemAnterior As Boolean
 Public TemPosterior As Boolean
+Public IdEdicao As Long
 
 Private Function ValidarEdicao() As Boolean
+	Dim Abs As clsAbastecimento
 	Dim ID As Long
-	Dim Sql As String
 	Dim IdCarro As Long
 	Dim Data As String
 	Dim KmAntigo As Double
@@ -497,31 +583,43 @@ Private Function ValidarEdicao() As Boolean
 	If Me.bNew Then
 		ID = -1000
 	Else
-		ID		= DbAbaste.UniqueID
+		ID = Me.IdEdicao
 	End If
 	Data 		= CStr(Me.slcData.Date)
 	IdCarro = Me.popCarro.ItemData(Me.popCarro.ListIndex)
-	Sql 		= "IdCarro=" & IdCarro & " And Data<='" & Data & "' And UniqueID<>" & ID & " ORDER BY Data Desc, Hora Desc"
-	DbAbaste.OpenRecordset Sql,hbModeOpenAlways+hbModeReadWrite
-	If DbAbaste.RecordCount > 0 Then
-		DbAbaste.MoveFirst
-		Me.UniqueIDAnterior = DbAbaste.UniqueID
+
+	Dim Ok As Boolean
+	Ok = False
+
+	Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimentoAnterior(ID,IdCarro,Data)
+	If Not Abs Is Nothing Then
+
+		If DateEquals(Abs.Data,Me.slcData.Date) Then
+			ValidarEdicao = False
+			Exit Function
+		End If
+
+		Me.UniqueIDAnterior = Abs.Id
 		Me.TemAnterior = True
-		KmAntigo = CDbl(DbAbaste.KmInicial)
-		If KmNovo <= KmAntigo Or (DbAbaste.Data = Me.slcData.Date And DbAbaste.Hora >= Me.slcHora.Time) Then
+		KmAntigo = CDbl(Abs.KmInicial)
+		If KmNovo <= KmAntigo Then
 			ValidarEdicao = False
 			Exit Function
 		End If
 	End If
 
-	Sql 	= "IdCarro=" & IdCarro & " And Data>='" & Data & "' And UniqueID<>" & ID & " ORDER BY Data Asc, Hora Asc"
-	DbAbaste.OpenRecordset Sql,hbModeOpenAlways+hbModeReadWrite
-	If DbAbaste.RecordCount > 0 Then
-		DbAbaste.MoveFirst
-		KmAntigo = CDbl(DbAbaste.KmInicial)
+	Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimentoPosterior(ID,IdCarro,Data)
+	If Not Abs Is Nothing Then
+
+		If DateEquals(Abs.Data,Me.slcData.Date) Then
+			ValidarEdicao = False
+			Exit Function
+		End If
+
+		KmAntigo = CDbl(Abs.KmInicial)
 		Me.KmInicialPosterior = KmAntigo
 		Me.TemPosterior = True
-		If KmNovo >= KmAntigo Or (DbAbaste.Data = Me.slcData.Date And DbAbaste.Hora <= Me.slcHora.Time) Then
+		If KmNovo >= KmAntigo Then
 			ValidarEdicao = False
 			Exit Function
 		End If
@@ -529,13 +627,11 @@ Private Function ValidarEdicao() As Boolean
 	ValidarEdicao = True
 End Function
 
-
-
 Private Sub btnOk_Click()
 
 	'Guardar o ID, pois a função ValidarEdicao modifica a posição do recordset.
 	Dim Id As Long
-	Id = DbAbaste.UniqueID
+	Dim Abs As New clsAbastecimento
 
 	Dim Km As String
 
@@ -544,37 +640,33 @@ Private Sub btnOk_Click()
 
 		'Verificar se pode incluir na data definida pelo usuário.DbAbaste.RecordCount > 0 And
 		If Me.ValidarEdicao() Then
-			DbAbaste.OpenTable hbModeOpenAlways+hbModeReadWrite
 			If Not Me.bNew Then
-				DbAbaste.LookupUniqueID Id
-				DbAbaste.Delete hbRecordRemove
+				Factory.ObterDaoAbastecimento().ExcluirAbastecimento(Me.IdEdicao)
 			End If
 
 			'Existe um abastecimento realizado antes da data deste.
 			If Me.TemAnterior Then
-				DbAbaste.LookupUniqueID Me.UniqueIDAnterior
-				DbAbaste.Edit
-				DbAbaste.KmFinal = Me.fldKmInicial.Text
-				DbAbaste.Update
+				Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimento(Me.UniqueIDAnterior)
+				Abs.KmFinal = Me.fldKmInicial.Text
+				Factory.ObterDaoAbastecimento().ManterAbastecimento(Abs)
 			End If
 
 			'Existe um abastecimento realizado após a data deste.
 			If Me.TemPosterior Then
 				Km = CStr(Me.KmInicialPosterior)
-			Else
-				Km = "0"
 			End If
-			DbAbaste.AddNew
-			DbAbaste.IdCarro = Me.popCarro.ItemData(Me.popCarro.ListIndex)
-			DbAbaste.Data = Me.slcData.Date
-			DbAbaste.Hora = Me.slcHora.Time
-			DbAbaste.IdTipoComb = Me.popTipo.ItemData(Me.popTipo.ListIndex)
-			DbAbaste.IdPosto = Me.popPosto.ItemData(Me.popPosto.ListIndex)
-			DbAbaste.KmInicial = Me.fldKmInicial.Text
-			DbAbaste.KmFinal = Km
-			DbAbaste.ValorLitro = CDbl(Me.fldValorLitro.Text)
-			DbAbaste.ValorTotal = CDbl(Me.fldValorTotal.Text)
-			DbAbaste.Update
+
+			Set Abs = New clsAbastecimento
+			Abs.IdCarro = Me.popCarro.ItemData(Me.popCarro.ListIndex)
+			Abs.Data = Me.slcData.Date
+			Abs.Hora = Me.slcHora.Time
+			Abs.IdTipoCombustivel = Me.popTipo.ItemData(Me.popTipo.ListIndex)
+			Abs.IdPosto = Me.popPosto.ItemData(Me.popPosto.ListIndex)
+			Abs.KmInicial = Me.fldKmInicial.Text
+			Abs.KmFinal = Km
+			Abs.ValorLitro = CDbl(Me.fldValorLitro.Text)
+			Abs.ValorTotal = CDbl(Me.fldValorTotal.Text)
+			Factory.ObterDaoAbastecimento().ManterAbastecimento(Abs)
 			Me.btnCancelar_Click
 		Else
 			MsgBox "Edição Não pode ser realizada, pois gera conflitos entre os abastecimentos."
@@ -623,76 +715,80 @@ Private Sub btnCancelar_Click()
 End Sub
 
 Private Sub Form_Load()
-	DbPostos.MoveFirst
-	While Not DbPostos.EOF
-		Me.popPosto.AddItem DbPostos.Nome,DbPostos.UniqueID
-		DbPostos.MoveNext
-	Wend
+	Dim ColecaoPostos As Collection
+	Dim Posto As clsPosto
+	Set ColecaoPostos = Factory.ObterDaoPosto().ObterPostos()
+	For Each Posto In ColecaoPostos
+		Me.popPosto.AddItem Posto.Nome,Posto.Id
+	Next
 
-	DbCarros.MoveFirst
-	While Not DbCarros.EOF
-		Me.popCarro.AddItem DbCarros.Modelo,DbCarros.UniqueID
-		DbCarros.MoveNext
-	Wend
+	Dim ColecaoCarros As Collection
+	Dim Carro As clsCarro
+	Set ColecaoCarros = Factory.ObterDaoCarro().ObterCarros()
+	For Each Carro In ColecaoCarros
+		Me.popCarro.AddItem Carro.Modelo,Carro.Id
+	Next
 
-	DbTiposC.MoveFirst
-	While Not DbTiposC.EOF
-		Me.popTipo.AddItem DbTiposC.Nome,DbTiposC.UniqueID
-		DbTiposC.MoveNext
-	Wend
+	Dim ColecaoTipos As Collection
+	Dim Tipo As clsTipoCombustivel
+	Set ColecaoTipos = Factory.ObterDaoTipoCombustivel().ObterTiposCombustivel()
+	For Each Tipo In ColecaoTipos
+		Me.popTipo.AddItem Tipo.Nome,Tipo.Id
+	Next
 
-	If Not Me.bNew Then
-		DbCarros.LookupUniqueID DbAbaste.IdCarro
-		Me.slcData.Date = DbAbaste.Data
-		Me.slcHora.Time = DbAbaste.Hora
-		Me.popCarro.ListIndex = Me.popCarro.FindItemData(DbAbaste.IdCarro)
-		Me.popPosto.ListIndex = Me.popPosto.FindItemData(DbAbaste.IdPosto)
-		Me.popTipo.ListIndex = Me.popTipo.FindItemData(DbAbaste.IdTipoComb)
-		Me.fldKmInicial.Text = DbAbaste.KmInicial
-		Me.fldKmFinal.Text = DbAbaste.KmFinal
-		Me.fldValorLitro.Text = CStr(DbAbaste.ValorLitro)
-		Me.fldValorTotal.Text = CStr(DbAbaste.ValorTotal)
+	If Not Me.bNew And Not IsEmpty(Me.IdEdicao) Then
+		Dim Abs As clsAbastecimento
+		Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimento(Me.IdEdicao)
+		Me.slcData.Date = Abs.Data
+		Me.slcHora.Time = Abs.Hora
+		Me.popCarro.ListIndex = Me.popCarro.FindItemData(Abs.IdCarro)
+		Me.popPosto.ListIndex = Me.popPosto.FindItemData(Abs.IdPosto)
+		Me.popTipo.ListIndex = Me.popTipo.FindItemData(Abs.IdTipoCombustivel)
+		Me.fldKmInicial.Text = Abs.KmInicial
+		Me.fldKmFinal.Text = Abs.KmFinal
+		Me.fldValorLitro.Text = CStr(Abs.ValorLitro)
+		Me.fldValorTotal.Text = CStr(Abs.ValorTotal)
 	Else
 		Me.slcData.Date = Now()
 	End If
 End Sub
 
 Private Sub Excluir()
-	Dim IdCarro As Long
-	Dim IdAbast As Long
-	IdCarro = DbAbaste.IdCarro
-	IdAbast = DbAbaste.UniqueID
+	Dim Abs As clsAbastecimento
+	Dim AbsEdicao As clsAbastecimento
+	Dim AbsEdicaoPos As clsAbastecimento
+	Dim Colecao As Collection
+	Dim Index As Integer
 
-	DbAbaste.OpenRecordset "IdCarro=" & IdCarro & " Order By Data Asc, Hora Asc", hbModeOpenAlways+hbModeReadWrite
-	DbAbaste.LookupUniqueID IdAbast
-	DbAbaste.MovePrevious
-	If DbAbaste.BOF Then
-		DbAbaste.MoveNext
-		DbAbaste.Delete hbRecordRemove
-		Exit Sub
-	End If
-	DbAbaste.MoveNext
-	DbAbaste.MoveNext
-	If DbAbaste.EOF Then
-		DbAbaste.MovePrevious
-		DbAbaste.MovePrevious
-		DbAbaste.Edit
-		DbAbaste.KmFinal = "0"
-		DbAbaste.Update
-		DbAbaste.MoveNext
-		DbAbaste.Delete hbRecordRemove
-		Exit Sub
-	End If
+	Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimento(Me.IdEdicao)
+	Set Colecao = Factory.ObterDaoAbastecimento().ObterAbastecimentosPorCarro(Abs.IdCarro,"Data Asc, Hora Asc")
+	Index = 1
 
-	Dim KmInicial As String
-	KmInicial = DbAbaste.KmInicial
-	DbAbaste.MovePrevious
-	DbAbaste.MovePrevious
-	DbAbaste.Edit
-	DbAbaste.KmFinal = KmInicial
-	DbAbaste.Update
-	DbAbaste.MoveNext
-	DbAbaste.Delete hbRecordRemove
+	If Colecao.Count = 1 Then 'Caso só exista este abastecimento, exclui ele apenas.
+		Factory.ObterDaoAbastecimento().ExcluirAbastecimento(Me.IdEdicao)
+	Else 'Caso Contrário, pode existir abastecimento antes e depois deste.
+		For Each Abs In Colecao
+			If Abs.Id = Me.IdEdicao Then
+				If Index = 1 Then 'Neste caso, este Abastecimento é logo o primeiro da lista. Basta Excluir.
+					Factory.ObterDaoAbastecimento().ExcluirAbastecimento(Me.IdEdicao)
+				Else 'Não é o primeiro da Lista.
+					If Index = Colecao.Count Then 'É o último da lista.
+						Set AbsEdicao = Colecao.Item(Index-1)
+						AbsEdicao.KmFinal = "0"
+						Factory.ObterDaoAbastecimento().ManterAbastecimento(AbsEdicao)
+						Factory.ObterDaoAbastecimento().ExcluirAbastecimento(Me.IdEdicao)
+					Else 'Se não é o primeiro, nem o último, está entre dois abastecimentos.
+						Set AbsEdicao = Colecao.Item(Index-1)
+						Set AbsEdicaoPos = Colecao.Item(Index+1)
+						AbsEdicaoPos.KmInicial = AbsEdicao.KmFinal
+						Factory.ObterDaoAbastecimento().ManterAbastecimento(AbsEdicaoPos)
+						Factory.ObterDaoAbastecimento().ExcluirAbastecimento(Me.IdEdicao)
+					End If
+				End If
+			End If
+			Index = Index + 1
+		Next
+	End If
 End Sub
 
 Private Sub btnExcluir_Click()

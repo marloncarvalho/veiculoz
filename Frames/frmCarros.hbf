@@ -5,7 +5,7 @@
 begin Form
   Name = frmCarros
   Segment = main
-  Extends = Form
+  Extends = clsHandleMenu
   Left = 0
   Top = 0
   Width = 160
@@ -19,15 +19,39 @@ begin Form
   InitialFocus = ""
   BottomLeft = ""
   Locked = False
+  begin Label
+    Name = Label7
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 128
+    Anchors = 0
+    Visible = True
+    Caption = "_____________________________________"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label6
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 50
+    Anchors = 0
+    Visible = True
+    Caption = "_____________________________________"
+    Font = "Standard"
+  end
   begin GridEx
     Name = gridCarros
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 3
-    Top = 57
+    Left = 4
+    Top = 60
     Width = 144
-    Height = 79
+    Height = 75
     Anchors = 0
     Visible = True
     Columns = "AwDoAQUAOQAyAAsAAAAAAAAAAAAoAAMABQA5ACgACwAAAAAAAAAAACgAAwAFADkAMgALAAAAAAAAAAAAKAADAA=="
@@ -44,10 +68,10 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 149
-    Top = 53
+    Left = 150
+    Top = 56
     Width = 7
-    Height = 88
+    Height = 85
     Anchors = 0
     Visible = True
     Min = 0
@@ -59,9 +83,9 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 33
+    Left = 4
     Top = 143
-    Width = 43
+    Width = 31
     Height = 12
     Anchors = 0
     Visible = True
@@ -79,8 +103,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 3
-    Top = 46
+    Left = 4
+    Top = 47
     Anchors = 0
     Visible = True
     Caption = "Modelo"
@@ -91,8 +115,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 53
-    Top = 46
+    Left = 56
+    Top = 47
     Anchors = 0
     Visible = True
     Caption = "Placa"
@@ -103,8 +127,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 95
-    Top = 46
+    Left = 98
+    Top = 47
     Anchors = 0
     Visible = True
     Caption = "Marca"
@@ -115,8 +139,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 6
-    Top = 19
+    Left = 3
+    Top = 17
     Anchors = 0
     Visible = True
     Image = "FormsListagem"
@@ -131,36 +155,174 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 34
-    Top = 18
+    Top = 17
     Anchors = 0
     Visible = True
     Caption = "Carros Cadastrados"
     Font = "LargeBold"
   end
   begin Label
-    Name = Label5
+    Name = lblSubtitulo
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 35
-    Top = 31
-    Anchors = 0
+    Left = 33
+    Top = 30
+    Anchors = 1
     Visible = True
-    Caption = "Lista de Carros"
+    Caption = "20 Carro(s) Cadastrado(s)"
     Font = "Standard"
+  end
+  begin MenuBar
+    begin MenuTitle
+      Caption = "Cadastro"
+      begin MenuItem
+        Name = mnuAbastecimentos
+        Index = 0
+        Caption = "Abastecimentos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuNovoCarro
+        Index = 0
+        Caption = "Carros"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuPosto
+        Index = 0
+        Caption = "Postos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuTiposCombustivel
+        Index = 0
+        Caption = "Tipos Combustível"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuSair
+        Index = 0
+        Caption = "Sair"
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Relatórios"
+      begin MenuItem
+        Name = mnuRelDespesas
+        Index = 0
+        Caption = "Despesas"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelConsumoMedio
+        Index = 0
+        Caption = "Consumo Médio"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelMelhorDesempenho
+        Index = 0
+        Caption = "Melhor Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelPiorDesempenho
+        Index = 0
+        Caption = "Pior Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuGastosPorPosto
+        Index = 0
+        Caption = "Gastos Por Posto"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuConsumoTipoComb
+        Index = 0
+        Caption = "Consumo por Tipo Comb."
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Ajuda"
+      begin MenuItem
+        Name = mnuSobre
+        Index = 0
+        Caption = "Sobre"
+        Shortcut = ""
+      end
+    end
   end
   begin Button
     Name = btnVoltar
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 83
+    Left = 40
     Top = 143
-    Width = 44
+    Width = 31
     Height = 12
     Anchors = 0
     Visible = True
     Text = "Voltar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Popup
+    Name = popFiltro
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 102
+    Top = 1
+    Width = 51
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "selecione"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label8
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 74
+    Top = 1
+    Anchors = 0
+    Visible = True
+    Caption = "Filtrar:"
+    Font = "Standard"
+  end
+  begin Button
+    Name = btnVoltar1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 121
+    Top = 143
+    Width = 31
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Sair"
     Font = "Standard"
     Frame = 1
     Repeating = False
@@ -199,10 +361,16 @@ End Sub
 Private Sub Form_Load()
 	Dim Colecao As Collection
 	Dim Carro As clsCarro
+	Dim Total As Integer
+	Total = Factory.ObterDaoCarro().TotalCarros()
 	Set Colecao = Factory.ObterDaoCarro().ObterCarros()
 	For Each Carro In Colecao
 		Call gridCarros.AddItem(Carro.Id)
 	Next
+	Me.lblSubtitulo.Caption = Total & " Carro(s) Cadastrado(s)"
+	Me.popFiltro.AddItem "Todos"
+	Me.popFiltro.AddItem "Última Semana"
+	Me.popFiltro.AddItem "Hoje"
 End Sub
 
 
