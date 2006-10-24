@@ -30,6 +30,7 @@ end
 Private DaoC As New clsDaoCarro
 Private DaoT As New clsDaoTipoCombustivel
 Private DaoP As New clsDaoPosto
+Private DaoA As New clsDaoAbastecimento
 
 Public Function ObterDaoCarro() As clsDaoCarro
 	Set ObterDaoCarro = DaoC
@@ -41,4 +42,8 @@ End Function
 
 Public Function ObterDaoPosto() As clsDaoPosto
 	Set ObterDaoPosto = DaoP
+End Function
+
+Public Function ObterDaoAbastecimento() As clsDaoAbastecimento
+	Set ObterDaoAbastecimento = Me.DaoA
 End Function

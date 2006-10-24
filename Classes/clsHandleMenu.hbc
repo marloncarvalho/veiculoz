@@ -1,0 +1,90 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsHandleMenu
+  Segment = main
+  Extends = Form
+  Instantiable = False
+  Extendable = True
+  Clonable = False
+end
+Public mnuRelDespesas As MenuItem
+Public mnuSobre As MenuItem
+Public mnuNovoCarro As MenuItem
+Public mnuPosto As MenuItem
+Public mnuTiposCombustivel As MenuItem
+Public mnuAbastecimentos As MenuItem
+Public mnuRelConsumoMedio As MenuItem
+Public mnuSair As MenuItem
+Public mnuRelMelhorDesempenho As MenuItem
+Public mnuConsumoTipoComb As MenuItem
+Public mnuGastosPorPosto As MenuItem
+Public mnuRelPiorDesempenho As MenuItem
+
+Private Sub Initialize()
+End Sub
+
+Public Sub mnuRelDespesas_Click()
+	Dim frm As New frmRelatorioDespesas
+	frm.show hbFormModeless+hbFormGoto
+End Sub
+
+Public Sub mnuSobre_Click()
+	Dim frm As New frmSobre
+	frm.Show hbFormPopup+hbFormGoto
+End Sub
+
+Public Sub mnuNovoCarro_Click()
+	Dim frm As New frmCarros
+	frm.Show hbFormModal+hbFormGoto
+End Sub
+
+Public Sub mnuPosto_Click()
+	Dim frm As New frmPostos
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Public Sub mnuTiposCombustivel_Click()
+	Dim frm As New frmTiposCombustivel
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Public Sub mnuAbastecimentos_Click()
+	Dim frm As New frmAbastecimentos
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Public Sub mnuRelConsumoMedio_Click()
+	Dim frm As New frmRelatorioConsumoMedio
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Public Sub mnuSair_Click()
+	Dim app As new clsApplication
+	app.Quit
+End Sub
+
+Public Sub mnuRelMelhorDesempenho_Click()
+	Dim frm As New frmRelatorioMelhorDesempenho
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+
+Public Sub mnuRelPiorDesempenho_Click()
+	Dim frm As New frmRelatorioPiorDesempenho
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Public Sub mnuGastosPorPosto_Click()
+	Dim frm As New frmRelatorioGastosPorPosto
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+
+
+Private Sub mnuConsumoTipoComb_Click()
+	Dim frm As New frmRelatorioConsumoPorTipo
+	frm.Show hbFormModeless+hbFormGoto
+End Sub

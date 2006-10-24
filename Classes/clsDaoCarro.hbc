@@ -41,6 +41,10 @@ Private Sub Initialize()
 	End Catch
 End Sub
 
+Public Function TotalCarros() As Integer
+	TotalCarros = DbCar.RecordCount
+End Function
+
 ' Obter a lista de carros cadastrados.
 '
 ' @Returns Coleção de Carros.
