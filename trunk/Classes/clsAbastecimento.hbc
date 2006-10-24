@@ -1,0 +1,132 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsAbastecimento
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+'Classe representando um Carro.
+'
+'Autor: Marlon Silva Carvalho
+
+Private lng_id As Long
+
+Private dbl_valorlitro As Double
+
+Private dbl_valortotal As Double
+
+Private dte_data As Date
+
+Private str_kminicial As String
+
+Private str_kmfinal As String
+
+Private lng_hora As Long
+
+Private lng_idposto As Long
+
+Private lng_idcarro As Long
+
+Private lng_idtipo As Long
+
+Public Property Get Id() As Long
+	Id = lng_id
+End Property
+
+Public Property Let Id(i As Long)
+	lng_id = i
+End Property
+
+Public Property Get IdPosto() As Long
+	IdPosto = lng_idposto
+End Property
+
+Public Property Let IdPosto(i As Long)
+	lng_idposto = i
+End Property
+
+Public Property Get IdCarro() As Long
+	IdCarro = lng_idcarro
+End Property
+
+Public Property Let IdCarro(i As Long)
+	lng_idcarro = i
+End Property
+
+Public Property Get IdTipoCombustivel() As Long
+	IdTipoCombustivel = lng_idtipo
+End Property
+
+Public Property Let IdTipoCombustivel(i As Long)
+	lng_idtipo = i
+End Property
+
+Public Property Get ValorLitro() As Double
+	ValorLitro = dbl_valorlitro
+End Property
+
+Public Property Let ValorLitro(vl As Double)
+	dbl_valorlitro = vl
+End Property
+
+Public Property Get ValorTotal() As Double
+	ValorTotal = dbl_valortotal
+End Property
+
+Public Property Let ValorTotal(v As Double)
+	dbl_valortotal = v
+End Property
+
+Public Property Get Data() As Date
+	Data = dte_data
+End Property
+
+Public Property Let Data(dte As Date)
+	dte_data = dte
+End Property
+
+Public Property Get KmInicial() As String
+	KmInicial = str_kminicial
+End Property
+
+Public Property Let KmInicial(s As String)
+	str_kminicial = s
+End Property
+
+Public Property Get KmFinal() As String
+		KmFinal = str_kmfinal
+End Property
+
+Public Property Let KmFinal(s As String)
+	str_kmfinal = s
+End Property
+
+Public Property Get Hora() As Long
+	Hora = lng_hora
+End Property
+
+Public Property Let Hora (h As Long)
+	lng_hora = h
+End Property
