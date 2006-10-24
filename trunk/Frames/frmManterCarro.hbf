@@ -5,7 +5,7 @@
 begin Form
   Name = frmManterCarro
   Segment = main
-  Extends = Form
+  Extends = clsHandleMenu
   Left = 0
   Top = 0
   Width = 160
@@ -20,12 +20,24 @@ begin Form
   BottomLeft = ""
   Locked = False
   begin Label
+    Name = Label8
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 2
+    Top = 38
+    Anchors = 0
+    Visible = True
+    Caption = "_______________________________________"
+    Font = "Standard"
+  end
+  begin Label
     Name = Label1
     Index = 0
     Layer = 0
     Tag = ""
     Left = 11
-    Top = 55
+    Top = 54
     Anchors = 0
     Visible = True
     Caption = "Modelo:"
@@ -37,7 +49,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 44
-    Top = 53
+    Top = 52
     Width = 105
     Height = 12
     Anchors = 0
@@ -62,7 +74,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 26
-    Top = 68
+    Top = 67
     Anchors = 0
     Visible = True
     Caption = "Ano:"
@@ -74,7 +86,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 44
-    Top = 66
+    Top = 65
     Width = 40
     Height = 12
     Anchors = 0
@@ -99,7 +111,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 15
-    Top = 81
+    Top = 80
     Anchors = 0
     Visible = True
     Caption = "Marca:"
@@ -111,7 +123,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 20
-    Top = 94
+    Top = 93
     Anchors = 0
     Visible = True
     Caption = "Placa:"
@@ -123,7 +135,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 44
-    Top = 92
+    Top = 91
     Width = 53
     Height = 12
     Anchors = 0
@@ -167,8 +179,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 8
-    Top = 22
+    Left = 3
+    Top = 17
     Anchors = 0
     Visible = True
     Image = "FormsEdicao"
@@ -182,8 +194,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 35
-    Top = 21
+    Left = 39
+    Top = 19
     Anchors = 0
     Visible = True
     Caption = "Edição de Carros"
@@ -194,8 +206,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 34
-    Top = 35
+    Left = 38
+    Top = 33
     Anchors = 0
     Visible = True
     Caption = "Criação / Edição de Carros"
@@ -227,7 +239,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 44
-    Top = 79
+    Top = 78
     Width = 106
     Height = 12
     Anchors = 0
@@ -252,7 +264,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 27
-    Top = 107
+    Top = 106
     Anchors = 0
     Visible = True
     Caption = "Cor:"
@@ -263,8 +275,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 43
-    Top = 105
+    Left = 44
+    Top = 104
     Width = 51
     Height = 12
     Anchors = 0
@@ -289,7 +301,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 120
+    Top = 119
     Anchors = 0
     Visible = True
     Caption = "Renavam:"
@@ -301,7 +313,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 44
-    Top = 118
+    Top = 117
     Width = 106
     Height = 12
     Anchors = 0
@@ -339,6 +351,91 @@ begin Form
     NavOrder = ""
     Above = ""
     Below = ""
+  end
+  begin MenuBar
+    begin MenuTitle
+      Caption = "Cadastro"
+      begin MenuItem
+        Name = mnuAbastecimentos
+        Index = 0
+        Caption = "Abastecimentos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuNovoCarro
+        Index = 0
+        Caption = "Carros"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuPosto
+        Index = 0
+        Caption = "Postos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuTiposCombustivel
+        Index = 0
+        Caption = "Tipos Combustível"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuSair
+        Index = 0
+        Caption = "Sair"
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Relatórios"
+      begin MenuItem
+        Name = mnuRelDespesas
+        Index = 0
+        Caption = "Despesas"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelConsumoMedio
+        Index = 0
+        Caption = "Consumo Médio"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelMelhorDesempenho
+        Index = 0
+        Caption = "Melhor Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelPiorDesempenho
+        Index = 0
+        Caption = "Pior Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuGastosPorPosto
+        Index = 0
+        Caption = "Gastos Por Posto"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuConsumoTipoComb
+        Index = 0
+        Caption = "Consumo por Tipo Comb."
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Ajuda"
+      begin MenuItem
+        Name = mnuSobre
+        Index = 0
+        Caption = "Sobre"
+        Shortcut = ""
+      end
+    end
   end
 end
 ' VeículoZ - Controle de Veículos

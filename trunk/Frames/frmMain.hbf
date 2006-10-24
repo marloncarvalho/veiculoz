@@ -1,11 +1,11 @@
 ' Peter Holmes Consulting HB++ Form file
-' Version 2.00.218.1168
+' Version 2.11.291.937
 ' *** DO NOT EDIT ***
 
 begin Form
   Name = frmMain
   Segment = main
-  Extends = Form
+  Extends = clsHandleMenu
   Left = 0
   Top = 0
   Width = 160
@@ -24,11 +24,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 64
-    Top = 59
+    Left = 23
+    Top = 57
     Anchors = 0
     Visible = True
-    Image = "ImagemAplicacao"
+    Image = "ImagemTelaPrincipal"
     NavFlags = 0
     NavOrder = ""
     Above = ""
@@ -39,8 +39,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 26
-    Top = 17
+    Left = 27
+    Top = 22
     Anchors = 0
     Visible = True
     Caption = "Controle de Veículos"
@@ -75,11 +75,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 31
+    Left = 52
     Top = 147
     Anchors = 0
     Visible = True
-    Caption = "Licença LGPL - Freeware"
+    Caption = "Licença LGPL "
     Font = "Standard"
   end
   begin Label
@@ -99,8 +99,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 21
-    Top = 28
+    Left = 22
+    Top = 33
     Anchors = 0
     Visible = True
     Caption = "palmsoftwares.blogspot.com"
@@ -209,70 +209,8 @@ end
 ' License along with this library; if not, write to the Free Software
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
-Private Sub mnuSobre_Click()
-	Dim frm As New frmSobre
-	frm.Show hbFormPopup+hbFormGoto
-End Sub
-
-Private Sub mnuNovoCarro_Click()
-	Dim frm As New frmCarros
-	frm.Show hbFormModal+hbFormGoto
-End Sub
-
-Private Sub mnuPosto_Click()
-	Dim frm As New frmPostos
-	frm.Show hbFormModeless+hbFormGoto
-End Sub
-
-Private Sub mnuTiposCombustivel_Click()
-	Dim frm As New frmTiposCombustivel
-	frm.Show hbFormModeless+hbFormGoto
-End Sub
-
-Private Sub mnuAbastecimentos_Click()
-	Dim frm As New frmAbastecimentos
-	frm.Show hbFormModeless+hbFormGoto
-End Sub
 
 Private Sub Form_Paint()
 	Versao = "1.0 Build 20061014"
 	Me.lblVersao.Caption = "Versão " & Versao
-End Sub
-
-Private Sub mnuRelDespesas_Click()
-	Dim frm As New frmRelatorioDespesas
-	frm.show hbFormModeless+hbFormGoto
-End Sub
-
-Private Sub mnuRelConsumoMedio_Click()
-	Dim frm As New frmRelatorioConsumoMedio
-	frm.Show hbFormModeless+hbFormGoto
-End Sub
-
-Private Sub mnuSair_Click()
-	Dim app As new clsApplication
-	app.Quit
-End Sub
-
-Private Sub mnuRelMelhorDesempenho_Click()
-	Dim frm As New frmRelatorioMelhorDesempenho
-	frm.Show hbFormModeless+hbFormGoto
-End Sub
-
-
-Private Sub mnuRelPiorDesempenho_Click()
-	Dim frm As New frmRelatorioPiorDesempenho
-	frm.Show hbFormModeless+hbFormGoto
-End Sub
-
-Private Sub mnuGastosPorPosto_Click()
-	Dim frm As New frmRelatorioGastosPorPosto
-	frm.Show hbFormModeless+hbFormGoto
-End Sub
-
-
-
-Private Sub mnuConsumoTipoComb_Click()
-	Dim frm As New frmRelatorioConsumoPorTipo
-	frm.Show hbFormModeless+hbFormGoto
 End Sub

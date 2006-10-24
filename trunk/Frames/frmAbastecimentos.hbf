@@ -1,11 +1,11 @@
 ' Peter Holmes Consulting HB++ Form file
-' Version 2.00.218.1168
+' Version 2.11.291.937
 ' *** DO NOT EDIT ***
 
 begin Form
   Name = frmAbastecimentos
   Segment = main
-  Extends = Form
+  Extends = clsHandleMenu
   Left = 0
   Top = 0
   Width = 160
@@ -48,7 +48,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 6
+    Left = 3
     Top = 17
     Anchors = 0
     Visible = True
@@ -64,7 +64,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 57
+    Top = 61
     Width = 144
     Height = 79
     Anchors = 0
@@ -84,7 +84,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 46
+    Top = 50
     Anchors = 0
     Visible = True
     Caption = "Posto"
@@ -96,7 +96,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 81
-    Top = 46
+    Top = 50
     Anchors = 0
     Visible = True
     Caption = "Total"
@@ -108,7 +108,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 149
-    Top = 53
+    Top = 57
     Width = 7
     Height = 88
     Anchors = 0
@@ -143,7 +143,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 122
-    Top = 46
+    Top = 50
     Anchors = 0
     Visible = True
     Caption = "Litro"
@@ -169,6 +169,91 @@ begin Form
     Above = ""
     Below = ""
   end
+  begin MenuBar
+    begin MenuTitle
+      Caption = "Cadastro"
+      begin MenuItem
+        Name = mnuAbastecimentos
+        Index = 0
+        Caption = "Abastecimentos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuNovoCarro
+        Index = 0
+        Caption = "Carros"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuPosto
+        Index = 0
+        Caption = "Postos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuTiposCombustivel
+        Index = 0
+        Caption = "Tipos Combustível"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuSair
+        Index = 0
+        Caption = "Sair"
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Relatórios"
+      begin MenuItem
+        Name = mnuRelDespesas
+        Index = 0
+        Caption = "Despesas"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelConsumoMedio
+        Index = 0
+        Caption = "Consumo Médio"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelMelhorDesempenho
+        Index = 0
+        Caption = "Melhor Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelPiorDesempenho
+        Index = 0
+        Caption = "Pior Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuGastosPorPosto
+        Index = 0
+        Caption = "Gastos Por Posto"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuConsumoTipoComb
+        Index = 0
+        Caption = "Consumo por Tipo Comb."
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Ajuda"
+      begin MenuItem
+        Name = mnuSobre
+        Index = 0
+        Caption = "Sobre"
+        Shortcut = ""
+      end
+    end
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
@@ -188,19 +273,23 @@ end
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 Private Sub gridAbastecimentos_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
-	DbAbaste.LookupUniqueID lItemData
+	Dim Abs As clsAbastecimento
+	Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimento(lItemData)
 	Dim frm As New frmManterAbastecimento
 	frm.bNew = False
+	frm.IdEdicao = Abs.Id
 	frm.Show hbFormModeless+hbFormGoto
 End Sub
 
 
 Private Sub gridAbastecimentos_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
-	DbAbaste.LookupUniqueID lItemData
-	DbPostos.LookupUniqueID dbAbaste.IdPosto
-	vValue(0) = DbPostos.Nome
-	vValue(1) = DbAbaste.ValorTotal
-	vValue(2) = DbAbaste.ValorLitro
+	Dim Abs As clsAbastecimento
+	Dim Posto As clsPosto
+	Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimento(lItemData)
+	Set Posto = Factory.ObterDaoPosto().ObterPosto(Abs.IdPosto)
+	vValue(0) = Posto.Nome
+	vValue(1) = Abs.ValorTotal
+	vValue(2) = Abs.ValorLitro
 End Sub
 
 
@@ -212,10 +301,13 @@ End Sub
 
 
 Private Sub Form_Load()
-	DbAbaste.OpenRecordset "Category>=0 Order By Data Desc, Hora Desc", hbModeOpenAlways+hbModeReadWrite
-	gridAbastecimentos.Populate DbAbaste
+	Dim Abs As clsAbastecimento
+	Dim Colecao As Collection
+	Set Colecao = Factory.ObterDaoAbastecimento().ObterAbastecimentos("")
+	For Each Abs In Colecao
+		Me.gridAbastecimentos.AddItem(Abs.Id)
+	Next
 End Sub
-
 
 Private Sub btnVoltar_Click()
 	Dim frm As New frmMain
