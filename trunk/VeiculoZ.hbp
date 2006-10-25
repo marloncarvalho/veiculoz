@@ -10,7 +10,6 @@ begin Project
   File = "Classes\\clsApplication.hbc"
   File = "Frames\\frmMain.hbf"
   File = "Frames\\frmCarros.hbf"
-  File = "Modules\\Modulo.hbm"
   File = "Frames\\frmManterCarro.hbf"
   File = "Frames\\frmPostos.hbf"
   File = "Frames\\frmManterPosto.hbf"
@@ -63,8 +62,8 @@ begin Project
     Name = Release
     Title = "Veículoz"
     Version = "2.0"
-    Icon = "Aplicacao"
-    SmallIcon = "Aplicacao"
+    Icon = "IconeAplicacao"
+    SmallIcon = "IconeAplicacao"
     MinOSVersion = 30
     Locale = 1033
     Database = "veiculoz"
@@ -96,8 +95,8 @@ begin Project
       Density = 72
       Palette = 4
       Compression = 255
-      TransparencyColor = 0
-      Filename = "images\\kate.bmp"
+      TransparencyColor = -1
+      Filename = "Images\\text-editor.bmp"
     end
   end
   begin ImageFamily
@@ -107,7 +106,7 @@ begin Project
       Palette = 4
       Compression = 255
       TransparencyColor = -1
-      Filename = "Images\\filefind.bmp"
+      Filename = "Images\\file-manager.bmp"
     end
   end
   begin Table
@@ -144,17 +143,7 @@ begin Project
       Palette = 4
       Compression = 255
       TransparencyColor = -1
-      Filename = "images\\printer1.bmp"
-    end
-  end
-  begin ImageFamily
-    Name = ImagemAplicacao
-    begin Image
-      Density = 72
-      Palette = 4
-      Compression = 255
-      TransparencyColor = -1
-      Filename = "images\\ksysv.bmp"
+      Filename = "Images\\kcmpartitions.bmp"
     end
   end
   begin ImageFamily
@@ -164,7 +153,7 @@ begin Project
       Palette = 4
       Compression = 255
       TransparencyColor = -1
-      Filename = "images\\ksysv-mini.bmp"
+      Filename = "Images\\folder_home.bmp"
     end
   end
   begin ImageFamily

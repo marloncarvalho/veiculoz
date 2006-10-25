@@ -20,6 +20,18 @@ begin Form
   BottomLeft = ""
   Locked = False
   begin Label
+    Name = Label8
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 2
+    Top = 38
+    Anchors = 0
+    Visible = True
+    Caption = "_______________________________________"
+    Font = "Standard"
+  end
+  begin Label
     Name = Label1
     Index = 0
     Layer = 0
@@ -75,45 +87,6 @@ begin Form
     NavOrder = ""
     Above = ""
     Below = ""
-  end
-  begin Picture
-    Name = picEdicaoCarros
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 8
-    Top = 22
-    Anchors = 0
-    Visible = True
-    Image = "FormsEdicao"
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
-  end
-  begin Label
-    Name = lblCarros
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 35
-    Top = 21
-    Anchors = 0
-    Visible = True
-    Caption = "Edição de Tipos"
-    Font = "LargeBold"
-  end
-  begin Label
-    Name = Label5
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 34
-    Top = 35
-    Anchors = 0
-    Visible = True
-    Caption = "Criação / Edição de Tipos"
-    Font = "Standard"
   end
   begin Button
     Name = btnCancelar
@@ -239,6 +212,45 @@ begin Form
         Shortcut = ""
       end
     end
+  end
+  begin Picture
+    Name = picEdicaoCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 10
+    Top = 20
+    Anchors = 0
+    Visible = True
+    Image = "FormsEdicao"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = lblCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 37
+    Top = 19
+    Anchors = 0
+    Visible = True
+    Caption = "Edição de Tipos"
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = Label5
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 36
+    Top = 33
+    Anchors = 0
+    Visible = True
+    Caption = "Criação / Edição de Tipos"
+    Font = "Standard"
   end
 end
 ' VeículoZ - Controle de Veículos

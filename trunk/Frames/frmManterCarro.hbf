@@ -179,8 +179,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 3
-    Top = 17
+    Left = 10
+    Top = 20
     Anchors = 0
     Visible = True
     Image = "FormsEdicao"
@@ -194,7 +194,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 39
+    Left = 37
     Top = 19
     Anchors = 0
     Visible = True
@@ -206,7 +206,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 38
+    Left = 36
     Top = 33
     Anchors = 0
     Visible = True

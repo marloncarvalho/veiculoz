@@ -29,6 +29,10 @@ end
 
 Private DbTipo As New pvHbTiposCombustiveis
 
+Public Property Get Database() As pvHbTiposCombustiveis
+	Set Database = DbTipo
+End Property
+
 'Construtor.
 Private Sub Initialize()
 	Try

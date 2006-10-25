@@ -19,28 +19,13 @@ begin Form
   InitialFocus = ""
   BottomLeft = ""
   Locked = False
-  begin Picture
-    Name = Picture1
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 64
-    Top = 26
-    Anchors = 0
-    Visible = True
-    Image = "ImagemAplicacao"
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
-  end
   begin Label
     Name = Label1
     Index = 0
     Layer = 0
     Tag = ""
     Left = 39
-    Top = 80
+    Top = 20
     Anchors = 0
     Visible = True
     Caption = "Controle de Veículos"
@@ -52,7 +37,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 6
-    Top = 92
+    Top = 32
     Anchors = 0
     Visible = True
     Caption = "Contatos: marlon@silvacarvalho.net"

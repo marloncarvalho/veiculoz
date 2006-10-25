@@ -20,53 +20,38 @@ begin Form
   BottomLeft = ""
   Locked = False
   begin Label
-    Name = Label4
+    Name = Label8
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 34
-    Top = 18
+    Left = 3
+    Top = 128
     Anchors = 0
     Visible = True
-    Caption = "Postos Cadastrados"
-    Font = "LargeBold"
-  end
-  begin Label
-    Name = Label5
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 35
-    Top = 31
-    Anchors = 0
-    Visible = True
-    Caption = "Lista de Postos"
+    Caption = "_____________________________________"
     Font = "Standard"
   end
-  begin Picture
-    Name = Picture1
+  begin Label
+    Name = Label7
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 6
-    Top = 19
+    Left = 4
+    Top = 50
     Anchors = 0
     Visible = True
-    Image = "FormsListagem"
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
+    Caption = "_____________________________________"
+    Font = "Standard"
   end
   begin GridEx
     Name = gridPostos
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 3
-    Top = 57
+    Left = 4
+    Top = 60
     Width = 144
-    Height = 79
+    Height = 75
     Anchors = 0
     Visible = True
     Columns = "AgBpAQUAOQBPAAsAAAAAAAAAAAAoAAMABQA5ADIACwAAAAAAAAAAACgAAwA="
@@ -83,8 +68,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 3
-    Top = 46
+    Left = 4
+    Top = 48
     Anchors = 0
     Visible = True
     Caption = "Nome"
@@ -96,7 +81,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 83
-    Top = 46
+    Top = 48
     Anchors = 0
     Visible = True
     Caption = "Distribuidora"
@@ -108,54 +93,14 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 149
-    Top = 53
+    Top = 57
     Width = 7
-    Height = 88
+    Height = 82
     Anchors = 0
     Visible = True
     Min = 0
     Max = 100
     LargeChange = 10
-  end
-  begin Button
-    Name = btnNovo
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 32
-    Top = 143
-    Width = 42
-    Height = 12
-    Anchors = 0
-    Visible = True
-    Text = "Novo"
-    Font = "Standard"
-    Frame = 1
-    Repeating = False
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
-  end
-  begin Button
-    Name = btnVoltar
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 84
-    Top = 143
-    Width = 44
-    Height = 12
-    Anchors = 0
-    Visible = True
-    Text = "Voltar"
-    Font = "Standard"
-    Frame = 1
-    Repeating = False
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
   end
   begin MenuBar
     begin MenuTitle
@@ -242,6 +187,105 @@ begin Form
       end
     end
   end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 19
+    Anchors = 0
+    Visible = True
+    Image = "FormsListagem"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 34
+    Top = 17
+    Anchors = 0
+    Visible = True
+    Caption = "Cadastro de Postos"
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = lblSubtitulo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 33
+    Top = 30
+    Anchors = 1
+    Visible = True
+    Caption = "20 Posto(s) Cadastrado(s)"
+    Font = "Standard"
+  end
+  begin Button
+    Name = btnNovo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 143
+    Width = 31
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Novo"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnVoltar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 40
+    Top = 143
+    Width = 31
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Voltar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnSair
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 121
+    Top = 143
+    Width = 31
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Sair"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
@@ -267,6 +311,7 @@ Private Sub Form_Load()
 	For Each Posto In Colecao
 		Call gridPostos.AddItem(Posto.Id)
 	Next
+	Me.lblSubtitulo.Caption = Colecao.Count & " Posto(s) Cadastrado(s)"
 End Sub
 
 
@@ -298,4 +343,9 @@ End Sub
 Private Sub btnVoltar_Click()
 	Dim frm As New frmMain
 	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub btnSair_Click()
+	Dim app As new clsApplication
+	app.Quit
 End Sub

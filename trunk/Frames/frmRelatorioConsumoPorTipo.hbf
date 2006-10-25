@@ -19,6 +19,18 @@ begin Form
   InitialFocus = ""
   BottomLeft = ""
   Locked = False
+  begin Label
+    Name = Label11
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 57
+    Anchors = 0
+    Visible = True
+    Caption = "____________________________________"
+    Font = "Standard"
+  end
   begin Scrollbar
     Name = scroll
     Index = 0
@@ -33,26 +45,6 @@ begin Form
     Min = 0
     Max = 100
     LargeChange = 10
-  end
-  begin GridEx
-    Name = gridAbastecimentos
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 4
-    Top = 66
-    Width = 144
-    Height = 70
-    Anchors = 0
-    Visible = True
-    Columns = "AgB0AQUAOQBkAAsAAAAAAAAAAAAoAAMABQA5ACgACwAAAAAAAAAAACgAAwA="
-    SelectionMode = 1
-    VertScroll = "scroll"
-    HorzScroll = ""
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
   end
   begin Label
     Name = Label6
@@ -77,21 +69,6 @@ begin Form
     Visible = True
     Caption = "Tipo"
     Font = "Bold"
-  end
-  begin Picture
-    Name = Picture1
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 10
-    Top = 23
-    Anchors = 0
-    Visible = True
-    Image = "Relatorio"
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
   end
   begin Button
     Name = btnPesquisar
@@ -319,7 +296,53 @@ begin Form
       end
     end
   end
-
+  begin Label
+    Name = Label12
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 126
+    Anchors = 0
+    Visible = True
+    Caption = "____________________________________"
+    Font = "Standard"
+  end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 7
+    Top = 23
+    Anchors = 0
+    Visible = True
+    Image = "Relatorio"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin GridEx
+    Name = gridAbastecimentos
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 67
+    Width = 144
+    Height = 67
+    Anchors = 0
+    Visible = True
+    Columns = "AgB0AQUAOQBkAAsAAAAAAAAAAAAoAAMABQA5ACgACwAAAAAAAAAAACgAAwA="
+    SelectionMode = 1
+    VertScroll = "scroll"
+    HorzScroll = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
@@ -337,8 +360,12 @@ end
 ' You should have received a copy of the GNU Lesser General Public
 ' License along with this library; if not, write to the Free Software
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+Dim DbTiposC As pvHbTiposCombustiveis
+Dim DbCarros As pvHbCarros
 
 Private Sub Form_Load()
+	Set DbTiposC = Factory.ObterDaoTipoCombustivel().Database()
+	Set DbCarros = FActory.ObterDaoCarro().Database()
 	DbCarros.MoveFirst
 	While Not DbCarros.EOF
 		Me.popCarros.AddItem DbCarros.Modelo,DbCarros.UniqueID

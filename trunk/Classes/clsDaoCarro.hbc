@@ -29,6 +29,10 @@ end
 
 Private DbCar As New pvHbCarros
 
+Public Property Get Database() As pvHbCarros
+	Set Database = DbCar
+End Property
+
 'Construtor.
 Private Sub Initialize()
   Dim e as Integer

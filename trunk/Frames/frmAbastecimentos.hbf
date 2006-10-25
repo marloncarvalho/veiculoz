@@ -20,43 +20,16 @@ begin Form
   BottomLeft = ""
   Locked = False
   begin Label
-    Name = Label4
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 34
-    Top = 16
-    Anchors = 0
-    Visible = True
-    Caption = "Abastecimentos"
-    Font = "LargeBold"
-  end
-  begin Label
-    Name = Label5
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 35
-    Top = 29
-    Anchors = 0
-    Visible = True
-    Caption = "Últimos Abastecimentos"
-    Font = "Standard"
-  end
-  begin Picture
-    Name = Picture1
+    Name = Label7
     Index = 0
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 17
+    Top = 50
     Anchors = 0
     Visible = True
-    Image = "FormsListagem"
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
+    Caption = "_____________________________________"
+    Font = "Standard"
   end
   begin GridEx
     Name = gridAbastecimentos
@@ -84,7 +57,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 50
+    Top = 47
     Anchors = 0
     Visible = True
     Caption = "Posto"
@@ -96,46 +69,11 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 81
-    Top = 50
+    Top = 47
     Anchors = 0
     Visible = True
     Caption = "Total"
     Font = "Bold"
-  end
-  begin Scrollbar
-    Name = scroll
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 149
-    Top = 57
-    Width = 7
-    Height = 88
-    Anchors = 0
-    Visible = True
-    Min = 0
-    Max = 100
-    LargeChange = 10
-  end
-  begin Button
-    Name = btnNovo
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 33
-    Top = 143
-    Width = 42
-    Height = 12
-    Anchors = 0
-    Visible = True
-    Text = "Novo"
-    Font = "Standard"
-    Frame = 1
-    Repeating = False
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
   end
   begin Label
     Name = Label6
@@ -143,31 +81,11 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 122
-    Top = 50
+    Top = 47
     Anchors = 0
     Visible = True
     Caption = "Litro"
     Font = "Bold"
-  end
-  begin Button
-    Name = btnVoltar
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 83
-    Top = 143
-    Width = 44
-    Height = 12
-    Anchors = 0
-    Visible = True
-    Text = "Voltar"
-    Font = "Standard"
-    Frame = 1
-    Repeating = False
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
   end
   begin MenuBar
     begin MenuTitle
@@ -254,6 +172,132 @@ begin Form
       end
     end
   end
+  begin Label
+    Name = Label8
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 2
+    Top = 128
+    Anchors = 0
+    Visible = True
+    Caption = "_____________________________________"
+    Font = "Standard"
+  end
+  begin Scrollbar
+    Name = scroll
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 150
+    Top = 59
+    Width = 7
+    Height = 80
+    Anchors = 0
+    Visible = True
+    Min = 0
+    Max = 100
+    LargeChange = 10
+  end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 19
+    Anchors = 0
+    Visible = True
+    Image = "FormsListagem"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 34
+    Top = 17
+    Anchors = 0
+    Visible = True
+    Caption = "Cadastro de Abastec."
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = lblSubtitulo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 33
+    Top = 30
+    Anchors = 1
+    Visible = True
+    Caption = "20 Abastecimento(s)"
+    Font = "Standard"
+  end
+  begin Button
+    Name = btnNovo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 143
+    Width = 31
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Novo"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnVoltar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 40
+    Top = 143
+    Width = 31
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Voltar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnSair
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 121
+    Top = 143
+    Width = 31
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Sair"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
@@ -307,9 +351,15 @@ Private Sub Form_Load()
 	For Each Abs In Colecao
 		Me.gridAbastecimentos.AddItem(Abs.Id)
 	Next
+	Me.lblSubtitulo.Caption = Colecao.Count & " Abastecimento(s)"
 End Sub
 
 Private Sub btnVoltar_Click()
 	Dim frm As New frmMain
 	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub btnSair_Click()
+	Dim app As new clsApplication
+	app.Quit
 End Sub

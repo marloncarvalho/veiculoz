@@ -19,13 +19,37 @@ begin Form
   InitialFocus = ""
   BottomLeft = ""
   Locked = False
+  begin Label
+    Name = Label12
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 115
+    Anchors = 0
+    Visible = True
+    Caption = "____________________________________"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label11
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 57
+    Anchors = 0
+    Visible = True
+    Caption = "____________________________________"
+    Font = "Standard"
+  end
   begin Scrollbar
     Name = scroll
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 150
-    Top = 62
+    Left = 149
+    Top = 65
     Width = 7
     Height = 60
     Anchors = 0
@@ -40,7 +64,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 4
-    Top = 66
+    Top = 67
     Width = 144
     Height = 57
     Anchors = 0
@@ -60,7 +84,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 123
-    Top = 55
+    Top = 54
     Anchors = 0
     Visible = True
     Caption = "Litro"
@@ -72,7 +96,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 82
-    Top = 55
+    Top = 54
     Anchors = 0
     Visible = True
     Caption = "Total"
@@ -84,34 +108,19 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 4
-    Top = 55
+    Top = 54
     Anchors = 0
     Visible = True
     Caption = "Posto"
     Font = "Bold"
-  end
-  begin Picture
-    Name = Picture1
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 10
-    Top = 23
-    Anchors = 0
-    Visible = True
-    Image = "Relatorio"
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
   end
   begin Label
     Name = Label8
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 36
-    Top = 126
+    Left = 3
+    Top = 127
     Anchors = 0
     Visible = True
     Caption = "Total Gastos:"
@@ -122,8 +131,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 109
-    Top = 126
+    Left = 76
+    Top = 127
     Anchors = 0
     Visible = True
     Caption = "                    "
@@ -355,7 +364,21 @@ begin Form
       end
     end
   end
-
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 7
+    Top = 23
+    Anchors = 0
+    Visible = True
+    Image = "Relatorio"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
@@ -373,13 +396,16 @@ end
 ' You should have received a copy of the GNU Lesser General Public
 ' License along with this library; if not, write to the Free Software
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+Dim DbAbaste As pvHbAbastecimentos
+Dim DbPostos As pvHbPostos
 
 Private Sub Form_Load()
-	DbCarros.MoveFirst
-	While Not DbCarros.EOF
-		Me.popCarros.AddItem DbCarros.Modelo,DbCarros.UniqueID
-		DbCarros.MoveNext
-	Wend
+	Set DbAbaste = Factory.ObterDaoAbastecimento().Database()
+	Set DbPostos = Factory.ObterDaoPosto().Database()
+	Dim Carro As clsCarro
+	For Each Carro In Factory.ObterDaoCarro().ObterCarros()
+		Me.popCarros.AddItem Carro.Modelo, Carro.Id
+	Next
 	Me.slcDataInicial.Date = Now()
 	Me.slcDataFinal.Date = Now()
 End Sub

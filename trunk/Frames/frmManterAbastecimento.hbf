@@ -20,12 +20,24 @@ begin Form
   BottomLeft = ""
   Locked = False
   begin Label
+    Name = Label13
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 2
+    Top = 38
+    Anchors = 0
+    Visible = True
+    Caption = "_______________________________________"
+    Font = "Standard"
+  end
+  begin Label
     Name = Label1
     Index = 0
     Layer = 0
     Tag = ""
     Left = 6
-    Top = 48
+    Top = 50
     Anchors = 0
     Visible = True
     Caption = "Data:"
@@ -37,7 +49,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 89
-    Top = 48
+    Top = 50
     Anchors = 0
     Visible = True
     Caption = "Hora:"
@@ -49,7 +61,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 11
-    Top = 64
+    Top = 66
     Anchors = 0
     Visible = True
     Caption = "Tipo:"
@@ -60,7 +72,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 13
+    Left = 8
     Top = 118
     Anchors = 0
     Visible = True
@@ -72,7 +84,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 42
+    Left = 37
     Top = 127
     Width = 37
     Height = 12
@@ -112,45 +124,6 @@ begin Form
     Above = ""
     Below = ""
   end
-  begin Picture
-    Name = picEdicaoCarros
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 11
-    Top = 18
-    Anchors = 0
-    Visible = True
-    Image = "FormsEdicao"
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
-  end
-  begin Label
-    Name = lblCarros
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 38
-    Top = 17
-    Anchors = 0
-    Visible = True
-    Caption = "Abastecimento"
-    Font = "LargeBold"
-  end
-  begin Label
-    Name = Label5
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 37
-    Top = 31
-    Anchors = 0
-    Visible = True
-    Caption = "Criação / Edição de Abastec."
-    Font = "Standard"
-  end
   begin Button
     Name = btnCancelar
     Index = 0
@@ -176,7 +149,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 85
+    Left = 80
     Top = 129
     Anchors = 0
     Visible = True
@@ -188,7 +161,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 110
+    Left = 105
     Top = 127
     Width = 40
     Height = 12
@@ -214,7 +187,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 6
-    Top = 77
+    Top = 78
     Anchors = 0
     Visible = True
     Caption = "Posto:"
@@ -226,7 +199,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 32
-    Top = 49
+    Top = 51
     Width = 40
     Height = 12
     Anchors = 0
@@ -248,7 +221,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 113
-    Top = 48
+    Top = 51
     Width = 40
     Height = 12
     Anchors = 0
@@ -270,7 +243,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 32
-    Top = 64
+    Top = 66
     Width = 116
     Height = 12
     Anchors = 0
@@ -290,7 +263,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 19
+    Left = 14
     Top = 129
     Anchors = 0
     Visible = True
@@ -303,7 +276,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 32
-    Top = 77
+    Top = 78
     Width = 96
     Height = 12
     Anchors = 0
@@ -356,7 +329,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 12
+    Left = 7
     Top = 92
     Anchors = 0
     Visible = True
@@ -368,7 +341,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 17
+    Left = 12
     Top = 104
     Anchors = 0
     Visible = True
@@ -380,7 +353,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 41
+    Left = 36
     Top = 102
     Width = 38
     Height = 12
@@ -405,7 +378,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 89
+    Left = 84
     Top = 104
     Anchors = 0
     Visible = True
@@ -417,7 +390,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 110
+    Left = 105
     Top = 102
     Width = 39
     Height = 12
@@ -541,6 +514,45 @@ begin Form
         Shortcut = ""
       end
     end
+  end
+  begin Picture
+    Name = picEdicaoCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 10
+    Top = 20
+    Anchors = 0
+    Visible = True
+    Image = "FormsEdicao"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = lblCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 37
+    Top = 19
+    Anchors = 0
+    Visible = True
+    Caption = "Edição de Abastec."
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = Label5
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 36
+    Top = 33
+    Anchors = 0
+    Visible = True
+    Caption = "Criação / Edição de Abast."
+    Font = "Standard"
   end
 end
 ' VeículoZ - Controle de Veículos
