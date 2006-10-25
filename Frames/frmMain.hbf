@@ -25,7 +25,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 23
-    Top = 57
+    Top = 56
     Anchors = 0
     Visible = True
     Image = "ImagemTelaPrincipal"
@@ -40,7 +40,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 27
-    Top = 22
+    Top = 20
     Anchors = 0
     Visible = True
     Caption = "Controle de Veículos"
@@ -59,27 +59,15 @@ begin Form
     Font = "Standard"
   end
   begin Label
-    Name = Label4
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 21
-    Top = 136
-    Anchors = 0
-    Visible = True
-    Caption = "Este software é Open Source"
-    Font = "Standard"
-  end
-  begin Label
     Name = Label5
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 52
+    Left = 53
     Top = 147
     Anchors = 0
     Visible = True
-    Caption = "Licença LGPL "
+    Caption = "Licença LGPL"
     Font = "Standard"
   end
   begin Label
@@ -88,7 +76,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 27
-    Top = 119
+    Top = 135
     Anchors = 0
     Visible = True
     Caption = "Versão 0.1 Build 20060922"
@@ -100,7 +88,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 22
-    Top = 33
+    Top = 31
     Anchors = 0
     Visible = True
     Caption = "palmsoftwares.blogspot.com"
@@ -211,6 +199,6 @@ end
 
 
 Private Sub Form_Paint()
-	Versao = "1.0 Build 20061014"
+	Versao = "1.1 Build 20061024"
 	Me.lblVersao.Caption = "Versão " & Versao
 End Sub

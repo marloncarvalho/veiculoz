@@ -19,40 +19,32 @@ begin Form
   InitialFocus = ""
   BottomLeft = ""
   Locked = False
+  begin Label
+    Name = Label11
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 57
+    Anchors = 0
+    Visible = True
+    Caption = "____________________________________"
+    Font = "Standard"
+  end
   begin Scrollbar
     Name = scroll
     Index = 0
     Layer = 0
     Tag = ""
     Left = 150
-    Top = 62
+    Top = 63
     Width = 7
-    Height = 60
+    Height = 63
     Anchors = 0
     Visible = True
     Min = 0
     Max = 100
     LargeChange = 10
-  end
-  begin GridEx
-    Name = gridAbastecimentos
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 4
-    Top = 66
-    Width = 144
-    Height = 57
-    Anchors = 0
-    Visible = True
-    Columns = "AgB0AQUAOQBkAAsAAAAAAAAAAAAoAAMABQA5ACgACwAAAAAAAAAAACgAAwA="
-    SelectionMode = 1
-    VertScroll = "scroll"
-    HorzScroll = ""
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
   end
   begin Label
     Name = Label6
@@ -83,7 +75,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 10
+    Left = 7
     Top = 23
     Anchors = 0
     Visible = True
@@ -98,7 +90,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 9
+    Left = 4
     Top = 126
     Anchors = 0
     Visible = True
@@ -110,7 +102,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 90
+    Left = 87
     Top = 126
     Anchors = 0
     Visible = True
@@ -244,7 +236,7 @@ begin Form
     Tag = ""
     Left = 66
     Top = 17
-    Width = 85
+    Width = 79
     Height = 12
     Anchors = 0
     Visible = True
@@ -343,6 +335,38 @@ begin Form
       end
     end
   end
+  begin Label
+    Name = Label12
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 114
+    Anchors = 0
+    Visible = True
+    Caption = "____________________________________"
+    Font = "Standard"
+  end
+  begin GridEx
+    Name = gridAbastecimentos
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 67
+    Width = 146
+    Height = 56
+    Anchors = 0
+    Visible = True
+    Columns = "AgB0AQUAOQBkAAsAAAAAAAAAAAAoAAMABQA5ACgACwAAAAAAAAAAACgAAwA="
+    SelectionMode = 1
+    VertScroll = "scroll"
+    HorzScroll = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
@@ -361,7 +385,12 @@ end
 ' License along with this library; if not, write to the Free Software
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
+Dim DbAbaste As pvHbAbastecimentos
+Dim DbPostos As pvHbPostos
+
 Private Sub Form_Load()
+	Set DbAbaste = Factory.ObterDaoAbastecimento().Database()
+	Set DbPostos = Factory.ObterDaoPosto().Database()
 	Dim Carro As clsCarro
 	For Each Carro In Factory.ObterDaoCarro().ObterCarros()
 		Me.popCarros.AddItem Carro.Modelo, Carro.Id
@@ -377,7 +406,7 @@ Private Sub btnPesquisar_Click()
 	Else
 		Sql = ""
 	End If
-	DbAbaste.OpenRecordset " KmFinal <> 0 AND Data>='" & CStr(Me.slcDataInicial.Date) & "' AND Data<='" & CStr(Me.slcDataFinal.Date) & "'" & Sql,hbModeOpenAlways
+	DbAbaste.OpenRecordset "KmFinal <> '' And KmFinal <> 0 AND Data>='" & CStr(Me.slcDataInicial.Date) & "' AND Data<='" & CStr(Me.slcDataFinal.Date) & "'" & Sql,hbModeOpenAlways
 
 	Dim Total As Double
 	Dim Count As Integer

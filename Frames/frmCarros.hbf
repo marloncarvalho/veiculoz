@@ -69,9 +69,9 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 150
-    Top = 56
+    Top = 58
     Width = 7
-    Height = 85
+    Height = 80
     Anchors = 0
     Visible = True
     Min = 0
@@ -139,8 +139,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 3
-    Top = 17
+    Left = 5
+    Top = 19
     Anchors = 0
     Visible = True
     Image = "FormsListagem"
@@ -158,7 +158,7 @@ begin Form
     Top = 17
     Anchors = 0
     Visible = True
-    Caption = "Carros Cadastrados"
+    Caption = "Cadastro de Carros"
     Font = "LargeBold"
   end
   begin Label
@@ -278,41 +278,8 @@ begin Form
     Above = ""
     Below = ""
   end
-  begin Popup
-    Name = popFiltro
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 102
-    Top = 1
-    Width = 51
-    Height = 12
-    Anchors = 0
-    Visible = True
-    Text = "selecione"
-    Font = "Standard"
-    VisibleItems = 3
-    AnchorLeft = True
-    Sorted = 0
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
-  end
-  begin Label
-    Name = Label8
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 74
-    Top = 1
-    Anchors = 0
-    Visible = True
-    Caption = "Filtrar:"
-    Font = "Standard"
-  end
   begin Button
-    Name = btnVoltar1
+    Name = btnSair
     Index = 0
     Layer = 0
     Tag = ""
@@ -368,9 +335,6 @@ Private Sub Form_Load()
 		Call gridCarros.AddItem(Carro.Id)
 	Next
 	Me.lblSubtitulo.Caption = Total & " Carro(s) Cadastrado(s)"
-	Me.popFiltro.AddItem "Todos"
-	Me.popFiltro.AddItem "Última Semana"
-	Me.popFiltro.AddItem "Hoje"
 End Sub
 
 
@@ -394,4 +358,9 @@ End Sub
 Private Sub btnVoltar_Click()
 	Dim frm As New frmMain
 	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub btnSair_Click()
+	Dim app As new clsApplication
+	app.Quit
 End Sub

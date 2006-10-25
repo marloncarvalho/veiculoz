@@ -29,6 +29,10 @@ end
 
 Private Db As New pvHbPostos
 
+Public Property Get Database() As pvHbPostos
+	Set Database = Db
+End Property
+
 'Construtor.
 Private Sub Initialize()
   Dim e as Integer
