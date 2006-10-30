@@ -201,7 +201,7 @@ begin Form
     Tag = ""
     Left = 47
     Top = 83
-    Width = 36
+    Width = 58
     Height = 12
     Anchors = 0
     Visible = True
@@ -475,7 +475,7 @@ Private Sub Button1_Click()
 	Kms = 0
 	IdPosto = -1
 	IdTipo = -1
-	Db.OpenRecordset "IdCarro=" & me.Popup1.ItemData(me.Popup1.ListIndex),hbModeOpenAlways+hbModeReadOnly
+	Db.OpenRecordset "KmFinal<>'' And IdCarro=" & me.Popup1.ItemData(me.Popup1.ListIndex),hbModeOpenAlways+hbModeReadOnly
 	While Not Db.EOF
 		Dim dConsumo As Double
 		Dim dKmRodados As Double
@@ -524,10 +524,10 @@ End Sub
 
 
 Private Sub Form_Load()
-	Dim ColecaoPostos As Collection
-	Dim Posto As clsPosto
-	Set ColecaoPostos = Factory.ObterDaoPosto().ObterPostos()
-	For Each Posto In ColecaoPostos
-		Me.Popup1.AddItem Posto.Nome,Posto.Id
+	Dim ColecaoCarros As Collection
+	Dim Carro As clsCarro
+	Set ColecaoCarros = Factory.ObterDaoCarro().ObterCarros()
+	For Each Carro In ColecaoCarros
+		Me.Popup1.AddItem Carro.Modelo,Carro.Id
 	Next
 End Sub

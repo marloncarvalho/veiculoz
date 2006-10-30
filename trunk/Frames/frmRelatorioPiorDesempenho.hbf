@@ -201,7 +201,7 @@ begin Form
     Tag = ""
     Left = 47
     Top = 83
-    Width = 36
+    Width = 58
     Height = 12
     Anchors = 0
     Visible = True

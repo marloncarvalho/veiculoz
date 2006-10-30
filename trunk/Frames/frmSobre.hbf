@@ -19,61 +19,13 @@ begin Form
   InitialFocus = ""
   BottomLeft = ""
   Locked = False
-  begin Label
-    Name = Label1
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 39
-    Top = 20
-    Anchors = 0
-    Visible = True
-    Caption = "Controle de Veículos"
-    Font = "Standard"
-  end
-  begin Label
-    Name = Label2
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 6
-    Top = 32
-    Anchors = 0
-    Visible = True
-    Caption = "Contatos: marlon@silvacarvalho.net"
-    Font = "Standard"
-  end
-  begin Label
-    Name = Label3
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 54
-    Top = 130
-    Anchors = 0
-    Visible = True
-    Caption = "Licença LGPL"
-    Font = "Standard"
-  end
-  begin Label
-    Name = Label4
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 21
-    Top = 142
-    Anchors = 0
-    Visible = True
-    Caption = "palmsoftwares.blogspot.com"
-    Font = "Standard"
-  end
   begin Button
     Name = btnOk
     Index = 0
     Layer = 0
     Tag = ""
     Left = 60
-    Top = 111
+    Top = 116
     Width = 40
     Height = 12
     Anchors = 0
@@ -171,6 +123,69 @@ begin Form
         Shortcut = ""
       end
     end
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 27
+    Top = 20
+    Anchors = 0
+    Visible = True
+    Caption = "Controle de Veículos"
+    Font = "Bold"
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 22
+    Top = 31
+    Anchors = 0
+    Visible = True
+    Caption = "palmsoftwares.blogspot.com"
+    Font = "Standard"
+  end
+  begin Label
+    Name = lblVersao
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 27
+    Top = 135
+    Anchors = 0
+    Visible = True
+    Caption = "Versão 0.1 Build 20060922"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label5
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 53
+    Top = 147
+    Anchors = 0
+    Visible = True
+    Caption = "Licença LGPL"
+    Font = "Standard"
+  end
+  begin Picture
+    Name = picPrincipal
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 23
+    Top = 56
+    Anchors = 0
+    Visible = True
+    Image = "ImagemTelaPrincipal"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
   end
 end
 ' VeículoZ - Controle de Veículos
