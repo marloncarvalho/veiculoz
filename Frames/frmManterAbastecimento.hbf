@@ -25,7 +25,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 2
-    Top = 38
+    Top = 34
     Anchors = 0
     Visible = True
     Caption = "_______________________________________"
@@ -36,8 +36,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 6
-    Top = 50
+    Left = 7
+    Top = 49
     Anchors = 0
     Visible = True
     Caption = "Data:"
@@ -48,8 +48,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 89
-    Top = 50
+    Left = 90
+    Top = 49
     Anchors = 0
     Visible = True
     Caption = "Hora:"
@@ -60,8 +60,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 11
-    Top = 66
+    Left = 9
+    Top = 63
     Anchors = 0
     Visible = True
     Caption = "Tipo:"
@@ -72,11 +72,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 8
-    Top = 118
+    Left = 83
+    Top = 89
     Anchors = 0
     Visible = True
-    Caption = "Valores"
+    Caption = "Valores (R$)"
     Font = "Bold"
   end
   begin Field
@@ -84,16 +84,16 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 37
-    Top = 127
-    Width = 37
+    Left = 117
+    Top = 98
+    Width = 40
     Height = 12
     Anchors = 0
     Visible = True
     Font = "Standard"
     Underline = True
     SingleLine = True
-    Align = 0
+    Align = 2
     Editable = True
     AutoShift = True
     Numeric = False
@@ -110,7 +110,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 15
-    Top = 145
+    Top = 144
     Width = 40
     Height = 12
     Anchors = 0
@@ -130,7 +130,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 60
-    Top = 145
+    Top = 144
     Width = 40
     Height = 12
     Anchors = 0
@@ -149,11 +149,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 80
-    Top = 129
+    Left = 78
+    Top = 113
     Anchors = 0
     Visible = True
-    Caption = "Total:"
+    Caption = "Vlr Total:"
     Font = "Standard"
   end
   begin Field
@@ -161,8 +161,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 105
-    Top = 127
+    Left = 117
+    Top = 111
     Width = 40
     Height = 12
     Anchors = 0
@@ -170,7 +170,7 @@ begin Form
     Font = "Standard"
     Underline = True
     SingleLine = True
-    Align = 0
+    Align = 2
     Editable = True
     AutoShift = True
     Numeric = False
@@ -186,8 +186,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 6
-    Top = 78
+    Left = 4
+    Top = 76
     Anchors = 0
     Visible = True
     Caption = "Posto:"
@@ -198,8 +198,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 32
-    Top = 51
+    Left = 31
+    Top = 48
     Width = 40
     Height = 12
     Anchors = 0
@@ -221,7 +221,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 113
-    Top = 51
+    Top = 48
     Width = 40
     Height = 12
     Anchors = 0
@@ -242,8 +242,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 32
-    Top = 66
+    Left = 30
+    Top = 63
     Width = 116
     Height = 12
     Anchors = 0
@@ -263,11 +263,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 14
-    Top = 129
+    Left = 77
+    Top = 100
     Anchors = 0
     Visible = True
-    Caption = "Litro:"
+    Caption = "Prc. Litro:"
     Font = "Standard"
   end
   begin Popup
@@ -275,9 +275,9 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 32
-    Top = 78
-    Width = 96
+    Left = 30
+    Top = 76
+    Width = 113
     Height = 12
     Anchors = 0
     Visible = True
@@ -330,7 +330,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 7
-    Top = 92
+    Top = 89
     Anchors = 0
     Visible = True
     Caption = "Odômetro"
@@ -341,11 +341,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 12
-    Top = 104
+    Left = 3
+    Top = 101
     Anchors = 0
     Visible = True
-    Caption = "Inicial:"
+    Caption = "(I)nicial:"
     Font = "Standard"
   end
   begin Field
@@ -353,19 +353,19 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 36
-    Top = 102
-    Width = 38
+    Left = 35
+    Top = 99
+    Width = 36
     Height = 12
     Anchors = 0
     Visible = True
     Font = "Standard"
     Underline = True
     SingleLine = True
-    Align = 0
+    Align = 2
     Editable = True
     AutoShift = True
-    Numeric = False
+    Numeric = True
     MaxChar = 80
     Scrollbar = ""
     NavFlags = 0
@@ -378,11 +378,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 84
-    Top = 104
+    Left = 3
+    Top = 113
     Anchors = 0
     Visible = True
-    Caption = "Final:"
+    Caption = "(F)inal:"
     Font = "Standard"
   end
   begin Field
@@ -390,19 +390,19 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 105
-    Top = 102
-    Width = 39
+    Left = 31
+    Top = 111
+    Width = 40
     Height = 12
     Anchors = 0
     Visible = True
     Font = "Standard"
     Underline = True
     SingleLine = True
-    Align = 0
+    Align = 2
     Editable = False
     AutoShift = True
-    Numeric = False
+    Numeric = True
     MaxChar = 80
     Scrollbar = ""
     NavFlags = 0
@@ -416,7 +416,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 105
-    Top = 145
+    Top = 144
     Width = 40
     Height = 12
     Anchors = 0
@@ -521,7 +521,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 10
-    Top = 20
+    Top = 17
     Anchors = 0
     Visible = True
     Image = "FormsEdicao"
@@ -536,7 +536,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 37
-    Top = 19
+    Top = 16
     Anchors = 0
     Visible = True
     Caption = "Edição de Abastec."
@@ -548,11 +548,85 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 36
-    Top = 33
+    Top = 30
     Anchors = 0
     Visible = True
     Caption = "Criação / Edição de Abast."
     Font = "Standard"
+  end
+  begin Label
+    Name = Label14
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 79
+    Top = 125
+    Anchors = 0
+    Visible = True
+    Caption = "Qtd Ltrs:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label15
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 125
+    Anchors = 0
+    Visible = True
+    Caption = "(F-I):"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldLitros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 117
+    Top = 123
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 2
+    Editable = False
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Field
+    Name = fldDiferenca
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 23
+    Top = 123
+    Width = 48
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 2
+    Editable = False
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
   end
 end
 ' VeículoZ - Controle de Veículos
@@ -760,6 +834,10 @@ Private Sub Form_Load()
 		Me.fldKmFinal.Text = Abs.KmFinal
 		Me.fldValorLitro.Text = CStr(Abs.ValorLitro)
 		Me.fldValorTotal.Text = CStr(Abs.ValorTotal)
+		If Abs.KmFinal <> "" Then
+			Me.fldDiferenca.Text = CStr(CLng(Abs.KmFinal)-CLng(Abs.KmInicial)) & " Kms"
+		End If
+		Call Me.CalculaTotalLitros()
 	Else
 		Me.slcData.Date = Now()
 	End If
@@ -810,4 +888,25 @@ Private Sub btnExcluir_Click()
 	End If
 	Me.Excluir
 	Me.btnCancelar_Click
+End Sub
+
+Private Sub fldValorLitro_Change()
+	Call CalculaTotalLitros()
+End Sub
+
+
+Private Sub fldValorTotal_Change()
+	Call CalculaTotalLitros()
+End Sub
+
+Private Sub CalculaTotalLitros()
+	Dim valorTotal As Double
+	Dim valorLitro As Double
+	If Me.fldValorLitro.Text <> "" Then
+		valorLitro = CDbl(Me.fldValorLitro.Text)
+	End If
+	If Me.fldValorTotal.Text <> "" Then
+		valorTotal = CDbl(Me.fldValorTotal.Text)
+	End If
+	Me.fldLitros.Text = Mid(Cstr(valorTotal/valorLitro),1,5) & " Lts"
 End Sub

@@ -344,6 +344,7 @@ begin Form
     Below = ""
   end
 end
+
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
 '
@@ -360,6 +361,7 @@ end
 ' You should have received a copy of the GNU Lesser General Public
 ' License along with this library; if not, write to the Free Software
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
 Dim DbTiposC As pvHbTiposCombustiveis
 Dim DbCarros As pvHbCarros
 
@@ -395,7 +397,7 @@ Private Sub gridAbastecimentos_LoadItem(ByVal iRow As Integer, ByVal lItemData A
 	Count = 0
 	DbTiposC.LookupUniqueID lItemData
 
-	Sql = "KmFinal<>0 And IdTipoComb = " & CStr(DbTiposC.UniqueID)
+	Sql = "KmFinal<>0 And KmFinal<>'' And IdTipoComb = " & CStr(DbTiposC.UniqueID)
 	Sql = Sql & " AND IdCarro=" & Me.popCarros.ItemData(Me.popCarros.ListIndex)
 	If Not IsEmpty(Me.slcDataInicial.Date) Then
 		Sql = Sql & " AND Data>='" & CStr(Me.slcDataInicial.Date) & "'"
