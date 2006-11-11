@@ -38,8 +38,8 @@ begin Project
   File = "Classes\\clsHandleMenu.hbc"
   begin Configuration
     Name = Debug
-    Title = "Veículoz"
-    Version = "2.0"
+    Title = "VeículoZ"
+    Version = "1.1.0.1 Build 20061111"
     Icon = "IconeAplicacao"
     SmallIcon = "IconeAplicacao"
     MinOSVersion = 30
@@ -61,7 +61,7 @@ begin Project
   begin Configuration
     Name = Release
     Title = "VeículoZ"
-    Version = "1.1"
+    Version = "1.1.0.1 Build 20061111"
     Icon = "IconeAplicacao"
     SmallIcon = "IconeAplicacao"
     MinOSVersion = 30
@@ -84,7 +84,7 @@ begin Project
     Name = pvHbCarros
     Creator = "*"
     Type = "DATA"
-    Backup = False
+    Backup = True
     Bundled = False
     PDB = 0
     Filename = "Databases/pvHbCarros.hbx"
@@ -113,7 +113,7 @@ begin Project
     Name = pvHbPostos
     Creator = "*"
     Type = "DATA"
-    Backup = False
+    Backup = True
     Bundled = False
     PDB = 0
     Filename = "Databases\\pvHbPostos.hbx"
@@ -122,7 +122,7 @@ begin Project
     Name = pvHbAbastecimentos
     Creator = "*"
     Type = "DATA"
-    Backup = False
+    Backup = True
     Bundled = False
     PDB = 0
     Filename = "Databases\\pvHbAbastecimento.hbx"
@@ -131,7 +131,7 @@ begin Project
     Name = pvHbTiposCombustiveis
     Creator = "*"
     Type = "DATA"
-    Backup = False
+    Backup = True
     Bundled = False
     PDB = 0
     Filename = "Databases\\pvHbTiposCombustiveis.hbx"

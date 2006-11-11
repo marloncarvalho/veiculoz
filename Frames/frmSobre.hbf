@@ -24,8 +24,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 60
-    Top = 116
+    Left = 61
+    Top = 141
     Width = 40
     Height = 12
     Anchors = 0
@@ -148,37 +148,13 @@ begin Form
     Caption = "palmsoftwares.blogspot.com"
     Font = "Standard"
   end
-  begin Label
-    Name = lblVersao
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 27
-    Top = 135
-    Anchors = 0
-    Visible = True
-    Caption = "Versão 0.1 Build 20060922"
-    Font = "Standard"
-  end
-  begin Label
-    Name = Label5
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 53
-    Top = 147
-    Anchors = 0
-    Visible = True
-    Caption = "Licença LGPL"
-    Font = "Standard"
-  end
   begin Picture
     Name = picPrincipal
     Index = 0
     Layer = 0
     Tag = ""
     Left = 23
-    Top = 56
+    Top = 50
     Anchors = 0
     Visible = True
     Image = "ImagemTelaPrincipal"
@@ -186,6 +162,30 @@ begin Form
     NavOrder = ""
     Above = ""
     Below = ""
+  end
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 107
+    Anchors = 0
+    Visible = True
+    Caption = "Desenvolvido por Marlon S. Carvalho"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label5
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 1
+    Top = 118
+    Anchors = 0
+    Visible = True
+    Caption = "http://www.gnu.org/licenses/lgpl.html"
+    Font = "Standard"
   end
 end
 ' VeículoZ - Controle de Veículos
