@@ -75,11 +75,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 27
+    Left = 20
     Top = 135
     Anchors = 0
     Visible = True
-    Caption = "Versão 0.1 Build 20060922"
+    Caption = "Versão 1.1.0.1 Build 20060922"
     Font = "Standard"
   end
   begin Label
@@ -199,6 +199,6 @@ end
 
 
 Private Sub Form_Paint()
-	Versao = "1.1 Build 20061024"
+	Versao = "1.1.0.1 Build 20061111"
 	Me.lblVersao.Caption = "Versão " & Versao
 End Sub
