@@ -1,0 +1,169 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsDaoAbastecimento
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Private Db As New pvHbAbastecimentos
+
+Public Property Get Database() As pvHbAbastecimentos
+	Set Database = Db
+End Property
+
+'Construtor.
+Private Sub Initialize()
+  Dim e as Integer
+	Try
+	  Db.OpenRecordset "Category>=0 Order By Data Desc", hbModeOpenExisting+hbModeReadWrite
+	Catch
+		If Err.Number = 43 Then
+			Db.OpenRecordset "Category>=0 Order By Data Desc", hbModeCreateAlways+hbModeReadWrite
+		End If
+	End Catch
+End Sub
+
+'Atualizar ou Incluir Carros
+'
+'@Param Carro. Carro a ser atualizado ou incluído.
+Public Sub ManterAbastecimento(Abs As clsAbastecimento)
+	If Not IsEmpty(Abs.Id) And Abs.Id <> 0 Then
+		Db.LookupUniqueID Abs.Id
+		Db.Edit
+	Else
+		Db.AddNew
+	End If
+	Db.Data = Abs.Data
+	Db.Hora = Abs.Hora
+	Db.IdCarro = Abs.IdCarro
+	Db.IdPosto = Abs.IdPosto
+	Db.IdTipoComb = Abs.IdTipoCombustivel
+	Db.KmFinal = Abs.KmFinal
+	Db.KmInicial = Abs.KmInicial
+	Db.ValorLitro = Abs.ValorLitro
+	Db.ValorTotal = Abs.ValorTotal
+	Db.Update
+End Sub
+
+' Localizar um Carro.
+'
+' @Returns Carro Encontrado.
+Public Function ObterAbastecimento(ByVal Id As Long) As clsAbastecimento
+	If Id <> 0 Then
+		Db.LookupUniqueID Id
+		Set ObterAbastecimento = CriarAbastecimento(Db)
+	Else
+		Set ObterAbastecimento = Nothing
+	End If
+End Function
+
+Public Sub ExcluirAbastecimento(Id As Long)
+	Db.LookupUniqueID Id
+	Db.Delete(hbRecordRemove)
+	Db.Update
+End Sub
+
+Private Function CriarAbastecimento(ByRef Db As pvHbAbastecimentos) As clsAbastecimento
+	Dim Abs As New clsAbastecimento
+	Abs.Id = Db.UniqueID
+	Abs.Data = Db.Data
+	Abs.Hora = Db.Hora
+	Abs.IdCarro = Db.IdCarro
+	Abs.IdPosto = Db.IdPosto
+	Abs.IdTipoCombustivel = Db.IdTipoComb
+	Abs.KmFinal = Db.KmFinal
+	Abs.KmInicial = Db.KmInicial
+	Abs.ValorLitro = Db.ValorLitro
+	Abs.ValorTotal = Db.ValorTotal
+	Set CriarAbastecimento = Abs
+End Function
+
+' Obter a lista de carros cadastrados.
+'
+' @Returns Coleção de Carros.
+Public Function ObterAbastecimentos(OrderBy As String) As Collection
+	Dim Colecao As New Collection
+	Dim Abs As clsAbastecimento
+	If OrderBy = "" Then
+		Db.OpenRecordset "Category>=0 Order By Data Desc, Hora Desc", hbModeOpenExisting+hbModeReadWrite
+	Else
+		Db.OpenRecordset "Category>=0 Order By " & OrderBy, hbModeOpenExisting+hbModeReadWrite
+		Call Db.MoveFirst()
+	End If
+	While Not Db.EOF
+		Set Abs = CriarAbastecimento(Db)
+		Call Colecao.Add(Abs,Abs.Id)
+		Call Db.MoveNext()
+	Wend
+	Db.OpenRecordset "Category>=0 Order By Data Asc", hbModeOpenExisting+hbModeReadWrite
+	Set ObterAbastecimentos = Colecao
+End Function
+
+' Obter a lista de carros cadastrados.
+'
+' @Returns Coleção de Carros.
+Public Function ObterAbastecimentosPorCarro(IdCarro As Long,OrderBy As String) As Collection
+	Dim Colecao As New Collection
+	If OrderBy = "" Then
+		Call Db.MoveFirst()
+	Else
+		Db.OpenRecordset "IdCarro=" & IdCarro & " And Category>=0 Order By " & OrderBy, hbModeOpenExisting+hbModeReadWrite
+		Call Db.MoveFirst()
+	End If
+	While Not Db.EOF
+		Dim Abs As clsAbastecimento
+		Set Abs = Me.CriarAbastecimento(Db)
+		Call Colecao.Add(Abs,Abs.Id)
+		Call Db.MoveNext()
+	Wend
+	Db.OpenRecordset "Category>=0 Order By Data Asc", hbModeOpenExisting+hbModeReadWrite
+	Set ObterAbastecimentosPorCarro = Colecao
+End Function
+
+' Obter a lista de carros cadastrados.
+'
+' @Returns Coleção de Carros.
+Public Function ObterAbastecimentoAnterior(Id As Long, IdCarro As Long,Data As String) As clsAbastecimento
+	Db.OpenRecordset "IdCarro=" & IdCarro & " And Data<='" & Data & "' And UniqueID<>" & Id & " ORDER BY Data Desc, Hora Desc",hbModeReadWrite
+	Set ObterAbastecimentoAnterior = Nothing
+	If Db.RecordCount > 0 Then
+		Db.MoveFirst
+		Set ObterAbastecimentoAnterior = CriarAbastecimento(Db)
+	End If
+	Db.OpenRecordset "Category>=0 Order By Data Asc", hbModeOpenExisting+hbModeReadWrite
+End Function
+
+' Obter a lista de carros cadastrados.
+'
+' @Returns Coleção de Carros.
+Public Function ObterAbastecimentoPosterior(Id As Long, IdCarro As Long,Data As String) As clsAbastecimento
+	Db.OpenRecordset "IdCarro=" & IdCarro & " And Data>='" & Data & "' And UniqueID<>" & Id & " ORDER BY Data Asc, Hora Asc",hbModeReadWrite
+	Set ObterAbastecimentoPosterior = Nothing
+	If Db.RecordCount > 0 Then
+		Db.MoveFirst
+		Set ObterAbastecimentoPosterior = CriarAbastecimento(Db)
+	End If
+	Db.OpenRecordset "Category>=0 Order By Data Asc", hbModeOpenExisting+hbModeReadWrite
+End Function

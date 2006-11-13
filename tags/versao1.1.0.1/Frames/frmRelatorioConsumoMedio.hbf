@@ -1,0 +1,456 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmRelatorioConsumoMedio
+  Segment = main
+  Extends = clsHandleMenu
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Consumo Médio"
+  Modal = False
+  Help = ""
+  DIA = 1
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = Label11
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 57
+    Anchors = 0
+    Visible = True
+    Caption = "____________________________________"
+    Font = "Standard"
+  end
+  begin Scrollbar
+    Name = scroll
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 150
+    Top = 63
+    Width = 7
+    Height = 63
+    Anchors = 0
+    Visible = True
+    Min = 0
+    Max = 100
+    LargeChange = 10
+  end
+  begin Label
+    Name = Label6
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 104
+    Top = 55
+    Anchors = 0
+    Visible = True
+    Caption = "Consumo"
+    Font = "Bold"
+  end
+  begin Label
+    Name = Label7
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 55
+    Anchors = 0
+    Visible = True
+    Caption = "Posto"
+    Font = "Bold"
+  end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 7
+    Top = 23
+    Anchors = 0
+    Visible = True
+    Image = "Relatorio"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label8
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 126
+    Anchors = 0
+    Visible = True
+    Caption = "Consumo Médio:"
+    Font = "Bold"
+  end
+  begin Label
+    Name = lblTotal
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 87
+    Top = 126
+    Anchors = 0
+    Visible = True
+    Caption = "                    "
+    Font = "Standard"
+  end
+  begin Button
+    Name = btnPesquisar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 35
+    Top = 144
+    Width = 42
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Pesquisar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 40
+    Top = 28
+    Anchors = 0
+    Visible = True
+    Caption = "Data Inicial"
+    Font = "Standard"
+  end
+  begin Selector
+    Name = slcDataInicial
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 41
+    Top = 40
+    Width = 45
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Data"
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 1
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label9
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 101
+    Top = 28
+    Anchors = 0
+    Visible = True
+    Caption = "Data Final"
+    Font = "Standard"
+  end
+  begin Selector
+    Name = slcDataFinal
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 102
+    Top = 40
+    Width = 46
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Data"
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 1
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = Button1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 83
+    Top = 144
+    Width = 42
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Voltar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label10
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 40
+    Top = 17
+    Anchors = 0
+    Visible = True
+    Caption = "Carro:"
+    Font = "Standard"
+  end
+  begin Popup
+    Name = popCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 66
+    Top = 17
+    Width = 79
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Selecione"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin MenuBar
+    begin MenuTitle
+      Caption = "Cadastro"
+      begin MenuItem
+        Name = mnuAbastecimentos
+        Index = 0
+        Caption = "Abastecimentos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuNovoCarro
+        Index = 0
+        Caption = "Carros"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuPosto
+        Index = 0
+        Caption = "Postos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuTiposCombustivel
+        Index = 0
+        Caption = "Tipos Combustível"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuSair
+        Index = 0
+        Caption = "Sair"
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Relatórios"
+      begin MenuItem
+        Name = mnuRelDespesas
+        Index = 0
+        Caption = "Despesas"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelConsumoMedio
+        Index = 0
+        Caption = "Consumo Médio"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelMelhorDesempenho
+        Index = 0
+        Caption = "Melhor Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelPiorDesempenho
+        Index = 0
+        Caption = "Pior Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuGastosPorPosto
+        Index = 0
+        Caption = "Gastos Por Posto"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuConsumoTipoComb
+        Index = 0
+        Caption = "Consumo por Tipo Comb."
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Ajuda"
+      begin MenuItem
+        Name = mnuSobre
+        Index = 0
+        Caption = "Sobre"
+        Shortcut = ""
+      end
+    end
+  end
+  begin Label
+    Name = Label12
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 114
+    Anchors = 0
+    Visible = True
+    Caption = "____________________________________"
+    Font = "Standard"
+  end
+  begin GridEx
+    Name = gridAbastecimentos
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 67
+    Width = 146
+    Height = 56
+    Anchors = 0
+    Visible = True
+    Columns = "AgB0AQUAOQBkAAsAAAAAAAAAAAAoAAMABQA5ACgACwAAAAAAAAAAACgAAwA="
+    SelectionMode = 1
+    VertScroll = "scroll"
+    HorzScroll = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Dim DbAbaste As pvHbAbastecimentos
+Dim DbPostos As pvHbPostos
+
+Private Sub Form_Load()
+	Set DbAbaste = Factory.ObterDaoAbastecimento().Database()
+	Set DbPostos = Factory.ObterDaoPosto().Database()
+	Dim Carro As clsCarro
+	For Each Carro In Factory.ObterDaoCarro().ObterCarros()
+		Me.popCarros.AddItem Carro.Modelo, Carro.Id
+	Next
+	Me.slcDataInicial.Date = Now()
+	Me.slcDataFinal.Date = Now()
+End Sub
+
+Private Sub btnPesquisar_Click()
+	Dim Sql As String
+	If Me.popCarros.ListIndex>=0 Then
+		Sql = " AND IdCarro=" & Me.popCarros.ItemData(Me.popCarros.ListIndex)
+	Else
+		Sql = ""
+	End If
+	DbAbaste.OpenRecordset "KmFinal <> '' And KmFinal <> 0 AND Data>='" & CStr(Me.slcDataInicial.Date) & "' AND Data<='" & CStr(Me.slcDataFinal.Date) & "'" & Sql,hbModeOpenAlways
+
+	Dim Total As Double
+	Dim Count As Integer
+	Count = 0
+	Total = 0
+	While Not DbAbaste.EOF
+		Dim KmRodados As Double
+		Dim Consumo As Double
+		Dim Litros As Double
+		Count = Count + 1
+		KmRodados =  CDbl(DbAbaste.KmFinal)-CDbl(DbAbaste.KmInicial)
+		Litros = DbAbaste.ValorTotal / DbAbaste.ValorLitro
+		Total = Total + (KmRodados/Litros)
+		DbAbaste.MoveNext
+	Wend
+	Dim ValorFinal As Double
+	If Total = 0.0 Then
+		ValorFinal = 0
+	Else
+		ValorFinal = Total/Count
+	End If
+	DbAbaste.MoveFirst
+	Me.lblTotal.Caption = Mid(CStr(ValorFinal),1,8) & " Km/L"
+	Me.gridAbastecimentos.Populate DbAbaste
+End Sub
+
+
+Private Sub gridAbastecimentos_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
+	DbAbaste.LookupUniqueID lItemData
+	DbPostos.LookupUniqueID dbAbaste.IdPosto
+	vValue(0) = DbPostos.Nome
+	Dim Total As Double
+	Total = 0
+	Dim KmRodados As Double
+	Dim Consumo As Double
+	Dim Litros As Double
+	KmRodados = CDbl(DbAbaste.KmFinal)-CDbl(DbAbaste.KmInicial)
+	Litros = DbAbaste.ValorTotal / DbAbaste.ValorLitro
+	Total = Total + (KmRodados/Litros)
+	vValue(1) = Mid(CStr(Total),1,6)
+End Sub
+
+
+Private Sub Button1_Click()
+	Dim frm As New frmMain
+	frm.Show hbFormModeless+hbFormGoto
+End Sub

@@ -1,0 +1,366 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmCarros
+  Segment = main
+  Extends = clsHandleMenu
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Carros"
+  Modal = False
+  Help = ""
+  DIA = 1
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = Label7
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 128
+    Anchors = 0
+    Visible = True
+    Caption = "_____________________________________"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label6
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 50
+    Anchors = 0
+    Visible = True
+    Caption = "_____________________________________"
+    Font = "Standard"
+  end
+  begin GridEx
+    Name = gridCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 60
+    Width = 144
+    Height = 75
+    Anchors = 0
+    Visible = True
+    Columns = "AwDoAQUAOQAyAAsAAAAAAAAAAAAoAAMABQA5ACgACwAAAAAAAAAAACgAAwAFADkAMgALAAAAAAAAAAAAKAADAA=="
+    SelectionMode = 1
+    VertScroll = "scroll"
+    HorzScroll = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Scrollbar
+    Name = scroll
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 150
+    Top = 58
+    Width = 7
+    Height = 80
+    Anchors = 0
+    Visible = True
+    Min = 0
+    Max = 100
+    LargeChange = 10
+  end
+  begin Button
+    Name = btnNovoCarro
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 143
+    Width = 31
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Novo"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 47
+    Anchors = 0
+    Visible = True
+    Caption = "Modelo"
+    Font = "Bold"
+  end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 56
+    Top = 47
+    Anchors = 0
+    Visible = True
+    Caption = "Placa"
+    Font = "Bold"
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 98
+    Top = 47
+    Anchors = 0
+    Visible = True
+    Caption = "Marca"
+    Font = "Bold"
+  end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 19
+    Anchors = 0
+    Visible = True
+    Image = "FormsListagem"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 34
+    Top = 17
+    Anchors = 0
+    Visible = True
+    Caption = "Cadastro de Carros"
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = lblSubtitulo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 33
+    Top = 30
+    Anchors = 1
+    Visible = True
+    Caption = "20 Carro(s) Cadastrado(s)"
+    Font = "Standard"
+  end
+  begin MenuBar
+    begin MenuTitle
+      Caption = "Cadastro"
+      begin MenuItem
+        Name = mnuAbastecimentos
+        Index = 0
+        Caption = "Abastecimentos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuNovoCarro
+        Index = 0
+        Caption = "Carros"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuPosto
+        Index = 0
+        Caption = "Postos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuTiposCombustivel
+        Index = 0
+        Caption = "Tipos Combustível"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuSair
+        Index = 0
+        Caption = "Sair"
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Relatórios"
+      begin MenuItem
+        Name = mnuRelDespesas
+        Index = 0
+        Caption = "Despesas"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelConsumoMedio
+        Index = 0
+        Caption = "Consumo Médio"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelMelhorDesempenho
+        Index = 0
+        Caption = "Melhor Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelPiorDesempenho
+        Index = 0
+        Caption = "Pior Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuGastosPorPosto
+        Index = 0
+        Caption = "Gastos Por Posto"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuConsumoTipoComb
+        Index = 0
+        Caption = "Consumo por Tipo Comb."
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Ajuda"
+      begin MenuItem
+        Name = mnuSobre
+        Index = 0
+        Caption = "Sobre"
+        Shortcut = ""
+      end
+    end
+  end
+  begin Button
+    Name = btnVoltar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 40
+    Top = 143
+    Width = 31
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Voltar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnSair
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 121
+    Top = 143
+    Width = 31
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Sair"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Private Sub gridCarros_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
+	Dim Carro As clsCarro
+	Set Carro = Factory.ObterDaoCarro().ObterCarro(lItemData)
+	vValue(0) = Carro.Modelo
+	vValue(1) = Carro.Placa
+	vValue(2) = Carro.Marca
+End Sub
+
+
+Private Sub Form_Load()
+	Dim Colecao As Collection
+	Dim Carro As clsCarro
+	Dim Total As Integer
+	Total = Factory.ObterDaoCarro().TotalCarros()
+	Set Colecao = Factory.ObterDaoCarro().ObterCarros()
+	For Each Carro In Colecao
+		Call gridCarros.AddItem(Carro.Id)
+	Next
+	Me.lblSubtitulo.Caption = Total & " Carro(s) Cadastrado(s)"
+End Sub
+
+
+Private Sub btnNovoCarro_Click()
+	Dim frm As New frmManterCarro
+	frm.bNew = True
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+
+Private Sub gridCarros_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
+	Dim Carro As clsCarro
+	Set Carro = Factory.ObterDaoCarro().ObterCarro(lItemData)
+	Dim frm As New frmManterCarro
+	frm.bNew = False
+	frm.IdEdicao = Carro.Id
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+
+Private Sub btnVoltar_Click()
+	Dim frm As New frmMain
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub btnSair_Click()
+	Dim app As new clsApplication
+	app.Quit
+End Sub

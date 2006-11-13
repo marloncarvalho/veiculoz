@@ -1,0 +1,118 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsDaoPosto
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Private Db As New pvHbPostos
+
+Public Property Get Database() As pvHbPostos
+	Set Database = Db
+End Property
+
+'Construtor.
+Private Sub Initialize()
+  Dim e as Integer
+	Try
+	  Db.OpenRecordset "Category>=0 Order By Nome Asc", hbModeOpenExisting+hbModeReadWrite
+	Catch
+		If Err.Number = 43 Then
+			Db.OpenRecordset "Category>=0 Order By Nome Asc", hbModeCreateAlways+hbModeReadWrite
+		End If
+	End Catch
+End Sub
+
+' Obter a lista de postos cadastrados.
+'
+' @Returns Coleção de Carros.
+Public Function ObterPostos() As Collection
+	Dim Colecao As New Collection
+	Call Db.MoveFirst()
+	While Not Db.EOF
+		Dim Posto As New clsPosto
+		Set Posto = CriarPosto(Db)
+		Colecao.Add(Posto)
+		Call Db.MoveNext()
+	Wend
+	Set ObterPostos = Colecao
+End Function
+
+'Atualizar ou Incluir Postos
+'
+'@Param Posto. Posto a ser atualizado ou incluído.
+Public Sub ManterPosto(Posto As clsPosto)
+	If Not IsEmpty(Posto.Id) And Posto.Id <> 0 Then
+		Db.LookupUniqueID Posto.Id
+		Db.Edit
+	Else
+		Db.AddNew
+	End If
+	Db.Bairro = Posto.Bairro
+	Db.Cidade = Posto.Cidade
+	Db.Distribuidora = Posto.Distribuidora
+	Db.Estado = Posto.Estado
+	Db.Nome = Posto.Nome
+	Db.Rua = Posto.Rua
+	Db.Update
+End Sub
+
+' Localizar um Posto.
+'
+' @Returns Posto Encontrado.
+Public Function ObterPosto(ByVal Id As Long) As clsPosto
+	Db.LookupUniqueID Id
+	Set ObterPosto = CriarPosto(Db)
+End Function
+
+' Excluir um Posto.
+'
+Public Sub ExcluirPosto(Id As Long)
+	Dim DbA As New pvHbAbastecimentos
+	DbA.OpenRecordset "IdPosto="&	Id,hbModeOpenAlways+hbModeReadOnly
+	If DbA.RecordCount > 0 Then
+		DbA.Close
+		Err.Raise 100,"Posto não pode ser excluído, pois existem abastecimentos."
+	End If
+	DbA.Close
+	Db.LookupUniqueID Id
+	Db.Delete(hbRecordRemove)
+	Db.Update
+End Sub
+
+' Criar uma instância de Posto, extraindo as informações do Banco DbPosto.
+'
+' @Returns Posto
+Private Function CriarPosto(ByRef DbPosto As pvHbPostos) As clsPosto
+	Dim Posto As New clsPosto
+	Posto.Bairro = DbPosto.Bairro
+	Posto.Cidade = DbPosto.Cidade
+	Posto.Distribuidora = DbPosto.Distribuidora
+	Posto.Estado = DbPosto.Estado
+	Posto.Id = DbPosto.UniqueID
+	Posto.Nome = DbPosto.Nome
+	Posto.Rua = DbPosto.Rua
+	Set CriarPosto = Posto
+End Function

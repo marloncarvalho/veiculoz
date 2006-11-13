@@ -1,0 +1,912 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmManterAbastecimento
+  Segment = main
+  Extends = clsHandleMenu
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Abastecimento"
+  Modal = False
+  Help = ""
+  DIA = 1
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = Label13
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 2
+    Top = 34
+    Anchors = 0
+    Visible = True
+    Caption = "_______________________________________"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 7
+    Top = 49
+    Anchors = 0
+    Visible = True
+    Caption = "Data:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 90
+    Top = 49
+    Anchors = 0
+    Visible = True
+    Caption = "Hora:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 9
+    Top = 63
+    Anchors = 0
+    Visible = True
+    Caption = "Tipo:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 83
+    Top = 89
+    Anchors = 0
+    Visible = True
+    Caption = "Valores (R$)"
+    Font = "Bold"
+  end
+  begin Field
+    Name = fldValorLitro
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 117
+    Top = 98
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 2
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnOk
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 15
+    Top = 144
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "OK"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnCancelar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 60
+    Top = 144
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Cancelar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label6
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 78
+    Top = 113
+    Anchors = 0
+    Visible = True
+    Caption = "Vlr Total:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldValorTotal
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 117
+    Top = 111
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 2
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label7
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 76
+    Anchors = 0
+    Visible = True
+    Caption = "Posto:"
+    Font = "Standard"
+  end
+  begin Selector
+    Name = slcData
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 31
+    Top = 48
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Data"
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 1
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Selector
+    Name = slcHora
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 113
+    Top = 48
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Hora"
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 2
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Popup
+    Name = popTipo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 30
+    Top = 63
+    Width = 116
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Tipo de Combustível"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label8
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 77
+    Top = 100
+    Anchors = 0
+    Visible = True
+    Caption = "Prc. Litro:"
+    Font = "Standard"
+  end
+  begin Popup
+    Name = popPosto
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 30
+    Top = 76
+    Width = 113
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Posto"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label9
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 85
+    Top = 1
+    Anchors = 0
+    Visible = True
+    Caption = "Carro:"
+    Font = "Standard"
+  end
+  begin Popup
+    Name = popCarro
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 110
+    Top = 1
+    Width = 49
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Carro"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label10
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 7
+    Top = 89
+    Anchors = 0
+    Visible = True
+    Caption = "Odômetro"
+    Font = "Bold"
+  end
+  begin Label
+    Name = Label11
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 101
+    Anchors = 0
+    Visible = True
+    Caption = "(I)nicial:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldKmInicial
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 35
+    Top = 99
+    Width = 36
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 2
+    Editable = True
+    AutoShift = True
+    Numeric = True
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label12
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 113
+    Anchors = 0
+    Visible = True
+    Caption = "(F)inal:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldKmFinal
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 31
+    Top = 111
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 2
+    Editable = False
+    AutoShift = True
+    Numeric = True
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnExcluir
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 105
+    Top = 144
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Excluir"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin MenuBar
+    begin MenuTitle
+      Caption = "Cadastro"
+      begin MenuItem
+        Name = mnuAbastecimentos
+        Index = 0
+        Caption = "Abastecimentos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuNovoCarro
+        Index = 0
+        Caption = "Carros"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuPosto
+        Index = 0
+        Caption = "Postos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuTiposCombustivel
+        Index = 0
+        Caption = "Tipos Combustível"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuSair
+        Index = 0
+        Caption = "Sair"
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Relatórios"
+      begin MenuItem
+        Name = mnuRelDespesas
+        Index = 0
+        Caption = "Despesas"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelConsumoMedio
+        Index = 0
+        Caption = "Consumo Médio"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelMelhorDesempenho
+        Index = 0
+        Caption = "Melhor Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelPiorDesempenho
+        Index = 0
+        Caption = "Pior Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuGastosPorPosto
+        Index = 0
+        Caption = "Gastos Por Posto"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuConsumoTipoComb
+        Index = 0
+        Caption = "Consumo por Tipo Comb."
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Ajuda"
+      begin MenuItem
+        Name = mnuSobre
+        Index = 0
+        Caption = "Sobre"
+        Shortcut = ""
+      end
+    end
+  end
+  begin Picture
+    Name = picEdicaoCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 10
+    Top = 17
+    Anchors = 0
+    Visible = True
+    Image = "FormsEdicao"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = lblCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 37
+    Top = 16
+    Anchors = 0
+    Visible = True
+    Caption = "Edição de Abastec."
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = Label5
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 36
+    Top = 30
+    Anchors = 0
+    Visible = True
+    Caption = "Criação / Edição de Abast."
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label14
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 79
+    Top = 125
+    Anchors = 0
+    Visible = True
+    Caption = "Qtd Ltrs:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label15
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 125
+    Anchors = 0
+    Visible = True
+    Caption = "(F-I):"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldLitros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 117
+    Top = 123
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 2
+    Editable = False
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Field
+    Name = fldDiferenca
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 23
+    Top = 123
+    Width = 48
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 2
+    Editable = False
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Public bNew as Boolean
+Public KmInicialPosterior As Double
+Public UniqueIDAnterior As Long
+Public TemAnterior As Boolean
+Public TemPosterior As Boolean
+Public IdEdicao As Long
+
+Private Function ValidarEdicao() As Boolean
+	Dim Abs As clsAbastecimento
+	Dim ID As Long
+	Dim IdCarro As Long
+	Dim Data As String
+	Dim KmAntigo As Double
+	Dim KmNovo As Double
+	Dim Hora As Long
+
+	Me.TemAnterior = False
+	Me.TemPosterior = False
+
+	KmNovo 	= CDbl(Me.fldKmInicial.Text)
+	If Me.bNew Then
+		ID = -1000
+	Else
+		ID = Me.IdEdicao
+	End If
+	Data 		= CStr(Me.slcData.Date)
+	IdCarro = Me.popCarro.ItemData(Me.popCarro.ListIndex)
+
+	Dim Ok As Boolean
+	Ok = False
+
+	Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimentoAnterior(ID,IdCarro,Data)
+	If Not Abs Is Nothing Then
+
+		If DateEquals(Abs.Data,Me.slcData.Date) Then
+			ValidarEdicao = False
+			Exit Function
+		End If
+
+		Me.UniqueIDAnterior = Abs.Id
+		Me.TemAnterior = True
+		KmAntigo = CDbl(Abs.KmInicial)
+		If KmNovo <= KmAntigo Then
+			ValidarEdicao = False
+			Exit Function
+		End If
+	End If
+
+	Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimentoPosterior(ID,IdCarro,Data)
+	If Not Abs Is Nothing Then
+
+		If DateEquals(Abs.Data,Me.slcData.Date) Then
+			ValidarEdicao = False
+			Exit Function
+		End If
+
+		KmAntigo = CDbl(Abs.KmInicial)
+		Me.KmInicialPosterior = KmAntigo
+		Me.TemPosterior = True
+		If KmNovo >= KmAntigo Then
+			ValidarEdicao = False
+			Exit Function
+		End If
+	End If
+	ValidarEdicao = True
+End Function
+
+Private Sub btnOk_Click()
+
+	'Guardar o ID, pois a função ValidarEdicao modifica a posição do recordset.
+	Dim Id As Long
+	Dim Abs As New clsAbastecimento
+
+	Dim Km As String
+
+	' Verificar os Campos.
+	If Me.Validar() Then
+
+		'Verificar se pode incluir na data definida pelo usuário.DbAbaste.RecordCount > 0 And
+		If Me.ValidarEdicao() Then
+			If Not Me.bNew Then
+				Factory.ObterDaoAbastecimento().ExcluirAbastecimento(Me.IdEdicao)
+			End If
+
+			'Existe um abastecimento realizado antes da data deste.
+			If Me.TemAnterior Then
+				Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimento(Me.UniqueIDAnterior)
+				Abs.KmFinal = Me.fldKmInicial.Text
+				Factory.ObterDaoAbastecimento().ManterAbastecimento(Abs)
+			End If
+
+			'Existe um abastecimento realizado após a data deste.
+			If Me.TemPosterior Then
+				Km = CStr(Me.KmInicialPosterior)
+			End If
+
+			Set Abs = New clsAbastecimento
+			Abs.IdCarro = Me.popCarro.ItemData(Me.popCarro.ListIndex)
+			Abs.Data = Me.slcData.Date
+			Abs.Hora = Me.slcHora.Time
+			Abs.IdTipoCombustivel = Me.popTipo.ItemData(Me.popTipo.ListIndex)
+			Abs.IdPosto = Me.popPosto.ItemData(Me.popPosto.ListIndex)
+			Abs.KmInicial = Me.fldKmInicial.Text
+			Abs.KmFinal = Km
+			Abs.ValorLitro = CDbl(Me.fldValorLitro.Text)
+			Abs.ValorTotal = CDbl(Me.fldValorTotal.Text)
+			Factory.ObterDaoAbastecimento().ManterAbastecimento(Abs)
+			Me.btnCancelar_Click
+		Else
+			MsgBox "Edição Não pode ser realizada, pois gera conflitos entre os abastecimentos."
+		End If
+	End If
+End Sub
+
+
+Private Function Validar() As Boolean
+	If Me.popCarro.ListIndex = -1	Then
+		MsgBox "Selecione um Carro."
+		Validar = False
+		Exit Function
+	End If
+	If Me.popPosto.ListIndex = -1 Then
+		MsgBox "Selecione um Posto."
+		Validar = False
+		Exit Function
+	End If
+	If Me.popTipo.ListIndex = -1 Then
+		MsgBox "Selecione um Tipo de Combustível."
+		Validar = False
+		Exit Function
+	End If
+	If Me.fldKmInicial.Text = "" Or Not IsNumeric(Me.fldKmInicial.Text) Then
+		MsgBox "Preencha Corretamente o Campo Km Inicial."
+		Validar = False
+		Exit Function
+	End If
+	If Me.fldValorLitro.Text = "" Or Not IsNumeric(Me.fldValorLitro.Text) Then
+		MsgBox "Preencha Corretamente o Campo Valor do Litro."
+		Validar = False
+		Exit Function
+	End If
+	If Me.fldValorTotal.Text = "" Or Not IsNumeric(Me.fldValorTotal.Text) Then
+		MsgBox "Preencha Corretamente o Campo Valor do Total."
+		Validar = False
+		Exit Function
+	End If
+	Validar = True
+End Function
+
+Private Sub btnCancelar_Click()
+	Dim frm As New frmAbastecimentos
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub Form_Load()
+	Dim ColecaoPostos As Collection
+	Dim Posto As clsPosto
+	Set ColecaoPostos = Factory.ObterDaoPosto().ObterPostos()
+	For Each Posto In ColecaoPostos
+		Me.popPosto.AddItem Posto.Nome,Posto.Id
+	Next
+
+	Dim ColecaoCarros As Collection
+	Dim Carro As clsCarro
+	Set ColecaoCarros = Factory.ObterDaoCarro().ObterCarros()
+	For Each Carro In ColecaoCarros
+		Me.popCarro.AddItem Carro.Modelo,Carro.Id
+	Next
+
+	Dim ColecaoTipos As Collection
+	Dim Tipo As clsTipoCombustivel
+	Set ColecaoTipos = Factory.ObterDaoTipoCombustivel().ObterTiposCombustivel()
+	For Each Tipo In ColecaoTipos
+		Me.popTipo.AddItem Tipo.Nome,Tipo.Id
+	Next
+
+	If Not Me.bNew And Not IsEmpty(Me.IdEdicao) Then
+		Dim Abs As clsAbastecimento
+		Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimento(Me.IdEdicao)
+		Me.slcData.Date = Abs.Data
+		Me.slcHora.Time = Abs.Hora
+		Me.popCarro.ListIndex = Me.popCarro.FindItemData(Abs.IdCarro)
+		Me.popPosto.ListIndex = Me.popPosto.FindItemData(Abs.IdPosto)
+		Me.popTipo.ListIndex = Me.popTipo.FindItemData(Abs.IdTipoCombustivel)
+		Me.fldKmInicial.Text = Abs.KmInicial
+		Me.fldKmFinal.Text = Abs.KmFinal
+		Me.fldValorLitro.Text = CStr(Abs.ValorLitro)
+		Me.fldValorTotal.Text = CStr(Abs.ValorTotal)
+		If Abs.KmFinal <> "" Then
+			Me.fldDiferenca.Text = CStr(CLng(Abs.KmFinal)-CLng(Abs.KmInicial)) & " Kms"
+		End If
+		Call Me.CalculaTotalLitros()
+	Else
+		Me.slcData.Date = Now()
+	End If
+End Sub
+
+Private Sub Excluir()
+	Dim Abs As clsAbastecimento
+	Dim AbsEdicao As clsAbastecimento
+	Dim AbsEdicaoPos As clsAbastecimento
+	Dim Colecao As Collection
+	Dim Index As Integer
+
+	Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimento(Me.IdEdicao)
+	Set Colecao = Factory.ObterDaoAbastecimento().ObterAbastecimentosPorCarro(Abs.IdCarro,"Data Asc, Hora Asc")
+	Index = 1
+
+	If Colecao.Count = 1 Then 'Caso só exista este abastecimento, exclui ele apenas.
+		Factory.ObterDaoAbastecimento().ExcluirAbastecimento(Me.IdEdicao)
+	Else 'Caso Contrário, pode existir abastecimento antes e depois deste.
+		For Each Abs In Colecao
+			If Abs.Id = Me.IdEdicao Then
+				If Index = 1 Then 'Neste caso, este Abastecimento é logo o primeiro da lista. Basta Excluir.
+					Factory.ObterDaoAbastecimento().ExcluirAbastecimento(Me.IdEdicao)
+				Else 'Não é o primeiro da Lista.
+					If Index = Colecao.Count Then 'É o último da lista.
+						Set AbsEdicao = Colecao.Item(Index-1)
+						AbsEdicao.KmFinal = "0"
+						Factory.ObterDaoAbastecimento().ManterAbastecimento(AbsEdicao)
+						Factory.ObterDaoAbastecimento().ExcluirAbastecimento(Me.IdEdicao)
+					Else 'Se não é o primeiro, nem o último, está entre dois abastecimentos.
+						Set AbsEdicao = Colecao.Item(Index-1)
+						Set AbsEdicaoPos = Colecao.Item(Index+1)
+						AbsEdicaoPos.KmInicial = AbsEdicao.KmFinal
+						Factory.ObterDaoAbastecimento().ManterAbastecimento(AbsEdicaoPos)
+						Factory.ObterDaoAbastecimento().ExcluirAbastecimento(Me.IdEdicao)
+					End If
+				End If
+			End If
+			Index = Index + 1
+		Next
+	End If
+End Sub
+
+Private Sub btnExcluir_Click()
+	If Me.bNew Then
+		MsgBox "Não é possível remover um abastecimento ainda não criado."
+		Exit Sub
+	End If
+	Me.Excluir
+	Me.btnCancelar_Click
+End Sub
+
+Private Sub fldValorLitro_Change()
+	Call CalculaTotalLitros()
+End Sub
+
+
+Private Sub fldValorTotal_Change()
+	Call CalculaTotalLitros()
+End Sub
+
+Private Sub CalculaTotalLitros()
+	Dim valorTotal As Double
+	Dim valorLitro As Double
+	If Me.fldValorLitro.Text <> "" Then
+		valorLitro = CDbl(Me.fldValorLitro.Text)
+	End If
+	If Me.fldValorTotal.Text <> "" Then
+		valorTotal = CDbl(Me.fldValorTotal.Text)
+	End If
+	Me.fldLitros.Text = Mid(Cstr(valorTotal/valorLitro),1,5) & " Lts"
+End Sub

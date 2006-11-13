@@ -1,0 +1,522 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmManterPosto
+  Segment = main
+  Extends = clsHandleMenu
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Posto"
+  Modal = False
+  Help = ""
+  DIA = 1
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = Label8
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 2
+    Top = 38
+    Anchors = 0
+    Visible = True
+    Caption = "_______________________________________"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 10
+    Top = 55
+    Anchors = 0
+    Visible = True
+    Caption = "Nome:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldNome
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 38
+    Top = 53
+    Width = 110
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 18
+    Top = 68
+    Anchors = 0
+    Visible = True
+    Caption = "Rua:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldRua
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 38
+    Top = 66
+    Width = 109
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 7
+    Top = 81
+    Anchors = 0
+    Visible = True
+    Caption = "Bairro:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 94
+    Anchors = 0
+    Visible = True
+    Caption = "Estado:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldEstado
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 38
+    Top = 92
+    Width = 46
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnOk
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 16
+    Top = 141
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "OK"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnCancelar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 60
+    Top = 141
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Cancelar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Field
+    Name = fldBairro
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 38
+    Top = 79
+    Width = 96
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label6
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 107
+    Anchors = 0
+    Visible = True
+    Caption = "Cidade:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldCidade
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 37
+    Top = 105
+    Width = 96
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label7
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 120
+    Anchors = 0
+    Visible = True
+    Caption = "Distrib.:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldDistrib
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 38
+    Top = 118
+    Width = 108
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnExcluir
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 104
+    Top = 141
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Excluir"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin MenuBar
+    begin MenuTitle
+      Caption = "Cadastro"
+      begin MenuItem
+        Name = mnuAbastecimentos
+        Index = 0
+        Caption = "Abastecimentos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuNovoCarro
+        Index = 0
+        Caption = "Carros"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuPosto
+        Index = 0
+        Caption = "Postos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuTiposCombustivel
+        Index = 0
+        Caption = "Tipos Combustível"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuSair
+        Index = 0
+        Caption = "Sair"
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Relatórios"
+      begin MenuItem
+        Name = mnuRelDespesas
+        Index = 0
+        Caption = "Despesas"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelConsumoMedio
+        Index = 0
+        Caption = "Consumo Médio"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelMelhorDesempenho
+        Index = 0
+        Caption = "Melhor Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelPiorDesempenho
+        Index = 0
+        Caption = "Pior Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuGastosPorPosto
+        Index = 0
+        Caption = "Gastos Por Posto"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuConsumoTipoComb
+        Index = 0
+        Caption = "Consumo por Tipo Comb."
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Ajuda"
+      begin MenuItem
+        Name = mnuSobre
+        Index = 0
+        Caption = "Sobre"
+        Shortcut = ""
+      end
+    end
+  end
+  begin Picture
+    Name = picEdicaoCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 10
+    Top = 20
+    Anchors = 0
+    Visible = True
+    Image = "FormsEdicao"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = lblCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 37
+    Top = 19
+    Anchors = 0
+    Visible = True
+    Caption = "Edição de Postos"
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = Label5
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 36
+    Top = 33
+    Anchors = 0
+    Visible = True
+    Caption = "Criação / Edição de Postos"
+    Font = "Standard"
+  end
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Public bNew as Boolean
+Public IdEdicao As Long
+
+Private Function Validar() As Boolean
+	If Me.fldNome.Text = "" Then
+		MsgBox "Preencha Corretamente o Campo Nome."
+		Validar = False
+		Exit Function
+	End If
+	If Me.fldDistrib.Text = "" Then
+		MsgBox "Preencha Corretamente o Campo Distribuidora."
+		Validar = False
+		Exit Function
+	End If
+	Validar = True
+End Function
+
+Private Sub btnOk_Click()
+	If Validar() Then
+		Dim Posto As New clsPosto
+		Posto.Id = Me.IdEdicao
+		Posto.Nome = Me.fldNome.Text
+		Posto.Rua = Me.fldRua.Text
+		Posto.Bairro = Me.fldBairro.Text
+		Posto.Estado = Me.fldEstado.Text
+		Posto.Cidade = Me.fldCidade.Text
+		Posto.Distribuidora = Me.fldDistrib.Text
+		Factory.ObterDaoPosto().ManterPosto(Posto)
+		Dim frm As New frmPostos
+		frm.Show hbFormModeless+hbFormGoto
+	End If
+End Sub
+
+
+Private Sub Form_Load()
+	If Not Me.bNew And Not IsEmpty(Me.IdEdicao) Then
+		Dim Posto As clsPosto
+		Set Posto = Factory.ObterDaoPosto().ObterPosto(Me.IdEdicao)
+		Me.fldNome.Text = Posto.Nome
+		Me.fldRua.Text = Posto.Rua
+		Me.fldBairro.Text = Posto.Bairro
+		Me.fldEstado.Text = Posto.Estado
+		Me.fldCidade.Text = Posto.Cidade
+		Me.fldDistrib.Text = Posto.Distribuidora
+	End If
+End Sub
+
+
+Private Sub btnCancelar_Click()
+		Dim frm As New frmPostos
+		frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub btnExcluir_Click()
+	If Not Me.bNew Then
+		Try
+			Factory.ObterDaoPosto().ExcluirPosto(Me.IdEdicao)
+			Me.btnCancelar_Click
+		Catch
+			Err.MsgBox
+		End Catch
+	Else
+		MsgBox "Não é possível excluir um Posto ainda não criado."
+	End If
+End Sub
