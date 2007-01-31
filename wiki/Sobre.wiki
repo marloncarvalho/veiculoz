@@ -1,0 +1,11 @@
+#summary One-sentence summary of this page.
+Sobre o VeículoZ
+
+= Introduction =
+
+O VeículoZ é um software, escrito para Palm, cujo objetivo é realizar o controle de abastecimentos de veículos.
+
+
+= Details =
+Mas já existem outros programas pra Palm que fazem isso!
+É, eu sei. Mas nenhum fornecia as informações que eu precisava. Não me interessa apenas saber o dia que abasteci um carro, mas sim quanto gastei em um período, qual o consumo médio em um período, qual consumo médio em um período quando abasteci com um determinado tipo de combustível, qual o melhor rendimento que o carro teve até o momento, etc... Nenhum dos programas que baixei pela internet me davam estas respostas. :-)
