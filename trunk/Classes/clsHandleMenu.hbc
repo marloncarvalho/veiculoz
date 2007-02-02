@@ -22,6 +22,7 @@ Public mnuRelMelhorDesempenho As MenuItem
 Public mnuConsumoTipoComb As MenuItem
 Public mnuGastosPorPosto As MenuItem
 Public mnuRelPiorDesempenho As MenuItem
+Public mnuGraficoConsumo As MenuItem
 
 Private Sub Initialize()
 End Sub
@@ -29,6 +30,12 @@ End Sub
 Public Sub mnuRelDespesas_Click()
 	Dim frm As New frmRelatorioDespesas
 	frm.show hbFormModeless+hbFormGoto
+End Sub
+
+
+Private Sub mnuGraficoConsumo_Click()
+	Dim frm As New frmGraficoConsumo
+	frm.Show hbFormPopup+hbFormGoto
 End Sub
 
 Public Sub mnuSobre_Click()

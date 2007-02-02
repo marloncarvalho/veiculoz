@@ -51,12 +51,22 @@ Private lng_idcarro As Long
 
 Private lng_idtipo As Long
 
+Private boo_invalido As Boolean
+
 Public Property Get Id() As Long
 	Id = lng_id
 End Property
 
 Public Property Let Id(i As Long)
 	lng_id = i
+End Property
+
+Public Property Get Invalido() As Boolean
+	Invalido = boo_invalido
+End Property
+
+Public Property Let Invalido(i as Boolean)
+	boo_invalido = i
 End Property
 
 Public Property Get IdPosto() As Long

@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmRelatorioGastosPorPosto
-  Segment = main
+  Segment = Formularios
   Extends = clsHandleMenu
   Left = 0
   Top = 0
@@ -384,6 +384,14 @@ begin Form
         Name = mnuConsumoTipoComb
         Index = 0
         Caption = "Consumo por Tipo Comb."
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuGraficoConsumo
+        Index = 0
+        Caption = "Gráfico Consumo"
         Shortcut = ""
       end
     end

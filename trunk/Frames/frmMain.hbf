@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmMain
-  Segment = main
+  Segment = Formularios
   Extends = clsHandleMenu
   Left = 0
   Top = 0
@@ -168,6 +168,14 @@ begin Form
         Caption = "Consumo por Tipo Comb."
         Shortcut = ""
       end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuGraficoConsumo
+        Index = 0
+        Caption = "Gráfico Consumo"
+        Shortcut = ""
+      end
     end
     begin MenuTitle
       Caption = "Ajuda"
@@ -199,6 +207,6 @@ end
 
 
 Private Sub Form_Paint()
-	Versao = "1.1.0.1 Build 20061111"
+	Versao = "1.2 Build 20070201"
 	Me.lblVersao.Caption = "Versão " & Versao
 End Sub

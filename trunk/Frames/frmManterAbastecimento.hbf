@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmManterAbastecimento
-  Segment = main
+  Segment = Formularios
   Extends = clsHandleMenu
   Left = 0
   Top = 0
@@ -20,24 +20,12 @@ begin Form
   BottomLeft = ""
   Locked = False
   begin Label
-    Name = Label13
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 2
-    Top = 34
-    Anchors = 0
-    Visible = True
-    Caption = "_______________________________________"
-    Font = "Standard"
-  end
-  begin Label
     Name = Label1
     Index = 0
     Layer = 0
     Tag = ""
     Left = 7
-    Top = 49
+    Top = 39
     Anchors = 0
     Visible = True
     Caption = "Data:"
@@ -49,7 +37,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 90
-    Top = 49
+    Top = 39
     Anchors = 0
     Visible = True
     Caption = "Hora:"
@@ -61,7 +49,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 9
-    Top = 63
+    Top = 53
     Anchors = 0
     Visible = True
     Caption = "Tipo:"
@@ -73,7 +61,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 83
-    Top = 89
+    Top = 79
     Anchors = 0
     Visible = True
     Caption = "Valores (R$)"
@@ -85,7 +73,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 117
-    Top = 98
+    Top = 88
     Width = 40
     Height = 12
     Anchors = 0
@@ -150,7 +138,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 78
-    Top = 113
+    Top = 103
     Anchors = 0
     Visible = True
     Caption = "Vlr Total:"
@@ -162,7 +150,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 117
-    Top = 111
+    Top = 101
     Width = 40
     Height = 12
     Anchors = 0
@@ -187,7 +175,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 4
-    Top = 76
+    Top = 66
     Anchors = 0
     Visible = True
     Caption = "Posto:"
@@ -199,7 +187,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 31
-    Top = 48
+    Top = 38
     Width = 40
     Height = 12
     Anchors = 0
@@ -221,7 +209,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 113
-    Top = 48
+    Top = 38
     Width = 40
     Height = 12
     Anchors = 0
@@ -243,7 +231,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 30
-    Top = 63
+    Top = 53
     Width = 116
     Height = 12
     Anchors = 0
@@ -264,7 +252,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 77
-    Top = 100
+    Top = 90
     Anchors = 0
     Visible = True
     Caption = "Prc. Litro:"
@@ -276,7 +264,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 30
-    Top = 76
+    Top = 66
     Width = 113
     Height = 12
     Anchors = 0
@@ -330,7 +318,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 7
-    Top = 89
+    Top = 79
     Anchors = 0
     Visible = True
     Caption = "Odômetro"
@@ -342,7 +330,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 101
+    Top = 91
     Anchors = 0
     Visible = True
     Caption = "(I)nicial:"
@@ -354,7 +342,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 35
-    Top = 99
+    Top = 89
     Width = 36
     Height = 12
     Anchors = 0
@@ -379,7 +367,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 113
+    Top = 103
     Anchors = 0
     Visible = True
     Caption = "(F)inal:"
@@ -391,7 +379,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 31
-    Top = 111
+    Top = 101
     Width = 40
     Height = 12
     Anchors = 0
@@ -504,6 +492,14 @@ begin Form
         Caption = "Consumo por Tipo Comb."
         Shortcut = ""
       end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuGraficoConsumo
+        Index = 0
+        Caption = "Gráfico Consumo"
+        Shortcut = ""
+      end
     end
     begin MenuTitle
       Caption = "Ajuda"
@@ -515,52 +511,13 @@ begin Form
       end
     end
   end
-  begin Picture
-    Name = picEdicaoCarros
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 10
-    Top = 17
-    Anchors = 0
-    Visible = True
-    Image = "FormsEdicao"
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
-  end
-  begin Label
-    Name = lblCarros
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 37
-    Top = 16
-    Anchors = 0
-    Visible = True
-    Caption = "Edição de Abastec."
-    Font = "LargeBold"
-  end
-  begin Label
-    Name = Label5
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 36
-    Top = 30
-    Anchors = 0
-    Visible = True
-    Caption = "Criação / Edição de Abast."
-    Font = "Standard"
-  end
   begin Label
     Name = Label14
     Index = 0
     Layer = 0
     Tag = ""
     Left = 79
-    Top = 125
+    Top = 115
     Anchors = 0
     Visible = True
     Caption = "Qtd Ltrs:"
@@ -572,7 +529,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 125
+    Top = 115
     Anchors = 0
     Visible = True
     Caption = "(F-I):"
@@ -584,7 +541,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 117
-    Top = 123
+    Top = 113
     Width = 40
     Height = 12
     Anchors = 0
@@ -609,7 +566,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 23
-    Top = 123
+    Top = 113
     Width = 48
     Height = 12
     Anchors = 0
@@ -623,6 +580,66 @@ begin Form
     Numeric = False
     MaxChar = 80
     Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label13
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 2
+    Top = 25
+    Anchors = 0
+    Visible = True
+    Caption = "_______________________________________"
+    Font = "Standard"
+  end
+  begin Label
+    Name = lblCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 28
+    Top = 18
+    Anchors = 0
+    Visible = True
+    Caption = "Edição de Abastec."
+    Font = "LargeBold"
+  end
+  begin Picture
+    Name = picEdicaoCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 10
+    Top = 17
+    Anchors = 0
+    Visible = True
+    Image = "FormsEdicaoMini"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin CheckBox
+    Name = chkInvalido
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 21
+    Top = 129
+    Width = 127
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Abastecimento Inválido?"
+    Font = "Standard"
+    Value = False
+    AnchorLeft = True
+    Group = 0
     NavFlags = 0
     NavOrder = ""
     Above = ""
@@ -746,6 +763,7 @@ Private Sub btnOk_Click()
 			Abs.IdCarro = Me.popCarro.ItemData(Me.popCarro.ListIndex)
 			Abs.Data = Me.slcData.Date
 			Abs.Hora = Me.slcHora.Time
+			Abs.Invalido = Me.chkInvalido.Value
 			Abs.IdTipoCombustivel = Me.popTipo.ItemData(Me.popTipo.ListIndex)
 			Abs.IdPosto = Me.popPosto.ItemData(Me.popPosto.ListIndex)
 			Abs.KmInicial = Me.fldKmInicial.Text
@@ -834,6 +852,7 @@ Private Sub Form_Load()
 		Me.fldKmFinal.Text = Abs.KmFinal
 		Me.fldValorLitro.Text = CStr(Abs.ValorLitro)
 		Me.fldValorTotal.Text = CStr(Abs.ValorTotal)
+		Me.chkInvalido.Value = Abs.Invalido
 		If Abs.KmFinal <> "" Then
 			Me.fldDiferenca.Text = CStr(CLng(Abs.KmFinal)-CLng(Abs.KmInicial)) & " Kms"
 		End If

@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmRelatorioConsumoMedio
-  Segment = main
+  Segment = Formularios
   Extends = clsHandleMenu
   Left = 0
   Top = 0
@@ -222,8 +222,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 40
-    Top = 17
+    Left = 83
+    Top = 1
     Anchors = 0
     Visible = True
     Caption = "Carro:"
@@ -234,13 +234,13 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 66
-    Top = 17
-    Width = 79
+    Left = 107
+    Top = 1
+    Width = 53
     Height = 12
     Anchors = 0
     Visible = True
-    Text = "Selecione"
+    Text = "Carro"
     Font = "Standard"
     VisibleItems = 3
     AnchorLeft = True
@@ -324,6 +324,14 @@ begin Form
         Caption = "Consumo por Tipo Comb."
         Shortcut = ""
       end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuGraficoConsumo
+        Index = 0
+        Caption = "Gráfico Consumo"
+        Shortcut = ""
+      end
     end
     begin MenuTitle
       Caption = "Ajuda"
@@ -367,6 +375,27 @@ begin Form
     Above = ""
     Below = ""
   end
+  begin CheckBox
+    Name = chkInvalido
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 38
+    Top = 16
+    Width = 92
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Ignorar Inválidos?"
+    Font = "Standard"
+    Value = True
+    AnchorLeft = True
+    Group = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
@@ -401,12 +430,16 @@ End Sub
 
 Private Sub btnPesquisar_Click()
 	Dim Sql As String
+	Dim SqlInvalido As String
 	If Me.popCarros.ListIndex>=0 Then
 		Sql = " AND IdCarro=" & Me.popCarros.ItemData(Me.popCarros.ListIndex)
 	Else
 		Sql = ""
 	End If
-	DbAbaste.OpenRecordset "KmFinal <> '' And KmFinal <> 0 AND Data>='" & CStr(Me.slcDataInicial.Date) & "' AND Data<='" & CStr(Me.slcDataFinal.Date) & "'" & Sql,hbModeOpenAlways
+	If Me.chkInvalido.Value Then
+		SqlInvalido = " AND Invalido = False "
+	End If
+	DbAbaste.OpenRecordset "KmFinal <> '' And KmFinal <> 0 AND Data>='" & CStr(Me.slcDataInicial.Date) & "' AND Data<='" & CStr(Me.slcDataFinal.Date) & "'" & Sql & SqlInvalido,hbModeOpenAlways
 
 	Dim Total As Double
 	Dim Count As Integer

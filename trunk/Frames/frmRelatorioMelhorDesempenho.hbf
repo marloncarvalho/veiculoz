@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmRelatorioMelhorDesempenho
-  Segment = main
+  Segment = Formularios
   Extends = clsHandleMenu
   Left = 0
   Top = 0
@@ -427,6 +427,15 @@ begin Form
         Caption = "Consumo por Tipo Comb."
         Shortcut = ""
       end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuGraficoConsumo
+        Index = 0
+        Caption = "Gráfico Consumo"
+        Shortcut = ""
+      end
+
     end
     begin MenuTitle
       Caption = "Ajuda"
@@ -475,7 +484,7 @@ Private Sub Button1_Click()
 	Kms = 0
 	IdPosto = -1
 	IdTipo = -1
-	Db.OpenRecordset "KmFinal<>'' And IdCarro=" & me.Popup1.ItemData(me.Popup1.ListIndex),hbModeOpenAlways+hbModeReadOnly
+	Db.OpenRecordset "Invalido = False AND KmFinal<>'' And IdCarro=" & me.Popup1.ItemData(me.Popup1.ListIndex),hbModeOpenAlways+hbModeReadOnly
 	While Not Db.EOF
 		Dim dConsumo As Double
 		Dim dKmRodados As Double
