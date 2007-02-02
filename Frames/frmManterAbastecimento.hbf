@@ -585,6 +585,27 @@ begin Form
     Above = ""
     Below = ""
   end
+  begin CheckBox
+    Name = chkInvalido
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 21
+    Top = 129
+    Width = 58
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Inválido?"
+    Font = "Standard"
+    Value = False
+    AnchorLeft = True
+    Group = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
   begin Label
     Name = Label13
     Index = 0
@@ -596,18 +617,6 @@ begin Form
     Visible = True
     Caption = "_______________________________________"
     Font = "Standard"
-  end
-  begin Label
-    Name = lblCarros
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 28
-    Top = 18
-    Anchors = 0
-    Visible = True
-    Caption = "Edição de Abastec."
-    Font = "LargeBold"
   end
   begin Picture
     Name = picEdicaoCarros
@@ -624,18 +633,30 @@ begin Form
     Above = ""
     Below = ""
   end
-  begin CheckBox
-    Name = chkInvalido
+  begin Label
+    Name = lblCarros
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 21
+    Left = 28
+    Top = 18
+    Anchors = 0
+    Visible = True
+    Caption = "Edição de Abastec."
+    Font = "LargeBold"
+  end
+  begin CheckBox
+    Name = chkViagem
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 84
     Top = 129
-    Width = 127
+    Width = 59
     Height = 12
     Anchors = 0
     Visible = True
-    Text = "Abastecimento Inválido?"
+    Text = "Viagem?"
     Font = "Standard"
     Value = False
     AnchorLeft = True
@@ -764,6 +785,7 @@ Private Sub btnOk_Click()
 			Abs.Data = Me.slcData.Date
 			Abs.Hora = Me.slcHora.Time
 			Abs.Invalido = Me.chkInvalido.Value
+			Abs.Viagem = Me.chkViagem.Value
 			Abs.IdTipoCombustivel = Me.popTipo.ItemData(Me.popTipo.ListIndex)
 			Abs.IdPosto = Me.popPosto.ItemData(Me.popPosto.ListIndex)
 			Abs.KmInicial = Me.fldKmInicial.Text
@@ -853,6 +875,7 @@ Private Sub Form_Load()
 		Me.fldValorLitro.Text = CStr(Abs.ValorLitro)
 		Me.fldValorTotal.Text = CStr(Abs.ValorTotal)
 		Me.chkInvalido.Value = Abs.Invalido
+		Me.chkViagem.Value = Abs.Viagem
 		If Abs.KmFinal <> "" Then
 			Me.fldDiferenca.Text = CStr(CLng(Abs.KmFinal)-CLng(Abs.KmInicial)) & " Kms"
 		End If

@@ -25,7 +25,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 57
+    Top = 59
     Anchors = 0
     Visible = True
     Caption = "____________________________________"
@@ -37,7 +37,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 150
-    Top = 62
+    Top = 64
     Width = 7
     Height = 78
     Anchors = 0
@@ -52,7 +52,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 104
-    Top = 55
+    Top = 57
     Anchors = 0
     Visible = True
     Caption = "Consumo"
@@ -64,7 +64,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 4
-    Top = 55
+    Top = 57
     Anchors = 0
     Visible = True
     Caption = "Tipo"
@@ -95,11 +95,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 40
-    Top = 28
+    Left = 42
+    Top = 16
     Anchors = 0
     Visible = True
-    Caption = "Data Inicial"
+    Caption = "Data Inicial:"
     Font = "Standard"
   end
   begin Selector
@@ -107,8 +107,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 41
-    Top = 40
+    Left = 43
+    Top = 28
     Width = 45
     Height = 12
     Anchors = 0
@@ -129,11 +129,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 101
-    Top = 28
+    Left = 103
+    Top = 16
     Anchors = 0
     Visible = True
-    Caption = "Data Final"
+    Caption = "Data Final:"
     Font = "Standard"
   end
   begin Selector
@@ -141,8 +141,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 102
-    Top = 40
+    Left = 104
+    Top = 28
     Width = 46
     Height = 12
     Anchors = 0
@@ -310,7 +310,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 126
+    Top = 128
     Anchors = 0
     Visible = True
     Caption = "____________________________________"
@@ -322,7 +322,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 7
-    Top = 23
+    Top = 20
     Anchors = 0
     Visible = True
     Image = "Relatorio"
@@ -337,7 +337,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 4
-    Top = 67
+    Top = 69
     Width = 144
     Height = 67
     Anchors = 0
@@ -352,19 +352,40 @@ begin Form
     Below = ""
   end
   begin CheckBox
+    Name = chkViagem
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 83
+    Top = 44
+    Width = 74
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Sem Viagens?"
+    Font = "Standard"
+    Value = True
+    AnchorLeft = True
+    Group = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin CheckBox
     Name = chkInvalido
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 38
-    Top = 17
-    Width = 96
+    Left = 2
+    Top = 44
+    Width = 78
     Height = 12
     Anchors = 0
     Visible = True
-    Text = "Ignorar Inválidos?"
+    Text = "Sem Inválidos?"
     Font = "Standard"
-    Value = False
+    Value = True
     AnchorLeft = True
     Group = 0
     NavFlags = 0
@@ -424,12 +445,16 @@ Private Sub gridAbastecimentos_LoadItem(ByVal iRow As Integer, ByVal lItemData A
 	Dim Litros As Double
 	Dim Count As Integer
 	Dim SqlInvalido As String
+	Dim SqlViagem As String
 
 	Count = 0
 	DbTiposC.LookupUniqueID lItemData
 
 	If Me.chkInvalido.Value Then
 		SqlInvalido = " AND Invalido = False "
+	End If
+	If Me.chkViagem.Value Then
+		SqlViagem = " AND Viagem = False "
 	End If
 
 	Sql = "KmFinal<>0 And KmFinal<>'' And IdTipoComb = " & CStr(DbTiposC.UniqueID)
@@ -440,7 +465,7 @@ Private Sub gridAbastecimentos_LoadItem(ByVal iRow As Integer, ByVal lItemData A
 	If Not IsEmpty(Me.slcDataFinal.Date) Then
 		Sql = Sql & " AND Data<='" & CStr(Me.slcDataFinal.Date) & "'"
 	End If
-	Db.OpenRecordset Sql & SqlInvalido,hbModeOpenAlways
+	Db.OpenRecordset Sql & SqlInvalido & SqlViagem,hbModeOpenAlways
 
 	Total = 0
 	While Not Db.EOF
