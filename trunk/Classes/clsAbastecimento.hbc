@@ -53,6 +53,16 @@ Private lng_idtipo As Long
 
 Private boo_invalido As Boolean
 
+Private boo_viagem As Boolean
+
+Public Property Get Viagem() As Boolean
+	Viagem = boo_viagem
+End Property
+
+Public Property Let Viagem(v As Boolean)
+	boo_viagem = v
+End Property
+
 Public Property Get Id() As Long
 	Id = lng_id
 End Property

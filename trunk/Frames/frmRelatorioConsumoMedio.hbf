@@ -25,7 +25,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 57
+    Top = 60
     Anchors = 0
     Visible = True
     Caption = "____________________________________"
@@ -37,7 +37,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 150
-    Top = 63
+    Top = 66
     Width = 7
     Height = 63
     Anchors = 0
@@ -52,7 +52,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 104
-    Top = 55
+    Top = 58
     Anchors = 0
     Visible = True
     Caption = "Consumo"
@@ -64,26 +64,11 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 4
-    Top = 55
+    Top = 58
     Anchors = 0
     Visible = True
     Caption = "Posto"
     Font = "Bold"
-  end
-  begin Picture
-    Name = Picture1
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 7
-    Top = 23
-    Anchors = 0
-    Visible = True
-    Image = "Relatorio"
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
   end
   begin Label
     Name = Label8
@@ -91,7 +76,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 4
-    Top = 126
+    Top = 129
     Anchors = 0
     Visible = True
     Caption = "Consumo Médio:"
@@ -103,7 +88,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 87
-    Top = 126
+    Top = 129
     Anchors = 0
     Visible = True
     Caption = "                    "
@@ -134,8 +119,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 40
-    Top = 28
+    Left = 53
+    Top = 17
     Anchors = 0
     Visible = True
     Caption = "Data Inicial"
@@ -146,8 +131,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 41
-    Top = 40
+    Left = 54
+    Top = 29
     Width = 45
     Height = 12
     Anchors = 0
@@ -168,8 +153,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 101
-    Top = 28
+    Left = 105
+    Top = 17
     Anchors = 0
     Visible = True
     Caption = "Data Final"
@@ -180,8 +165,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 102
-    Top = 40
+    Left = 106
+    Top = 29
     Width = 46
     Height = 12
     Anchors = 0
@@ -349,7 +334,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 114
+    Top = 117
     Anchors = 0
     Visible = True
     Caption = "____________________________________"
@@ -361,7 +346,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 4
-    Top = 67
+    Top = 70
     Width = 146
     Height = 56
     Anchors = 0
@@ -380,17 +365,53 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 38
-    Top = 16
-    Width = 92
+    Left = 2
+    Top = 46
+    Width = 78
     Height = 12
     Anchors = 0
     Visible = True
-    Text = "Ignorar Inválidos?"
+    Text = "Sem Inválidos?"
     Font = "Standard"
     Value = True
     AnchorLeft = True
     Group = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin CheckBox
+    Name = chkViagem
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 83
+    Top = 46
+    Width = 74
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Sem Viagens?"
+    Font = "Standard"
+    Value = True
+    AnchorLeft = True
+    Group = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 7
+    Top = 20
+    Anchors = 0
+    Visible = True
+    Image = "Relatorio"
     NavFlags = 0
     NavOrder = ""
     Above = ""
@@ -431,6 +452,7 @@ End Sub
 Private Sub btnPesquisar_Click()
 	Dim Sql As String
 	Dim SqlInvalido As String
+	Dim SqlViagem As String
 	If Me.popCarros.ListIndex>=0 Then
 		Sql = " AND IdCarro=" & Me.popCarros.ItemData(Me.popCarros.ListIndex)
 	Else
@@ -439,7 +461,10 @@ Private Sub btnPesquisar_Click()
 	If Me.chkInvalido.Value Then
 		SqlInvalido = " AND Invalido = False "
 	End If
-	DbAbaste.OpenRecordset "KmFinal <> '' And KmFinal <> 0 AND Data>='" & CStr(Me.slcDataInicial.Date) & "' AND Data<='" & CStr(Me.slcDataFinal.Date) & "'" & Sql & SqlInvalido,hbModeOpenAlways
+	If Me.chkViagem.Value Then
+		SqlViagem = " AND Viagem = False "
+	End If
+	DbAbaste.OpenRecordset "KmFinal <> '' And KmFinal <> 0 AND Data>='" & CStr(Me.slcDataInicial.Date) & "' AND Data<='" & CStr(Me.slcDataFinal.Date) & "'" & Sql & SqlInvalido & SqlViagem,hbModeOpenAlways
 
 	Dim Total As Double
 	Dim Count As Integer

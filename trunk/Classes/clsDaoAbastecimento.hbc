@@ -55,6 +55,7 @@ Public Sub ManterAbastecimento(Abs As clsAbastecimento)
 	Else
 		Db.AddNew
 	End If
+	Db.Viagem = Abs.Viagem
 	Db.Data = Abs.Data
 	Db.Hora = Abs.Hora
 	Db.IdCarro = Abs.IdCarro
@@ -99,6 +100,7 @@ Private Function CriarAbastecimento(ByRef Db As pvHbAbastecimentos) As clsAbaste
 	Abs.ValorLitro = Db.ValorLitro
 	Abs.ValorTotal = Db.ValorTotal
 	Abs.Invalido = Db.Invalido
+	Abs.Viagem = Db.Viagem
 	Set CriarAbastecimento = Abs
 End Function
 

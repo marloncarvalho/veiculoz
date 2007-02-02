@@ -19,25 +19,38 @@ begin Form
   InitialFocus = ""
   BottomLeft = ""
   Locked = False
-  begin Label
-    Name = Label15
+  begin Field
+    Name = fldDescricao
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 3
-    Top = 74
+    Left = 6
+    Top = 107
+    Width = 147
+    Height = 30
     Anchors = 0
     Visible = True
-    Caption = "_______________________________________"
     Font = "Standard"
+    Underline = True
+    SingleLine = False
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
   end
   begin Label
     Name = Label8
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 2
-    Top = 38
+    Left = 1
+    Top = 37
     Anchors = 0
     Visible = True
     Caption = "_______________________________________"
@@ -49,7 +62,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 10
-    Top = 20
+    Top = 19
     Anchors = 0
     Visible = True
     Image = "FormsEdicao"
@@ -64,7 +77,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 37
-    Top = 19
+    Top = 18
     Anchors = 0
     Visible = True
     Caption = "Edição de Despesas"
@@ -76,7 +89,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 36
-    Top = 33
+    Top = 32
     Anchors = 0
     Visible = True
     Caption = "Criação / Edição de Despesas"
@@ -133,7 +146,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 5
-    Top = 91
+    Top = 84
     Anchors = 0
     Visible = True
     Caption = "Valor(R$):"
@@ -145,22 +158,10 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 93
-    Top = 91
+    Top = 84
     Anchors = 0
     Visible = True
     Caption = "Km:"
-    Font = "Standard"
-  end
-  begin Label
-    Name = Label12
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 35
-    Top = 108
-    Anchors = 0
-    Visible = True
-    Caption = "Próxima Despesa(KM):"
     Font = "Standard"
   end
   begin Label
@@ -202,7 +203,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 49
-    Top = 89
+    Top = 82
     Width = 39
     Height = 12
     Anchors = 0
@@ -227,7 +228,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 110
-    Top = 89
+    Top = 82
     Width = 39
     Height = 12
     Anchors = 0
@@ -273,7 +274,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 63
+    Left = 85
     Top = 1
     Anchors = 0
     Visible = True
@@ -285,9 +286,9 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 89
+    Left = 111
     Top = 0
-    Width = 70
+    Width = 48
     Height = 12
     Anchors = 0
     Visible = True
@@ -296,31 +297,6 @@ begin Form
     VisibleItems = 3
     AnchorLeft = True
     Sorted = 0
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
-  end
-  begin Field
-    Name = Field3
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 49
-    Top = 120
-    Width = 61
-    Height = 12
-    Anchors = 0
-    Visible = True
-    Font = "Standard"
-    Underline = True
-    SingleLine = True
-    Align = 0
-    Editable = True
-    AutoShift = True
-    Numeric = False
-    MaxChar = 80
-    Scrollbar = ""
     NavFlags = 0
     NavOrder = ""
     Above = ""
@@ -385,5 +361,17 @@ begin Form
     NavOrder = ""
     Above = ""
     Below = ""
+  end
+  begin Label
+    Name = Label16
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 99
+    Anchors = 0
+    Visible = True
+    Caption = "Descrição da Despesa:"
+    Font = "Standard"
   end
 end
