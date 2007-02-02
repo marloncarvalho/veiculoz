@@ -1,0 +1,389 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmManterDespesa
+  Segment = Formularios
+  Extends = Form
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Despesas"
+  Modal = False
+  Help = ""
+  DIA = 0
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = Label15
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 74
+    Anchors = 0
+    Visible = True
+    Caption = "_______________________________________"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label8
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 2
+    Top = 38
+    Anchors = 0
+    Visible = True
+    Caption = "_______________________________________"
+    Font = "Standard"
+  end
+  begin Picture
+    Name = picEdicaoCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 10
+    Top = 20
+    Anchors = 0
+    Visible = True
+    Image = "FormsEdicao"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = lblCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 37
+    Top = 19
+    Anchors = 0
+    Visible = True
+    Caption = "Edição de Despesas"
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = Label5
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 36
+    Top = 33
+    Anchors = 0
+    Visible = True
+    Caption = "Criação / Edição de Despesas"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 17
+    Top = 52
+    Anchors = 0
+    Visible = True
+    Caption = "Local:"
+    Font = "Standard"
+  end
+  begin Popup
+    Name = Popup1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 41
+    Top = 52
+    Width = 62
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "popup"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label9
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 66
+    Anchors = 0
+    Visible = True
+    Caption = "Despesa:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label10
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 91
+    Anchors = 0
+    Visible = True
+    Caption = "Valor(R$):"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label11
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 93
+    Top = 91
+    Anchors = 0
+    Visible = True
+    Caption = "Km:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label12
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 35
+    Top = 108
+    Anchors = 0
+    Visible = True
+    Caption = "Próxima Despesa(KM):"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label13
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 108
+    Top = 52
+    Anchors = 0
+    Visible = True
+    Caption = "Data:"
+    Font = "Standard"
+  end
+  begin Popup
+    Name = Popup2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 41
+    Top = 67
+    Width = 62
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "popup"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Field
+    Name = Field1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 49
+    Top = 89
+    Width = 39
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Field
+    Name = Field2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 110
+    Top = 89
+    Width = 39
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Selector
+    Name = slc
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 109
+    Top = 65
+    Width = 43
+    Height = 10
+    Anchors = 0
+    Visible = True
+    Text = "Data"
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 1
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label14
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 63
+    Top = 1
+    Anchors = 0
+    Visible = True
+    Caption = "Carro:"
+    Font = "Standard"
+  end
+  begin Popup
+    Name = Popup3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 89
+    Top = 0
+    Width = 70
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "popup"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Field
+    Name = Field3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 49
+    Top = 120
+    Width = 61
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnOk
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 15
+    Top = 143
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "OK"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnCancelar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 60
+    Top = 143
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Cancelar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnExcluir
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 105
+    Top = 143
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Excluir"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end

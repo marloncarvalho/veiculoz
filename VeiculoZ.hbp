@@ -36,6 +36,9 @@ begin Project
   File = "Classes\\clsDaoAbastecimento.hbc"
   File = "Modules\\DateFunctions.hbm"
   File = "Classes\\clsHandleMenu.hbc"
+  File = "Frames\\frmGraficoConsumo.hbf"
+  File = "Frames\\frmDespesas.hbf"
+  File = "Frames\\frmManterDespesa.hbf"
   begin Configuration
     Name = Debug
     Title = "VeículoZ"
@@ -164,6 +167,20 @@ begin Project
       Compression = 255
       TransparencyColor = -1
       Filename = "Images\\economy-car.bmp"
+    end
+  end
+  begin Package
+    Segment = Graficos
+    Filename = "Packages\\ucChart.hbk"
+  end
+  begin ImageFamily
+    Name = FormsEdicaoMini
+    begin Image
+      Density = 72
+      Palette = 4
+      Compression = 255
+      TransparencyColor = -1
+      Filename = "Images\\text-editor-mini.bmp"
     end
   end
 end

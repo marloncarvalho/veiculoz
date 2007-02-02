@@ -64,6 +64,7 @@ Public Sub ManterAbastecimento(Abs As clsAbastecimento)
 	Db.KmInicial = Abs.KmInicial
 	Db.ValorLitro = Abs.ValorLitro
 	Db.ValorTotal = Abs.ValorTotal
+	Db.Invalido = Abs.Invalido
 	Db.Update
 End Sub
 
@@ -97,6 +98,7 @@ Private Function CriarAbastecimento(ByRef Db As pvHbAbastecimentos) As clsAbaste
 	Abs.KmInicial = Db.KmInicial
 	Abs.ValorLitro = Db.ValorLitro
 	Abs.ValorTotal = Db.ValorTotal
+	Abs.Invalido = Db.Invalido
 	Set CriarAbastecimento = Abs
 End Function
 
