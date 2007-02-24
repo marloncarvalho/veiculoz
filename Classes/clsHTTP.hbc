@@ -1,0 +1,245 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsHTTP
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+'=========================================================================
+'
+' MiniBrowser Sample - HTTP protocol
+'
+' THIS SOFTWARE IS PROVIDED BY PETER HOLMES CONSULTING "AS IS" AND
+' ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+' THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+' PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR
+' OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+' SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+' LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+' USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+' AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+' LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+' IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+' THE POSSIBILITY OF SUCH DAMAGE.
+'=========================================================================
+
+Option Warning 9010
+
+'---------------------------- Events ---------------------------
+
+Public Event DataArrival(ByRef objData As Stream, ByVal lSize As Long, ByRef sPath As String, ByRef sFile As String, ByRef sMime As String)
+Public Event Progress(ByVal lReceived as long, ByVal lTotal as Long)
+
+'---------------------------- Member variables -----------------
+
+Private sConn 			As New StreamSocket	' The TCP/IP connection
+Private lSize				As Long							' Size of incoming data
+Private sMimeType		As String						' MIME type
+Private bChunked 		As Boolean					' Are data transmitted chunk by chunk ?
+Private bStop 			As Boolean					' Should abort ?
+
+'====================================== PRIVATE HELPER FUNCTIONS =========
+
+'---------------------------- Split an URL into host/path ------
+
+Private Function SplitURL(ByRef sURL As String, ByRef sHost As String, ByRef sPath As String) As Boolean
+	Dim k As Integer
+
+	' Remove "http://" or "https://" if present, and
+	' determine whether to use SSL or not.
+
+	sHost=sUrl
+	If StrComp(Left(sHost,7),"http://",hbCompareText)=0 Then
+		sHost=Mid(sHost,8)
+	End If
+
+	If StrComp(Left(sHost,8),"https://",hbCompareText)=0 Then
+		sHost=Mid(sHost,9)
+		SplitURL=True
+	End If
+
+	' Split host/path
+	k=InStr(1,sHost,"/",hbCompareText)
+	If k>0 Then
+		sPath=Mid(sHost,k)
+		sHost=Left(sHost,k-1)
+	Else
+		sPath="/"
+	End If
+End Function
+
+'---------------------------- Extract file name ----------------
+
+Private Function GetFileName(ByRef sPath As String) As String
+	Dim k as Integer
+
+	k=Len(sPath)
+	While Mid(sPath,k,1)<>"/"
+		k=k-1
+	Wend
+	GetFileName=Mid(sPath,k+1)
+End Function
+
+'---------------------------- Extract path ---------------------
+
+Private Function GetPath(ByRef sPath As String) As String
+	Dim k as Integer
+
+	k=Len(sPath)
+	While Mid(sPath,k,1)<>"/"
+		k=k-1
+	Wend
+	GetPath=Left(sPath,k-1)
+End Function
+
+'---------------------------- Read a line terminated by LF -----
+
+Private Function RecvLine() As String
+	Dim s As String
+
+	Read sConn, s[hbReadLine]
+	RecvLine=TrimCrlf(s)
+End Function
+
+'---------------------------- Receive an HTTP response header --
+
+Private Sub ReceiveHeader()
+	Dim s As String, k As Integer
+
+	' Initialize default values
+	lSize=-1
+	sMimeType=""
+	bChunked=False
+
+	' Receive the HTTP error code
+	s=RecvLine
+	If StrComp(Left(s,4),"HTTP",hbCompareText)<>0 Then Err.Raise 1000, "Protocol error"
+
+	' Check that error code is HTTP 200 OK
+	k=InStr(1,s," ",hbCompareText)
+	If k<=0 Then Err.Raise 1000, "Protocol error"
+	s=Trim(Mid(s,k+1))
+	If StrComp(Left(s,4),"200 ",hbCompareText)<>0 Then Err.Raise 1001, s
+
+	' Receive each HTTP response header line, storing useful
+	' information on the fly
+	Do
+		s=RecvLine
+		If s="" Then
+			Exit Do
+		ElseIf StrComp(Left(s,13),"Content-type:",hbCompareText)=0 Then
+			sMimeType=Trim(Mid(s,14))
+		Elseif StrComp(Left(s, 26), "Transfer-Encoding: chunked",hbCompareText)=0 Then
+			bChunked = true
+		ElseIf StrComp(Left(s,15),"Content-length:",hbCompareText)=0 Then
+			s=Trim(Mid(s,16))
+			lSize=CLng(s)
+		End If
+	Loop
+End Sub
+
+'====================================== PUBLIC FUNCTIONS =================
+
+'---------------------------- Close the connection -------------
+
+Public Sub Disconnect()
+	' Close the connection now
+	sConn.Disconnect hbSocketShutdownNow
+End Sub
+
+'---------------------------- Stop the transfer ---------------
+
+Public Sub TransferStop()
+	bStop = true
+End Sub
+
+'---------------------------- Emit a HTTP GET request ----------
+
+Public Sub HttpGET(ByRef sURL As String, ByVal plport As Long, Optional ByRef sOptHdr As String = "")
+	Dim sHost As String, sPath As String, t As String
+	Dim ssl As clsSSL, port As Long
+	Dim tempFile As new StreamFileDB, count As Long, k As long
+	Dim di As DatabaseInfo
+
+	' Install error handler and initialize some flags
+	On Error Goto ERR
+	bStop = False
+
+	' Split hostname/path, and initialize port number and SSL connection
+	if (SplitURL(sURL,sHost,sPath)) Then
+		port=plPort
+		Set ssl=New clsSSL
+	Else
+		port=plPort
+		Set ssl=Nothing
+	End If
+
+	' Build the HTTP request header
+	t="GET " & sPath & " HTTP/1.1\r\nHost: " & sHost & "\r\nConnection: close\r\n"
+	If sOptHdr<>"" Then t=t & TrimCrlf(sOptHdr) & "\r\n"
+	t=t & "\r\n"
+
+	' Connect to the host
+	sConn.Timeout=30000
+	sConn.Connect sHost, port, ssl
+
+	' Send the HTTP request, and wait for response.
+	Write sConn, t[hbWriteNoNull]
+	ReceiveHeader
+
+	' Initialize a temporary file to store the response.
+	tempFile.Open "httpTEMPFile",hbModeOpenAlways+hbModeWrite,"temp","http"
+
+	If lSize>0 Then
+		' The server did send size information. Process incoming
+		' data chunks by chunks, giving the user a chance
+		' to cancel.
+		count=0
+
+		While count<>lSize
+			k=lSize-count
+			If k>256 Then k=256
+			Read sConn, tempFile[k]
+			count=count+k
+			RaiseEvent Progress(count,lSize)
+			If bStop Or DoEvents Then Goto ABORT
+		Wend
+	Else
+		' The server did not send size information. Process incoming
+		' data in a single chunk.
+		If Not bChunked Then
+			Read sConn, tempFile
+		Else
+			Do
+				k = CLng("&H" & RecvLine)
+				Read sConn, tempFile[k]
+				RecvLine
+				count = count + k
+				RaiseEvent Progress(count,0)
+				If bStop Or DoEvents Then Goto ABORT
+			Loop Until k = 0
+		End if
+	End If
+
+	tempFile.SeekToBegin
+	RaiseEvent DataArrival(tempFile,tempFile.Size,GetPath(sURL),GetFileName(sPath),sMimeType)
+
+ABORT:
+	Set di=tempFile.Info
+	tempFile.Close
+	di.Delete
+	sConn.Disconnect hbSocketClose
+	Exit Sub
+
+ERR:
+	' An error occured. Disconnect and rethrow the same error.
+	sConn.Disconnect hbSocketClose
+	Err.Raise Err.Number, Err.Description
+End Sub
+
+'=========================================================================

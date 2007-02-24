@@ -1,0 +1,143 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmAlarmes
+  Segment = main
+  Extends = Form
+  Left = 5
+  Top = 5
+  Width = 150
+  Height = 150
+  Caption = "VeículoZ (Alarmes)"
+  Modal = True
+  Help = ""
+  DIA = 0
+  SaveBehind = True
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 41
+    Top = 18
+    Anchors = 0
+    Visible = True
+    Caption = "Alarmes Disparados"
+    Font = "LargeBold"
+  end
+  begin GridEx
+    Name = grid1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 60
+    Width = 134
+    Height = 63
+    Anchors = 0
+    Visible = True
+    Columns = "AQA8AQUAOQDIAAsAAAAAAAAAAAAoAAMA"
+    SelectionMode = 1
+    VertScroll = "Scrollbar1"
+    HorzScroll = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = lblData
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 40
+    Top = 31
+    Anchors = 0
+    Visible = True
+    Caption = "12/12/2008 12:12"
+    Font = "Standard"
+  end
+  begin Scrollbar
+    Name = Scrollbar1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 139
+    Top = 57
+    Width = 7
+    Height = 66
+    Anchors = 0
+    Visible = True
+    Min = 0
+    Max = 100
+    LargeChange = 10
+  end
+  begin Button
+    Name = btnOk
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 55
+    Top = 132
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "OK"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 17
+    Anchors = 0
+    Visible = True
+    Image = "AlarmeSino"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+Private colecao As New Collection
+
+Public Property Set Alarmes(a As Collection)
+	Set Me.colecao = a
+End Property
+
+Private Sub Form_Load()
+	Dim alarme As clsAlarm
+	For Each alarme in Me.colecao
+		Me.grid1.AddItem alarme.Id
+	Next
+	Me.lblData.Caption = CStr(Now())
+End Sub
+
+Private Sub grid1_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
+	Dim a As clsAlarm
+	For Each a In Me.colecao
+		If a.Id = lItemData Then
+			vValue(0) = a.Descricao
+			Exit Sub
+		End If
+	Next
+End Sub
+
+Private Sub btnOk_Click()
+	Unload(Me)
+End Sub

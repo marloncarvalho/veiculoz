@@ -1,0 +1,39 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsAlarm
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+Private MeData As Date
+Private MeDescription As String
+Private MeId As Long
+
+Public Property Get Id() As Long
+	Id = MeId
+End Property
+
+Public Property Let Id(i as Long)
+	MeId = i
+End Property
+
+Public Property Get Data() As Date
+	Data = MeData
+End Property
+
+Public Property Let Data(D As Date)
+	MeData = D
+End Property
+
+Public Property Get Descricao() As String
+	Descricao = MeDescription
+End Property
+
+Public Property Let Descricao(S As String)
+	MeDescription = S
+End Property

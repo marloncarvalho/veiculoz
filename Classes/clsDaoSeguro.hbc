@@ -1,0 +1,112 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsDaoSeguro
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2007  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Private Db As New pvHbSeguros
+
+'Construtor.
+Private Sub Initialize()
+	Call Me.OpenDatabase()
+End Sub
+
+Private Sub OpenDatabase()
+  Dim e as Integer
+	Try
+	  Db.OpenRecordset "Category>=0 Order By Empresa Asc", hbModeOpenExisting+hbModeReadWrite
+	Catch
+		If Err.Number = 43 Then
+			Db.OpenRecordset "Category>=0 Order By Empresa Asc", hbModeCreateAlways+hbModeReadWrite
+		End If
+	End Catch
+End Sub
+
+Public Property Get Database() As pvHbSeguros
+	Set Database = Db
+End Property
+
+Public Function ObterSeguros(IdVeiculo As Long) As Collection
+	Dim Colecao As New Collection
+	Db.OpenRecordset "IdVeiculo = " & CStr(IdVeiculo) & " Order By Data Desc",hbModeOpenExisting+hbModeReadWrite
+	While Not Db.EOF
+		Dim seguro As clsSeguro
+		Set seguro = CriarSeguro(Db)
+		Colecao.Add(seguro)
+		Call Db.MoveNext()
+	Wend
+	Set ObterSeguros = Colecao
+	Call Me.OpenDatabase()
+End Function
+
+Public Function ObterSeguro(IdSeguro As Long) As clsSeguro
+	Db.LookupUniqueID IdSeguro
+	Set ObterSeguro = Me.CriarSeguro(Db)
+	Call Me.OpenDatabase()
+End Function
+
+Public Sub ManterSeguro(seguro As clsSeguro)
+	If Not IsEmpty(seguro.Id) And seguro.Id <> 0 Then
+		Db.LookupUniqueID seguro.Id
+		Db.Edit
+	Else
+		Db.AddNew
+	End If
+	Db.Contrato = seguro.Contrato
+	Db.Data = seguro.Data
+	Db.Empresa = seguro.Empresa
+	Db.Franquia = seguro.Franquia
+	Db.IdVeiculo = seguro.IdVeiculo
+	Db.Telefone = seguro.Telefone
+	Db.Renovacao = seguro.Renovacao
+	Db.Valor = seguro.Valor
+	Db.IdAlarme = seguro.IdAlarme
+	Db.Update
+End Sub
+
+Public Sub Excluir(Id As Long)
+	Dim Manager As New clsAlarmManager
+	Call Me.OpenDatabase()
+	Call Db.LookupUniqueID(Id)
+	Call Manager.Excluir(Db.IdAlarme)
+	Call Db.Delete(hbRecordRemove)
+	Call Db.Update()
+End Sub
+
+Private Function CriarSeguro(ByRef Dbs As pvHbSeguros) As clsSeguro
+	Dim seguro As New clsSeguro
+	seguro.Id = Dbs.UniqueID
+	seguro.Contrato = Dbs.Contrato
+	seguro.Data = Dbs.Data
+	seguro.Empresa = Dbs.Empresa
+	seguro.Telefone = Dbs.Telefone
+	seguro.Franquia = Dbs.Franquia
+	seguro.IdVeiculo = Dbs.IdVeiculo
+	seguro.Renovacao = Dbs.Renovacao
+	seguro.Valor = Dbs.Valor
+	seguro.IdAlarme = Dbs.IdAlarme
+	Set CriarSeguro = seguro
+End Function

@@ -1,0 +1,182 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmManterAlarme
+  Segment = main
+  Extends = Form
+  Left = 2
+  Top = 68
+  Width = 156
+  Height = 86
+  Caption = "Alarmes"
+  Modal = True
+  Help = ""
+  DIA = 0
+  SaveBehind = True
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Button
+    Name = btnOk
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 33
+    Top = 67
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "OK"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnCancelar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 77
+    Top = 67
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Cancelar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 3
+    Top = 43
+    Anchors = 0
+    Visible = True
+    Caption = "Dia:"
+    Font = "Bold"
+  end
+  begin Selector
+    Name = selData
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 24
+    Top = 44
+    Width = 40
+    Height = 10
+    Anchors = 0
+    Visible = True
+    Text = "Data"
+    Font = "Standard"
+    Format = "dd/mm/yyyy"
+    AnchorLeft = True
+    Mode = 1
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 9
+    Top = 16
+    Anchors = 0
+    Visible = True
+    Caption = "Configuração de Alarmes"
+    Font = "LargeBold"
+  end
+  begin Selector
+    Name = selHora
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 111
+    Top = 44
+    Width = 40
+    Height = 10
+    Anchors = 0
+    Visible = True
+    Text = "Hora"
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 2
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 81
+    Top = 43
+    Anchors = 0
+    Visible = True
+    Caption = "Hora:"
+    Font = "Bold"
+  end
+end
+Private Desc As String
+Public Alarme As New clsAlarm
+Public bNew As Boolean
+Public IdEdicao As Long
+Private Manager As New clsAlarmManager
+
+Public Property Get Descricao() As String
+	Descricao = Desc
+End Property
+
+Public Property Let Descricao(D As String)
+	Desc = D
+End Property
+
+Private Sub btnCancelar_Click()
+	Unload(Me)
+End Sub
+
+Private Sub btnOk_Click()
+	Dim Data As Date
+	Data = DateSerial(Year(Me.selData.Date),Month(Me.selData.Date),Day(Me.selData.Date),Hora(Me.selHora.Time),Minuto(Me.selHora.Time),Segundo(Me.SelHora.Time))
+	Me.Alarme.Id = Me.IdEdicao
+	Me.Alarme.Descricao = Me.Desc
+	Me.Alarme.Data = Data
+	Unload(Me)
+End Sub
+
+Private Sub Form_Load()
+	If Me.bNew Then
+		Me.selData.Date = Now
+		Me.selHora.Time = DatePart("ss",Now)
+	Else
+		Dim alarme As clsAlarm
+		Set alarme = Manager.ObterAlarme(Me.IdEdicao)
+		If Not alarme Is Nothing Then
+			Me.selData.Date = alarme.Data
+			Me.selHora.Time = DatePart("ss",alarme.Data)
+		End If
+	End If
+End Sub

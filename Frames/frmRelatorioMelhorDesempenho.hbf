@@ -365,13 +365,13 @@ begin Form
       begin MenuItem
         Name = mnuNovoCarro
         Index = 0
-        Caption = "Carros"
+        Caption = "Veículos"
         Shortcut = ""
       end
       begin MenuItem
         Name = mnuPosto
         Index = 0
-        Caption = "Postos"
+        Caption = "Estabelecimentos"
         Shortcut = ""
       end
       begin MenuItem
@@ -435,7 +435,6 @@ begin Form
         Caption = "Gráfico Consumo"
         Shortcut = ""
       end
-
     end
     begin MenuTitle
       Caption = "Ajuda"
@@ -464,7 +463,7 @@ end
 ' You should have received a copy of the GNU Lesser General Public
 ' License along with this library; if not, write to the Free Software
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
-Dim DbCarros As pvHbCarros
+Dim DbCarros As pvHbVeiculos
 
 Private Sub Button1_Click()
 	If Me.Popup1.ListIndex = -1 Then
@@ -534,7 +533,7 @@ End Sub
 
 Private Sub Form_Load()
 	Dim ColecaoCarros As Collection
-	Dim Carro As clsCarro
+	Dim Carro As clsVeiculo
 	Set ColecaoCarros = Factory.ObterDaoCarro().ObterCarros()
 	For Each Carro In ColecaoCarros
 		Me.Popup1.AddItem Carro.Modelo,Carro.Id

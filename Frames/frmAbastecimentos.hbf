@@ -10,7 +10,7 @@ begin Form
   Top = 0
   Width = 160
   Height = 160
-  Caption = "Abastecimentos"
+  Caption = "Abastec."
   Modal = False
   Help = ""
   DIA = 1
@@ -19,27 +19,15 @@ begin Form
   InitialFocus = ""
   BottomLeft = ""
   Locked = False
-  begin Label
-    Name = Label7
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 3
-    Top = 50
-    Anchors = 0
-    Visible = True
-    Caption = "_____________________________________"
-    Font = "Standard"
-  end
   begin GridEx
     Name = gridAbastecimentos
     Index = 0
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 61
-    Width = 144
-    Height = 79
+    Top = 54
+    Width = 146
+    Height = 71
     Anchors = 0
     Visible = True
     Columns = "AwD2AQUAOQBPAAsAAAAAAAAAAAAoAAMABQA5ACUACwAAAAAAAAAAACgAAwAFADgAKAAKAAAAAAAAAAAAKAADAA=="
@@ -57,7 +45,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 47
+    Top = 44
     Anchors = 0
     Visible = True
     Caption = "Posto"
@@ -69,7 +57,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 81
-    Top = 47
+    Top = 44
     Anchors = 0
     Visible = True
     Caption = "Total"
@@ -81,7 +69,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 122
-    Top = 47
+    Top = 44
     Anchors = 0
     Visible = True
     Caption = "Litro"
@@ -99,13 +87,13 @@ begin Form
       begin MenuItem
         Name = mnuNovoCarro
         Index = 0
-        Caption = "Carros"
+        Caption = "Veículos"
         Shortcut = ""
       end
       begin MenuItem
         Name = mnuPosto
         Index = 0
-        Caption = "Postos"
+        Caption = "Estabelecimentos"
         Shortcut = ""
       end
       begin MenuItem
@@ -180,27 +168,15 @@ begin Form
       end
     end
   end
-  begin Label
-    Name = Label8
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 2
-    Top = 128
-    Anchors = 0
-    Visible = True
-    Caption = "_____________________________________"
-    Font = "Standard"
-  end
   begin Scrollbar
     Name = scroll
     Index = 0
     Layer = 0
     Tag = ""
     Left = 150
-    Top = 59
+    Top = 52
     Width = 7
-    Height = 80
+    Height = 75
     Anchors = 0
     Visible = True
     Min = 0
@@ -228,10 +204,10 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 34
-    Top = 17
+    Top = 19
     Anchors = 0
     Visible = True
-    Caption = "Cadastro de Abastec."
+    Caption = "Abastecimentos"
     Font = "LargeBold"
   end
   begin Label
@@ -240,7 +216,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 33
-    Top = 30
+    Top = 32
     Anchors = 1
     Visible = True
     Caption = "20 Abastecimento(s)"
@@ -306,6 +282,27 @@ begin Form
     Above = ""
     Below = ""
   end
+  begin Popup
+    Name = popFiltro
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 68
+    Top = 128
+    Width = 88
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "filtrar por veículo"
+    Font = "Standard"
+    VisibleItems = 6
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
@@ -336,7 +333,7 @@ End Sub
 
 Private Sub gridAbastecimentos_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
 	Dim Abs As clsAbastecimento
-	Dim Posto As clsPosto
+	Dim Posto As clsEstabelecimento
 	Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimento(lItemData)
 	Set Posto = Factory.ObterDaoPosto().ObterPosto(Abs.IdPosto)
 	vValue(0) = Posto.Nome
@@ -355,11 +352,17 @@ End Sub
 Private Sub Form_Load()
 	Dim Abs As clsAbastecimento
 	Dim Colecao As Collection
+	Dim Veiculo As clsVeiculo
 	Set Colecao = Factory.ObterDaoAbastecimento().ObterAbastecimentos("")
 	For Each Abs In Colecao
 		Me.gridAbastecimentos.AddItem(Abs.Id)
 	Next
 	Me.lblSubtitulo.Caption = Colecao.Count & " Abastecimento(s)"
+	Set Colecao = Factory.ObterDaoCarro().ObterCarros()
+	Me.popFiltro.AddItem "Todos" , -1
+	For Each Veiculo In Colecao
+		Me.popFiltro.AddItem Veiculo.Modelo, Veiculo.Id
+	Next
 End Sub
 
 Private Sub btnVoltar_Click()
@@ -370,4 +373,25 @@ End Sub
 Private Sub btnSair_Click()
 	Dim app As new clsApplication
 	app.Quit
+End Sub
+
+Private Sub popFiltro_Change()
+	Dim Colecao As New Collection
+	Dim Valor As Long
+	Dim Abs As clsAbastecimento
+	Call Me.gridAbastecimentos.Clear()
+	If Me.popFiltro.ListIndex >= 0 Then
+		If Me.popFiltro.ItemData(Me.popFiltro.ListIndex) = -1 Then
+			Set Colecao = Factory.ObterDaoAbastecimento().ObterAbastecimentos("")
+			For Each Abs In Colecao
+				Me.gridAbastecimentos.AddItem(Abs.Id)
+			Next
+		Else
+			Valor = Me.popFiltro.ItemData(Me.popFiltro.ListIndex)
+			Set Colecao = Factory.ObterDaoAbastecimento().ObterAbastecimentosPorVeiculo(Valor,"")
+			For Each Abs In Colecao
+				Me.gridAbastecimentos.AddItem Abs.Id
+			Next
+		End If
+	End If
 End Sub

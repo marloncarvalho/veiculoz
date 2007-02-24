@@ -25,7 +25,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 6
-    Top = 107
+    Top = 99
     Width = 147
     Height = 30
     Anchors = 0
@@ -44,28 +44,16 @@ begin Form
     Above = ""
     Below = ""
   end
-  begin Label
-    Name = Label8
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 1
-    Top = 37
-    Anchors = 0
-    Visible = True
-    Caption = "_______________________________________"
-    Font = "Standard"
-  end
   begin Picture
     Name = picEdicaoCarros
     Index = 0
     Layer = 0
     Tag = ""
     Left = 10
-    Top = 19
+    Top = 18
     Anchors = 0
     Visible = True
-    Image = "FormsEdicao"
+    Image = "IconeFormsEdicao"
     NavFlags = 0
     NavOrder = ""
     Above = ""
@@ -76,32 +64,20 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 37
-    Top = 18
+    Left = 29
+    Top = 19
     Anchors = 0
     Visible = True
     Caption = "Edição de Despesas"
     Font = "LargeBold"
   end
   begin Label
-    Name = Label5
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 36
-    Top = 32
-    Anchors = 0
-    Visible = True
-    Caption = "Criação / Edição de Despesas"
-    Font = "Standard"
-  end
-  begin Label
     Name = Label1
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 17
-    Top = 52
+    Left = 2
+    Top = 53
     Anchors = 0
     Visible = True
     Caption = "Local:"
@@ -112,13 +88,13 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 41
-    Top = 52
-    Width = 62
+    Left = 26
+    Top = 53
+    Width = 104
     Height = 12
     Anchors = 0
     Visible = True
-    Text = "popup"
+    Text = "selecione um local"
     Font = "Standard"
     VisibleItems = 3
     AnchorLeft = True
@@ -133,11 +109,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 4
-    Top = 66
+    Left = 5
+    Top = 65
     Anchors = 0
     Visible = True
-    Caption = "Despesa:"
+    Caption = "Tipo:"
     Font = "Standard"
   end
   begin Label
@@ -145,11 +121,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 5
-    Top = 84
+    Left = 1
+    Top = 77
     Anchors = 0
     Visible = True
-    Caption = "Valor(R$):"
+    Caption = "Valor:"
     Font = "Standard"
   end
   begin Label
@@ -157,8 +133,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 93
-    Top = 84
+    Left = 83
+    Top = 77
     Anchors = 0
     Visible = True
     Caption = "Km:"
@@ -169,8 +145,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 108
-    Top = 52
+    Left = 3
+    Top = 39
     Anchors = 0
     Visible = True
     Caption = "Data:"
@@ -181,13 +157,13 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 41
-    Top = 67
-    Width = 62
+    Left = 26
+    Top = 65
+    Width = 106
     Height = 12
     Anchors = 0
     Visible = True
-    Text = "popup"
+    Text = "selecione um tipo"
     Font = "Standard"
     VisibleItems = 3
     AnchorLeft = True
@@ -202,9 +178,9 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 49
-    Top = 82
-    Width = 39
+    Left = 26
+    Top = 75
+    Width = 52
     Height = 12
     Anchors = 0
     Visible = True
@@ -227,9 +203,9 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 110
-    Top = 82
-    Width = 39
+    Left = 100
+    Top = 75
+    Width = 54
     Height = 12
     Anchors = 0
     Visible = True
@@ -252,15 +228,15 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 109
-    Top = 65
-    Width = 43
-    Height = 10
+    Left = 28
+    Top = 41
+    Width = 53
+    Height = 9
     Anchors = 0
     Visible = True
-    Text = "Data"
+    Text = "12/12/2000"
     Font = "Standard"
-    Format = ""
+    Format = "dd/hh/yyyy"
     AnchorLeft = True
     Mode = 1
     DialogTitle = ""
@@ -269,30 +245,18 @@ begin Form
     Above = ""
     Below = ""
   end
-  begin Label
-    Name = Label14
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 85
-    Top = 1
-    Anchors = 0
-    Visible = True
-    Caption = "Carro:"
-    Font = "Standard"
-  end
   begin Popup
     Name = Popup3
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 111
+    Left = 61
     Top = 0
-    Width = 48
+    Width = 98
     Height = 12
     Anchors = 0
     Visible = True
-    Text = "popup"
+    Text = "selecione um veículo"
     Font = "Standard"
     VisibleItems = 3
     AnchorLeft = True
@@ -367,11 +331,102 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 5
-    Top = 99
+    Left = 7
+    Top = 90
     Anchors = 0
     Visible = True
     Caption = "Descrição da Despesa:"
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label17
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 85
+    Top = 40
+    Anchors = 0
+    Visible = True
+    Caption = "Hora:"
+    Font = "Standard"
+  end
+  begin Selector
+    Name = slc1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 108
+    Top = 41
+    Width = 47
+    Height = 9
+    Anchors = 0
+    Visible = True
+    Text = "Hora"
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 2
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 134
+    Top = 55
+    Anchors = 0
+    Visible = True
+    Image = "Adicionar"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Picture
+    Name = Picture2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 134
+    Top = 67
+    Anchors = 0
+    Visible = True
+    Image = "Adicionar"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Picture
+    Name = Picture3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 16
+    Top = 127
+    Anchors = 0
+    Visible = True
+    Image = "Alarme"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label18
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 34
+    Top = 126
+    Anchors = 0
+    Visible = True
+    Caption = "Agendar Próxima Despesa?"
     Font = "Standard"
   end
 end

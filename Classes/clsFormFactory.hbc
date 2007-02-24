@@ -1,0 +1,95 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsFormFactory
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+Public Property Get GetFrameRelatorioGastosPorPosto() As frmRelatorioGastosPorPosto
+	Set GetFrameRelatorioGastosPorPosto = New frmRelatorioGastosPorPosto
+End Property
+
+Public Property Get GetFrameRelMelhorDesempenho() As frmRelatorioMelhorDesempenho
+	Set GetFrameRelMelhorDesempenho = New frmRelatorioMelhorDesempenho
+End Property
+
+Public Property Get GetFrameRelatorioPiorDesempenho() As frmRelatorioPiorDesempenho
+	Set GetFRameRelatorioPiorDesempenho = New frmRelatorioPiorDesempenho
+End Property
+
+Public Property Get GetFrameSobre() As frmSobre
+	Set GetFrameSobre = New frmSobre
+End Property
+
+Public Property Get GetFrameTiposCombustivel() As frmTiposCombustivel
+	Set GetFrameTiposCombustivel = new frmTiposCombustivel
+End Property
+
+Public Property Get GetFrameVeiculos() As frmVeiculos
+	Set GetFrameVeiculos = New frmVeiculos
+End Property
+
+Public Property Get GetFrameAbastecimentos() As frmAbastecimentos
+	Set GetFrameAbastecimentos = new frmAbastecimentos
+End Property
+
+Public Property Get GetFrameDespesas() As frmDespesas
+	Set GetFrameDespesas = New frmDespesas
+End Property
+
+Public Property Get GetFrameEstabelecimentos() As frmEstabelecimentos
+	Set GetFrameEstabelecimentos = new frmEstabelecimentos
+End Property
+
+Public Property Get GetFrameGraficoConsumo() As frmGraficoConsumo
+	Set GetFrameGraficoConsumo = New frmGraficoConsumo
+End Property
+
+Public Property Get GetFrameMain() As frmMain
+	Set GetFrameMain = New frmMain
+End Property
+
+Public Property Get GetFrameManterAbastecimento() As frmManterAbastecimento
+	Set GetFrameManterAbastecimento = New frmManterAbastecimento
+End Property
+
+Public Property Get GetFrameManterDespesa() As frmManterDespesa
+	Set GetFrameManterDespesa = New frmManterDespesa
+End Property
+
+Public Property Get GetFrameManterEstabelecimento() As frmManterEstabelecimento
+	Set GetFrameManterEstabelecimento = new frmManterEstabelecimento
+End Property
+
+Public Property Get GetFrameManterTipoCombustivel() As frmManterTipoCombustivel
+	Set GetFrameManterTipoCombustivel = New frmManterTipoCombustivel
+End Property
+
+Public Property Get GetFrameManterVeiculo() As frmManterVeiculo
+	Set GetFrameManterVeiculo = new frmManterVeiculo
+End Property
+
+Public Property Get GetFrameRelatorioConsumoMedio() As frmRelatorioConsumoMedio
+	Set GetFrameRelatorioConsumoMedio = New frmRelatorioConsumoMedio
+End Property
+
+Public Property Get GetFrameRelatorioConsumoPorTipo() As frmRelatorioConsumoPorTipo
+	Set GetFrameRelatorioConsumoPorTipo = New frmRelatorioConsumoPorTipo
+End Property
+
+Public Property Get GetFrameRelatorioDespesas() As frmRelatorioDespesas
+	Set GetFrameRelatorioDespesas = New frmRelatorioDespesas
+End Property
+
+Public Property Get GetFrameSeguros() As frmSeguros
+	Set GetFrameSeguros = New frmSeguros
+End Property
+
+Public Property Get GetFrameManterSeguro() As frmManterSeguro
+	Set GetFrameManterSeguro = New frmManterSeguro
+End Property

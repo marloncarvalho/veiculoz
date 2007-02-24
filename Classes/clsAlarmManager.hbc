@@ -1,0 +1,47 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsAlarmManager
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+Private Sub Initialize()
+End Sub
+
+Public Function AdicionarAlarme(alarme As clsAlarm) As clsAlarm
+	Set AdicionarAlarme = Factory.ObterDaoAlarmes().ManterAlarme(alarme)
+	Call Me.Gerenciar()
+End Function
+
+Public Function AlarmeDisparado(Data As Date) As Collection
+	Dim colecao As New Collection
+	Dim alarme As clsAlarm
+	Set colecao = Factory.ObterDaoAlarmes().ObterAlarmesPorData(Data)
+	For Each alarme In colecao
+		Call Factory.ObterDaoAlarmes().Excluir(alarme.Id)
+	Next
+	Call Me.Gerenciar()
+	Set AlarmeDisparado = colecao
+End Function
+
+Private Sub Gerenciar()
+	Dim alarme As clsAlarm
+	Set alarme = Factory.ObterDaoAlarmes().ObterAlarmeAtual()
+	If Not alarme Is Nothing Then
+		App.Alarm = alarme.Data
+	End If
+End Sub
+
+Public Function ObterAlarme(id As Long) As clsAlarm
+	Set ObterAlarme = Factory.ObterDaoAlarmes().ObterAlarme(id)
+End Function
+
+Public Sub Excluir(Id As Long)
+	Factory.ObterDaoAlarmes().Excluir(Id)
+	Call Me.Gerenciar()
+End Sub

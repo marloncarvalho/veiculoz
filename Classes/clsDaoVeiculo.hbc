@@ -3,7 +3,7 @@
 ' *** DO NOT EDIT ***
 
 begin Class
-  Name = clsDaoCarro
+  Name = clsDaoVeiculo
   Segment = main
   Extends = Object
   Instantiable = True
@@ -27,9 +27,9 @@ end
 ' License along with this library; if not, write to the Free Software
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
-Private DbCar As New pvHbCarros
+Private DbCar As New pvHbVeiculos
 
-Public Property Get Database() As pvHbCarros
+Public Property Get Database() As pvHbVeiculos
 	Set Database = DbCar
 End Property
 
@@ -56,7 +56,7 @@ Public Function ObterCarros() As Collection
 	Dim Colecao As New Collection
 	Call DbCar.MoveFirst()
 	While Not DbCar.EOF
-		Dim C As clsCarro
+		Dim C As clsVeiculo
 		Set C = CriarCarro(DbCar)
 		Colecao.Add(C)
 		Call DbCar.MoveNext()
@@ -68,7 +68,7 @@ End Function
 'Atualizar ou Incluir Carros
 '
 '@Param Carro. Carro a ser atualizado ou incluído.
-Public Sub ManterCarro(Carro As clsCarro)
+Public Sub ManterCarro(Carro As clsVeiculo)
 	If Not IsEmpty(Carro.Id) And Carro.Id <> 0 Then
 		DbCar.LookupUniqueID Carro.Id
 		DbCar.Edit
@@ -81,15 +81,20 @@ Public Sub ManterCarro(Carro As clsCarro)
 	DbCar.Placa = Carro.Placa
 	DbCar.Modelo = Carro.Modelo
 	DbCar.Marca = Carro.Marca
+	DbCar.Chassi = Carro.Chassi
 	DbCar.Update
 End Sub
 
 ' Localizar um Carro.
 '
 ' @Returns Carro Encontrado.
-Public Function ObterCarro(ByVal Id As Long) As clsCarro
-	DbCar.LookupUniqueID Id
-	Set ObterCarro = CriarCarro(DbCar)
+Public Function ObterCarro(ByVal Id As Long) As clsVeiculo
+	If Id <> 0 Then
+		DbCar.LookupUniqueID Id
+		Set ObterCarro = CriarCarro(DbCar)
+		Exit Function
+	End If
+	Set ObterCarro = new clsVeiculo
 End Function
 
 Public Sub ExcluirCarro(Id As Long)
@@ -103,10 +108,17 @@ Public Sub ExcluirCarro(Id As Long)
 	DbCar.LookupUniqueID Id
 	DbCar.Delete(hbRecordRemove)
 	DbCar.Update
+
+	Dim colecao As Collection
+	Dim seguro As clsSeguro
+	Set colecao = Factory.ObterDaoSeguro().ObterSeguros(Id)
+	For Each seguro In colecao
+		Factory.ObterDaoSeguro().Excluir(seguro.Id)
+	Next
 End Sub
 
-Private Function CriarCarro(ByRef Db As pvHbCarros) As clsCarro
-	Dim Carro As New clsCarro
+Private Function CriarCarro(ByRef Db As pvHbVeiculos) As clsVeiculo
+	Dim Carro As New clsVeiculo
 	Carro.Id 			= Db.UniqueID
 	Carro.Cor 		= Db.Cor
 	Carro.Marca 	= Db.Marca
@@ -114,5 +126,6 @@ Private Function CriarCarro(ByRef Db As pvHbCarros) As clsCarro
 	Carro.Placa		= Db.Placa
 	Carro.Renavam	= Db.Renavam
 	Carro.Ano 		= Db.Ano
+	Carro.Chassi  = Db.Chassi
 	Set CriarCarro = Carro
 End Function

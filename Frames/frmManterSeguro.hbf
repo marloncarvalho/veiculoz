@@ -1,0 +1,463 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmManterSeguro
+  Segment = main
+  Extends = clsHandleMenu
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Seguro"
+  Modal = False
+  Help = ""
+  DIA = 0
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = lblCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 33
+    Top = 21
+    Anchors = 0
+    Visible = True
+    Caption = "Informações Seguro"
+    Font = "LargeBold"
+  end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 12
+    Top = 19
+    Anchors = 0
+    Visible = True
+    Image = "IconeFormsEdicao"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 14
+    Top = 40
+    Anchors = 0
+    Visible = True
+    Caption = "Empresa:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldEmpresa
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 52
+    Top = 38
+    Width = 97
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 12
+    Top = 54
+    Anchors = 0
+    Visible = True
+    Caption = "Telefone:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldTelefone
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 53
+    Top = 52
+    Width = 54
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = True
+    MaxChar = 15
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 29
+    Top = 107
+    Anchors = 0
+    Visible = True
+    Caption = "Data:"
+    Font = "Standard"
+  end
+  begin Selector
+    Name = selData
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 53
+    Top = 108
+    Width = 40
+    Height = 10
+    Anchors = 0
+    Visible = True
+    Text = ""
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 1
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 122
+    Anchors = 0
+    Visible = True
+    Caption = "Renovação:"
+    Font = "Standard"
+  end
+  begin Selector
+    Name = selRenovacao
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 53
+    Top = 123
+    Width = 40
+    Height = 10
+    Anchors = 0
+    Visible = True
+    Text = ""
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 1
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label5
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 12
+    Top = 67
+    Anchors = 0
+    Visible = True
+    Caption = "Contrato:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldContrato
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 53
+    Top = 65
+    Width = 54
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label6
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 27
+    Top = 80
+    Anchors = 0
+    Visible = True
+    Caption = "Valor:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldValor
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 52
+    Top = 78
+    Width = 55
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = True
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label7
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 14
+    Top = 93
+    Anchors = 0
+    Visible = True
+    Caption = "Franquia:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldFranquia
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 52
+    Top = 91
+    Width = 55
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = True
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnVoltar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 103
+    Top = 144
+    Width = 39
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Voltar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnOk
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 17
+    Top = 144
+    Width = 39
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "OK"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnExcluir
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 60
+    Top = 144
+    Width = 39
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Excluir"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Picture
+    Name = picAlarme
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 104
+    Top = 124
+    Anchors = 0
+    Visible = True
+    Image = "Alarme"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+Private id_veiculo As Long
+Public bNew As Boolean
+Public IdEdicao As Long
+Private AlarmeClass As clsAlarm
+
+Public Property Get IdVeiculo() As Long
+	IdVeiculo = Me.id_veiculo
+End Property
+
+Public Property Let IdVeiculo(I As Long)
+	Me.id_veiculo = I
+End Property
+
+Private Sub btnOk_Click()
+	Dim seguro As New clsSeguro
+	Dim Manager As New clsAlarmManager
+	seguro.Contrato = Me.fldContrato.Text
+	seguro.Data = Me.selData.Date
+	seguro.Empresa = Me.fldEmpresa.Text
+	seguro.Franquia = CDbl(Me.fldFranquia.Text)
+	seguro.IdVeiculo = Me.id_veiculo
+	seguro.Renovacao = Me.selRenovacao.Date
+	seguro.Telefone = Me.fldTelefone.Text
+	seguro.Valor = CDbl(Me.fldValor.Text)
+	If Not Me.bNew And Me.IdEdicao <> 0 Then
+		seguro.Id = Me.IdEdicao
+	End If
+	If Not Me.AlarmeClass Is Nothing Then
+		Me.AlarmeClass.Descricao = "Renovação Seguro: " & seguro.Empresa
+		Set Me.AlarmeClass = Manager.AdicionarAlarme(Me.AlarmeClass)
+		seguro.IdAlarme = Me.AlarmeClass.Id
+	End If
+	Call Factory.ObterDaoSeguro().ManterSeguro(seguro)
+	Dim frm As frmSeguros
+	Set frm = FormFactory.GetFrameSeguros()
+	frm.IdVeiculo = Me.id_veiculo
+	frm.Show hbFormPopup+hbFormModeless
+End Sub
+
+Private Sub clsHandleMenu_Load()
+	Me.selData.Date = Now()
+	Me.selRenovacao.Date = Now()
+	If Me.bNew = False Then
+		Dim seguro As clsSeguro
+		Set seguro = Factory.ObterDaoSeguro().ObterSeguro(Me.IdEdicao)
+		Me.fldEmpresa.Text = seguro.Empresa
+		Me.fldTelefone.Text = seguro.Telefone
+		Me.fldContrato.Text = seguro.Contrato
+		Me.fldValor.Text = CStr(seguro.Valor)
+		Me.fldFranquia.Text = CStr(seguro.Franquia)
+		Me.selData.Date = seguro.Data
+		Me.selRenovacao.Date = seguro.Renovacao
+	End If
+End Sub
+
+Private Sub btnVoltar_Click()
+	Dim frm As frmSeguros
+	Set frm = FormFactory.GetFrameSeguros()
+	frm.IdVeiculo = Me.id_veiculo
+	frm.Show hbFormPopup+hbFormModeless
+End Sub
+
+Private Sub picAlarme_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim frm As New frmManterAlarme
+	Dim seguro As clsSeguro
+	frm.bNew = True
+	If Not Me.bNew And Me.IdEdicao > 0 Then
+		Set seguro = Factory.ObterDaoSeguro().ObterSeguro(Me.IdEdicao)
+		If seguro.IdAlarme > 0 Then
+			frm.IdEdicao = seguro.IdAlarme
+			frm.bNew = False
+		End If
+	End If
+	frm.Show hbFormPopup+hbFormModal
+	Set Me.AlarmeClass = frm.Alarme
+End Sub
+
+
+Private Sub btnExcluir_Click()
+	If Me.bNew Then
+		MsgBox "Impossível Remover este Seguro."
+		Exit Sub
+	End If
+	Factory.ObterDaoSeguro().Excluir(Me.IdEdicao)
+	Call Me.btnVoltar_Click()
+End Sub

@@ -25,9 +25,9 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 5
-    Top = 50
+    Top = 60
     Width = 149
-    Height = 85
+    Height = 75
     Anchors = 0
     Visible = True
     NavFlags = 0
@@ -75,13 +75,13 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 34
-    Top = 30
-    Width = 114
+    Left = 67
+    Top = 18
+    Width = 65
     Height = 12
     Anchors = 0
     Visible = True
-    Text = "Selecione"
+    Text = "selecione"
     Font = "Standard"
     VisibleItems = 3
     AnchorLeft = True
@@ -100,7 +100,7 @@ begin Form
     Top = 18
     Anchors = 0
     Visible = True
-    Caption = "Selecione um Carro:"
+    Caption = "Veículo:"
     Font = "Standard"
   end
   begin Button
@@ -135,13 +135,13 @@ begin Form
       begin MenuItem
         Name = mnuNovoCarro
         Index = 0
-        Caption = "Carros"
+        Caption = "Veículos"
         Shortcut = ""
       end
       begin MenuItem
         Name = mnuPosto
         Index = 0
-        Caption = "Postos"
+        Caption = "Estabelecimentos"
         Shortcut = ""
       end
       begin MenuItem
@@ -216,6 +216,74 @@ begin Form
       end
     end
   end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 38
+    Top = 30
+    Anchors = 0
+    Visible = True
+    Caption = "Data Inicial:"
+    Font = "Standard"
+  end
+  begin Selector
+    Name = selDataInicial
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 39
+    Top = 43
+    Width = 40
+    Height = 9
+    Anchors = 0
+    Visible = True
+    Text = ""
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 1
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label11
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 94
+    Top = 31
+    Anchors = 0
+    Visible = True
+    Caption = "Data Final:"
+    Font = "Standard"
+  end
+  begin Selector
+    Name = selDataFinal
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 94
+    Top = 43
+    Width = 40
+    Height = 9
+    Anchors = 0
+    Visible = True
+    Text = ""
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 1
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
@@ -244,7 +312,7 @@ Private Sub Form_Load()
 	Me.chart.GraphType = Lines
 	Me.chart.ShowSelectedValue = True
 	Me.chart.Min = 0
-	Dim Carro As clsCarro
+	Dim Carro As clsVeiculo
 	For Each Carro In Factory.ObterDaoCarro().ObterCarros()
 		Me.popCarros.AddItem Carro.Modelo, Carro.Id
 	Next
@@ -262,13 +330,13 @@ Private Sub btnVerGrafico_Click()
 
 	Me.chart.Redraw = False
 	Me.chart.Clear
-	Set Colecao = Factory.ObterDaoAbastecimento().ObterAbastecimentosPorCarro(Me.popCarros.ItemData(Me.popCarros.ListIndex),"")
+	Set Colecao = Factory.ObterDaoAbastecimento().ObterPorVeiculoPeriodo(Me.popCarros.ItemData(Me.popCarros.ListIndex),Me.selDataInicial.Date,Me.selDataFinal.Date,"")
 	For Each Abast In Colecao
 		Dim ConsumoMedio As Double
 		Dim KmRodados As Double
 		Dim Consumo As Double
 		Dim Litros As Double
-		Dim Posto As clsPosto
+		Dim Posto As clsEstabelecimento
 		If Abast.KmFinal <> "" Then
 			Set Posto = Factory.ObterDaoPosto().ObterPosto(Abast.IdPosto)
 			KmRodados = CDbl(Abast.KmFinal)-CDbl(Abast.KmInicial)

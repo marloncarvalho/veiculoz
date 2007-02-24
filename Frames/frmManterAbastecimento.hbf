@@ -10,7 +10,7 @@ begin Form
   Top = 0
   Width = 160
   Height = 160
-  Caption = "Abastecimento"
+  Caption = "Abastec."
   Modal = False
   Help = ""
   DIA = 1
@@ -84,7 +84,7 @@ begin Form
     Align = 2
     Editable = True
     AutoShift = True
-    Numeric = False
+    Numeric = True
     MaxChar = 80
     Scrollbar = ""
     NavFlags = 0
@@ -161,7 +161,7 @@ begin Form
     Align = 2
     Editable = True
     AutoShift = True
-    Numeric = False
+    Numeric = True
     MaxChar = 80
     Scrollbar = ""
     NavFlags = 0
@@ -232,13 +232,13 @@ begin Form
     Tag = ""
     Left = 30
     Top = 53
-    Width = 116
+    Width = 109
     Height = 12
     Anchors = 0
     Visible = True
     Text = "Tipo de Combustível"
     Font = "Standard"
-    VisibleItems = 3
+    VisibleItems = 10
     AnchorLeft = True
     Sorted = 0
     NavFlags = 0
@@ -265,13 +265,13 @@ begin Form
     Tag = ""
     Left = 30
     Top = 66
-    Width = 113
+    Width = 107
     Height = 12
     Anchors = 0
     Visible = True
     Text = "Posto"
     Font = "Standard"
-    VisibleItems = 3
+    VisibleItems = 10
     AnchorLeft = True
     Sorted = 0
     NavFlags = 0
@@ -279,30 +279,18 @@ begin Form
     Above = ""
     Below = ""
   end
-  begin Label
-    Name = Label9
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 85
-    Top = 1
-    Anchors = 0
-    Visible = True
-    Caption = "Carro:"
-    Font = "Standard"
-  end
   begin Popup
     Name = popCarro
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 110
+    Left = 57
     Top = 1
-    Width = 49
+    Width = 102
     Height = 12
     Anchors = 0
     Visible = True
-    Text = "Carro"
+    Text = "selecione um veículo"
     Font = "Standard"
     VisibleItems = 3
     AnchorLeft = True
@@ -430,13 +418,13 @@ begin Form
       begin MenuItem
         Name = mnuNovoCarro
         Index = 0
-        Caption = "Carros"
+        Caption = "Veículos"
         Shortcut = ""
       end
       begin MenuItem
         Name = mnuPosto
         Index = 0
-        Caption = "Postos"
+        Caption = "Estabelecimentos"
         Shortcut = ""
       end
       begin MenuItem
@@ -552,7 +540,7 @@ begin Form
     Align = 2
     Editable = False
     AutoShift = True
-    Numeric = False
+    Numeric = True
     MaxChar = 80
     Scrollbar = ""
     NavFlags = 0
@@ -606,45 +594,6 @@ begin Form
     Above = ""
     Below = ""
   end
-  begin Label
-    Name = Label13
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 2
-    Top = 25
-    Anchors = 0
-    Visible = True
-    Caption = "_______________________________________"
-    Font = "Standard"
-  end
-  begin Picture
-    Name = picEdicaoCarros
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 10
-    Top = 17
-    Anchors = 0
-    Visible = True
-    Image = "FormsEdicaoMini"
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
-  end
-  begin Label
-    Name = lblCarros
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 28
-    Top = 18
-    Anchors = 0
-    Visible = True
-    Caption = "Edição de Abastec."
-    Font = "LargeBold"
-  end
   begin CheckBox
     Name = chkViagem
     Index = 0
@@ -661,6 +610,63 @@ begin Form
     Value = False
     AnchorLeft = True
     Group = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = lblCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 27
+    Top = 19
+    Anchors = 0
+    Visible = True
+    Caption = "Edição de Abastec."
+    Font = "LargeBold"
+  end
+  begin Picture
+    Name = picEdicaoCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 7
+    Top = 18
+    Anchors = 0
+    Visible = True
+    Image = "IconeFormsEdicao"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 141
+    Top = 66
+    Anchors = 0
+    Visible = True
+    Image = "Adicionar"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Picture
+    Name = Picture2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 141
+    Top = 55
+    Anchors = 0
+    Visible = True
+    Image = "Adicionar"
     NavFlags = 0
     NavOrder = ""
     Above = ""
@@ -840,26 +846,50 @@ Private Sub btnCancelar_Click()
 	frm.Show hbFormModeless+hbFormGoto
 End Sub
 
-Private Sub Form_Load()
+Private Sub DefinirPopPostos(Nome As String)
+	Dim Index As Integer
 	Dim ColecaoPostos As Collection
-	Dim Posto As clsPosto
+	Dim Posto As clsEstabelecimento
 	Set ColecaoPostos = Factory.ObterDaoPosto().ObterPostos()
+	Index = 0
+	Call Me.popPosto.Clear()
 	For Each Posto In ColecaoPostos
 		Me.popPosto.AddItem Posto.Nome,Posto.Id
+		If Posto.Nome = Nome Then
+			Me.popPosto.ListIndex = Index
+		End If
+		Index = Index + 1
 	Next
+	Me.popPosto.AddItem "Novo Posto...",-2
+End Sub
+
+Private Sub DefinirPopTipos(Nome As String)
+	Dim ColecaoTipos As Collection
+	Dim Index As Integer
+	Dim Tipo As clsTipoCombustivel
+	Set ColecaoTipos = Factory.ObterDaoTipoCombustivel().ObterTiposCombustivel()
+	Index = 0
+	Call Me.popTipo.Clear()
+	For Each Tipo In ColecaoTipos
+		Me.popTipo.AddItem Tipo.Nome,Tipo.Id
+		If Tipo.Nome = Nome Then
+			Me.popTipo.ListIndex = Index
+		End If
+		Index = Index + 1
+	Next
+	Me.popTipo.AddItem "Novo Tipo...",-2
+End Sub
+
+Private Sub Form_Load()
+
+	Call Me.DefinirPopPostos("")
+	Call Me.DefinirPopTipos("")
 
 	Dim ColecaoCarros As Collection
-	Dim Carro As clsCarro
+	Dim Carro As clsVeiculo
 	Set ColecaoCarros = Factory.ObterDaoCarro().ObterCarros()
 	For Each Carro In ColecaoCarros
 		Me.popCarro.AddItem Carro.Modelo,Carro.Id
-	Next
-
-	Dim ColecaoTipos As Collection
-	Dim Tipo As clsTipoCombustivel
-	Set ColecaoTipos = Factory.ObterDaoTipoCombustivel().ObterTiposCombustivel()
-	For Each Tipo In ColecaoTipos
-		Me.popTipo.AddItem Tipo.Nome,Tipo.Id
 	Next
 
 	If Not Me.bNew And Not IsEmpty(Me.IdEdicao) Then
@@ -881,6 +911,7 @@ Private Sub Form_Load()
 		End If
 		Call Me.CalculaTotalLitros()
 	Else
+		Me.slcHora.Time = DatePart("ss",Now())
 		Me.slcData.Date = Now()
 	End If
 End Sub
@@ -893,7 +924,7 @@ Private Sub Excluir()
 	Dim Index As Integer
 
 	Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimento(Me.IdEdicao)
-	Set Colecao = Factory.ObterDaoAbastecimento().ObterAbastecimentosPorCarro(Abs.IdCarro,"Data Asc, Hora Asc")
+	Set Colecao = Factory.ObterDaoAbastecimento().ObterAbastecimentosPorVeiculo(Abs.IdCarro,"Data Asc, Hora Asc")
 	Index = 1
 
 	If Colecao.Count = 1 Then 'Caso só exista este abastecimento, exclui ele apenas.
@@ -936,7 +967,6 @@ Private Sub fldValorLitro_Change()
 	Call CalculaTotalLitros()
 End Sub
 
-
 Private Sub fldValorTotal_Change()
 	Call CalculaTotalLitros()
 End Sub
@@ -951,4 +981,39 @@ Private Sub CalculaTotalLitros()
 		valorTotal = CDbl(Me.fldValorTotal.Text)
 	End If
 	Me.fldLitros.Text = Mid(Cstr(valorTotal/valorLitro),1,5) & " Lts"
+End Sub
+
+Private Sub popPosto_Change()
+	If Me.popPosto.ListIndex > 0 Then
+		If Me.popPosto.ItemData(Me.popPosto.ListIndex) = -2 Then
+			Call Me.Picture1_PenDown(0,0)
+		End If
+	End If
+End Sub
+
+
+Private Sub Picture1_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim frm As New frmManterEstabelecimento
+	frm.bNew = True
+	frm.IsModal = True
+	Call frm.Show(hbFormModal+hbFormPopup)
+	Call Me.DefinirPopPostos(frm.NovoEstabelecimento.Nome)
+End Sub
+
+
+Private Sub Picture2_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim frm As New frmManterTipoCombustivel
+	frm.bNew = True
+	frm.IsModal = True
+	Call frm.Show(hbFormModal+hbFormPopup)
+	Call Me.DefinirPopTipos(frm.NovoTipo.Nome)
+End Sub
+
+
+Private Sub popTipo_Change()
+	If Me.popTipo.ListIndex > 0 Then
+		If Me.popTipo.ItemData(Me.popTipo.ListIndex) = -2 Then
+			Call Me.Picture2_PenDown(0,0)
+		End If
+	End If
 End Sub

@@ -1,0 +1,29 @@
+' Peter Holmes Consulting HB++ Module file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Module
+  Name = StringFunctions
+  Segment = main
+end
+Public Function Split(ByRef sText As String, ByRef sDelimiter As String) As Collection
+  Dim i As Integer, j As Integer, b As Boolean
+  Dim s As String, c As New Collection
+
+  If sText<>"" Then
+    j=1
+    Do
+      i=InStr(j,sText,sDelimiter,hbCompareText)
+      If i=0 Then
+        i=Len(sText)+1
+        b=True
+      End If
+
+      s=Mid(sText,j,i-j)
+      If s<>"" Then c.Add s
+      j=i+Len(sDelimiter)
+    Loop Until b
+  End If
+
+  Set Split=c
+End Function

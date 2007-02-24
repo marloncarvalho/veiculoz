@@ -20,18 +20,6 @@ begin Form
   BottomLeft = ""
   Locked = False
   begin Label
-    Name = Label8
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 2
-    Top = 38
-    Anchors = 0
-    Visible = True
-    Caption = "_______________________________________"
-    Font = "Standard"
-  end
-  begin Label
     Name = Label1
     Index = 0
     Layer = 0
@@ -140,13 +128,13 @@ begin Form
       begin MenuItem
         Name = mnuNovoCarro
         Index = 0
-        Caption = "Carros"
+        Caption = "Veículos"
         Shortcut = ""
       end
       begin MenuItem
         Name = mnuPosto
         Index = 0
-        Caption = "Postos"
+        Caption = "Estabelecimentos"
         Shortcut = ""
       end
       begin MenuItem
@@ -230,7 +218,7 @@ begin Form
     Top = 20
     Anchors = 0
     Visible = True
-    Image = "FormsEdicao"
+    Image = "IconeFormsEdicao"
     NavFlags = 0
     NavOrder = ""
     Above = ""
@@ -241,24 +229,12 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 37
-    Top = 19
+    Left = 32
+    Top = 22
     Anchors = 0
     Visible = True
     Caption = "Edição de Tipos"
     Font = "LargeBold"
-  end
-  begin Label
-    Name = Label5
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 36
-    Top = 33
-    Anchors = 0
-    Visible = True
-    Caption = "Criação / Edição de Tipos"
-    Font = "Standard"
   end
 end
 ' VeículoZ - Controle de Veículos
@@ -280,6 +256,8 @@ end
 
 Public bNew As Boolean
 Public IdEdicao As Long
+Public IsModal As Boolean
+Public NovoTipo As New clsTipoCombustivel
 
 Private Sub Form_Load()
 	If Not Me.bNew And Not IsEmpty(Me.IdEdicao) Then
@@ -305,15 +283,23 @@ Private Sub btnOk_Click()
 		Tipo.Nome = Me.fldNome.Text
 		Tipo.Id = Me.IdEdicao
 		Factory.ObterDaoTipoCombustivel().ManterTipoCombustivel(Tipo)
-		Dim frm as New frmTiposCombustivel
-		frm.Show hbFormModeless+hbFormGoto
+		Set Me.NovoTipo = Tipo
+		If Not IsModal Then
+			Dim frm as New frmTiposCombustivel
+			frm.Show hbFormModeless+hbFormGoto
+		Else
+			Unload(Me)
+		End If
 	End If
 End Sub
 
-
 Private Sub btnCancelar_Click()
-	Dim frm as New frmTiposCombustivel
-	frm.Show hbFormModeless+hbFormGoto
+	If Not IsModal Then
+		Dim frm as New frmTiposCombustivel
+		frm.Show hbFormModeless+hbFormGoto
+	Else
+		Unload(Me)
+	End If
 End Sub
 
 Private Sub btnExcluir_Click()

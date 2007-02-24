@@ -3,14 +3,14 @@
 ' *** DO NOT EDIT ***
 
 begin Form
-  Name = frmPostos
+  Name = frmVeiculos
   Segment = Formularios
   Extends = clsHandleMenu
   Left = 0
   Top = 0
   Width = 160
   Height = 160
-  Caption = "Postos"
+  Caption = "Veículos"
   Modal = False
   Help = ""
   DIA = 1
@@ -19,45 +19,56 @@ begin Form
   InitialFocus = ""
   BottomLeft = ""
   Locked = False
-  begin Label
-    Name = Label8
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 3
-    Top = 128
-    Anchors = 0
-    Visible = True
-    Caption = "_____________________________________"
-    Font = "Standard"
-  end
-  begin Label
-    Name = Label7
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 4
-    Top = 50
-    Anchors = 0
-    Visible = True
-    Caption = "_____________________________________"
-    Font = "Standard"
-  end
   begin GridEx
-    Name = gridPostos
+    Name = gridCarros
     Index = 0
     Layer = 0
     Tag = ""
     Left = 4
     Top = 60
-    Width = 144
+    Width = 146
     Height = 75
     Anchors = 0
     Visible = True
-    Columns = "AgBpAQUAOQBPAAsAAAAAAAAAAAAoAAMABQA5ADIACwAAAAAAAAAAACgAAwA="
+    Columns = "AwDjAQUAOQA3AAsAAAAAAAAAAAAoAAMABQA5ACgACwAAAAAAAAAAACgAAwAFADkAKAALAAAAAAAAAAAAKAADAA=="
     SelectionMode = 1
     VertScroll = "scroll"
     HorzScroll = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Scrollbar
+    Name = scroll
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 150
+    Top = 58
+    Width = 7
+    Height = 80
+    Anchors = 0
+    Visible = True
+    Min = 0
+    Max = 100
+    LargeChange = 10
+  end
+  begin Button
+    Name = btnNovoCarro
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 143
+    Width = 31
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Novo"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
     NavFlags = 0
     NavOrder = ""
     Above = ""
@@ -72,7 +83,19 @@ begin Form
     Top = 48
     Anchors = 0
     Visible = True
-    Caption = "Nome"
+    Caption = "Modelo"
+    Font = "Bold"
+  end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 60
+    Top = 48
+    Anchors = 0
+    Visible = True
+    Caption = "Placa"
     Font = "Bold"
   end
   begin Label
@@ -80,27 +103,51 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 83
+    Left = 101
     Top = 48
     Anchors = 0
     Visible = True
-    Caption = "Distribuidora"
+    Caption = "Marca"
     Font = "Bold"
   end
-  begin Scrollbar
-    Name = scroll
+  begin Picture
+    Name = Picture1
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 149
-    Top = 57
-    Width = 7
-    Height = 82
+    Left = 5
+    Top = 19
     Anchors = 0
     Visible = True
-    Min = 0
-    Max = 100
-    LargeChange = 10
+    Image = "FormsListagem"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 34
+    Top = 17
+    Anchors = 0
+    Visible = True
+    Caption = "Veículos"
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = lblSubtitulo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 33
+    Top = 30
+    Anchors = 1
+    Visible = True
+    Caption = "20 Veículos(s) Cadastrado(s)"
+    Font = "Standard"
   end
   begin MenuBar
     begin MenuTitle
@@ -114,13 +161,13 @@ begin Form
       begin MenuItem
         Name = mnuNovoCarro
         Index = 0
-        Caption = "Carros"
+        Caption = "Veículos"
         Shortcut = ""
       end
       begin MenuItem
         Name = mnuPosto
         Index = 0
-        Caption = "Postos"
+        Caption = "Estabelecimentos"
         Shortcut = ""
       end
       begin MenuItem
@@ -184,9 +231,7 @@ begin Form
         Caption = "Gráfico Consumo"
         Shortcut = ""
       end
-
     end
-
     begin MenuTitle
       Caption = "Ajuda"
       begin MenuItem
@@ -196,65 +241,6 @@ begin Form
         Shortcut = ""
       end
     end
-  end
-  begin Picture
-    Name = Picture1
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 5
-    Top = 19
-    Anchors = 0
-    Visible = True
-    Image = "FormsListagem"
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
-  end
-  begin Label
-    Name = Label4
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 34
-    Top = 17
-    Anchors = 0
-    Visible = True
-    Caption = "Cadastro de Postos"
-    Font = "LargeBold"
-  end
-  begin Label
-    Name = lblSubtitulo
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 33
-    Top = 30
-    Anchors = 1
-    Visible = True
-    Caption = "20 Posto(s) Cadastrado(s)"
-    Font = "Standard"
-  end
-  begin Button
-    Name = btnNovo
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 4
-    Top = 143
-    Width = 31
-    Height = 12
-    Anchors = 0
-    Visible = True
-    Text = "Novo"
-    Font = "Standard"
-    Frame = 1
-    Repeating = False
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
   end
   begin Button
     Name = btnVoltar
@@ -296,6 +282,27 @@ begin Form
     Above = ""
     Below = ""
   end
+  begin Popup
+    Name = popOpcoes
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 59
+    Top = 1
+    Width = 99
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "selecione uma opção"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
@@ -314,38 +321,42 @@ end
 ' License along with this library; if not, write to the Free Software
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
+Private Sub gridCarros_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
+	Dim Carro As clsVeiculo
+	Set Carro = Factory.ObterDaoCarro().ObterCarro(lItemData)
+	vValue(0) = Carro.Modelo
+	vValue(1) = Carro.Placa
+	vValue(2) = Carro.Marca
+End Sub
+
+
 Private Sub Form_Load()
 	Dim Colecao As Collection
-	Dim Posto As clsPosto
-	Set Colecao = Factory.ObterDaoPosto().ObterPostos()
-	For Each Posto In Colecao
-		Call gridPostos.AddItem(Posto.Id)
+	Dim Carro As clsVeiculo
+	Dim Total As Integer
+	Total = Factory.ObterDaoCarro().TotalCarros()
+	Set Colecao = Factory.ObterDaoCarro().ObterCarros()
+	For Each Carro In Colecao
+		Call gridCarros.AddItem(Carro.Id)
 	Next
-	Me.lblSubtitulo.Caption = Colecao.Count & " Posto(s) Cadastrado(s)"
+	Me.lblSubtitulo.Caption = Total & " Veículo(s) Cadastrado(s)"
+	Me.popOpcoes.AddItem "Consultar Internet", 1
 End Sub
 
 
-Private Sub gridPostos_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
-	Dim Posto As clsPosto
-	Set Posto = Factory.ObterDaoPosto().ObterPosto(lItemData)
-	vValue(0) = Posto.Nome
-	vValue(1) = Posto.Distribuidora
-End Sub
-
-
-Private Sub gridPostos_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
-	Dim Posto As clsPosto
-	Set Posto = Factory.ObterDaoPosto().ObterPosto(lItemData)
-	Dim frm As New frmManterPosto
-	frm.bNew = False
-	frm.IdEdicao = Posto.Id
+Private Sub btnNovoCarro_Click()
+	Dim frm As New frmManterVeiculo
+	frm.bNew = True
 	frm.Show hbFormModeless+hbFormGoto
 End Sub
 
 
-Private Sub btnNovo_Click()
-	Dim frm As New frmManterPosto
-	frm.bNew = True
+Private Sub gridCarros_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
+	Dim Carro As clsVeiculo
+	Set Carro = Factory.ObterDaoCarro().ObterCarro(lItemData)
+	Dim frm As New frmManterVeiculo
+	frm.bNew = False
+	frm.IdEdicao = Carro.Id
 	frm.Show hbFormModeless+hbFormGoto
 End Sub
 
@@ -358,4 +369,11 @@ End Sub
 Private Sub btnSair_Click()
 	Dim app As new clsApplication
 	app.Quit
+End Sub
+
+Private Sub popOpcoes_Change()
+	If Me.popOpcoes.ItemData(Me.popOpcoes.ListIndex) = 1 Then
+		Dim frm As New frmObterVeiculoDetran
+		frm.Show hbFormPopup
+	End If
 End Sub

@@ -26,17 +26,37 @@ end
 ' You should have received a copy of the GNU Lesser General Public
 ' License along with this library; if not, write to the Free Software
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+Private LastAlarm As Date
+
 Private Sub Application_NormalLaunch()
 	'Definindo BitDepth para a aplicação.
 	Dim sm as New ScreenMode
 	sm.FindFirstMode
 	sm.BitDepth = 16
-	Set ScreenMode=sm
+	Set ScreenMode = sm
 
   Dim f As New frmMain
   f.Show hbFormModeless+hbFormGoto
 End Sub
 
 Private Sub Terminate()
-  Set ScreenMode=DefaultScreenMode
+  Set ScreenMode = DefaultScreenMode
+End Sub
+
+Private Sub Application_AlarmTriggered(ByRef bPurge As Boolean)
+	Me.LastAlarm = Now()
+	Call SystemSound(hbSoundAlarm)
+End Sub
+
+Private Sub Application_DisplayAlarm()
+	Dim Manager As New clsAlarmManager
+	Dim Frm As New frmAlarmes
+	Dim Colecao As New Collection
+	Set Colecao = Manager.AlarmeDisparado(Me.LastAlarm)
+	Set Frm.Alarmes = Colecao
+	Frm.Show hbFormModal+hbFormPopup
+End Sub
+
+Public Sub SetupAlarm(ByVal iYear As Integer, ByVal iMonth As Integer, ByVal iDay As Integer, ByVal iHour As Integer, ByVal iMinute As Integer, ByVal iSecond As Integer)
+  App.Alarm = DateSerial( iYear, iMonth, iDay, iHour, iMinute, iSecond)
 End Sub

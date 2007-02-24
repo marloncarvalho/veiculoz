@@ -1,0 +1,120 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsSeguro
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+Private MeEmpresa As String
+Private MeContrato As String
+Private MeTelefone As String
+Private MeValor As Double
+Private MeFranquia As Double
+Private MeData As Date
+Private MeRenovacao As Date
+Private MeHoraAlarme As Long
+Private MeAlarme As Boolean
+Private MeIdVeiculo As Long
+Private MeId As Long
+Private MeIdAlarme As Long
+
+Public Property Get IdAlarme() As Long
+	IdAlarme = MeIdAlarme
+End Property
+
+Public Property Let IdAlarme(i As Long)
+	MeIdAlarme = i
+End Property
+
+Public Property Get Id() As Long
+	Id = MeId
+End Property
+
+Public Property Let Id(I As Long)
+	MeId = I
+End Property
+
+Public Property Get Empresa() As String
+	Empresa = MeEmpresa
+End Property
+
+Public Property Let Empresa(E As String)
+	MeEmpresa = E
+End Property
+
+Public Property Get Contrato() As String
+	Contrato = MeContrato
+End Property
+
+Public Property Let Contrato(C As String)
+	MeContrato = C
+End Property
+
+Public Property Get Telefone() As String
+	Telefone = MeTelefone
+End Property
+
+Public Property Let Telefone(T As String)
+	MeTelefone = T
+End Property
+
+Public Property Get Valor() As Double
+	Valor = MeValor
+End Property
+
+Public Property Let Valor(V As Double)
+	MeValor = V
+End Property
+
+Public Property Get Franquia() As Double
+	Franquia = MeFranquia
+End Property
+
+Public Property Let Franquia(F As Double)
+	MeFranquia = F
+End Property
+
+Public Property Get Data() As Date
+	Data = MeData
+End Property
+
+Public Property Let Data(D As Date)
+	MeData = D
+End Property
+
+Public Property Get Renovacao() As Date
+	Renovacao = MeRenovacao
+End Property
+
+Public Property Let Renovacao(R As Date)
+	MeRenovacao = R
+End Property
+
+Public Property Get HoraAlarme() As Long
+	HoraAlarme = MeHoraAlarme
+End Property
+
+Public Property Let HoraAlarme(H As Long)
+	MeHoraAlarme = H
+End Property
+
+Public Property Get Alarme() As Boolean
+	Alarme = MeAlarme
+End Property
+
+Public Property Let Alarme(A As Boolean)
+	MeAlarme = A
+End Property
+
+Public Property Get IdVeiculo() As Long
+	IdVeiculo = MeIdVeiculo
+End Property
+
+Public Property Let IdVeiculo(I As Long)
+	MeIdVeiculo = I
+End Property
