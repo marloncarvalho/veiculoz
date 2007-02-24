@@ -20,30 +20,6 @@ begin Form
   BottomLeft = ""
   Locked = False
   begin Label
-    Name = Label8
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 3
-    Top = 126
-    Anchors = 0
-    Visible = True
-    Caption = "_____________________________________"
-    Font = "Standard"
-  end
-  begin Label
-    Name = Label7
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 4
-    Top = 48
-    Anchors = 0
-    Visible = True
-    Caption = "_____________________________________"
-    Font = "Standard"
-  end
-  begin Label
     Name = Label1
     Index = 0
     Layer = 0
@@ -60,8 +36,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 149
-    Top = 56
+    Left = 151
+    Top = 54
     Width = 7
     Height = 81
     Anchors = 0
@@ -82,13 +58,13 @@ begin Form
       begin MenuItem
         Name = mnuNovoCarro
         Index = 0
-        Caption = "Carros"
+        Caption = "Veículos"
         Shortcut = ""
       end
       begin MenuItem
         Name = mnuPosto
         Index = 0
-        Caption = "Postos"
+        Caption = "Estabelecimentos"
         Shortcut = ""
       end
       begin MenuItem
@@ -268,8 +244,8 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 4
-    Top = 58
-    Width = 144
+    Top = 56
+    Width = 147
     Height = 77
     Anchors = 0
     Visible = True

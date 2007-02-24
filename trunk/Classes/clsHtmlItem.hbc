@@ -1,0 +1,60 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 1.06.1330.1164
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsHtmlItem
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+'=========================================================================
+'
+' MiniBrowser Sample - HTML Item
+'
+' THIS SOFTWARE IS PROVIDED BY PETER HOLMES CONSULTING "AS IS" AND
+' ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+' THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+' PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR
+' OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+' SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+' LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+' USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+' AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+' LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+' IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+' THE POSSIBILITY OF SUCH DAMAGE.
+'=========================================================================
+
+'---------------------------- Types ----------------------------
+
+Public Enum ItemType
+	htmlText
+	htmlLink
+	htmlCrlf
+End Enum
+
+Public Enum ItemStyle
+	styleNormal
+	styleBold
+	styleHead1
+	styleHead2
+	styleHead3
+End Enum
+
+'---------------------------- Member variables -----------------
+
+Public objNext	As clsHtmlItem
+Public objPrev	As clsHtmlItem
+Public sText		As String
+Public sLink		As String
+Public eType		As ItemType
+Public eStyle   as ItemStyle
+
+Public iPosX 		As Integer
+Public iPosY 		As Integer
+Public iWidth 	As Integer
+
+'=========================================================================

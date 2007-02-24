@@ -9,10 +9,10 @@ begin Project
   Package = ""
   File = "Classes\\clsApplication.hbc"
   File = "Frames\\frmMain.hbf"
-  File = "Frames\\frmCarros.hbf"
-  File = "Frames\\frmManterCarro.hbf"
-  File = "Frames\\frmPostos.hbf"
-  File = "Frames\\frmManterPosto.hbf"
+  File = "Frames\\frmVeiculos.hbf"
+  File = "Frames\\frmManterVeiculo.hbf"
+  File = "Frames\\frmEstabelecimentos.hbf"
+  File = "Frames\\frmManterEstabelecimento.hbf"
   File = "Frames\\frmManterTipoCombustivel.hbf"
   File = "Frames\\frmTiposCombustivel.hbf"
   File = "Frames\\frmManterAbastecimento.hbf"
@@ -25,13 +25,13 @@ begin Project
   File = "Frames\\frmRelatorioPiorDesempenho.hbf"
   File = "Frames\\frmRelatorioGastosPorPosto.hbf"
   File = "Frames\\frmRelatorioConsumoPorTipo.hbf"
-  File = "Classes\\clsCarro.hbc"
-  File = "Classes\\clsDaoCarro.hbc"
+  File = "Classes\\clsVeiculo.hbc"
+  File = "Classes\\clsDaoVeiculo.hbc"
   File = "Classes\\clsDaoFactory.hbc"
   File = "Classes\\clsTipoCombustivel.hbc"
   File = "Classes\\clsDaoTipoCombustivel.hbc"
-  File = "Classes\\clsPosto.hbc"
-  File = "Classes\\clsDaoPosto.hbc"
+  File = "Classes\\clsEstabelecimento.hbc"
+  File = "Classes\\clsDaoEstabelecimento.hbc"
   File = "Classes\\clsAbastecimento.hbc"
   File = "Classes\\clsDaoAbastecimento.hbc"
   File = "Modules\\DateFunctions.hbm"
@@ -39,13 +39,30 @@ begin Project
   File = "Frames\\frmGraficoConsumo.hbf"
   File = "Frames\\frmDespesas.hbf"
   File = "Frames\\frmManterDespesa.hbf"
+  File = "Classes\\clsFormFactory.hbc"
+  File = "Frames\\frmObterVeiculoDetran.hbf"
+  File = "Classes\\clsHTTP.hbc"
+  File = "Classes\\clsSSL.hbc"
+  File = "Classes\\clsHtmlItem.hbc"
+  File = "Modules\\StringFunctions.hbm"
+  File = "Frames\\frmAguarde.hbf"
+  File = "Frames\\frmManterSeguro.hbf"
+  File = "Frames\\frmSeguros.hbf"
+  File = "Classes\\clsDaoSeguro.hbc"
+  File = "Classes\\clsSeguro.hbc"
+  File = "Frames\\frmMotorista.hbf"
+  File = "Classes\\clsAlarmManager.hbc"
+  File = "Classes\\clsAlarm.hbc"
+  File = "Classes\\clsDaoAlarme.hbc"
+  File = "Frames\\frmAlarmes.hbf"
+  File = "Frames\\frmManterAlarme.hbf"
   begin Configuration
     Name = Debug
     Title = "VeículoZ"
-    Version = "1.1.0.1 Build 20061111"
-    Icon = "IconeAplicacao"
-    SmallIcon = "IconeAplicacao"
-    MinOSVersion = 30
+    Version = "1.2 build 20070205"
+    Icon = "IconeFrenteAplicacao"
+    SmallIcon = "IconeFrenteAplicacao"
+    MinOSVersion = 50
     Locale = 1033
     Database = "veiculoz"
     Creator = "MSC1"
@@ -64,10 +81,10 @@ begin Project
   begin Configuration
     Name = Release
     Title = "VeículoZ"
-    Version = "1.1.0.1 Build 20061111"
-    Icon = "IconeAplicacao"
-    SmallIcon = "IconeAplicacao"
-    MinOSVersion = 30
+    Version = "1.2 build 20070205"
+    Icon = "IconeFrenteAplicacao"
+    SmallIcon = "IconeFormsEdicao"
+    MinOSVersion = 50
     Locale = 1033
     Database = "veiculoz"
     Creator = "MSC1"
@@ -84,7 +101,7 @@ begin Project
     CheckFPU = False
   end
   begin Table
-    Name = pvHbCarros
+    Name = pvHbVeiculos
     Creator = "*"
     Type = "DATA"
     Backup = True
@@ -150,16 +167,6 @@ begin Project
     end
   end
   begin ImageFamily
-    Name = IconeAplicacao
-    begin Image
-      Density = 72
-      Palette = 4
-      Compression = 255
-      TransparencyColor = -1
-      Filename = "Images\\folder_home.bmp"
-    end
-  end
-  begin ImageFamily
     Name = ImagemTelaPrincipal
     begin Image
       Density = 72
@@ -182,5 +189,99 @@ begin Project
       TransparencyColor = -1
       Filename = "Images\\text-editor-mini.bmp"
     end
+  end
+  begin ImageFamily
+    Name = IconeFormsEdicao
+    begin Image
+      Density = 72
+      Palette = 4
+      Compression = 0
+      TransparencyColor = -1
+      Filename = "Images\\icone-edicao.bmp"
+    end
+  end
+  begin ImageFamily
+    Name = IconeFrenteAplicacao
+    begin Image
+      Density = 144
+      Palette = 3
+      Compression = 0
+      TransparencyColor = 16777215
+      Filename = "Images\\icone-aplicacao.bmp"
+    end
+    begin Image
+      Density = 72
+      Palette = 3
+      Compression = 0
+      TransparencyColor = -1
+      Filename = "Images\\icone-aplicacao-1bpp.bmp"
+    end
+  end
+  begin ImageFamily
+    Name = ImagemPrincipal
+    begin Image
+      Density = 72
+      Palette = 4
+      Compression = 0
+      TransparencyColor = -1
+      Filename = "Images\\imagem-principal.bmp"
+    end
+  end
+  begin Table
+    Name = pvHbSeguros
+    Creator = "*"
+    Type = "DATA"
+    Backup = True
+    Bundled = False
+    PDB = 3
+    Filename = "Databases\\pvHbSeguros.hbx"
+  end
+  begin Table
+    Name = pvHbAlarmes
+    Creator = "*"
+    Type = "DATA"
+    Backup = True
+    Bundled = False
+    PDB = 0
+    Filename = "Databases\\pvHbAlarmes.hbx"
+  end
+  begin ImageFamily
+    Name = Alarme
+    begin Image
+      Density = 72
+      Palette = 3
+      Compression = 255
+      TransparencyColor = 65280
+      Filename = "Images\\smallIcon_8bpp_72dpi.bmp"
+    end
+  end
+  begin ImageFamily
+    Name = AlarmeSino
+    begin Image
+      Density = 72
+      Palette = 4
+      Compression = 255
+      TransparencyColor = 16777215
+      Filename = "Images\\bell.bmp"
+    end
+  end
+  begin ImageFamily
+    Name = Adicionar
+    begin Image
+      Density = 72
+      Palette = 4
+      Compression = 255
+      TransparencyColor = -1
+      Filename = "Images\\adicionar.bmp"
+    end
+  end
+  begin Table
+    Name = pvHbDespesas
+    Creator = "*"
+    Type = "DATA"
+    Backup = True
+    Bundled = False
+    PDB = 0
+    Filename = "Databases\\pvHbDespesas.hbx"
   end
 end

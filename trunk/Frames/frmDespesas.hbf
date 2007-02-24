@@ -19,4 +19,179 @@ begin Form
   InitialFocus = ""
   BottomLeft = ""
   Locked = False
+  begin Button
+    Name = btnNovo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 143
+    Width = 30
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Novo"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin GridEx
+    Name = gridCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 60
+    Width = 146
+    Height = 59
+    Anchors = 0
+    Visible = True
+    Columns = "AwDeAQUAOQAyAAsAAAAAAAAAAAAoAAMABQA5ACgACwAAAAAAAAAAACgAAwAFADkAKAALAAAAAAAAAAAAKAADAA=="
+    SelectionMode = 1
+    VertScroll = "scroll"
+    HorzScroll = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Scrollbar
+    Name = scroll
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 150
+    Top = 58
+    Width = 7
+    Height = 61
+    Anchors = 0
+    Visible = True
+    Min = 0
+    Max = 100
+    LargeChange = 10
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 47
+    Anchors = 0
+    Visible = True
+    Caption = "Desc."
+    Font = "Bold"
+  end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 55
+    Top = 47
+    Anchors = 0
+    Visible = True
+    Caption = "Local"
+    Font = "Bold"
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 96
+    Top = 47
+    Anchors = 0
+    Visible = True
+    Caption = "Valor"
+    Font = "Bold"
+  end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 19
+    Anchors = 0
+    Visible = True
+    Image = "FormsListagem"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 34
+    Top = 17
+    Anchors = 0
+    Visible = True
+    Caption = "Despesas"
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = lblSubtitulo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 33
+    Top = 30
+    Anchors = 1
+    Visible = True
+    Caption = "20 Despesa(s) Cadastrada(s)"
+    Font = "Standard"
+  end
+  begin Button
+    Name = btnVoltar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 40
+    Top = 143
+    Width = 31
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Voltar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnSair
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 121
+    Top = 143
+    Width = 31
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Sair"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
 end
+
+Private Sub btnNovo_Click()
+	Dim frm As New frmManterDespesa
+	frm.Show hbFormModal+hbFormGoto
+End Sub

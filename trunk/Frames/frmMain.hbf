@@ -20,15 +20,15 @@ begin Form
   BottomLeft = ""
   Locked = False
   begin Picture
-    Name = picPrincipal
+    Name = Picture1
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 23
-    Top = 56
+    Left = 30
+    Top = 49
     Anchors = 0
     Visible = True
-    Image = "ImagemTelaPrincipal"
+    Image = "ImagemPrincipal"
     NavFlags = 0
     NavOrder = ""
     Above = ""
@@ -39,12 +39,12 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 27
+    Left = 25
     Top = 20
     Anchors = 0
     Visible = True
     Caption = "Controle de Veículos"
-    Font = "Bold"
+    Font = "LargeBold"
   end
   begin Label
     Name = Label2
@@ -59,27 +59,15 @@ begin Form
     Font = "Standard"
   end
   begin Label
-    Name = Label5
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 53
-    Top = 147
-    Anchors = 0
-    Visible = True
-    Caption = "Licença LGPL"
-    Font = "Standard"
-  end
-  begin Label
     Name = lblVersao
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 20
-    Top = 135
+    Left = 55
+    Top = 145
     Anchors = 0
     Visible = True
-    Caption = "Versão 1.1.0.1 Build 20060922"
+    Caption = "Versão 1.2.0"
     Font = "Standard"
   end
   begin Label
@@ -87,12 +75,33 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 22
-    Top = 31
+    Left = 31
+    Top = 33
     Anchors = 0
     Visible = True
-    Caption = "palmsoftwares.blogspot.com"
+    Caption = "veiculoz.wordpress.com"
     Font = "Standard"
+  end
+  begin Popup
+    Name = pop
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 83
+    Top = 1
+    Width = 76
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Configurações"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
   end
   begin MenuBar
     begin MenuTitle
@@ -106,19 +115,27 @@ begin Form
       begin MenuItem
         Name = mnuNovoCarro
         Index = 0
-        Caption = "Carros"
+        Caption = "Veículos"
         Shortcut = ""
       end
       begin MenuItem
         Name = mnuPosto
         Index = 0
-        Caption = "Postos"
+        Caption = "Estabelecimentos"
         Shortcut = ""
       end
       begin MenuItem
         Name = mnuTiposCombustivel
         Index = 0
         Caption = "Tipos Combustível"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuDespesas
+        Index = 0
+        Caption = "Despesas Gerais"
         Shortcut = ""
       end
       begin MenuSeparator
@@ -185,6 +202,12 @@ begin Form
         Caption = "Sobre"
         Shortcut = ""
       end
+      begin MenuItem
+        Name = mnuVerificarAtualiza
+        Index = 0
+        Caption = "Verificar Atualizações"
+        Shortcut = ""
+      end
     end
   end
 end
@@ -205,8 +228,19 @@ end
 ' License along with this library; if not, write to the Free Software
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
+Private Sub pop_Change()
+	If Me.pop.ListIndex > 0 Then
+		Select Case Me.pop.ItemData(Me.pop.ListIndex)
+			Case 2
+				Dim frm As New frmMotorista
+				frm.Show hbFormModeless
+		End Select
+	End If
+End Sub
 
-Private Sub Form_Paint()
-	Versao = "1.2 Build 20070201"
+Private Sub clsHandleMenu_Load()
+	Me.pop.AddItem "Internet",1
+	Me.pop.AddItem "Dados Motorista",2
+	Versao = "1.2.0"
 	Me.lblVersao.Caption = "Versão " & Versao
 End Sub

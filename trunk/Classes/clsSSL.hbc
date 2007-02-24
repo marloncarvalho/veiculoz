@@ -1,0 +1,55 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 1.06.1330.1164
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsSSL
+  Segment = main
+  Extends = SslContext
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+'=========================================================================
+'
+' MiniBrowser Sample - SSL
+'
+' THIS SOFTWARE IS PROVIDED BY PETER HOLMES CONSULTING "AS IS" AND
+' ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+' THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+' PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR
+' OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+' SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+' LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+' USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+' AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+' LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+' IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+' THE POSSIBILITY OF SUCH DAMAGE.
+'=========================================================================
+
+'---------------------------- Handle an SSL error --------------
+
+Private Sub SslContext_Verify(ByRef bIgnore As Boolean, ByVal eCode As HbSslVerify)
+	Dim msg As String
+	Dim ret As HbMsgBoxReturn
+
+	If eCode<>hbSslVerifyOk Then
+		Select Case eCode
+			Case hbSslVerifyBadSignature
+				msg="Bad signature"
+			Case hbSslVerifyNoTrustedRoot
+				msg="No trusted root"
+			Case hbSslVerifyNotAfter, hbSslVerifyNotBefore
+				msg="Certificat has expired"
+			Case hbSslVerifyConstraintViolation
+				msg="Constraint violation"
+			Case hbSslVerifyUnknownExtension
+				msg="Unknown critical extension"
+		End Select
+		ret=MsgBox("The following SSL error has occured:\n" & msg & "\nContinue ?",hbMsgBoxYesNo+hbMsgBoxError)
+		If ret=hbMsgBoxYes Then bIgnore=True
+	End If
+End Sub
+
+'=========================================================================

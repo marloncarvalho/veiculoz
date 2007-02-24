@@ -3,14 +3,14 @@
 ' *** DO NOT EDIT ***
 
 begin Form
-  Name = frmManterCarro
+  Name = frmManterEstabelecimento
   Segment = Formularios
   Extends = clsHandleMenu
   Left = 0
   Top = 0
   Width = 160
   Height = 160
-  Caption = "Carro"
+  Caption = "Estabelec."
   Modal = False
   Help = ""
   DIA = 1
@@ -20,37 +20,25 @@ begin Form
   BottomLeft = ""
   Locked = False
   begin Label
-    Name = Label8
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 2
-    Top = 38
-    Anchors = 0
-    Visible = True
-    Caption = "_______________________________________"
-    Font = "Standard"
-  end
-  begin Label
     Name = Label1
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 11
-    Top = 54
+    Left = 17
+    Top = 46
     Anchors = 0
     Visible = True
-    Caption = "Modelo:"
+    Caption = "Nome:"
     Font = "Standard"
   end
   begin Field
-    Name = fldModelo
+    Name = fldNome
     Index = 0
     Layer = 0
     Tag = ""
     Left = 44
-    Top = 52
-    Width = 105
+    Top = 44
+    Width = 109
     Height = 12
     Anchors = 0
     Visible = True
@@ -73,21 +61,21 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 26
-    Top = 67
+    Left = 25
+    Top = 59
     Anchors = 0
     Visible = True
-    Caption = "Ano:"
+    Caption = "Rua:"
     Font = "Standard"
   end
   begin Field
-    Name = fldAno
+    Name = fldRua
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 44
-    Top = 65
-    Width = 40
+    Left = 43
+    Top = 57
+    Width = 109
     Height = 12
     Anchors = 0
     Visible = True
@@ -97,8 +85,8 @@ begin Form
     Align = 0
     Editable = True
     AutoShift = True
-    Numeric = True
-    MaxChar = 7
+    Numeric = False
+    MaxChar = 80
     Scrollbar = ""
     NavFlags = 0
     NavOrder = ""
@@ -110,11 +98,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 15
-    Top = 80
+    Left = 14
+    Top = 72
     Anchors = 0
     Visible = True
-    Caption = "Marca:"
+    Caption = "Bairro:"
     Font = "Standard"
   end
   begin Label
@@ -122,21 +110,21 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 20
-    Top = 93
+    Left = 12
+    Top = 85
     Anchors = 0
     Visible = True
-    Caption = "Placa:"
+    Caption = "Estado:"
     Font = "Standard"
   end
   begin Field
-    Name = fldPlaca
+    Name = fldEstado
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 44
-    Top = 91
-    Width = 53
+    Left = 43
+    Top = 83
+    Width = 46
     Height = 12
     Anchors = 0
     Visible = True
@@ -159,8 +147,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 15
-    Top = 140
+    Left = 16
+    Top = 141
     Width = 40
     Height = 12
     Anchors = 0
@@ -174,52 +162,13 @@ begin Form
     Above = ""
     Below = ""
   end
-  begin Picture
-    Name = picEdicaoCarros
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 10
-    Top = 20
-    Anchors = 0
-    Visible = True
-    Image = "FormsEdicao"
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
-  end
-  begin Label
-    Name = lblCarros
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 37
-    Top = 19
-    Anchors = 0
-    Visible = True
-    Caption = "Edição de Carros"
-    Font = "LargeBold"
-  end
-  begin Label
-    Name = Label5
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 36
-    Top = 33
-    Anchors = 0
-    Visible = True
-    Caption = "Criação / Edição de Carros"
-    Font = "Standard"
-  end
   begin Button
     Name = btnCancelar
     Index = 0
     Layer = 0
     Tag = ""
     Left = 60
-    Top = 140
+    Top = 141
     Width = 40
     Height = 12
     Anchors = 0
@@ -234,13 +183,13 @@ begin Form
     Below = ""
   end
   begin Field
-    Name = fldMarca
+    Name = fldBairro
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 44
-    Top = 78
-    Width = 106
+    Left = 43
+    Top = 70
+    Width = 96
     Height = 12
     Anchors = 0
     Visible = True
@@ -263,21 +212,21 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 27
-    Top = 106
+    Left = 12
+    Top = 98
     Anchors = 0
     Visible = True
-    Caption = "Cor:"
+    Caption = "Cidade:"
     Font = "Standard"
   end
   begin Field
-    Name = fldCor
+    Name = fldCidade
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 44
-    Top = 104
-    Width = 51
+    Left = 42
+    Top = 96
+    Width = 96
     Height = 12
     Anchors = 0
     Visible = True
@@ -301,20 +250,20 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 119
+    Top = 111
     Anchors = 0
     Visible = True
-    Caption = "Renavam:"
+    Caption = "Bandeira:"
     Font = "Standard"
   end
   begin Field
-    Name = fldRenavam
+    Name = fldDistrib
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 44
-    Top = 117
-    Width = 106
+    Left = 42
+    Top = 109
+    Width = 108
     Height = 12
     Anchors = 0
     Visible = True
@@ -337,8 +286,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 105
-    Top = 140
+    Left = 104
+    Top = 141
     Width = 40
     Height = 12
     Anchors = 0
@@ -364,13 +313,13 @@ begin Form
       begin MenuItem
         Name = mnuNovoCarro
         Index = 0
-        Caption = "Carros"
+        Caption = "Veículos"
         Shortcut = ""
       end
       begin MenuItem
         Name = mnuPosto
         Index = 0
-        Caption = "Postos"
+        Caption = "Estabelecimentos"
         Shortcut = ""
       end
       begin MenuItem
@@ -445,6 +394,33 @@ begin Form
       end
     end
   end
+  begin Picture
+    Name = picEdicaoCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 10
+    Top = 21
+    Anchors = 0
+    Visible = True
+    Image = "IconeFormsEdicao"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = lblCarros
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 30
+    Top = 22
+    Anchors = 0
+    Visible = True
+    Caption = "Edição de Estabelec."
+    Font = "LargeBold"
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
@@ -463,77 +439,79 @@ end
 ' License along with this library; if not, write to the Free Software
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
-Public bNew As Boolean
+Public bNew as Boolean
 Public IdEdicao As Long
+Public IsModal As Boolean
+Public NovoEstabelecimento As New clsEstabelecimento
+
+Private Function Validar() As Boolean
+	If Me.fldNome.Text = "" Then
+		MsgBox "Preencha Corretamente o Campo Nome."
+		Validar = False
+		Exit Function
+	End If
+	If Me.fldDistrib.Text = "" Then
+		MsgBox "Preencha Corretamente o Campo Distribuidora."
+		Validar = False
+		Exit Function
+	End If
+	Validar = True
+End Function
 
 Private Sub btnOk_Click()
-	If Me.Validar() Then
-		Dim Carro As New clsCarro
-		Carro.Id = Me.IdEdicao
-		Carro.Ano = Me.fldAno.Text
-		Carro.Modelo = Me.fldModelo.Text
-		Carro.Marca = Me.fldMarca.Text
-		Carro.Placa = Me.fldPlaca.Text
-		Carro.Renavam = Me.fldRenavam.Text
-		Carro.Cor = Me.fldCor.Text
-		Factory.ObterDaoCarro().ManterCarro(Carro)
-		Dim frm As New frmCarros
-		frm.Show hbFormModeless+hbFormGoto
+	If Validar() Then
+		Dim Posto As New clsEstabelecimento
+		Posto.Id = Me.IdEdicao
+		Posto.Nome = Me.fldNome.Text
+		Posto.Rua = Me.fldRua.Text
+		Posto.Bairro = Me.fldBairro.Text
+		Posto.Estado = Me.fldEstado.Text
+		Posto.Cidade = Me.fldCidade.Text
+		Posto.Distribuidora = Me.fldDistrib.Text
+		Factory.ObterDaoPosto().ManterPosto(Posto)
+		Set Me.NovoEstabelecimento = Posto
+		If Not Me.IsModal Then
+			Dim frm As New frmEstabelecimentos
+			frm.Show hbFormModeless+hbFormGoto
+		Else
+			Unload(me)
+		End If
 	End If
 End Sub
 
-Private Sub btnCancelar_Click()
-	Dim frm As New frmCarros
-	frm.Show hbFormModeless+hbFormGoto
-End Sub
 
 Private Sub Form_Load()
 	If Not Me.bNew And Not IsEmpty(Me.IdEdicao) Then
-		Dim Carro As clsCarro
-		Set Carro = Factory.ObterDaoCarro().ObterCarro(Me.IdEdicao)
-		Me.fldAno.Text = Carro.Ano
-		Me.fldModelo.Text = Carro.Modelo
-		Me.fldMarca.Text = Carro.Marca
-		Me.fldPlaca.Text = Carro.Placa
-		Me.fldRenavam.Text = Carro.Renavam
-		Me.fldCor.Text = Carro.Cor
+		Dim Posto As clsEstabelecimento
+		Set Posto = Factory.ObterDaoPosto().ObterPosto(Me.IdEdicao)
+		Me.fldNome.Text = Posto.Nome
+		Me.fldRua.Text = Posto.Rua
+		Me.fldBairro.Text = Posto.Bairro
+		Me.fldEstado.Text = Posto.Estado
+		Me.fldCidade.Text = Posto.Cidade
+		Me.fldDistrib.Text = Posto.Distribuidora
+	End If
+End Sub
+
+
+Private Sub btnCancelar_Click()
+	If Not Me.IsModal Then
+		Dim frm As New frmEstabelecimentos
+		frm.Show hbFormModeless+hbFormGoto
+	Else
+		Unload(Me)
 	End If
 End Sub
 
 Private Sub btnExcluir_Click()
 	If Not Me.bNew Then
 		Try
-			Factory.ObterDaoCarro().ExcluirCarro(Me.IdEdicao)
+			Factory.ObterDaoPosto().ExcluirPosto(Me.IdEdicao)
 			Me.btnCancelar_Click
 		Catch
 			Err.MsgBox
 		End Catch
 	Else
-		MsgBox "Não é possível excluir um Carro ainda não criado."
+		MsgBox "Não é possível excluir um Posto ainda não criado."
 	End If
 End Sub
-
-
-Private Function Validar() As Boolean
-	If Me.fldModelo.Text = "" Then
-		MsgBox "Preencha Corretamente o Campo Modelo."
-		Validar = False
-		Exit Function
-	End If
-	If Me.fldAno.Text = "" Then
-		MsgBox "Preencha Corretamente o Campo Ano."
-		Validar = False
-		Exit Function
-	End If
-	If Me.fldMarca.Text = "" Then
-		MsgBox "Preencha Corretamente o Campo Marca."
-		Validar = False
-		Exit Function
-	End If
-	If Me.fldAno.Text = "" Then
-		MsgBox "Preencha Corretamente o Campo Placa."
-		Validar = False
-		Exit Function
-	End If
-	Validar = True
-End Function

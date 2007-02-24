@@ -128,12 +128,12 @@ End Function
 ' Obter a lista de carros cadastrados.
 '
 ' @Returns Coleção de Carros.
-Public Function ObterAbastecimentosPorCarro(IdCarro As Long,OrderBy As String) As Collection
+Public Function ObterPorVeiculoPeriodo(IdCarro As Long,Periodo1 As Date, Periodo2 As Date,OrderBy As String) As Collection
 	Dim Colecao As New Collection
 	If OrderBy = "" Then
 		Call Db.MoveFirst()
 	Else
-		Db.OpenRecordset "IdCarro=" & IdCarro & " And Category>=0 Order By " & OrderBy, hbModeOpenExisting+hbModeReadWrite
+		Db.OpenRecordset "Data>="&Periodo1&" And Data<="&Periodo2&" And IdCarro=" & IdCarro & " And Category>=0 Order By " & OrderBy, hbModeOpenExisting+hbModeReadWrite
 		Call Db.MoveFirst()
 	End If
 	While Not Db.EOF
@@ -143,7 +143,23 @@ Public Function ObterAbastecimentosPorCarro(IdCarro As Long,OrderBy As String) A
 		Call Db.MoveNext()
 	Wend
 	Db.OpenRecordset "Category>=0 Order By Data Asc", hbModeOpenExisting+hbModeReadWrite
-	Set ObterAbastecimentosPorCarro = Colecao
+	Set ObterPorVeiculoPeriodo = Colecao
+End Function
+
+Public Function ObterAbastecimentosPorVeiculo(IdCarro As Long,OrderBy As String) As Collection
+	Dim Colecao As New Collection
+	If OrderBy = "" Then
+		OrderBy = "Data DESC"
+	End If
+	Db.OpenRecordset "IdCarro=" & IdCarro & " And Category>=0 Order By " & OrderBy, hbModeOpenExisting+hbModeReadWrite
+	While Not Db.EOF
+		Dim Abs As clsAbastecimento
+		Set Abs = Me.CriarAbastecimento(Db)
+		Call Colecao.Add(Abs,Abs.Id)
+		Call Db.MoveNext()
+	Wend
+	Db.OpenRecordset "Category>=0 Order By Data Asc", hbModeOpenExisting+hbModeReadWrite
+	Set ObterAbastecimentosPorVeiculo = Colecao
 End Function
 
 ' Obter a lista de carros cadastrados.

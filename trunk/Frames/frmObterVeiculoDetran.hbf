@@ -1,0 +1,252 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmObterVeiculoDetran
+  Segment = main
+  Extends = Form
+  Left = 5
+  Top = 24
+  Width = 150
+  Height = 113
+  Caption = "Consulta Internet"
+  Modal = True
+  Help = ""
+  DIA = 0
+  SaveBehind = True
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 17
+    Top = 59
+    Anchors = 0
+    Visible = True
+    Caption = "Estado:"
+    Font = "Standard"
+  end
+  begin Popup
+    Name = popEstados
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 47
+    Top = 59
+    Width = 88
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "selecione"
+    Font = "Standard"
+    VisibleItems = 6
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 6
+    Top = 73
+    Anchors = 0
+    Visible = True
+    Caption = "Renavam:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldRenavam
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 48
+    Top = 71
+    Width = 83
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = True
+    MaxChar = 20
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnConsultar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 24
+    Top = 94
+    Width = 45
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Consultar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnCancelar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 75
+    Top = 94
+    Width = 47
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Cancelar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 20
+    Top = 16
+    Anchors = 0
+    Visible = True
+    Caption = "Consulta de Veículos"
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 6
+    Top = 32
+    Anchors = 0
+    Visible = True
+    Caption = "Necessário conexão com Internet"
+    Font = "Standard"
+  end
+end
+Private Web As New clsHTTP
+Private frm As frmManterVeiculo
+
+Private Sub btnConsultar_Click()
+	Dim estado As String
+	If Me.fldRenavam.Text = "" Then
+		MsgBox "Informe um RENAVAM válido."
+		Exit Sub
+	End If
+	On Error GoTo Erro
+	If Me.popEstados.ListIndex = -1 Then
+		MsgBox "Selecione um Estado."
+		Exit Sub
+	Else
+		Select Case Me.popEstados.ItemData(Me.popEstados.ListIndex)
+			Case 1
+				estado = "BA"
+			Case Else
+				MsgBox "Seu Estado ainda não possui suporte para esta funcionalidade. Para solicitar suporte, mande e-mail para marlon.carvalho@gmail.com"
+				Exit Sub
+		End Select
+	End If
+	Web.HttpGET "http://marloncarvalho.homeip.net/index?renavam=" & me.fldRenavam.Text & "&estado=" & estado,8080,"Accept: */*"
+	Exit Sub
+	Erro:
+		MsgBox "Não foi possível obter informações sobre o veículo."
+		Exit Sub
+End Sub
+
+Private Sub Web_DataArrival(ByRef objData As Stream, ByVal lSize As Long, ByRef sPath As String, ByRef sFile As String, ByRef sMime As String)
+	ProcessText objData, lSize, True
+End Sub
+
+Private Sub ProcessText(ByRef objData As Stream, ByVal lSize As Long, ByRef sFile As String)
+	Dim s As String
+	Read objdata, s[lSize]
+	Call Process(s)
+End Sub
+
+Private Sub Process(Text As String)
+	Dim c As Collection
+	Dim s As String
+	Dim frm As New frmManterVeiculo
+	On Error GoTo Erro
+	If Text = "ERRO" Then
+		MsgBox "Não foi possível obter informações sobre o veículo."
+		Exit Sub
+	End If
+	Set c = Split(Text,"|")
+	frm.fldPlaca.Text = c.Item(1)
+	frm.fldRenavam.Text = c.Item(2)
+	frm.fldChassi.Text = c.Item(3)
+	frm.fldMarca.Text = c.Item(4)
+	frm.fldModelo.Text = c.Item(5)
+	frm.fldCor.Text = c.Item(6)
+	frm.fldAno.Text = c.Item(7)
+	frm.Show
+	Exit Sub
+	Erro:
+		MsgBox "Não foi possível obter informações sobre o veículo."
+End Sub
+
+Private Sub btnCancelar_Click()
+	Unload(Me)
+End Sub
+
+
+Private Sub Form_Load()
+	Me.popEstados.AddItem "Acre",2
+	Me.popEstados.AddItem "Alagoas",3
+	Me.popEstados.AddItem "Amapá",4
+	Me.popEstados.AddItem "Amazonas",5
+	Me.popEstados.AddItem "Bahia",1
+	Me.popEstados.AddItem "Brasília",27
+	Me.popEstados.AddItem "Ceará",6
+	Me.popEstados.AddItem "Espírito Santo",7
+	Me.popEstados.AddItem "Goiás",8
+	Me.popEstados.AddItem "Maranhão",9
+	Me.popEstados.AddItem "Mato Grosso",10
+	Me.popEstados.AddItem "Mato Grosso do Sul",11
+	Me.popEstados.AddItem "Minas Gerais",12
+	Me.popEstados.AddItem "Pará",13
+	Me.popEstados.AddItem "Paraíba",14
+	Me.popEstados.AddItem "Paraná",15
+	Me.popEstados.AddItem "Pernambuco",16
+	Me.popEstados.AddItem "Piauí",17
+	Me.popEstados.AddItem "Rio de Janeiro",18
+	Me.popEstados.AddItem "Rio Grande do Norte",19
+	Me.popEstados.AddItem "Rio Grande do Sul",20
+	Me.popEstados.AddItem "Rondônia",21
+	Me.popEstados.AddItem "Roraima",22
+	Me.popEstados.AddItem "Santa Catarina",23
+	Me.popEstados.AddItem "São Paulo",24
+	Me.popEstados.AddItem "Sergipe",25
+	Me.popEstados.AddItem "Tocantins",26
+End Sub

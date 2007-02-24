@@ -291,13 +291,13 @@ begin Form
       begin MenuItem
         Name = mnuNovoCarro
         Index = 0
-        Caption = "Carros"
+        Caption = "Veículos"
         Shortcut = ""
       end
       begin MenuItem
         Name = mnuPosto
         Index = 0
-        Caption = "Postos"
+        Caption = "Estabelecimentos"
         Shortcut = ""
       end
       begin MenuItem
@@ -410,7 +410,7 @@ Dim DbPostos As pvHbPostos
 Private Sub Form_Load()
 	Set DbAbaste = Factory.ObterDaoAbastecimento().Database()
 	Set DbPostos = Factory.ObterDaoPosto().Database()
-	Dim Carro As clsCarro
+	Dim Carro As clsVeiculo
 	For Each Carro In Factory.ObterDaoCarro().ObterCarros()
 		Me.popCarros.AddItem Carro.Modelo, Carro.Id
 	Next

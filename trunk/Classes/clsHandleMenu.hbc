@@ -23,49 +23,45 @@ Public mnuConsumoTipoComb As MenuItem
 Public mnuGastosPorPosto As MenuItem
 Public mnuRelPiorDesempenho As MenuItem
 Public mnuGraficoConsumo As MenuItem
+Public mnuDespesas As MenuItem
 
 Private Sub Initialize()
 End Sub
 
 Public Sub mnuRelDespesas_Click()
-	Dim frm As New frmRelatorioDespesas
-	frm.show hbFormModeless+hbFormGoto
+	Call FormFactory.GetFrameRelatorioDespesas().Show(hbFormModeless+hbFormGoto)
 End Sub
 
+Private Sub mnuDespesas_Click()
+	Call FormFactory.GetFrameDespesas().Show(hbFormModeless+hbFormGoto)
+End Sub
 
 Private Sub mnuGraficoConsumo_Click()
-	Dim frm As New frmGraficoConsumo
-	frm.Show hbFormPopup+hbFormGoto
+	Call FormFactory.GetFrameGraficoConsumo().Show(hbFormPopup+hbFormGoto)
 End Sub
 
 Public Sub mnuSobre_Click()
-	Dim frm As New frmSobre
-	frm.Show hbFormPopup+hbFormGoto
+	Call FormFactory.GetFrameSobre.Show(hbFormPopup+hbFormGoto)
 End Sub
 
 Public Sub mnuNovoCarro_Click()
-	Dim frm As New frmCarros
-	frm.Show hbFormModal+hbFormGoto
+	Call FormFactory.GetFrameVeiculos().Show(hbFormModal+hbFormGoto)
 End Sub
 
 Public Sub mnuPosto_Click()
-	Dim frm As New frmPostos
-	frm.Show hbFormModeless+hbFormGoto
+	Call FormFactory.GetFrameEstabelecimentos.Show(hbFormModeless+hbFormGoto)
 End Sub
 
 Public Sub mnuTiposCombustivel_Click()
-	Dim frm As New frmTiposCombustivel
-	frm.Show hbFormModeless+hbFormGoto
+	Call FormFactory.GetFrameTiposCombustivel.Show(hbFormModeless+hbFormGoto)
 End Sub
 
 Public Sub mnuAbastecimentos_Click()
-	Dim frm As New frmAbastecimentos
-	frm.Show hbFormModeless+hbFormGoto
+	Call FormFactory.GetFrameAbastecimentos.Show(hbFormModeless+hbFormGoto)
 End Sub
 
 Public Sub mnuRelConsumoMedio_Click()
-	Dim frm As New frmRelatorioConsumoMedio
-	frm.Show hbFormModeless+hbFormGoto
+	Call FormFactory.GetFrameRelatorioConsumoMedio.Show(hbFormModeless+hbFormGoto)
 End Sub
 
 Public Sub mnuSair_Click()
@@ -74,24 +70,18 @@ Public Sub mnuSair_Click()
 End Sub
 
 Public Sub mnuRelMelhorDesempenho_Click()
-	Dim frm As New frmRelatorioMelhorDesempenho
-	frm.Show hbFormModeless+hbFormGoto
+	Call FormFactory.GetFrameRelMelhorDesempenho.Show(hbFormModeless+hbFormGoto)
 End Sub
 
 
 Public Sub mnuRelPiorDesempenho_Click()
-	Dim frm As New frmRelatorioPiorDesempenho
-	frm.Show hbFormModeless+hbFormGoto
+	FormFactory.GetFrameRelatorioPiorDesempenho.Show(hbFormModeless+hbFormGoto)
 End Sub
 
 Public Sub mnuGastosPorPosto_Click()
-	Dim frm As New frmRelatorioGastosPorPosto
-	frm.Show hbFormModeless+hbFormGoto
+	FormFactory.GetFrameRelatorioGastosPorPosto.Show(hbFormModeless+hbFormGoto)
 End Sub
 
-
-
 Private Sub mnuConsumoTipoComb_Click()
-	Dim frm As New frmRelatorioConsumoPorTipo
-	frm.Show hbFormModeless+hbFormGoto
+	FormFactory.GetFrameRelatorioConsumoPorTipo.Show(hbFormModeless+hbFormGoto)
 End Sub

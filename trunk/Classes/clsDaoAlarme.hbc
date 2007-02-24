@@ -1,0 +1,139 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsDaoAlarme
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2007  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Private Db As New pvHbAlarmes
+
+Public Property Get Database() As pvHbAlarmes
+	Set Database = Db
+End Property
+
+'Construtor.
+Private Sub Initialize()
+	Call Me.OpenDatabase()
+End Sub
+
+Private Sub OpenDatabase()
+	Dim e as Integer
+	Try
+	  Db.OpenRecordset "Category>=0 Order By Data Desc", hbModeOpenExisting+hbModeReadWrite
+	Catch
+		If Err.Number = 43 Then
+			Db.OpenRecordset "Category>=0 Order By Data Desc", hbModeCreateAlways+hbModeReadWrite
+		End If
+	End Catch
+End Sub
+
+Public Function ManterAlarme(alarme As clsAlarm) As clsAlarm
+	If Not IsEmpty(alarme.Id) And alarme.Id <> 0 Then
+		Call Db.LookupUniqueID(alarme.Id)
+		Call Db.Edit()
+	Else
+		Call Db.AddNew()
+	End If
+	Db.Data = alarme.Data
+	Db.Descricao = alarme.Descricao
+	Db.Update
+	Call Db.MoveLast()
+	Set ManterAlarme = Me.CriarAlarme(Db)
+End Function
+
+Public Function ObterAlarme(id As Long) As clsAlarm
+	Try
+		If Id <> 0 Then
+			Db.LookupUniqueID Id
+			Set ObterAlarme = CriarAlarme(Db)
+		Else
+			Set ObterAlarme = Nothing
+		End If
+	Catch
+		Set ObterAlarme = Nothing
+	End Catch
+End Function
+
+Public Function ObterAlarmes() As Collection
+	Dim Colecao As New Collection
+	Call Db.MoveFirst()
+	While Not Db.EOF
+		Dim Alarme As New clsAlarm
+		Set Alarme = CriarAlarme(Db)
+		Colecao.Add(Alarme)
+		Call Db.MoveNext()
+	Wend
+	Set ObterAlarmes = Colecao
+End Function
+
+Public Function ObterAlarmesPorData(Data As Date) As Collection
+	Dim Colecao As New Collection
+	Db.OpenRecordset "Data>='" & Data & "' Order By Data ASC",hbModeOpenExisting+hbModeReadWrite
+	Call Db.MoveFirst()
+	While Not Db.EOF
+		Dim Alarme As New clsAlarm
+		Set Alarme = CriarAlarme(Db)
+		Call Colecao.Add(Alarme)
+		Call Db.MoveNext()
+	Wend
+	Set ObterAlarmesPorData = Colecao
+	Call Me.OpenDatabase()
+End Function
+
+Public Function ObterAlarmeAtual() As clsAlarm
+	Db.OpenRecordset "Category>=0 Order By Data ASC", hbModeOpenExisting+hbModeReadWrite
+	Call Db.MoveFirst()
+	If Not Db.EOF And Not Db.BOF Then
+		Set ObterAlarmeAtual = Me.CriarAlarme(Db)
+	Else
+		Set ObterAlarmeAtual = Nothing
+	End If
+	Call Me.OpenDatabase()
+End Function
+
+Public Function ObterAlarmeApos(Data As Date) As clsAlarm
+	Db.OpenRecordset "Data >= '" & CStr(Data) & "' Order By Data Asc", hbModeOpenExisting+hbModeReadWrite
+	Call Db.MoveFirst()
+	Set ObterAlarmeApos = Me.CriarAlarme(Db)
+	Call Me.OpenDatabase()
+End Function
+
+Public Sub Excluir(Id As Long)
+	Try
+		Call Me.OpenDatabase()
+		Call Db.LookupUniqueID(Id)
+		Call Db.Delete(hbRecordRemove)
+		Call Db.Update()
+	Catch
+	End Catch
+End Sub
+
+Private Function CriarAlarme(ByRef DbAlarme As pvHbAlarmes) As clsAlarm
+	Dim alarme As New clsAlarm
+	alarme.Data = DbAlarme.Data
+	alarme.Descricao = DbAlarme.Descricao
+	alarme.Id = DbAlarme.UniqueID
+	Set CriarAlarme = alarme
+End Function

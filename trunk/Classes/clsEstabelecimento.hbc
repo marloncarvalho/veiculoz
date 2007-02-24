@@ -3,7 +3,7 @@
 ' *** DO NOT EDIT ***
 
 begin Class
-  Name = clsPosto
+  Name = clsEstabelecimento
   Segment = main
   Extends = Object
   Instantiable = True

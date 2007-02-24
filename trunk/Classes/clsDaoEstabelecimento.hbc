@@ -3,7 +3,7 @@
 ' *** DO NOT EDIT ***
 
 begin Class
-  Name = clsDaoPosto
+  Name = clsDaoEstabelecimento
   Segment = main
   Extends = Object
   Instantiable = True
@@ -52,7 +52,7 @@ Public Function ObterPostos() As Collection
 	Dim Colecao As New Collection
 	Call Db.MoveFirst()
 	While Not Db.EOF
-		Dim Posto As New clsPosto
+		Dim Posto As New clsEstabelecimento
 		Set Posto = CriarPosto(Db)
 		Colecao.Add(Posto)
 		Call Db.MoveNext()
@@ -63,7 +63,7 @@ End Function
 'Atualizar ou Incluir Postos
 '
 '@Param Posto. Posto a ser atualizado ou incluído.
-Public Sub ManterPosto(Posto As clsPosto)
+Public Sub ManterPosto(Posto As clsEstabelecimento)
 	If Not IsEmpty(Posto.Id) And Posto.Id <> 0 Then
 		Db.LookupUniqueID Posto.Id
 		Db.Edit
@@ -82,7 +82,7 @@ End Sub
 ' Localizar um Posto.
 '
 ' @Returns Posto Encontrado.
-Public Function ObterPosto(ByVal Id As Long) As clsPosto
+Public Function ObterPosto(ByVal Id As Long) As clsEstabelecimento
 	Db.LookupUniqueID Id
 	Set ObterPosto = CriarPosto(Db)
 End Function
@@ -105,8 +105,8 @@ End Sub
 ' Criar uma instância de Posto, extraindo as informações do Banco DbPosto.
 '
 ' @Returns Posto
-Private Function CriarPosto(ByRef DbPosto As pvHbPostos) As clsPosto
-	Dim Posto As New clsPosto
+Private Function CriarPosto(ByRef DbPosto As pvHbPostos) As clsEstabelecimento
+	Dim Posto As New clsEstabelecimento
 	Posto.Bairro = DbPosto.Bairro
 	Posto.Cidade = DbPosto.Cidade
 	Posto.Distribuidora = DbPosto.Distribuidora

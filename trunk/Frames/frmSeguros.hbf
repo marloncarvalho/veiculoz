@@ -1,0 +1,175 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmSeguros
+  Segment = formularios
+  Extends = Form
+  Left = 5
+  Top = 49
+  Width = 150
+  Height = 101
+  Caption = "Seguros"
+  Modal = True
+  Help = ""
+  DIA = 0
+  SaveBehind = True
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Scrollbar
+    Name = Scrollbar1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 141
+    Top = 37
+    Width = 7
+    Height = 40
+    Anchors = 0
+    Visible = True
+    Min = 0
+    Max = 100
+    LargeChange = 10
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 33
+    Top = 18
+    Anchors = 0
+    Visible = True
+    Caption = "Seguros realizados"
+    Font = "LargeBold"
+  end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 14
+    Anchors = 0
+    Visible = True
+    Image = "FormsListagem"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnVoltar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 77
+    Top = 83
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Voltar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin GridEx
+    Name = grid1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 36
+    Width = 136
+    Height = 40
+    Anchors = 0
+    Visible = True
+    Columns = "AwDoAQUAOQAoAAsAAAAAAAAAAAAoAAMABQA5ADIACwAAAAAAAAAAACgAAwAFADkAMgALAAAAAAAAAAAAKAADAA=="
+    SelectionMode = 1
+    VertScroll = "Scrollbar1"
+    HorzScroll = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnNovo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 33
+    Top = 83
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Novo"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+Private id_veiculo As Long
+
+Public Property Get IdVeiculo() As Long
+	IdVeiculo = Me.id_veiculo
+End Property
+
+Public Property Let IdVeiculo(I As Long)
+	Me.id_veiculo = I
+End Property
+
+Private Sub btnVoltar_Click()
+	Dim frm As New frmManterVeiculo
+	frm.bNew = False
+	frm.IdEdicao = Me.id_veiculo
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub Form_Load()
+	Dim seguro As clsSeguro
+	Dim colecao As Collection
+	Set colecao = Factory.ObterDaoSeguro().ObterSeguros(Me.id_veiculo)
+	For Each seguro In colecao
+		Me.grid1.AddItem seguro.Id
+	Next
+End Sub
+
+Private Sub grid1_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
+	Dim seguro As clsSeguro
+	Set seguro = Factory.ObterDaoSeguro().ObterSeguro(lItemData)
+	vValue(0) = seguro.Empresa
+	vValue(1) = Day(seguro.Data) & "/" & Month(seguro.Data) & "/" & Year(seguro.Data)
+	vValue(2) = Day(seguro.Renovacao) & "/" & Month(seguro.Renovacao) & "/" & Year(seguro.Renovacao)
+End Sub
+
+Private Sub btnNovo_Click()
+	Dim frm As frmManterSeguro
+	Set frm = FormFactory.getFrameManterSeguro()
+	frm.IdVeiculo = Me.IdVeiculo
+	frm.bNew = True
+	frm.Show hbFormModeless
+End Sub
+
+
+Private Sub grid1_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
+	Dim frm As frmManterSeguro
+	Set frm = FormFactory.GetFrameManterSeguro()
+	frm.IdVeiculo = Me.IdVeiculo
+	frm.IdEdicao = lItemData
+	frm.bNew = False
+	frm.Show hbFormModeless+hbFormGoto
+End Sub

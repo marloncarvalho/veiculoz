@@ -6,12 +6,12 @@ begin Form
   Name = frmSobre
   Segment = Formularios
   Extends = clsHandleMenu
-  Left = 0
-  Top = 0
-  Width = 160
-  Height = 160
+  Left = 5
+  Top = 30
+  Width = 150
+  Height = 100
   Caption = "Sobre"
-  Modal = False
+  Modal = True
   Help = ""
   DIA = 1
   SaveBehind = False
@@ -24,8 +24,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 61
-    Top = 141
+    Left = 56
+    Top = 81
     Width = 40
     Height = 12
     Anchors = 0
@@ -38,99 +38,6 @@ begin Form
     NavOrder = ""
     Above = ""
     Below = ""
-  end
-  begin MenuBar
-    begin MenuTitle
-      Caption = "Cadastro"
-      begin MenuItem
-        Name = mnuAbastecimentos
-        Index = 0
-        Caption = "Abastecimentos"
-        Shortcut = ""
-      end
-      begin MenuItem
-        Name = mnuNovoCarro
-        Index = 0
-        Caption = "Carros"
-        Shortcut = ""
-      end
-      begin MenuItem
-        Name = mnuPosto
-        Index = 0
-        Caption = "Postos"
-        Shortcut = ""
-      end
-      begin MenuItem
-        Name = mnuTiposCombustivel
-        Index = 0
-        Caption = "Tipos Combustível"
-        Shortcut = ""
-      end
-      begin MenuSeparator
-      end
-      begin MenuItem
-        Name = mnuSair
-        Index = 0
-        Caption = "Sair"
-        Shortcut = ""
-      end
-    end
-    begin MenuTitle
-      Caption = "Relatórios"
-      begin MenuItem
-        Name = mnuRelDespesas
-        Index = 0
-        Caption = "Despesas"
-        Shortcut = ""
-      end
-      begin MenuItem
-        Name = mnuRelConsumoMedio
-        Index = 0
-        Caption = "Consumo Médio"
-        Shortcut = ""
-      end
-      begin MenuItem
-        Name = mnuRelMelhorDesempenho
-        Index = 0
-        Caption = "Melhor Desempenho"
-        Shortcut = ""
-      end
-      begin MenuItem
-        Name = mnuRelPiorDesempenho
-        Index = 0
-        Caption = "Pior Desempenho"
-        Shortcut = ""
-      end
-      begin MenuItem
-        Name = mnuGastosPorPosto
-        Index = 0
-        Caption = "Gastos Por Posto"
-        Shortcut = ""
-      end
-      begin MenuItem
-        Name = mnuConsumoTipoComb
-        Index = 0
-        Caption = "Consumo por Tipo Comb."
-        Shortcut = ""
-      end
-      begin MenuSeparator
-      end
-      begin MenuItem
-        Name = mnuGraficoConsumo
-        Index = 0
-        Caption = "Gráfico Consumo"
-        Shortcut = ""
-      end
-    end
-    begin MenuTitle
-      Caption = "Ajuda"
-      begin MenuItem
-        Name = mnuSobre
-        Index = 0
-        Caption = "Sobre"
-        Shortcut = ""
-      end
-    end
   end
   begin Label
     Name = Label1
@@ -149,38 +56,23 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 22
+    Left = 30
     Top = 31
     Anchors = 0
     Visible = True
-    Caption = "palmsoftwares.blogspot.com"
+    Caption = "veiculoz.wordpress.com"
     Font = "Standard"
-  end
-  begin Picture
-    Name = picPrincipal
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 23
-    Top = 50
-    Anchors = 0
-    Visible = True
-    Image = "ImagemTelaPrincipal"
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
   end
   begin Label
     Name = Label4
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 5
-    Top = 107
+    Left = 29
+    Top = 47
     Anchors = 0
     Visible = True
-    Caption = "Desenvolvido por Marlon S. Carvalho"
+    Caption = "Por Marlon S. Carvalho"
     Font = "Standard"
   end
   begin Label
@@ -188,11 +80,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 1
-    Top = 118
+    Left = 10
+    Top = 58
     Anchors = 0
     Visible = True
-    Caption = "http://www.gnu.org/licenses/lgpl.html"
+    Caption = "www.gnu.org/licenses/lgpl.html"
     Font = "Standard"
   end
 end
@@ -214,6 +106,5 @@ end
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 Private Sub btnOk_Click()
-	Dim frm As New frmMain
-	frm.Show hbFormModeless+hbFormGoto
+	Unload(Me)
 End Sub

@@ -6,7 +6,7 @@ begin Module
   Name = Ambiente
   Segment = main
 end
-' VeículoZ - Controle de Veículos
+	' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
 '
 ' This library is free software; you can redistribute it and/or
@@ -25,3 +25,4 @@ end
 
 Public Versao As String
 Public Factory As New clsDaoFactory
+Public FormFactory As New clsFormFactory

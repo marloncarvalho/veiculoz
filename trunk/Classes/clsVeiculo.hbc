@@ -3,7 +3,7 @@
 ' *** DO NOT EDIT ***
 
 begin Class
-  Name = clsCarro
+  Name = clsVeiculo
   Segment = main
   Extends = Object
   Instantiable = True
@@ -33,6 +33,8 @@ end
 
 'Identificador Único.
 Private lng_id As Long
+
+Private str_chassi As String
 
 'Modelo do Carro.
 Private str_modelo As String
@@ -106,4 +108,12 @@ End Property
 
 Public Property Let Ano(a As String)
 	str_ano = a
+End Property
+
+Public Property Get Chassi() As String
+	Chassi = Me.str_chassi
+End Property
+
+Public Property Let Chassi(C As String)
+	Me.str_chassi = C
 End Property

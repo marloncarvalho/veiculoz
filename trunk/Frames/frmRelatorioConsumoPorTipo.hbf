@@ -223,13 +223,13 @@ begin Form
       begin MenuItem
         Name = mnuNovoCarro
         Index = 0
-        Caption = "Carros"
+        Caption = "Veículos"
         Shortcut = ""
       end
       begin MenuItem
         Name = mnuPosto
         Index = 0
-        Caption = "Postos"
+        Caption = "Estabelecimentos"
         Shortcut = ""
       end
       begin MenuItem
@@ -413,7 +413,7 @@ end
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 Dim DbTiposC As pvHbTiposCombustiveis
-Dim DbCarros As pvHbCarros
+Dim DbCarros As pvHbVeiculos
 
 Private Sub Form_Load()
 	Set DbTiposC = Factory.ObterDaoTipoCombustivel().Database()
