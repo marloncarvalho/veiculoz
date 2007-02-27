@@ -468,8 +468,7 @@ Private Sub btnOk_Click()
 		Posto.Estado = Me.fldEstado.Text
 		Posto.Cidade = Me.fldCidade.Text
 		Posto.Distribuidora = Me.fldDistrib.Text
-		Factory.ObterDaoPosto().ManterPosto(Posto)
-		Set Me.NovoEstabelecimento = Posto
+		Set Me.NovoEstabelecimento = Factory.ObterDaoPosto().ManterPosto(Posto)
 		If Not Me.IsModal Then
 			Dim frm As New frmEstabelecimentos
 			frm.Show hbFormModeless+hbFormGoto

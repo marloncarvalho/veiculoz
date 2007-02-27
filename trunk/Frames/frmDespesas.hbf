@@ -5,7 +5,7 @@
 begin Form
   Name = frmDespesas
   Segment = Formularios
-  Extends = Form
+  Extends = clsHandleMenu
   Left = 0
   Top = 0
   Width = 160
@@ -47,10 +47,10 @@ begin Form
     Left = 4
     Top = 60
     Width = 146
-    Height = 59
+    Height = 63
     Anchors = 0
     Visible = True
-    Columns = "AwDeAQUAOQAyAAsAAAAAAAAAAAAoAAMABQA5ACgACwAAAAAAAAAAACgAAwAFADkAKAALAAAAAAAAAAAAKAADAA=="
+    Columns = "AgBsAQUAOQBcAAsAAAAAAAAAAAAoAAMABQA5ACgACwAAAAAAAAAAACgAAwA="
     SelectionMode = 1
     VertScroll = "scroll"
     HorzScroll = ""
@@ -67,7 +67,7 @@ begin Form
     Left = 150
     Top = 58
     Width = 7
-    Height = 61
+    Height = 67
     Anchors = 0
     Visible = True
     Min = 0
@@ -84,18 +84,6 @@ begin Form
     Anchors = 0
     Visible = True
     Caption = "Desc."
-    Font = "Bold"
-  end
-  begin Label
-    Name = Label2
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 55
-    Top = 47
-    Anchors = 0
-    Visible = True
-    Caption = "Local"
     Font = "Bold"
   end
   begin Label
@@ -189,9 +177,120 @@ begin Form
     Above = ""
     Below = ""
   end
+  begin Popup
+    Name = Popup1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 66
+    Top = 126
+    Width = 89
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "filtrar por veículo"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Popup
+    Name = pop
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 60
+    Top = 1
+    Width = 97
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "selecione uma opção"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
 end
+Private Total As Integer
 
 Private Sub btnNovo_Click()
 	Dim frm As New frmManterDespesa
-	frm.Show hbFormModal+hbFormGoto
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub gridCarros_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
+	Dim Despesa As clsDespesa
+	Set Despesa = Factory.ObterDaoDespesas().ObterDespesa(lItemData)
+	vValue(0) = Despesa.Descricao
+	vValue(1) = "R$ " & Despesa.Valor
+	Set Despesa = Nothing
+End Sub
+
+Private Sub clsHandleMenu_Load()
+	Call PreencherPopupVeiculos(Me.Popup1)
+	Me.Popup1.AddItem "Todos",-1
+	Call Me.PreencherGrid(0)
+	Call Me.pop.AddItem("Tipos de Despesas",1)
+	Me.lblSubtitulo.Caption = CStr(Me.Total) & " Despesa(s) Cadastrada(s)"
+End Sub
+
+Private Sub PreencherGrid(IdVeiculo As Long)
+	Dim Colecao As Collection
+	Dim Despesa As clsDespesa
+	If Not IsEmpty(IdVeiculo) And IdVeiculo <> 0 Then
+		Set Colecao = Factory.ObterDaoDespesas().ObterDespesasPorVeiculo(IdVeiculo)
+	Else
+		Set Colecao = Factory.ObterDaoDespesas().ObterDespesas()
+	End If
+	For Each Despesa In Colecao
+		Call Me.gridCarros.AddItem(Despesa.Id)
+	Next
+	Me.Total = Colecao.Count
+	Set Colecao = Nothing
+	Set Despesa = Nothing
+End Sub
+
+Private Sub Popup1_Change()
+	If Me.Popup1.ListIndex = 0 Then
+		Call Me.gridCarros.Clear()
+		Call Me.PreencherGrid(Me.Popup1.ItemData(Me.Popup1.ListIndex))
+	End If
+	If Me.Popup1.FindItemData(Me.Popup1.ListIndex) = -1 Then
+		Call Me.gridCarros.Clear()
+		Call Me.PreencherGrid(0)
+	End If
+End Sub
+
+Private Sub pop_Change()
+	If Me.pop.ListIndex > -1 Then
+		Select Case Me.pop.ItemData(Me.pop.ListIndex)
+			Case	1
+				Dim frm As New frmTiposDespesas
+				Call frm.Show(hbFormModal)
+		End Select
+	End If
+End Sub
+
+Private Sub gridCarros_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
+	Dim frm As New frmManterDespesa
+	frm.bNew = False
+	frm.IdEdicao = lItemData
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub btnVoltar_Click()
+	FormFactory.GetFrameMain().Show hbFormGoto+hbFormModeless
+End Sub
+
+Private Sub btnSair_Click()
+	Call App.Quit()
 End Sub

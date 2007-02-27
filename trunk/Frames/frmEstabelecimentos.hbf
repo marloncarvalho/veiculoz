@@ -10,7 +10,7 @@ begin Form
   Top = 0
   Width = 160
   Height = 160
-  Caption = "Estabelec."
+  Caption = "Estabelecimentos"
   Modal = False
   Help = ""
   DIA = 1
@@ -295,7 +295,7 @@ Private Sub Form_Load()
 	For Each Posto In Colecao
 		Call gridPostos.AddItem(Posto.Id)
 	Next
-	Me.lblSubtitulo.Caption = Colecao.Count & " Posto(s) Cadastrado(s)"
+	Me.lblSubtitulo.Caption = Colecao.Count & " Estabelec. Cadastrado(s)"
 End Sub
 
 

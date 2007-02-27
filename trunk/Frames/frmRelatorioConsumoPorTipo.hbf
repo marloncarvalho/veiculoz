@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmRelatorioConsumoPorTipo
-  Segment = Formularios
+  Segment = relatorios
   Extends = clsHandleMenu
   Left = 0
   Top = 0
@@ -19,18 +19,6 @@ begin Form
   InitialFocus = ""
   BottomLeft = ""
   Locked = False
-  begin Label
-    Name = Label11
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 3
-    Top = 59
-    Anchors = 0
-    Visible = True
-    Caption = "____________________________________"
-    Font = "Standard"
-  end
   begin Scrollbar
     Name = scroll
     Index = 0
@@ -178,30 +166,18 @@ begin Form
     Above = ""
     Below = ""
   end
-  begin Label
-    Name = Label10
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 81
-    Top = 1
-    Anchors = 0
-    Visible = True
-    Caption = "Carro:"
-    Font = "Standard"
-  end
   begin Popup
     Name = popCarros
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 106
+    Left = 81
     Top = 1
-    Width = 51
+    Width = 76
     Height = 12
     Anchors = 0
     Visible = True
-    Text = "Carro"
+    Text = "Veículo"
     Font = "Standard"
     VisibleItems = 3
     AnchorLeft = True
@@ -303,18 +279,6 @@ begin Form
         Shortcut = ""
       end
     end
-  end
-  begin Label
-    Name = Label12
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 3
-    Top = 128
-    Anchors = 0
-    Visible = True
-    Caption = "____________________________________"
-    Font = "Standard"
   end
   begin Picture
     Name = Picture1
@@ -441,7 +405,6 @@ Private Sub gridAbastecimentos_LoadItem(ByVal iRow As Integer, ByVal lItemData A
 	Dim Db As New pvHbAbastecimentos
 	Dim Sql As String
 	Dim KmRodados As Double
-	Dim Consumo As Double
 	Dim Litros As Double
 	Dim Count As Integer
 	Dim SqlInvalido As String

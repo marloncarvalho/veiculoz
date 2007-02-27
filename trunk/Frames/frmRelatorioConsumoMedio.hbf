@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmRelatorioConsumoMedio
-  Segment = Formularios
+  Segment = relatorios
   Extends = clsHandleMenu
   Left = 0
   Top = 0
@@ -19,18 +19,6 @@ begin Form
   InitialFocus = ""
   BottomLeft = ""
   Locked = False
-  begin Label
-    Name = Label11
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 3
-    Top = 60
-    Anchors = 0
-    Visible = True
-    Caption = "____________________________________"
-    Font = "Standard"
-  end
   begin Scrollbar
     Name = scroll
     Index = 0
@@ -202,30 +190,18 @@ begin Form
     Above = ""
     Below = ""
   end
-  begin Label
-    Name = Label10
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 83
-    Top = 1
-    Anchors = 0
-    Visible = True
-    Caption = "Carro:"
-    Font = "Standard"
-  end
   begin Popup
     Name = popCarros
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 107
+    Left = 83
     Top = 1
-    Width = 53
+    Width = 77
     Height = 12
     Anchors = 0
     Visible = True
-    Text = "Carro"
+    Text = "Veículo"
     Font = "Standard"
     VisibleItems = 3
     AnchorLeft = True
@@ -328,38 +304,6 @@ begin Form
       end
     end
   end
-  begin Label
-    Name = Label12
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 3
-    Top = 117
-    Anchors = 0
-    Visible = True
-    Caption = "____________________________________"
-    Font = "Standard"
-  end
-  begin GridEx
-    Name = gridAbastecimentos
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 4
-    Top = 70
-    Width = 146
-    Height = 56
-    Anchors = 0
-    Visible = True
-    Columns = "AgB0AQUAOQBkAAsAAAAAAAAAAAAoAAMABQA5ACgACwAAAAAAAAAAACgAAwA="
-    SelectionMode = 1
-    VertScroll = "scroll"
-    HorzScroll = ""
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
-  end
   begin CheckBox
     Name = chkInvalido
     Index = 0
@@ -412,6 +356,26 @@ begin Form
     Anchors = 0
     Visible = True
     Image = "Relatorio"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin GridEx
+    Name = gridAbastecimentos
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 70
+    Width = 146
+    Height = 56
+    Anchors = 0
+    Visible = True
+    Columns = "AgB0AQUAOQBkAAsAAAAAAAAAAAAoAAMABQA5ACgACwAAAAAAAAAAACgAAwA="
+    SelectionMode = 1
+    VertScroll = "scroll"
+    HorzScroll = ""
     NavFlags = 0
     NavOrder = ""
     Above = ""
@@ -472,7 +436,6 @@ Private Sub btnPesquisar_Click()
 	Total = 0
 	While Not DbAbaste.EOF
 		Dim KmRodados As Double
-		Dim Consumo As Double
 		Dim Litros As Double
 		Count = Count + 1
 		KmRodados =  CDbl(DbAbaste.KmFinal)-CDbl(DbAbaste.KmInicial)
@@ -499,7 +462,6 @@ Private Sub gridAbastecimentos_LoadItem(ByVal iRow As Integer, ByVal lItemData A
 	Dim Total As Double
 	Total = 0
 	Dim KmRodados As Double
-	Dim Consumo As Double
 	Dim Litros As Double
 	KmRodados = CDbl(DbAbaste.KmFinal)-CDbl(DbAbaste.KmInicial)
 	Litros = DbAbaste.ValorTotal / DbAbaste.ValorLitro

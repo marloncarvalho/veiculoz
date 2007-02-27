@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmObterVeiculoDetran
-  Segment = main
+  Segment = formularios
   Extends = Form
   Left = 5
   Top = 24
@@ -155,7 +155,6 @@ begin Form
   end
 end
 Private Web As New clsHTTP
-Private frm As frmManterVeiculo
 
 Private Sub btnConsultar_Click()
 	Dim estado As String
@@ -195,7 +194,6 @@ End Sub
 
 Private Sub Process(Text As String)
 	Dim c As Collection
-	Dim s As String
 	Dim frm As New frmManterVeiculo
 	On Error GoTo Erro
 	If Text = "ERRO" Then

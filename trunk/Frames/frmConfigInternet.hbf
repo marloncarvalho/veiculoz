@@ -1,0 +1,22 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmConfigInternet
+  Segment = formularios
+  Extends = clsHandleMenu
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Configurações"
+  Modal = False
+  Help = ""
+  DIA = 0
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+end

@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmMotorista
-  Segment = main
+  Segment = formularios
   Extends = clsHandleMenu
   Left = 0
   Top = 0
@@ -24,8 +24,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 27
-    Top = 47
+    Left = 25
+    Top = 46
     Anchors = 0
     Visible = True
     Caption = "Nome:"
@@ -36,8 +36,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 54
-    Top = 45
+    Left = 52
+    Top = 44
     Width = 100
     Height = 12
     Anchors = 0
@@ -61,7 +61,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 6
+    Left = 4
     Top = 60
     Anchors = 0
     Visible = True
@@ -69,11 +69,11 @@ begin Form
     Font = "Standard"
   end
   begin Field
-    Name = fldRua
+    Name = fldHabilitacao
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 54
+    Left = 52
     Top = 58
     Width = 78
     Height = 12
@@ -98,8 +98,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 7
-    Top = 72
+    Left = 5
+    Top = 73
     Anchors = 0
     Visible = True
     Caption = "Renovação:"
@@ -110,11 +110,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 12
-    Top = 85
+    Left = 9
+    Top = 88
     Anchors = 0
     Visible = True
-    Caption = "Estado:"
+    Caption = "Categoria:"
     Font = "Standard"
   end
   begin Button
@@ -122,7 +122,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 16
+    Left = 38
     Top = 141
     Width = 40
     Height = 12
@@ -142,7 +142,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 60
+    Left = 82
     Top = 141
     Width = 40
     Height = 12
@@ -162,11 +162,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 12
-    Top = 98
+    Left = 14
+    Top = 101
     Anchors = 0
     Visible = True
-    Caption = "Cidade:"
+    Caption = "Validade:"
     Font = "Standard"
   end
   begin Label
@@ -174,32 +174,12 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 3
-    Top = 111
+    Left = 17
+    Top = 116
     Anchors = 0
     Visible = True
-    Caption = "Bandeira:"
+    Caption = "Emissão:"
     Font = "Standard"
-  end
-  begin Button
-    Name = btnExcluir
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 104
-    Top = 141
-    Width = 40
-    Height = 12
-    Anchors = 0
-    Visible = True
-    Text = "Excluir"
-    Font = "Standard"
-    Frame = 1
-    Repeating = False
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
   end
   begin Picture
     Name = picEdicaoCarros
@@ -228,4 +208,162 @@ begin Form
     Caption = "Informações Motorista"
     Font = "LargeBold"
   end
+  begin Field
+    Name = fldCategoria
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 52
+    Top = 86
+    Width = 20
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Selector
+    Name = slcValidade
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 53
+    Top = 103
+    Width = 55
+    Height = 10
+    Anchors = 0
+    Visible = True
+    Text = "12/12/2007"
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 1
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Selector
+    Name = slcEmissao
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 53
+    Top = 118
+    Width = 40
+    Height = 10
+    Anchors = 0
+    Visible = True
+    Text = "Data"
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 1
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Selector
+    Name = slcDataRenovacao
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 53
+    Top = 75
+    Width = 40
+    Height = 10
+    Anchors = 0
+    Visible = True
+    Text = "Data"
+    Font = "Standard"
+    Format = ""
+    AnchorLeft = True
+    Mode = 1
+    DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Picture
+    Name = picAlarme
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 111
+    Top = 104
+    Anchors = 0
+    Visible = True
+    Image = "Alarme"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
 end
+Private AlarmeClass As New clsAlarm
+
+Private Sub clsHandleMenu_Load()
+	Dim motorista As clsMotorista
+	Set motorista = Factory.ObterDaoMotorista().ObterMotorista()
+	Me.fldCategoria.Text = motorista.Categoria
+	Me.fldHabilitacao.Text = motorista.Habilitacao
+	Me.fldNome.Text = motorista.Nome
+	Me.slcDataRenovacao.Date = motorista.Renovacao
+	Me.slcEmissao.Date = motorista.Emissao
+	Me.slcValidade.Date = motorista.Validade
+End Sub
+
+Private Sub btnCancelar_Click()
+	Dim frm As New frmMain
+	frm.Show hbFormGoto+hbFormModeless
+End Sub
+
+Private Sub btnOk_Click()
+	Dim motorista As New clsMotorista
+	Dim Manager As New clsAlarmManager
+	motorista.Categoria = Me.fldCategoria.Text
+	motorista.Nome = Me.fldNome.Text
+	motorista.Habilitacao = Me.fldHabilitacao.Text
+	motorista.Renovacao = Me.slcDataRenovacao.Date
+	motorista.Validade = Me.slcValidade.Date
+	motorista.Emissao = Me.slcEmissao.Date
+	If Not Me.AlarmeClass Is Nothing Then
+		Me.AlarmeClass.Descricao = "Renovação de Habilitação"
+		Set Me.AlarmeClass = Manager.AdicionarAlarme(Me.AlarmeClass)
+		motorista.IdAlarme = Me.AlarmeClass.Id
+	End If
+	motorista.IdAlarme = Me.AlarmeClass.Id
+	Factory.ObterDaoMotorista().Atualizar(motorista)
+	Call Me.btnCancelar_Click()
+End Sub
+
+
+Private Sub picAlarme_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim frm As New frmManterAlarme
+	Dim motorista As clsMotorista
+	Dim alarme As clsAlarm
+	frm.bNew = True
+	Set motorista = Factory.ObterDaoMotorista().ObterMotorista()
+	Set alarme = Factory.ObterDaoAlarmes().ObterAlarme(motorista.IdAlarme)
+	If Not alarme Is Nothing And motorista.IdAlarme > 0 Then
+		frm.IdEdicao = motorista.IdAlarme
+		frm.bNew = False
+	End If
+	frm.Show hbFormPopup+hbFormModal
+	Set Me.AlarmeClass = frm.Alarme
+End Sub

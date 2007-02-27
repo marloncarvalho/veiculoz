@@ -4,13 +4,13 @@
 
 begin Form
   Name = frmAbastecimentos
-  Segment = Formularios
+  Segment = formularios
   Extends = clsHandleMenu
   Left = 0
   Top = 0
   Width = 160
   Height = 160
-  Caption = "Abastec."
+  Caption = "Abastecimentos"
   Modal = False
   Help = ""
   DIA = 1
@@ -337,8 +337,8 @@ Private Sub gridAbastecimentos_LoadItem(ByVal iRow As Integer, ByVal lItemData A
 	Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimento(lItemData)
 	Set Posto = Factory.ObterDaoPosto().ObterPosto(Abs.IdPosto)
 	vValue(0) = Posto.Nome
-	vValue(1) = Abs.ValorTotal
-	vValue(2) = Abs.ValorLitro
+	vValue(1) = "R$ " & Abs.ValorTotal
+	vValue(2) = "R$ " & Abs.ValorLitro
 End Sub
 
 
@@ -376,7 +376,7 @@ Private Sub btnSair_Click()
 End Sub
 
 Private Sub popFiltro_Change()
-	Dim Colecao As New Collection
+	Dim Colecao As Collection
 	Dim Valor As Long
 	Dim Abs As clsAbastecimento
 	Call Me.gridAbastecimentos.Clear()

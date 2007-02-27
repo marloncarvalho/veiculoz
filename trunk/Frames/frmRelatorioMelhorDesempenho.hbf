@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmRelatorioMelhorDesempenho
-  Segment = Formularios
+  Segment = relatorios
   Extends = clsHandleMenu
   Left = 0
   Top = 0
@@ -92,11 +92,11 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 20
+    Left = 14
     Top = 49
     Anchors = 0
     Visible = True
-    Caption = "Carro:"
+    Caption = "Veículo:"
     Font = "Standard"
   end
   begin Popup
@@ -106,11 +106,11 @@ begin Form
     Tag = ""
     Left = 46
     Top = 49
-    Width = 94
+    Width = 102
     Height = 12
     Anchors = 0
     Visible = True
-    Text = "Selecione um Carro"
+    Text = "Selecione um Veículo"
     Font = "Standard"
     VisibleItems = 3
     AnchorLeft = True
@@ -463,8 +463,6 @@ end
 ' You should have received a copy of the GNU Lesser General Public
 ' License along with this library; if not, write to the Free Software
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
-Dim DbCarros As pvHbVeiculos
-
 Private Sub Button1_Click()
 	If Me.Popup1.ListIndex = -1 Then
 		MsgBox "Selecione um Carro."
@@ -474,7 +472,6 @@ Private Sub Button1_Click()
 	Dim IdPosto As Long
 	Dim Consumo As Double
 	Dim Data As String
-	Dim Hora As String
 	Dim IdTipo As Long
 	Dim Litros As Double
 	Dim Kms As Double
@@ -498,7 +495,6 @@ Private Sub Button1_Click()
 			Kms = dKmRodados
 			Litros = dLitros
 			Data = Db.Data
-			Hora = Db.Hora
 		End If
 		Db.MoveNext
 	Wend

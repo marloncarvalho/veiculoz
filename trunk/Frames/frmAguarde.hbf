@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmAguarde
-  Segment = main
+  Segment = formularios
   Extends = Form
   Left = 10
   Top = 50

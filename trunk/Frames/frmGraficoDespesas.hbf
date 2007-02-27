@@ -3,14 +3,14 @@
 ' *** DO NOT EDIT ***
 
 begin Form
-  Name = frmGraficoConsumo
-  Segment = Formularios
+  Name = frmGraficoDespesas
+  Segment = graficos
   Extends = clsHandleMenu
   Left = 0
   Top = 0
   Width = 160
   Height = 160
-  Caption = "Gráfico de Consumo"
+  Caption = "Despesas"
   Modal = False
   Help = ""
   DIA = 0
@@ -123,99 +123,6 @@ begin Form
     Above = ""
     Below = ""
   end
-  begin MenuBar
-    begin MenuTitle
-      Caption = "Cadastro"
-      begin MenuItem
-        Name = mnuAbastecimentos
-        Index = 0
-        Caption = "Abastecimentos"
-        Shortcut = ""
-      end
-      begin MenuItem
-        Name = mnuNovoCarro
-        Index = 0
-        Caption = "Veículos"
-        Shortcut = ""
-      end
-      begin MenuItem
-        Name = mnuPosto
-        Index = 0
-        Caption = "Estabelecimentos"
-        Shortcut = ""
-      end
-      begin MenuItem
-        Name = mnuTiposCombustivel
-        Index = 0
-        Caption = "Tipos Combustível"
-        Shortcut = ""
-      end
-      begin MenuSeparator
-      end
-      begin MenuItem
-        Name = mnuSair
-        Index = 0
-        Caption = "Sair"
-        Shortcut = ""
-      end
-    end
-    begin MenuTitle
-      Caption = "Relatórios"
-      begin MenuItem
-        Name = mnuRelDespesas
-        Index = 0
-        Caption = "Despesas"
-        Shortcut = ""
-      end
-      begin MenuItem
-        Name = mnuRelConsumoMedio
-        Index = 0
-        Caption = "Consumo Médio"
-        Shortcut = ""
-      end
-      begin MenuItem
-        Name = mnuRelMelhorDesempenho
-        Index = 0
-        Caption = "Melhor Desempenho"
-        Shortcut = ""
-      end
-      begin MenuItem
-        Name = mnuRelPiorDesempenho
-        Index = 0
-        Caption = "Pior Desempenho"
-        Shortcut = ""
-      end
-      begin MenuItem
-        Name = mnuGastosPorPosto
-        Index = 0
-        Caption = "Gastos Por Posto"
-        Shortcut = ""
-      end
-      begin MenuItem
-        Name = mnuConsumoTipoComb
-        Index = 0
-        Caption = "Consumo por Tipo Comb."
-        Shortcut = ""
-      end
-      begin MenuSeparator
-      end
-      begin MenuItem
-        Name = mnuGraficoConsumo
-        Index = 0
-        Caption = "Gráfico Consumo"
-        Shortcut = ""
-      end
-    end
-    begin MenuTitle
-      Caption = "Ajuda"
-      begin MenuItem
-        Name = mnuSobre
-        Index = 0
-        Caption = "Sobre"
-        Shortcut = ""
-      end
-    end
-  end
   begin Label
     Name = Label1
     Index = 0
@@ -309,7 +216,7 @@ Private Sub Form_Load()
 	Me.chart.Show3D = True
 	Me.chart.Clear
 	Me.chart.DrawFrame = True
-	Me.chart.GraphType = Lines
+	Me.chart.GraphType = Pies
 	Me.chart.ShowSelectedValue = True
 	Me.chart.Min = 0
 	Dim Carro As clsVeiculo
@@ -324,7 +231,7 @@ Private Sub btnVerGrafico_Click()
 	Dim Colecao As Collection
 
 	If Me.popCarros.ListIndex = -1 Then
-		MsgBox "Selecione um Carro."
+		MsgBox "Selecione um Veículo."
 		Exit Sub
 	End If
 
