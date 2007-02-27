@@ -1,0 +1,101 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsDespesa
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+Private MeId As Long
+Public Property Get Id() As Long
+	Id = MeId
+End Property
+
+Public Property Let Id(I As Long)
+	MeId = I
+End Property
+
+Private MeDescricao As String
+Public Property Get Descricao() As String
+	Descricao = MeDescricao
+End Property
+
+Public Property Let Descricao(D As String)
+	MeDescricao = D
+End Property
+
+Private MeValor As Double
+Public Property Get Valor() As Double
+	Valor = MeValor
+End Property
+
+Public Property Let Valor(V As Double)
+	MeValor = V
+End Property
+
+Private MeData As Date
+Public Property Get Data() As Date
+	Data = MeData
+End Property
+
+Public Property Let Data(D As Date)
+	MeData = D
+End Property
+
+Private MeHora As Long
+Public Property Get Hora() As Long
+	Hora = MeHora
+End Property
+
+Public Property Let Hora(H As Long)
+	MeHora = H
+End Property
+
+Private MeKm As Long
+Public Property Get Km() As Long
+	Km = MeKm
+End Property
+
+Public Property Let Km(K As Long)
+	MeKm = K
+End Property
+
+Private MeKmProxima As Long
+Public Property Get KmProxima() As Long
+	KmProxima = MeKmProxima
+End Property
+
+Public Property Let KmProxima(K As Long)
+	MeKmProxima = K
+End Property
+
+Private MeIdEstabelecimento As Long
+Public Property Get IdEstabelecimento() As Long
+	IdEstabelecimento = MeIdEstabelecimento
+End Property
+
+Public Property Let IdEstabelecimento(I As Long)
+	MeIdEstabelecimento = I
+End Property
+
+Private MeIdVeiculo As Long
+Public Property Get IdVeiculo() As Long
+	IdVeiculo = MeIdVeiculo
+End Property
+
+Public Property Let IdVeiculo(I As Long)
+	MeIdVeiculo = I
+End Property
+
+Private MeIdTipo As Long
+Public Property Get IdTipo() As Long
+	IdTipo = MeIdTipo
+End Property
+
+Public Property Let IdTipo(I As Long)
+	MeIdTipo = I
+End Property

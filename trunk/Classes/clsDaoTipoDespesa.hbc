@@ -1,0 +1,93 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsDaoTipoDespesa
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+Private Db As New pvHbTipoDespesa
+
+Public Property Get Database() As pvHbTipoDespesa
+	Set Database = Db
+End Property
+
+'Construtor.
+Private Sub Initialize()
+	Try
+	  Db.OpenRecordset "Category>=0 Order By Descricao Asc", hbModeOpenExisting+hbModeReadWrite
+	Catch
+	  Db.OpenRecordset "Category>=0 Order By Descricao Asc", hbModeCreateAlways+hbModeReadWrite
+	End Catch
+End Sub
+
+Public Function ObterTiposDespesas() As Collection
+	Dim Colecao As New Collection
+	Call Db.MoveFirst()
+	While Not Db.EOF
+		Dim Tipo As clsTipoDespesa
+		Set Tipo = CriarTipoDespesa(Db)
+		Colecao.Add(Tipo)
+		Call Db.MoveNext()
+	Wend
+	Set ObterTiposDespesas = Colecao
+End Function
+
+Public Function ObterTipoDespesa(ByVal Id As Long) As clsTipoDespesa
+	Dim Tipo As clsTipoDespesa
+	Call Db.LookupUniqueID(Id)
+	Set Tipo = CriarTipoDespesa(Db)
+	Set ObterTipoDespesa = Tipo
+End Function
+
+Public Function ManterTipoDespesa(ByRef Tipo As clsTipoDespesa) As clsTipoDespesa
+	If Not IsEmpty(Tipo.Id) And Tipo.Id <> 0 Then
+		Call Db.LookupUniqueID(Tipo.Id)
+		Call Db.Edit()
+	Else
+		Call Db.AddNew()
+	End If
+	Db.Descricao = Tipo.Descricao
+	Call Db.Update()
+	Call Db.MoveLast()
+	Set ManterTipoDespesa = Me.CriarTipoDespesa(Db)
+End Function
+
+Public Sub Excluir(ByVal Id As Long)
+	Dim DbDespesas As pvHbDespesas
+	Set DbDespesas = Factory.ObterDaoDespesas().Database()
+	DbDespesas.OpenRecordset "IdTipo="&Id,hbModeOpenAlways+hbModeReadOnly
+	If DbDespesas.RecordCount > 0 Then
+		Err.Raise 101,"Tipo de Despesa não pode ser excluído, pois existem Despesas relacionadas."
+	End If
+	Call Db.LookupUniqueID(Id)
+	Call Db.Delete(hbRecordRemove)
+	Call Db.Update()
+End Sub
+
+Private Function CriarTipoDespesa(ByRef Db As pvHbTipoDespesa) As clsTipoDespesa
+	Dim Tipo As New clsTipoDEspesa
+	Tipo.Id = Db.UniqueID
+	Tipo.Descricao = Db.Descricao
+	Set CriarTipoDespesa = Tipo
+End Function

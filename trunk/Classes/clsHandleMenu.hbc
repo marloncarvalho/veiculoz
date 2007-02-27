@@ -24,8 +24,14 @@ Public mnuGastosPorPosto As MenuItem
 Public mnuRelPiorDesempenho As MenuItem
 Public mnuGraficoConsumo As MenuItem
 Public mnuDespesas As MenuItem
+Public mnuVerificarAtualiza As MenuItem
 
 Private Sub Initialize()
+End Sub
+
+Private Sub mnuVerificarAtualiza_Click()
+	Dim frm As New frmVerificarAtualizacoes
+	frm.Show hbFormModal+hbFormPopup
 End Sub
 
 Public Sub mnuRelDespesas_Click()
@@ -33,7 +39,8 @@ Public Sub mnuRelDespesas_Click()
 End Sub
 
 Private Sub mnuDespesas_Click()
-	Call FormFactory.GetFrameDespesas().Show(hbFormModeless+hbFormGoto)
+	Dim frm As New frmDespesas
+	frm.Show(hbFormModeless+hbFormGoto)
 End Sub
 
 Private Sub mnuGraficoConsumo_Click()

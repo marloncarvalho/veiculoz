@@ -35,7 +35,6 @@ End Property
 
 'Construtor.
 Private Sub Initialize()
-  Dim e as Integer
 	Try
 	  DbCar.OpenRecordset "Category>=0 Order By Modelo Asc", hbModeOpenExisting+hbModeReadWrite
 	Catch

@@ -1,0 +1,29 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsTipoDespesa
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+Private MeId As Long
+Public Property Get Id() As Long
+	Id = MeId
+End Property
+
+Public Property Let Id(i As Long)
+	MeId = i
+End Property
+
+Private MeDescricao As String
+Public Property Get Descricao() As String
+	Descricao = MeDescricao
+End Property
+
+Public Property Let Descricao(D As String)
+	MeDescricao = D
+End Property

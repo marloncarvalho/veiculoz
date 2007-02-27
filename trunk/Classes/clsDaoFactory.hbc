@@ -33,6 +33,21 @@ Private DaoP As New clsDaoEstabelecimento
 Private DaoA As New clsDaoAbastecimento
 Private DaoS As New clsDaoSeguro
 Private DaoAlarmes As New clsDaoAlarme
+Private DaoD As New clsDaoDespesa
+Private DaoTD As New clsDaoTipoDespesa
+Private DaoM As New clsDaoMotorista
+
+Public Function ObterDaoMotorista() As clsDaoMotorista
+	Set ObterDaoMotorista = DaoM
+End Function
+
+Public Function ObterDaoTipoDespesa()As clsDaoTipoDespesa
+	Set ObterDaoTipoDespesa = Me.DaoTD
+End Function
+
+Public Function ObterDaoDespesas() As clsDaoDespesa
+	Set ObterDaoDespesas = Me.DaoD
+End Function
 
 Public Function ObterDaoAlarmes() As clsDaoAlarme
 	Set ObterDaoAlarmes = DaoAlarmes

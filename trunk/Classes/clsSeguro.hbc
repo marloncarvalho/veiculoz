@@ -17,7 +17,6 @@ Private MeValor As Double
 Private MeFranquia As Double
 Private MeData As Date
 Private MeRenovacao As Date
-Private MeHoraAlarme As Long
 Private MeAlarme As Boolean
 Private MeIdVeiculo As Long
 Private MeId As Long
@@ -93,14 +92,6 @@ End Property
 
 Public Property Let Renovacao(R As Date)
 	MeRenovacao = R
-End Property
-
-Public Property Get HoraAlarme() As Long
-	HoraAlarme = MeHoraAlarme
-End Property
-
-Public Property Let HoraAlarme(H As Long)
-	MeHoraAlarme = H
 End Property
 
 Public Property Get Alarme() As Boolean

@@ -35,7 +35,6 @@ End Property
 
 'Construtor.
 Private Sub Initialize()
-  Dim e as Integer
 	Try
 	  Db.OpenRecordset "Category>=0 Order By Data Desc", hbModeOpenExisting+hbModeReadWrite
 	Catch
