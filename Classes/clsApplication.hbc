@@ -51,12 +51,8 @@ End Sub
 Private Sub Application_DisplayAlarm()
 	Dim Manager As New clsAlarmManager
 	Dim Frm As New frmAlarmes
-	Dim Colecao As New Collection
+	Dim Colecao As Collection
 	Set Colecao = Manager.AlarmeDisparado(Me.LastAlarm)
 	Set Frm.Alarmes = Colecao
 	Frm.Show hbFormModal+hbFormPopup
-End Sub
-
-Public Sub SetupAlarm(ByVal iYear As Integer, ByVal iMonth As Integer, ByVal iDay As Integer, ByVal iHour As Integer, ByVal iMinute As Integer, ByVal iSecond As Integer)
-  App.Alarm = DateSerial( iYear, iMonth, iDay, iHour, iMinute, iSecond)
 End Sub

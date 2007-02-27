@@ -58,7 +58,7 @@ Public Function ManterAlarme(alarme As clsAlarm) As clsAlarm
 	End If
 	Db.Data = alarme.Data
 	Db.Descricao = alarme.Descricao
-	Db.Update
+	Call Db.Update()
 	Call Db.MoveLast()
 	Set ManterAlarme = Me.CriarAlarme(Db)
 End Function
@@ -93,7 +93,7 @@ Public Function ObterAlarmesPorData(Data As Date) As Collection
 	Db.OpenRecordset "Data>='" & Data & "' Order By Data ASC",hbModeOpenExisting+hbModeReadWrite
 	Call Db.MoveFirst()
 	While Not Db.EOF
-		Dim Alarme As New clsAlarm
+		Dim Alarme As clsAlarm
 		Set Alarme = CriarAlarme(Db)
 		Call Colecao.Add(Alarme)
 		Call Db.MoveNext()

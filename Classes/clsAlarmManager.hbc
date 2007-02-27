@@ -19,7 +19,7 @@ Public Function AdicionarAlarme(alarme As clsAlarm) As clsAlarm
 End Function
 
 Public Function AlarmeDisparado(Data As Date) As Collection
-	Dim colecao As New Collection
+	Dim colecao As Collection
 	Dim alarme As clsAlarm
 	Set colecao = Factory.ObterDaoAlarmes().ObterAlarmesPorData(Data)
 	For Each alarme In colecao

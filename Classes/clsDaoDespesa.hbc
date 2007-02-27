@@ -1,0 +1,121 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsDaoDespesa
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2007  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Private Db As New pvHbDespesas
+
+Public Property Get Database() As pvHbDespesas
+	Set Database = Db
+End Property
+
+'Construtor.
+Private Sub Initialize()
+	Call Me.OpenDatabase()
+End Sub
+
+Private Sub OpenDatabase()
+	Try
+	  Db.OpenRecordset "Category>=0 Order By Data Desc", hbModeOpenExisting+hbModeReadWrite
+	Catch
+		If Err.Number = 43 Then
+			Db.OpenRecordset "Category>=0 Order By Data Desc", hbModeCreateAlways+hbModeReadWrite
+		End If
+	End Catch
+End Sub
+
+Public Function ObterDespesa(Id As Long) As clsDespesa
+	Call Db.LookupUniqueID(Id)
+	Set ObterDespesa = Me.CriarDespesa(Db)
+End Function
+
+Public Function ManterDespesa(Despesa As clsDespesa) As clsDespesa
+	If Not IsEmpty(Despesa.Id) And Despesa.Id <> 0 Then
+		Call Db.LookupUniqueID(despesa.Id)
+		Call Db.Edit()
+	Else
+		Call Db.AddNew()
+	End If
+	Db.Data = Despesa.Data
+	Db.Descricao = Despesa.Descricao
+	Db.Hora = Despesa.Hora
+	Db.IdEstab = Despesa.IdEstabelecimento
+	Db.IdTipo = Despesa.IdTipo
+	Db.IdVeiculo = Despesa.IdVeiculo
+	Db.Km = Despesa.Km
+	Db.KmProxima = Despesa.KmProxima
+	Db.Valor = Despesa.Valor
+	Call Db.Update()
+	Call Db.MoveLast()
+	Set ManterDespesa = Me.CriarDespesa(Db)
+End Function
+
+Public Function ObterDespesas() As Collection
+	Dim Colecao As New Collection
+	Call Db.MoveFirst()
+	While Not Db.EOF
+		Dim Despesa As clsDespesa
+		Set Despesa = Me.CriarDespesa(Db)
+		Colecao.Add(Despesa)
+		Call Db.MoveNext()
+	Wend
+	Set ObterDespesas = Colecao
+End Function
+
+Public Function ObterDespesasPorVeiculo(IdVeiculo As Long) As Collection
+	Dim Colecao As New Collection
+	Call Db.OpenRecordset("IdVeiculo=" & CStr(IdVeiculo),hbModeOpenExisting+hbModeReadWrite)
+	While Not Db.EOF
+		Dim Despesa As clsDespesa
+		Set Despesa = Me.CriarDespesa(Db)
+		Colecao.Add(Despesa)
+		Call Db.MoveNext()
+	Wend
+	Set ObterDespesasPorVeiculo = Colecao
+	Call Me.OpenDatabase()
+End Function
+
+Public Sub Excluir(Id As Long)
+	Call Db.LookupUniqueID(Id)
+	Call Db.Delete(hbRecordRemove)
+	Call Db.Update()
+End Sub
+
+Private Function CriarDespesa(D As pvHbDespesas) As clsDespesa
+	Dim Despesa As New clsDespesa
+	Despesa.Data = Db.Data
+	Despesa.Descricao = Db.Descricao
+	Despesa.Hora = Db.Hora
+	Despesa.IdEstabelecimento = Db.IdEstab
+	Despesa.IdTipo = Db.IdTipo
+	Despesa.IdVeiculo = Db.IdVeiculo
+	Despesa.Km = Db.Km
+	Despesa.KmProxima = Db.KmProxima
+	Despesa.Valor = Db.Valor
+	Despesa.Id = Db.UniqueID
+	Set CriarDespesa = Despesa
+End Function

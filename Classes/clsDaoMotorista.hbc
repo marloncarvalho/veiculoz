@@ -1,0 +1,79 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsDaoMotorista
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2007  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Private Db As New pvHbMotorista
+
+Public Property Get Database() As pvHbMotorista
+	Set Database = Db
+End Property
+
+'Construtor.
+Private Sub Initialize()
+	Try
+	  Db.OpenRecordset "Category>=0", hbModeOpenExisting+hbModeReadWrite
+	Catch
+		If Err.Number = 43 Then
+			Db.OpenRecordset "Category>=0", hbModeCreateAlways+hbModeReadWrite
+		End If
+	End Catch
+End Sub
+
+Public Function ObterMotorista() As clsMotorista
+	Dim motorista As New clsMotorista
+	Call Db.MoveFirst()
+	If Db.BOF Or Db.EOF Then
+		Set ObterMotorista = motorista
+		Exit Function
+	End If
+	motorista.Categoria = Db.Categoria
+	motorista.Emissao = Db.Emissao
+	motorista.Habilitacao = Db.Habilitacao
+	motorista.IdAlarme = Db.IdAlarme
+	motorista.Nome = Db.Nome
+	motorista.Renovacao = Db.Renovacao
+	motorista.Validade = Db.Validade
+	Set ObterMotorista = motorista
+End Function
+
+Public Sub Atualizar(motorista As clsMotorista)
+	If Db.EOF Or Db.BOF Then
+		Call Db.AddNew()
+	Else
+		Call Db.MoveFirst()
+		Call Db.Edit()
+	End If
+	Db.Categoria = motorista.Categoria
+	Db.Emissao = motorista.Emissao
+	Db.Habilitacao = motorista.Habilitacao
+	Db.IdAlarme = motorista.IdAlarme
+	Db.Nome = motorista.Nome
+	Db.Renovacao = motorista.Renovacao
+	Db.Validade = motorista.Validade
+	Call Db.Update()
+End Sub

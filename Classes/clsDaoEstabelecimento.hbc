@@ -35,7 +35,6 @@ End Property
 
 'Construtor.
 Private Sub Initialize()
-  Dim e as Integer
 	Try
 	  Db.OpenRecordset "Category>=0 Order By Nome Asc", hbModeOpenExisting+hbModeReadWrite
 	Catch
@@ -52,7 +51,7 @@ Public Function ObterPostos() As Collection
 	Dim Colecao As New Collection
 	Call Db.MoveFirst()
 	While Not Db.EOF
-		Dim Posto As New clsEstabelecimento
+		Dim Posto As clsEstabelecimento
 		Set Posto = CriarPosto(Db)
 		Colecao.Add(Posto)
 		Call Db.MoveNext()
@@ -63,7 +62,7 @@ End Function
 'Atualizar ou Incluir Postos
 '
 '@Param Posto. Posto a ser atualizado ou incluído.
-Public Sub ManterPosto(Posto As clsEstabelecimento)
+Public Function ManterPosto(Posto As clsEstabelecimento) As clsEstabelecimento
 	If Not IsEmpty(Posto.Id) And Posto.Id <> 0 Then
 		Db.LookupUniqueID Posto.Id
 		Db.Edit
@@ -76,14 +75,16 @@ Public Sub ManterPosto(Posto As clsEstabelecimento)
 	Db.Estado = Posto.Estado
 	Db.Nome = Posto.Nome
 	Db.Rua = Posto.Rua
-	Db.Update
-End Sub
+	Call Db.Update()
+	Call Db.MoveLast()
+	Set ManterPosto = Me.CriarPosto(Db)
+End Function
 
 ' Localizar um Posto.
 '
 ' @Returns Posto Encontrado.
 Public Function ObterPosto(ByVal Id As Long) As clsEstabelecimento
-	Db.LookupUniqueID Id
+	Call Db.LookupUniqueID(Id)
 	Set ObterPosto = CriarPosto(Db)
 End Function
 

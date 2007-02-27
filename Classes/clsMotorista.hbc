@@ -1,0 +1,80 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsMotorista
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+Private Sub Initialize()
+	Me.Renovacao = Now()
+	Me.Emissao = Now()
+	Me.Validade = Now()
+End Sub
+
+Private MeIdAlarme As Long
+Public Property Get IdAlarme() As Long
+	IdAlarme = MeIdAlarme
+End Property
+
+Public Property Let IdAlarme(I As Long)
+	MeIdAlarme = I
+End Property
+
+Private MeNome As String
+Public Property Get Nome() As String
+	Nome = MeNome
+End Property
+
+Public Property Let Nome(N As String)
+	MeNome = N
+End Property
+
+Private MeHabilitacao As String
+Public Property Get Habilitacao() As String
+	Habilitacao = MeHabilitacao
+End Property
+
+Public Property Let Habilitacao(H As String)
+	MeHabilitacao = H
+End Property
+
+Private MeRenovacao As Date
+Public Property Get Renovacao() As Date
+	Renovacao = MeRenovacao
+End Property
+
+Public Property Let Renovacao(R As Date)
+	MeRenovacao = R
+End Property
+
+Private MeCategoria As String
+Public Property Get Categoria() As String
+	Categoria = MeCategoria
+End Property
+
+Public Property Let Categoria(C As String)
+	MeCategoria = C
+End Property
+
+Private MeValidade As Date
+Public Property Get Validade() As Date
+	Validade = MeValidade
+End Property
+
+Public Property Let Validade(V As Date)
+	MeValidade = V
+End Property
+
+Private MeEmissao As Date
+Public Property Get Emissao() As Date
+	Emissao = MeEmissao
+End Property
+
+Public Property Let Emissao(E As Date)
+	MeEmissao = E
+End Property
