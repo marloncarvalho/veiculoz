@@ -4,7 +4,7 @@
 
 begin Project
   Name = VeiculoZ
-  Configuration = Release
+  Configuration = Debug
   Conduit = ""
   Package = ""
   File = "Classes\\clsApplication.hbc"
@@ -56,6 +56,19 @@ begin Project
   File = "Classes\\clsDaoAlarme.hbc"
   File = "Frames\\frmAlarmes.hbf"
   File = "Frames\\frmManterAlarme.hbf"
+  File = "Classes\\clsDespesa.hbc"
+  File = "Classes\\clsDaoDespesa.hbc"
+  File = "Modules\\FormUtils.hbm"
+  File = "Classes\\clsTipoDespesa.hbc"
+  File = "Classes\\clsDaoTipoDespesa.hbc"
+  File = "Frames\\frmTiposDespesas.hbf"
+  File = "Frames\\frmManterTipoDespesa.hbf"
+  File = "Frames\\frmAgendarDespesa.hbf"
+  File = "Frames\\frmVerificarAtualizacoes.hbf"
+  File = "Classes\\clsMotorista.hbc"
+  File = "Classes\\clsDaoMotorista.hbc"
+  File = "Frames\\frmConfigInternet.hbf"
+  File = "Frames\\frmGraficoDespesas.hbf"
   begin Configuration
     Name = Debug
     Title = "VeículoZ"
@@ -233,7 +246,7 @@ begin Project
     Type = "DATA"
     Backup = True
     Bundled = False
-    PDB = 3
+    PDB = 0
     Filename = "Databases\\pvHbSeguros.hbx"
   end
   begin Table
@@ -283,5 +296,33 @@ begin Project
     Bundled = False
     PDB = 0
     Filename = "Databases\\pvHbDespesas.hbx"
+  end
+  begin Table
+    Name = pvHbTipoDespesa
+    Creator = "*"
+    Type = "DATA"
+    Backup = True
+    Bundled = False
+    PDB = 0
+    Filename = "Databases\\pvHbTipoDespesa.hbx"
+  end
+  begin ImageFamily
+    Name = ConectarWeb
+    begin Image
+      Density = 72
+      Palette = 4
+      Compression = 255
+      TransparencyColor = -1
+      Filename = "Images\\conectar-web.bmp"
+    end
+  end
+  begin Table
+    Name = pvHbMotorista
+    Creator = "*"
+    Type = "DATA"
+    Backup = True
+    Bundled = False
+    PDB = 0
+    Filename = "Databases\\pvHbMotorista.hbx"
   end
 end
