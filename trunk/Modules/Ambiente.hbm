@@ -26,3 +26,7 @@ end
 Public Versao As String
 Public Factory As New clsDaoFactory
 Public FormFactory As New clsFormFactory
+
+Public Sub VerificarAlarmeDespesas()
+
+End Sub
