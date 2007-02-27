@@ -4,8 +4,8 @@
 
 begin Form
   Name = frmManterDespesa
-  Segment = Formularios
-  Extends = Form
+  Segment = formularios
+  Extends = clsHandleMenu
   Left = 0
   Top = 0
   Width = 160
@@ -25,9 +25,9 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 6
-    Top = 99
+    Top = 107
     Width = 147
-    Height = 30
+    Height = 19
     Anchors = 0
     Visible = True
     Font = "Standard"
@@ -49,7 +49,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 10
+    Left = 7
     Top = 18
     Anchors = 0
     Visible = True
@@ -64,7 +64,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 29
+    Left = 26
     Top = 19
     Anchors = 0
     Visible = True
@@ -84,7 +84,7 @@ begin Form
     Font = "Standard"
   end
   begin Popup
-    Name = Popup1
+    Name = popEstab
     Index = 0
     Layer = 0
     Tag = ""
@@ -110,7 +110,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 5
-    Top = 65
+    Top = 66
     Anchors = 0
     Visible = True
     Caption = "Tipo:"
@@ -122,7 +122,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 1
-    Top = 77
+    Top = 80
     Anchors = 0
     Visible = True
     Caption = "Valor:"
@@ -134,7 +134,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 83
-    Top = 77
+    Top = 80
     Anchors = 0
     Visible = True
     Caption = "Km:"
@@ -146,19 +146,19 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 39
+    Top = 38
     Anchors = 0
     Visible = True
     Caption = "Data:"
     Font = "Standard"
   end
   begin Popup
-    Name = Popup2
+    Name = popTipo
     Index = 0
     Layer = 0
     Tag = ""
     Left = 26
-    Top = 65
+    Top = 66
     Width = 106
     Height = 12
     Anchors = 0
@@ -174,12 +174,12 @@ begin Form
     Below = ""
   end
   begin Field
-    Name = Field1
+    Name = fldValor
     Index = 0
     Layer = 0
     Tag = ""
     Left = 26
-    Top = 75
+    Top = 78
     Width = 52
     Height = 12
     Anchors = 0
@@ -190,7 +190,7 @@ begin Form
     Align = 0
     Editable = True
     AutoShift = True
-    Numeric = False
+    Numeric = True
     MaxChar = 80
     Scrollbar = ""
     NavFlags = 0
@@ -199,12 +199,12 @@ begin Form
     Below = ""
   end
   begin Field
-    Name = Field2
+    Name = fldKm
     Index = 0
     Layer = 0
     Tag = ""
     Left = 100
-    Top = 75
+    Top = 78
     Width = 54
     Height = 12
     Anchors = 0
@@ -215,7 +215,7 @@ begin Form
     Align = 0
     Editable = True
     AutoShift = True
-    Numeric = False
+    Numeric = True
     MaxChar = 80
     Scrollbar = ""
     NavFlags = 0
@@ -224,19 +224,19 @@ begin Form
     Below = ""
   end
   begin Selector
-    Name = slc
+    Name = slcData
     Index = 0
     Layer = 0
     Tag = ""
     Left = 28
-    Top = 41
+    Top = 40
     Width = 53
     Height = 9
     Anchors = 0
     Visible = True
     Text = "12/12/2000"
     Font = "Standard"
-    Format = "dd/hh/yyyy"
+    Format = "dd/mm/yyyy"
     AnchorLeft = True
     Mode = 1
     DialogTitle = ""
@@ -246,12 +246,12 @@ begin Form
     Below = ""
   end
   begin Popup
-    Name = Popup3
+    Name = popVeiculos
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 61
-    Top = 0
+    Left = 60
+    Top = 1
     Width = 98
     Height = 12
     Anchors = 0
@@ -331,32 +331,32 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 7
-    Top = 90
+    Left = 6
+    Top = 94
     Anchors = 0
     Visible = True
     Caption = "Descrição da Despesa:"
-    Font = "Standard"
+    Font = "Bold"
   end
   begin Label
     Name = Label17
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 85
-    Top = 40
+    Left = 86
+    Top = 39
     Anchors = 0
     Visible = True
     Caption = "Hora:"
     Font = "Standard"
   end
   begin Selector
-    Name = slc1
+    Name = slcHora
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 108
-    Top = 41
+    Left = 109
+    Top = 40
     Width = 47
     Height = 9
     Anchors = 0
@@ -373,7 +373,7 @@ begin Form
     Below = ""
   end
   begin Picture
-    Name = Picture1
+    Name = picLocal
     Index = 0
     Layer = 0
     Tag = ""
@@ -388,12 +388,12 @@ begin Form
     Below = ""
   end
   begin Picture
-    Name = Picture2
+    Name = picTipo
     Index = 0
     Layer = 0
     Tag = ""
     Left = 134
-    Top = 67
+    Top = 68
     Anchors = 0
     Visible = True
     Image = "Adicionar"
@@ -430,3 +430,125 @@ begin Form
     Font = "Standard"
   end
 end
+Public IdEdicao As Long
+Public bNew As Boolean
+Public KmProximo As String
+
+Private Function Validar() As Boolean
+	If Me.popVeiculos.ListIndex = -1 Then
+		MsgBox "Selecione um Veículo."
+		Validar = False
+		Exit Function
+	End If
+	If Me.popEstab.ListIndex = -1 Then
+		MsgBox "Selecione um Local."
+		Validar = False
+		Exit Function
+	End If
+	If Me.popTipo.ListIndex = -1 Then
+		MsgBox "Selecione um Tipo de Despesa."
+		Validar = False
+		Exit Function
+	End If
+	If Len(Me.fldDescricao.Text) <= 0 Then
+		MsgBox "Informe uma Descrição para a Despesa."
+		Validar = False
+		Exit Function
+	End If
+	If Len(Me.fldValor.Text) <= 0 Then
+		MsgBox "Informe um Valor para a Despesa."
+		Validar = False
+		Exit Function
+	End If
+	If Len(Me.fldKm.Text) <= 0 Then
+		MsgBox "Informe o campo Km para a Despesa."
+		Validar = False
+		Exit Function
+	End If
+	Validar = True
+End Function
+
+Private Des As New clsDespesa
+
+Private Sub btnOk_Click()
+	If Not Me.Validar() Then
+		Exit Sub
+	End If
+	Dim frm As New frmDespesas
+	If Not Me.bNew And Me.IdEdicao <> 0 Then
+		Des.Id = Me.IdEdicao
+	End If
+	Des.Data = Me.slcData.Date
+	Des.Hora = Me.slcHora.Time
+	Des.Descricao = Me.fldDescricao.Text
+	Des.IdEstabelecimento = Me.popEstab.ItemData(Me.popEstab.ListIndex)
+	Des.IdTipo = Me.popTipo.ItemData(Me.popTipo.ListIndex)
+	Des.IdVeiculo = Me.popVeiculos.ItemData(Me.popVeiculos.ListIndex)
+	Des.Km = Me.fldKm.Text
+	If Me.KmProximo <> "" Then
+		Des.KmProxima = CDbl(Me.KmProximo)
+	End If
+	Des.Valor = CDbl(Me.fldValor.Text)
+	Call Factory.ObterDaoDespesas().ManterDespesa(Des)
+	Unload(Me)
+	Call frm.Show(hbFormModeless)
+End Sub
+
+Private Sub clsHandleMenu_Load()
+	Call PreencherPopupVeiculos(Me.popVeiculos)
+	Call PreencherPopupEstabelecimentos(Me.popEstab)
+	Call PreencherPopupTiposDespesas(Me.popTipo)
+
+	Me.slcData.Date = Now()
+	Me.slcHora.Time = DatePart("ss",Now())
+	If Not Me.bNew And Me.IdEdicao <> 0 Then
+		Dim Despesa As clsDespesa
+		Set Despesa = Factory.ObterDaoDespesas().ObterDespesa(Me.IdEdicao)
+		Me.slcData.Date = Despesa.Data
+		Me.slcHora.Time = Despesa.Hora
+		Me.fldDescricao.Text = Despesa.Descricao
+		Me.fldKm.Text = CStr(Despesa.Km)
+		Me.KmProximo = CStr(Despesa.KmProxima)
+		Me.popEstab.ListIndex = Me.popEstab.FindItemData(Despesa.IdEstabelecimento)
+		Me.popTipo.ListIndex = Me.popTipo.FindItemData(Despesa.IdTipo)
+		Me.popVeiculos.ListIndex = Me.popVeiculos.FindItemData(Despesa.IdVeiculo)
+		Me.fldValor.Text = CStr(Despesa.Valor)
+		Set Despesa = Nothing
+	End If
+End Sub
+
+Private Sub picTipo_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim frm As New frmManterTipoDespesa
+	frm.IsModal = True
+	frm.bNew = True
+	Call frm.Show(hbFormModal+hbFormPopup)
+	Call PreencherPopupTiposDespesas(Me.popTipo)
+	Me.popTipo.ListIndex = Me.popTipo.FindItemData(frm.NovoTipo.Id)
+End Sub
+
+Private Sub btnCancelar_Click()
+	Dim frm As New frmDespesas
+	Unload(Me)
+	Call frm.Show(hbFormModeless)
+End Sub
+
+Private Sub btnExcluir_Click()
+	Call Factory.ObterDaoDespesas().Excluir(Me.IdEdicao)
+	Call Me.btnCancelar_Click()
+End Sub
+
+Private Sub picLocal_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim frm As New frmManterEstabelecimento
+	frm.IsModal = True
+	frm.bNew = True
+	Call frm.Show(hbFormPopup+hbFormModal)
+	Call PreencherPopupEstabelecimentos(Me.popEstab)
+	Me.popEstab.ListIndex = Me.popEstab.FindItemData(frm.NovoEstabelecimento.Id)
+End Sub
+
+Private Sub Picture3_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim frm As New frmAgendarDespesa
+	frm.Km = Me.KmProximo
+	frm.Show hbFormPopup+hbFormModal
+	Me.KmProximo = frm.Km
+End Sub

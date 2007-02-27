@@ -1,0 +1,233 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmTiposDespesas
+  Segment = formularios
+  Extends = clsHandleMenu
+  Left = 0
+  Top = 0
+  Width = 160
+  Height = 160
+  Caption = "Tipos Despesas"
+  Modal = False
+  Help = ""
+  DIA = 0
+  SaveBehind = False
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 45
+    Anchors = 0
+    Visible = True
+    Caption = "Descricao"
+    Font = "Bold"
+  end
+  begin Scrollbar
+    Name = scroll
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 151
+    Top = 54
+    Width = 7
+    Height = 81
+    Anchors = 0
+    Visible = True
+    Min = 0
+    Max = 100
+    LargeChange = 10
+  end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 19
+    Anchors = 0
+    Visible = True
+    Image = "FormsListagem"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label4
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 34
+    Top = 17
+    Anchors = 0
+    Visible = True
+    Caption = "Cadastro de Tipos"
+    Font = "LargeBold"
+  end
+  begin Label
+    Name = lblSubtitulo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 33
+    Top = 30
+    Anchors = 1
+    Visible = True
+    Caption = "20 Tipo(s) Cadastrado(s)"
+    Font = "Standard"
+  end
+  begin Button
+    Name = btnNovo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 143
+    Width = 31
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Novo"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnVoltar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 40
+    Top = 143
+    Width = 31
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Voltar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnSair
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 121
+    Top = 143
+    Width = 31
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Sair"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin GridEx
+    Name = gridTipos
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 4
+    Top = 56
+    Width = 147
+    Height = 77
+    Anchors = 0
+    Visible = True
+    Columns = "AQDOAAUAOQBaAAsAAAAAAAAAAAAoAAMA"
+    SelectionMode = 1
+    VertScroll = "scroll"
+    HorzScroll = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+' VeículoZ - Controle de Veículos
+' Copyright (C) 2006  Marlon Silva Carvalho
+'
+' This library is free software; you can redistribute it and/or
+' modify it under the terms of the GNU Lesser General Public
+' License as published by the Free Software Foundation; either
+' version 2.1 of the License, or (at your option) any later version.
+'
+' This library is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+' Lesser General Public License for more details.
+'
+' You should have received a copy of the GNU Lesser General Public
+' License along with this library; if not, write to the Free Software
+' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+Private Sub Form_Load()
+	Call Me.PreencherGridTiposDespesas()
+End Sub
+
+Private Sub PreencherGridTiposDespesas()
+	Dim Colecao As Collection
+	Dim Tipo As clsTipoDespesa
+	Set Colecao = Factory.ObterDaoTipoDespesa().ObterTiposDespesas()
+	For Each Tipo In Colecao
+		Call gridTipos.AddItem(Tipo.Id)
+	Next
+	Me.lblSubtitulo.Caption = Colecao.Count & " Tipo(s) Cadastrado(s)"
+End Sub
+
+Private Sub btnNovo_Click()
+	Dim frm As New frmManterTipoDespesa
+	frm.bNew = True
+	frm.Show hbFormModeless
+End Sub
+
+Private Sub gridTipos_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
+	Dim Tipo As clsTipoDespesa
+	Dim Dao As clsDaoTipoDespesa
+	Set Dao = Factory.ObterDaoTipoDespesa()
+	Set Tipo = Dao.ObterTipoDespesa(lItemData)
+	Dim frm As New frmManterTipoDespesa
+	Set Dao = Nothing
+	frm.bNew = False
+	frm.IdEdicao = Tipo.Id
+	Set Tipo = Nothing
+	frm.Show hbFormModeless
+End Sub
+
+Private Sub gridTipos_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
+	Dim Tipo As clsTipoDespesa
+	Set Tipo =Factory.ObterDaoTipoDespesa().ObterTipoDespesa(lItemData)
+	vValue(0) = Tipo.Descricao
+End Sub
+
+Private Sub btnVoltar_Click()
+	Dim frm As New frmDespesas
+	frm.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub btnSair_Click()
+	Dim app As new clsApplication
+	app.Quit
+End Sub

@@ -1,0 +1,129 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmVerificarAtualizacoes
+  Segment = formularios
+  Extends = Form
+  Left = 10
+  Top = 66
+  Width = 140
+  Height = 84
+  Caption = "Verificar Atualizações"
+  Modal = True
+  Help = ""
+  DIA = 0
+  SaveBehind = True
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = lblInforma
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 12
+    Top = 49
+    Anchors = 0
+    Visible = False
+    Caption = "Nova Versão Disponível"
+    Font = "Bold"
+  end
+  begin Picture
+    Name = Picture1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 7
+    Top = 17
+    Anchors = 0
+    Visible = True
+    Image = "ConectarWeb"
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 44
+    Top = 20
+    Anchors = 0
+    Visible = True
+    Caption = "Aguarde..."
+    Font = "Standard"
+  end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 44
+    Top = 32
+    Anchors = 0
+    Visible = True
+    Caption = "Realizando Conexão."
+    Font = "Standard"
+  end
+  begin Button
+    Name = btnOk
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 50
+    Top = 67
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "OK"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+Private Web As New clsHTTP
+
+Private Sub btnOk_Click()
+	Unload(Me)
+End Sub
+
+Private Sub Form_Load()
+End Sub
+
+Private Sub Web_DataArrival(ByRef objData As Stream, ByVal lSize As Long, ByRef sPath As String, ByRef sFile As String, ByRef sMime As String)
+	ProcessText objData, lSize, True
+End Sub
+
+Private Sub ProcessText(ByRef objData As Stream, ByVal lSize As Long, ByRef sFile As String)
+	Dim s As String
+	Read objdata, s[lSize]
+	Call Process(s)
+End Sub
+
+Private Sub Process(Text As String)
+	Me.Label1.Caption = "OK"
+	Me.Label2.Caption = "Conectado..."
+	If Text <> Versao Then
+		Me.lblInforma.Caption = "Nova Versão Disponível"
+	Else
+		Me.lblInforma.Caption = "Sem Versão Disponível"
+	End If
+	Me.lblInforma.Visible = True
+	Exit Sub
+	Erro:
+		MsgBox "Não foi possível obter informações sobre atualizações."
+End Sub
+
+Private Sub Form_Activate(ByVal bActivate As Boolean)
+	Web.HttpGET "http://marloncarvalho.homeip.net/atualizacoes",8080
+End Sub

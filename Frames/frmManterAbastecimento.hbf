@@ -704,7 +704,6 @@ Private Function ValidarEdicao() As Boolean
 	Dim Data As String
 	Dim KmAntigo As Double
 	Dim KmNovo As Double
-	Dim Hora As Long
 
 	Me.TemAnterior = False
 	Me.TemPosterior = False
@@ -717,9 +716,6 @@ Private Function ValidarEdicao() As Boolean
 	End If
 	Data 		= CStr(Me.slcData.Date)
 	IdCarro = Me.popCarro.ItemData(Me.popCarro.ListIndex)
-
-	Dim Ok As Boolean
-	Ok = False
 
 	Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimentoAnterior(ID,IdCarro,Data)
 	If Not Abs Is Nothing Then
@@ -760,8 +756,7 @@ End Function
 Private Sub btnOk_Click()
 
 	'Guardar o ID, pois a função ValidarEdicao modifica a posição do recordset.
-	Dim Id As Long
-	Dim Abs As New clsAbastecimento
+	Dim Abs As clsAbastecimento
 
 	Dim Km As String
 
@@ -800,6 +795,7 @@ Private Sub btnOk_Click()
 			Abs.ValorTotal = CDbl(Me.fldValorTotal.Text)
 			Factory.ObterDaoAbastecimento().ManterAbastecimento(Abs)
 			Me.btnCancelar_Click
+
 		Else
 			MsgBox "Edição Não pode ser realizada, pois gera conflitos entre os abastecimentos."
 		End If

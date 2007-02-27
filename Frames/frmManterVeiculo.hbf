@@ -532,8 +532,8 @@ Private Sub Form_Load()
 		Me.fldCor.Text = Carro.Cor
 		Me.fldChassi.Text = Carro.Chassi
 	End If
-	Me.popOpcoes.AddItem "Seguro", 6
-	Me.popOpcoes.AddItem "Consultar Multas", 2
+	Me.popOpcoes.AddItem "Seguros", 6
+	'Me.popOpcoes.AddItem "Consultar Multas", 2
 	Me.popOpcoes.AddItem "Novo", 3
 	Me.popOpcoes.AddItem "Excluir", 4
 	Me.popOpcoes.AddItem "Cancelar", 5
@@ -542,7 +542,8 @@ End Sub
 Private Sub btnExcluir_Click()
 	If Not Me.bNew Then
 		Try
-			Me.btnCancelar_Click
+			Factory.ObterDaoCarro().ExcluirCarro(Me.IdEdicao)
+			Call Me.btnCancelar_Click()
 		Catch
 			Err.MsgBox
 		End Catch

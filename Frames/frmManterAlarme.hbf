@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmManterAlarme
-  Segment = main
+  Segment = formularios
   Extends = Form
   Left = 2
   Top = 68
@@ -145,14 +145,6 @@ Public Alarme As New clsAlarm
 Public bNew As Boolean
 Public IdEdicao As Long
 Private Manager As New clsAlarmManager
-
-Public Property Get Descricao() As String
-	Descricao = Desc
-End Property
-
-Public Property Let Descricao(D As String)
-	Desc = D
-End Property
 
 Private Sub btnCancelar_Click()
 	Unload(Me)

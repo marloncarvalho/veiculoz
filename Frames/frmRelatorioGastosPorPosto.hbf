@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmRelatorioGastosPorPosto
-  Segment = Formularios
+  Segment = relatorios
   Extends = clsHandleMenu
   Left = 0
   Top = 0
@@ -19,30 +19,6 @@ begin Form
   InitialFocus = ""
   BottomLeft = ""
   Locked = False
-  begin Label
-    Name = Label13
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 2
-    Top = 68
-    Anchors = 0
-    Visible = True
-    Caption = "____________________________________"
-    Font = "Standard"
-  end
-  begin Label
-    Name = Label12
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 3
-    Top = 118
-    Anchors = 0
-    Visible = True
-    Caption = "____________________________________"
-    Font = "Standard"
-  end
   begin Scrollbar
     Name = scroll
     Index = 0
@@ -255,7 +231,7 @@ begin Form
     Top = 17
     Anchors = 0
     Visible = True
-    Caption = "Carro:"
+    Caption = "Veículo:"
     Font = "Standard"
   end
   begin Popup
@@ -263,7 +239,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 66
+    Left = 71
     Top = 17
     Width = 85
     Height = 12
@@ -296,7 +272,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 66
+    Left = 71
     Top = 28
     Width = 85
     Height = 12

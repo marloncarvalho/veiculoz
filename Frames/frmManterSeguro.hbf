@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmManterSeguro
-  Segment = main
+  Segment = formularios
   Extends = clsHandleMenu
   Left = 0
   Top = 0
@@ -440,10 +440,13 @@ End Sub
 Private Sub picAlarme_PenDown(ByVal x As Integer, ByVal y As Integer)
 	Dim frm As New frmManterAlarme
 	Dim seguro As clsSeguro
+	Dim alarme As clsAlarm
+	Dim manager As new clsAlarmManager
 	frm.bNew = True
 	If Not Me.bNew And Me.IdEdicao > 0 Then
 		Set seguro = Factory.ObterDaoSeguro().ObterSeguro(Me.IdEdicao)
-		If seguro.IdAlarme > 0 Then
+		Set alarme = manager.ObterAlarme(seguro.IdAlarme)
+		If Not alarme Is Nothing And seguro.IdAlarme > 0 Then
 			frm.IdEdicao = seguro.IdAlarme
 			frm.bNew = False
 		End If

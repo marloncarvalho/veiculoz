@@ -1,0 +1,112 @@
+' Peter Holmes Consulting HB++ Form file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Form
+  Name = frmAgendarDespesa
+  Segment = formularios
+  Extends = Form
+  Left = 7
+  Top = 56
+  Width = 145
+  Height = 99
+  Caption = "Agendar Despesa"
+  Modal = True
+  Help = ""
+  DIA = 0
+  SaveBehind = True
+  NavState = 0
+  InitialFocus = ""
+  BottomLeft = ""
+  Locked = False
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 34
+    Top = 54
+    Anchors = 0
+    Visible = True
+    Caption = "Km:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = fldKm
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 52
+    Top = 52
+    Width = 59
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 39
+    Top = 18
+    Anchors = 0
+    Visible = True
+    Caption = "Informe a KM"
+    Font = "Bold"
+  end
+  begin Label
+    Name = Label3
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 12
+    Top = 31
+    Anchors = 0
+    Visible = True
+    Caption = " para a próxima despesa."
+    Font = "Bold"
+  end
+  begin Button
+    Name = btnOk
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 52
+    Top = 81
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "OK"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+end
+Public Km As String
+Private Sub btnOk_Click()
+	Me.Km = Me.fldKm.Text
+	Unload(Me)
+End Sub
+
+Private Sub Form_Load()
+	Me.fldKm.Text = Me.Km
+End Sub
