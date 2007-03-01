@@ -27,6 +27,20 @@ Public Versao As String
 Public Factory As New clsDaoFactory
 Public FormFactory As New clsFormFactory
 
-Public Sub VerificarAlarmeDespesas()
-
+Public Sub VerificarAlarmeDespesas(ByVal IdVeiculo As Long, ByVal Km As String, ByVal KmAnterior As String)
+	Dim Colecao As Collection
+	Dim Despesa As clsDespesa
+	Dim ColecaoAlarmes As New Collection
+	Set Colecao = Factory.ObterDaoDespesas().ObterAbertasPorKmVeiculo(IdVeiculo,Km,KmAnterior)
+	For Each Despesa In Colecao
+		Dim Alarme As New clsAlarm
+		Alarme.Descricao = "Despesa: " & Despesa.Descricao
+		Call ColecaoAlarmes.Add(Alarme)
+		Factory.ObterDaoDespesas().ManterDespesa(Despesa)
+	Next
+	If ColecaoAlarmes.Count > 0 Then
+		Dim frm As New frmAlarmes
+		Set frm.Alarmes = ColecaoAlarmes
+		frm.Show hbFormPopup+hbFormModeless
+	End If
 End Sub

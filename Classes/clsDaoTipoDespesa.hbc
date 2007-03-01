@@ -4,7 +4,7 @@
 
 begin Class
   Name = clsDaoTipoDespesa
-  Segment = main
+  Segment = Classes
   Extends = Object
   Instantiable = True
   Extendable = True
@@ -67,6 +67,7 @@ Public Function ManterTipoDespesa(ByRef Tipo As clsTipoDespesa) As clsTipoDespes
 	Else
 		Call Db.AddNew()
 	End If
+	Db.Cor = Tipo.Cor
 	Db.Descricao = Tipo.Descricao
 	Call Db.Update()
 	Call Db.MoveLast()
@@ -89,5 +90,6 @@ Private Function CriarTipoDespesa(ByRef Db As pvHbTipoDespesa) As clsTipoDespesa
 	Dim Tipo As New clsTipoDEspesa
 	Tipo.Id = Db.UniqueID
 	Tipo.Descricao = Db.Descricao
+	Tipo.Cor = Db.Cor
 	Set CriarTipoDespesa = Tipo
 End Function

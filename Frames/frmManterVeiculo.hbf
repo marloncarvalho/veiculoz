@@ -500,7 +500,7 @@ end
 Public bNew As Boolean
 Public IdEdicao As Long
 
-Private Sub btnOk_Click()
+Private Function Gravar() As Boolean
 	If Me.Validar() Then
 		Dim Carro As New clsVeiculo
 		Carro.Id = Me.IdEdicao
@@ -512,6 +512,14 @@ Private Sub btnOk_Click()
 		Carro.Cor = Me.fldCor.Text
 		Carro.Chassi = Me.fldChassi.Text
 		Factory.ObterDaoCarro().ManterCarro(Carro)
+		Gravar = True
+	Else
+		Gravar = False
+	End If
+End Function
+
+Private Sub btnOk_Click()
+	If Me.Gravar() Then
 		FormFactory.GetFrameVeiculos().Show hbFormModeless+hbFormGoto
 	End If
 End Sub
@@ -591,7 +599,11 @@ Private Sub popOpcoes_Change()
 			Call Me.btnCancelar_Click()
 		Case 6
 			Dim frm2 As New frmSeguros
-			frm2.IdVeiculo = Me.IdEdicao
-			frm2.Show hbFormPopup+hbFormGoto
+			If Me.Gravar() Then
+				frm2.IdVeiculo = Me.IdEdicao
+				frm2.Show hbFormPopup+hbFormGoto
+			End If
 	End Select
+	Me.popOpcoes.ListIndex = -1
+	Me.popOpcoes.Text = "selecione uma opção"
 End Sub

@@ -4,7 +4,7 @@
 
 begin Class
   Name = clsDaoEstabelecimento
-  Segment = main
+  Segment = Classes
   Extends = Object
   Instantiable = True
   Extendable = True

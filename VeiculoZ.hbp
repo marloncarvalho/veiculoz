@@ -325,4 +325,8 @@ begin Project
     PDB = 0
     Filename = "Databases\\pvHbMotorista.hbx"
   end
+  begin Package
+    Segment = main
+    Filename = "Packages\\ucColorPicker.hbk"
+  end
 end

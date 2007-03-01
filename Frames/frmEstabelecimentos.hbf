@@ -60,7 +60,7 @@ begin Form
     Top = 46
     Anchors = 0
     Visible = True
-    Caption = "Bandeira"
+    Caption = "Cidade"
     Font = "Bold"
   end
   begin Scrollbar
@@ -303,7 +303,7 @@ Private Sub gridPostos_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, 
 	Dim Posto As clsEstabelecimento
 	Set Posto = Factory.ObterDaoPosto().ObterPosto(lItemData)
 	vValue(0) = Posto.Nome
-	vValue(1) = Posto.Distribuidora
+	vValue(1) = Posto.Cidade
 End Sub
 
 

@@ -4,7 +4,7 @@
 
 begin Class
   Name = clsDaoDespesa
-  Segment = main
+  Segment = Classes
   Extends = Object
   Instantiable = True
   Extendable = True
@@ -104,6 +104,38 @@ Public Sub Excluir(Id As Long)
 	Call Db.Delete(hbRecordRemove)
 	Call Db.Update()
 End Sub
+
+Public Function ObterPorTipoVeiculoPeriodo(ByVal IdTipo As Long, ByVal IdVeiculo As Long, Per1 As Date, Per2 As Date) As Collection
+	Dim Colecao As New Collection
+	Call Db.OpenRecordset("Data>='"&Per1&"' And Data<='"&Per2&"' And IdTipo="&IdTipo&" And IdVeiculo=" & CStr(IdVeiculo),hbModeOpenExisting+hbModeReadWrite)
+	While Not Db.EOF
+		Dim Despesa As clsDespesa
+		Set Despesa = Me.CriarDespesa(Db)
+		Colecao.Add(Despesa)
+		Call Db.MoveNext()
+	Wend
+	Set ObterPorTipoVeiculoPeriodo = Colecao
+	Call Me.OpenDatabase()
+End Function
+
+Public Function ObterAbertasPorKmVeiculo(ByVal IdVeiculo As Long, ByVal Km As String, ByVal KmAnterior As String) As Collection
+	Dim Colecao As New Collection
+	If KmAnterior = "" Then
+		KmAnterior = 0
+	End If
+	If Km = "" Then
+		Km = 0
+	End If
+	Call Db.OpenRecordset("KmProxima>="&KmAnterior&" And KmProxima<="&Km&" And IdVeiculo=" & CStr(IdVeiculo),hbModeOpenExisting+hbModeReadWrite)
+	While Not Db.EOF
+		Dim Despesa As clsDespesa
+		Set Despesa = Me.CriarDespesa(Db)
+		Colecao.Add(Despesa)
+		Call Db.MoveNext()
+	Wend
+	Set ObterAbertasPorKmVeiculo = Colecao
+	Call Me.OpenDatabase()
+End Function
 
 Private Function CriarDespesa(D As pvHbDespesas) As clsDespesa
 	Dim Despesa As New clsDespesa

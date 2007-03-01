@@ -624,7 +624,7 @@ begin Form
     Top = 19
     Anchors = 0
     Visible = True
-    Caption = "Edição de Abastec."
+    Caption = "Edição Abastecimento"
     Font = "LargeBold"
   end
   begin Picture
@@ -696,6 +696,7 @@ Public UniqueIDAnterior As Long
 Public TemAnterior As Boolean
 Public TemPosterior As Boolean
 Public IdEdicao As Long
+Public KmAnterior As String
 
 Private Function ValidarEdicao() As Boolean
 	Dim Abs As clsAbastecimento
@@ -719,7 +720,7 @@ Private Function ValidarEdicao() As Boolean
 
 	Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimentoAnterior(ID,IdCarro,Data)
 	If Not Abs Is Nothing Then
-
+		Me.KmAnterior = Abs.KmInicial
 		If DateEquals(Abs.Data,Me.slcData.Date) Then
 			ValidarEdicao = False
 			Exit Function
@@ -736,7 +737,6 @@ Private Function ValidarEdicao() As Boolean
 
 	Set Abs = Factory.ObterDaoAbastecimento().ObterAbastecimentoPosterior(ID,IdCarro,Data)
 	If Not Abs Is Nothing Then
-
 		If DateEquals(Abs.Data,Me.slcData.Date) Then
 			ValidarEdicao = False
 			Exit Function
@@ -795,7 +795,7 @@ Private Sub btnOk_Click()
 			Abs.ValorTotal = CDbl(Me.fldValorTotal.Text)
 			Factory.ObterDaoAbastecimento().ManterAbastecimento(Abs)
 			Me.btnCancelar_Click
-
+			Call VerificarAlarmeDespesas(Abs.IdCarro,Abs.KmInicial,Me.KmAnterior)
 		Else
 			MsgBox "Edição Não pode ser realizada, pois gera conflitos entre os abastecimentos."
 		End If

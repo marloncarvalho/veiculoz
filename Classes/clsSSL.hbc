@@ -1,10 +1,10 @@
 ' Peter Holmes Consulting HB++ Class file
-' Version 1.06.1330.1164
+' Version 2.11.291.937
 ' *** DO NOT EDIT ***
 
 begin Class
   Name = clsSSL
-  Segment = main
+  Segment = Classes
   Extends = SslContext
   Instantiable = True
   Extendable = True

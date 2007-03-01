@@ -25,9 +25,9 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 5
-    Top = 60
+    Top = 53
     Width = 149
-    Height = 75
+    Height = 86
     Anchors = 0
     Visible = True
     NavFlags = 0
@@ -61,7 +61,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 7
-    Top = 20
+    Top = 18
     Anchors = 0
     Visible = True
     Image = "Relatorio"
@@ -76,7 +76,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 67
-    Top = 18
+    Top = 16
     Width = 65
     Height = 12
     Anchors = 0
@@ -97,31 +97,11 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 37
-    Top = 18
+    Top = 16
     Anchors = 0
     Visible = True
     Caption = "Veículo:"
     Font = "Standard"
-  end
-  begin Button
-    Name = btnVoltar
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 6
-    Top = 143
-    Width = 40
-    Height = 12
-    Anchors = 0
-    Visible = True
-    Text = "Voltar"
-    Font = "Standard"
-    Frame = 1
-    Repeating = False
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
   end
   begin Label
     Name = Label1
@@ -129,7 +109,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 38
-    Top = 30
+    Top = 28
     Anchors = 0
     Visible = True
     Caption = "Data Inicial:"
@@ -141,7 +121,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 39
-    Top = 43
+    Top = 41
     Width = 40
     Height = 9
     Anchors = 0
@@ -163,7 +143,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 94
-    Top = 31
+    Top = 29
     Anchors = 0
     Visible = True
     Caption = "Data Final:"
@@ -175,7 +155,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 94
-    Top = 43
+    Top = 41
     Width = 40
     Height = 9
     Anchors = 0
@@ -186,6 +166,27 @@ begin Form
     AnchorLeft = True
     Mode = 1
     DialogTitle = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin CheckBox
+    Name = chkAbast
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 5
+    Top = 144
+    Width = 83
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Incluir Abastec. ?"
+    Font = "Standard"
+    Value = False
+    AnchorLeft = True
+    Group = 0
     NavFlags = 0
     NavOrder = ""
     Above = ""
@@ -211,51 +212,69 @@ end
 
 Private Sub Form_Load()
 	Me.chart.Redraw = False
-	Me.chart.HighlightColor = hbColorMagenta
-	Me.chart.ShowXAxis = True
-	Me.chart.Show3D = True
-	Me.chart.Clear
-	Me.chart.DrawFrame = True
-	Me.chart.GraphType = Pies
-	Me.chart.ShowSelectedValue = True
 	Me.chart.Min = 0
+	Me.chart.HighlightColor = hbColorBlue
+	Me.chart.ShowXAxis = True
+	Me.chart.DrawFrame = True
+	Me.chart.ShowSelectedValue = True
+	Me.chart.Show3D = True
+	Me.chart.PersistantToolTip = True
+	Me.chart.ToolTipPosition = TopRight
+	Me.chart.Orientation = Horinzontal
+	Me.chart.Redraw = True
+
 	Dim Carro As clsVeiculo
 	For Each Carro In Factory.ObterDaoCarro().ObterCarros()
 		Me.popCarros.AddItem Carro.Modelo, Carro.Id
 	Next
+	Me.selDataFinal.Date = Now()
+	Me.selDataInicial.Date = Now()
 End Sub
 
-
 Private Sub btnVerGrafico_Click()
-	Dim Abast As clsAbastecimento
-	Dim Colecao As Collection
-
 	If Me.popCarros.ListIndex = -1 Then
-		MsgBox "Selecione um Veículo."
+		MsgBox "selecione um veículo"
 		Exit Sub
 	End If
 
 	Me.chart.Redraw = False
+	Me.chart.GraphType = BarGraph
 	Me.chart.Clear
-	Set Colecao = Factory.ObterDaoAbastecimento().ObterPorVeiculoPeriodo(Me.popCarros.ItemData(Me.popCarros.ListIndex),Me.selDataInicial.Date,Me.selDataFinal.Date,"")
-	For Each Abast In Colecao
-		Dim ConsumoMedio As Double
-		Dim KmRodados As Double
-		Dim Litros As Double
-		Dim Posto As clsEstabelecimento
-		If Abast.KmFinal <> "" Then
-			Set Posto = Factory.ObterDaoPosto().ObterPosto(Abast.IdPosto)
-			KmRodados = CDbl(Abast.KmFinal)-CDbl(Abast.KmInicial)
-			Litros = Abast.ValorTotal / Abast.ValorLitro
-			ConsumoMedio = (KmRodados/Litros)
-			Me.chart.AddValue "Série 1", ConsumoMedio,hbColorBlue,"",CStr(Abast.Data) & " - " & Posto.Nome
-		End If
+
+	Dim ColecaoTiposDespesas As Collection
+	Dim TipoDespesa As clsTipoDespesa
+	Dim IdCarro As Long
+	Dim Index As Long
+
+	IdCarro = Me.popCarros.ItemData(Me.popCarros.ListIndex)
+
+	Set ColecaoTiposDespesas = Factory.ObterDaoTipoDespesa().ObterTiposDespesas()
+	For Each TipoDespesa In ColecaoTiposDespesas
+		Dim ColecaoDespesas As Collection
+		Dim Despesa As clsDespesa
+		Dim Total As Double
+		Total = 0
+		Set ColecaoDespesas = Factory.ObterDaoDespesas().ObterPorTipoVeiculoPeriodo(TipoDespesa.Id,IdCarro,Me.selDataInicial.Date,Me.selDataFinal.Date)
+		For Each Despesa In ColecaoDespesas
+			Total = Total + Despesa.Valor
+		Next
+		Me.chart.AddValue "Série 1", Total, TipoDespesa.Cor,TipoDespesa.Descricao, TipoDespesa.Descricao &" - R$" & Total
 	Next
+
+	If Me.chkAbast.Value Then
+		Dim ColecaoAbast As Collection
+		Dim Abast As clsAbastecimento
+		Set ColecaoAbast = Factory.ObterDaoAbastecimento().ObterPorVeiculoPeriodo(IdCarro,Me.selDataInicial.Date,Me.selDataFinal.Date,"")
+		Total = 0
+		For Each Abast In ColecaoAbast
+			Total = Total + Abast.ValorTotal
+		Next
+		Me.chart.AddValue "Série 1", Total, hbColorYellow, "Abastecimentos", "Abastecimentos - R$" & Total
+	End If
+	Me.chart.AutoScale = True
 	Me.chart.Redraw = True
 End Sub
 
 
-Private Sub btnVoltar_Click()
-	Dim frm As New frmMain
-	frm.Show hbFormModeless+hbFormGoto
+Private Sub chart_Click(ByVal SerieName As String, ByVal szTitle As String, ByVal dValue As Double, ByVal iIndex As Integer)
 End Sub

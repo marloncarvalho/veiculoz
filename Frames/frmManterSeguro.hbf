@@ -24,7 +24,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 33
+    Left = 32
     Top = 21
     Anchors = 0
     Visible = True
@@ -139,11 +139,11 @@ begin Form
     Tag = ""
     Left = 53
     Top = 108
-    Width = 40
+    Width = 55
     Height = 10
     Anchors = 0
     Visible = True
-    Text = ""
+    Text = "12/12/2999"
     Font = "Standard"
     Format = ""
     AnchorLeft = True
@@ -173,7 +173,7 @@ begin Form
     Tag = ""
     Left = 53
     Top = 123
-    Width = 40
+    Width = 55
     Height = 10
     Anchors = 0
     Visible = True
@@ -364,7 +364,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 104
+    Left = 112
     Top = 124
     Anchors = 0
     Visible = True

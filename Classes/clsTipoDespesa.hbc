@@ -4,7 +4,7 @@
 
 begin Class
   Name = clsTipoDespesa
-  Segment = main
+  Segment = Classes
   Extends = Object
   Instantiable = True
   Extendable = True
@@ -26,4 +26,13 @@ End Property
 
 Public Property Let Descricao(D As String)
 	MeDescricao = D
+End Property
+
+Private MeCor As Long
+Public Property Get Cor() As Long
+	Cor = MeCor
+End Property
+
+Public Property Let Cor(C As Long)
+	MeCor = C
 End Property
