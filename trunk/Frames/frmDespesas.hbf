@@ -203,7 +203,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 60
+    Left = 59
     Top = 1
     Width = 97
     Height = 12

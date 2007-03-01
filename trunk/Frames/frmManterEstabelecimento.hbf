@@ -245,14 +245,14 @@ begin Form
     Below = ""
   end
   begin Label
-    Name = Label7
+    Name = lblBandeira
     Index = 0
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 111
+    Top = 113
     Anchors = 0
-    Visible = True
+    Visible = False
     Caption = "Bandeira:"
     Font = "Standard"
   end
@@ -262,11 +262,11 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 42
-    Top = 109
+    Top = 111
     Width = 108
     Height = 12
     Anchors = 0
-    Visible = True
+    Visible = False
     Font = "Standard"
     Underline = True
     SingleLine = True
@@ -421,6 +421,27 @@ begin Form
     Caption = "Edição de Estabelec."
     Font = "LargeBold"
   end
+  begin CheckBox
+    Name = chkPosto
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 108
+    Top = 1
+    Width = 51
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Posto?"
+    Font = "Standard"
+    Value = False
+    AnchorLeft = True
+    Group = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
@@ -450,8 +471,8 @@ Private Function Validar() As Boolean
 		Validar = False
 		Exit Function
 	End If
-	If Me.fldDistrib.Text = "" Then
-		MsgBox "Preencha Corretamente o Campo Distribuidora."
+	If Me.chkPosto.Value And Me.fldDistrib.Text = "" Then
+		MsgBox "Preencha Corretamente o Campo Bandeira."
 		Validar = False
 		Exit Function
 	End If
@@ -489,6 +510,11 @@ Private Sub Form_Load()
 		Me.fldEstado.Text = Posto.Estado
 		Me.fldCidade.Text = Posto.Cidade
 		Me.fldDistrib.Text = Posto.Distribuidora
+		If Posto.Distribuidora <> "" Then
+			Me.chkPosto.Value = True
+			Me.lblBandeira.Visible = True
+			Me.fldDistrib.Visible = True
+		End If
 	End If
 End Sub
 
@@ -511,6 +537,16 @@ Private Sub btnExcluir_Click()
 			Err.MsgBox
 		End Catch
 	Else
-		MsgBox "Não é possível excluir um Posto ainda não criado."
+		MsgBox "Não é possível excluir um Estabelecimento ainda não criado."
+	End If
+End Sub
+
+Private Sub chkPosto_Click()
+	If Me.chkPosto.Value Then
+		Me.lblBandeira.Visible = True
+		Me.fldDistrib.Visible = True
+	Else
+		Me.lblBandeira.Visible = False
+		Me.fldDistrib.Visible = False
 	End If
 End Sub

@@ -143,6 +143,34 @@ begin Form
     Caption = "Edição de Tipos"
     Font = "LargeBold"
   end
+  begin Label
+    Name = Label2
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 35
+    Top = 69
+    Anchors = 0
+    Visible = True
+    Caption = "Cor:"
+    Font = "Standard"
+  end
+  begin ucColorPicker
+    Name = colorPicker
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 52
+    Top = 71
+    Width = 30
+    Height = 9
+    Anchors = 0
+    Visible = True
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2007  Marlon Silva Carvalho
@@ -165,12 +193,15 @@ Public bNew As Boolean
 Public IdEdicao As Long
 Public IsModal As Boolean
 Public NovoTipo As New clsTipoDespesa
+Private Color As Long
 
 Private Sub Form_Load()
 	If Not Me.bNew And Not IsEmpty(Me.IdEdicao) Then
 		Dim Tipo As clsTipoDespesa
 		Set Tipo = Factory.ObterDaoTipoDespesa().ObterTipoDespesa(Me.IdEdicao)
 		Me.fldNome.Text = Tipo.Descricao
+		Me.colorPicker.Color = Tipo.Cor
+		Me.Color = Tipo.Cor
 		Set Tipo = Nothing
 	End If
 End Sub
@@ -188,6 +219,7 @@ Private Sub btnOk_Click()
 	If Validar() Then
 		Dim Tipo As New clsTipoDespesa
 		Tipo.Descricao = Me.fldNome.Text
+		Tipo.Cor = Me.Color
 		Tipo.Id = Me.IdEdicao
 		Set Me.NovoTipo = Factory.ObterDaoTipoDespesa().ManterTipoDespesa(Tipo)
 		If Not IsModal Then
@@ -219,4 +251,8 @@ Private Sub btnExcluir_Click()
 	Else
 		MsgBox "Não é possível excluir um Tipo de Despesa ainda não criado."
 	End If
+End Sub
+
+Private Sub colorPicker_Click(ByVal lColor As Long)
+	Me.Color = lColor
 End Sub

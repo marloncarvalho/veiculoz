@@ -4,7 +4,7 @@
 
 begin Class
   Name = clsApplication
-  Segment = main
+  Segment = Classes
   Extends = Application
   Instantiable = True
   Extendable = False

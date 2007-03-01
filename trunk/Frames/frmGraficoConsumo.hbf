@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmGraficoConsumo
-  Segment = Formularios
+  Segment = graficos
   Extends = clsHandleMenu
   Left = 0
   Top = 0
@@ -312,6 +312,7 @@ Private Sub Form_Load()
 	Me.chart.GraphType = Lines
 	Me.chart.ShowSelectedValue = True
 	Me.chart.Min = 0
+	Me.chart.Redraw = True
 	Dim Carro As clsVeiculo
 	For Each Carro In Factory.ObterDaoCarro().ObterCarros()
 		Me.popCarros.AddItem Carro.Modelo, Carro.Id

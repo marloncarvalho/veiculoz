@@ -76,7 +76,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 2
+    Left = 5
     Top = 53
     Anchors = 0
     Visible = True
@@ -88,7 +88,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 26
+    Left = 29
     Top = 53
     Width = 104
     Height = 12
@@ -109,7 +109,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 5
+    Left = 8
     Top = 66
     Anchors = 0
     Visible = True
@@ -121,8 +121,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 1
-    Top = 80
+    Left = 12
+    Top = 81
     Anchors = 0
     Visible = True
     Caption = "Valor:"
@@ -133,8 +133,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 83
-    Top = 80
+    Left = 84
+    Top = 81
     Anchors = 0
     Visible = True
     Caption = "Km:"
@@ -145,7 +145,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 3
+    Left = 6
     Top = 38
     Anchors = 0
     Visible = True
@@ -157,7 +157,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 26
+    Left = 29
     Top = 66
     Width = 106
     Height = 12
@@ -178,9 +178,9 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 26
-    Top = 78
-    Width = 52
+    Left = 37
+    Top = 79
+    Width = 36
     Height = 12
     Anchors = 0
     Visible = True
@@ -203,9 +203,9 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 100
-    Top = 78
-    Width = 54
+    Left = 101
+    Top = 79
+    Width = 43
     Height = 12
     Anchors = 0
     Visible = True
@@ -228,7 +228,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 28
+    Left = 31
     Top = 40
     Width = 53
     Height = 9
@@ -332,7 +332,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 6
-    Top = 94
+    Top = 95
     Anchors = 0
     Visible = True
     Caption = "Descrição da Despesa:"
@@ -343,7 +343,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 86
+    Left = 99
     Top = 39
     Anchors = 0
     Visible = True
@@ -355,13 +355,13 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 109
+    Left = 122
     Top = 40
-    Width = 47
+    Width = 26
     Height = 9
     Anchors = 0
     Visible = True
-    Text = "Hora"
+    Text = "10:00"
     Font = "Standard"
     Format = ""
     AnchorLeft = True
@@ -377,7 +377,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 134
+    Left = 139
     Top = 55
     Anchors = 0
     Visible = True
@@ -392,8 +392,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 134
-    Top = 68
+    Left = 139
+    Top = 67
     Anchors = 0
     Visible = True
     Image = "Adicionar"

@@ -1,10 +1,10 @@
 ' Peter Holmes Consulting HB++ Class file
-' Version 1.06.1330.1164
+' Version 2.11.291.937
 ' *** DO NOT EDIT ***
 
 begin Class
   Name = clsHtmlItem
-  Segment = main
+  Segment = Classes
   Extends = Object
   Instantiable = True
   Extendable = True

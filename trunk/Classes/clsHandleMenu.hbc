@@ -4,7 +4,7 @@
 
 begin Class
   Name = clsHandleMenu
-  Segment = main
+  Segment = Classes
   Extends = Form
   Instantiable = False
   Extendable = True
@@ -25,8 +25,14 @@ Public mnuRelPiorDesempenho As MenuItem
 Public mnuGraficoConsumo As MenuItem
 Public mnuDespesas As MenuItem
 Public mnuVerificarAtualiza As MenuItem
+Public mnuGraficoDespesas As MenuItem
 
 Private Sub Initialize()
+End Sub
+
+Private Sub mnuGraficoDespesas_Click()
+	Dim frm As New frmGraficoDespesas
+	frm.Show hbFormModeless
 End Sub
 
 Private Sub mnuVerificarAtualiza_Click()
