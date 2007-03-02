@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmManterAbastecimento
-  Segment = Formularios
+  Segment = FormulariosManutencao
   Extends = clsHandleMenu
   Left = 0
   Top = 0
@@ -85,7 +85,7 @@ begin Form
     Editable = True
     AutoShift = True
     Numeric = True
-    MaxChar = 80
+    MaxChar = 20
     Scrollbar = ""
     NavFlags = 0
     NavOrder = ""
@@ -436,6 +436,14 @@ begin Form
       begin MenuSeparator
       end
       begin MenuItem
+        Name = mnuDespesas
+        Index = 0
+        Caption = "Despesas Gerais"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
         Name = mnuSair
         Index = 0
         Caption = "Sair"
@@ -447,7 +455,13 @@ begin Form
       begin MenuItem
         Name = mnuRelDespesas
         Index = 0
-        Caption = "Despesas"
+        Caption = "Despesas Abastecimento"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuDespesasGerais
+        Index = 0
+        Caption = "Despesas Gerais"
         Shortcut = ""
       end
       begin MenuItem
@@ -488,6 +502,12 @@ begin Form
         Caption = "Gráfico Consumo"
         Shortcut = ""
       end
+      begin MenuItem
+        Name = mnuGraficoDespesas
+        Index = 0
+        Caption = "Gráfico Despesas"
+        Shortcut = ""
+      end
     end
     begin MenuTitle
       Caption = "Ajuda"
@@ -495,6 +515,12 @@ begin Form
         Name = mnuSobre
         Index = 0
         Caption = "Sobre"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuVerificarAtualiza
+        Index = 0
+        Caption = "Verificar Atualizações"
         Shortcut = ""
       end
     end
@@ -856,7 +882,6 @@ Private Sub DefinirPopPostos(Nome As String)
 		End If
 		Index = Index + 1
 	Next
-	Me.popPosto.AddItem "Novo Posto...",-2
 End Sub
 
 Private Sub DefinirPopTipos(Nome As String)
@@ -873,7 +898,6 @@ Private Sub DefinirPopTipos(Nome As String)
 		End If
 		Index = Index + 1
 	Next
-	Me.popTipo.AddItem "Novo Tipo...",-2
 End Sub
 
 Private Sub Form_Load()
@@ -971,22 +995,13 @@ Private Sub CalculaTotalLitros()
 	Dim valorTotal As Double
 	Dim valorLitro As Double
 	If Me.fldValorLitro.Text <> "" Then
-		valorLitro = CDbl(Me.fldValorLitro.Text)
+		valorLitro = CDbl(Replace(Me.fldValorLitro.Text,",","."))
 	End If
 	If Me.fldValorTotal.Text <> "" Then
-		valorTotal = CDbl(Me.fldValorTotal.Text)
+		valorTotal = CDbl(Replace(Me.fldValorTotal.Text,",","."))
 	End If
 	Me.fldLitros.Text = Mid(Cstr(valorTotal/valorLitro),1,5) & " Lts"
 End Sub
-
-Private Sub popPosto_Change()
-	If Me.popPosto.ListIndex > 0 Then
-		If Me.popPosto.ItemData(Me.popPosto.ListIndex) = -2 Then
-			Call Me.Picture1_PenDown(0,0)
-		End If
-	End If
-End Sub
-
 
 Private Sub Picture1_PenDown(ByVal x As Integer, ByVal y As Integer)
 	Dim frm As New frmManterEstabelecimento
@@ -1003,13 +1018,4 @@ Private Sub Picture2_PenDown(ByVal x As Integer, ByVal y As Integer)
 	frm.IsModal = True
 	Call frm.Show(hbFormModal+hbFormPopup)
 	Call Me.DefinirPopTipos(frm.NovoTipo.Nome)
-End Sub
-
-
-Private Sub popTipo_Change()
-	If Me.popTipo.ListIndex > 0 Then
-		If Me.popTipo.ItemData(Me.popTipo.ListIndex) = -2 Then
-			Call Me.Picture2_PenDown(0,0)
-		End If
-	End If
 End Sub

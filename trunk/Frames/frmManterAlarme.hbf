@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmManterAlarme
-  Segment = formularios
+  Segment = FormulariosManutencao
   Extends = Form
   Left = 2
   Top = 68

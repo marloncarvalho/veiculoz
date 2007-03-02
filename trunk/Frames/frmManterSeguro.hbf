@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmManterSeguro
-  Segment = formularios
+  Segment = FormulariosManutencao
   Extends = clsHandleMenu
   Left = 0
   Top = 0
@@ -388,30 +388,49 @@ Public Property Let IdVeiculo(I As Long)
 	Me.id_veiculo = I
 End Property
 
+Private Function Validar() As Boolean
+	Validar = False
+	If Me.fldEmpresa.Text = "" Then
+		MsgBox "Preencha o Campo Empresa."
+		Exit Function
+	End If
+	If Me.fldValor.Text = "" Then
+		MsgBox "Preencha o Campo Valor."
+		Exit Function
+	End If
+	If Me.fldFranquia.Text = "" Then
+		MsgBox "Preencha o Campo Franquia."
+		Exit Function
+	End If
+	Validar = True
+End Function
+
 Private Sub btnOk_Click()
 	Dim seguro As New clsSeguro
 	Dim Manager As New clsAlarmManager
-	seguro.Contrato = Me.fldContrato.Text
-	seguro.Data = Me.selData.Date
-	seguro.Empresa = Me.fldEmpresa.Text
-	seguro.Franquia = CDbl(Me.fldFranquia.Text)
-	seguro.IdVeiculo = Me.id_veiculo
-	seguro.Renovacao = Me.selRenovacao.Date
-	seguro.Telefone = Me.fldTelefone.Text
-	seguro.Valor = CDbl(Me.fldValor.Text)
-	If Not Me.bNew And Me.IdEdicao <> 0 Then
-		seguro.Id = Me.IdEdicao
+	If Me.Validar() Then
+		seguro.Contrato = Me.fldContrato.Text
+		seguro.Data = Me.selData.Date
+		seguro.Empresa = Me.fldEmpresa.Text
+		seguro.Franquia = CDbl(Me.fldFranquia.Text)
+		seguro.IdVeiculo = Me.id_veiculo
+		seguro.Renovacao = Me.selRenovacao.Date
+		seguro.Telefone = Me.fldTelefone.Text
+		seguro.Valor = CDbl(Me.fldValor.Text)
+		If Not Me.bNew And Me.IdEdicao <> 0 Then
+			seguro.Id = Me.IdEdicao
+		End If
+		If Not Me.AlarmeClass Is Nothing Then
+			Me.AlarmeClass.Descricao = "Renovação Seguro: " & seguro.Empresa
+			Set Me.AlarmeClass = Manager.AdicionarAlarme(Me.AlarmeClass)
+			seguro.IdAlarme = Me.AlarmeClass.Id
+		End If
+		Call Factory.ObterDaoSeguro().ManterSeguro(seguro)
+		Dim frm As frmSeguros
+		Set frm = FormFactory.GetFrameSeguros()
+		frm.IdVeiculo = Me.id_veiculo
+		frm.Show hbFormPopup+hbFormModeless
 	End If
-	If Not Me.AlarmeClass Is Nothing Then
-		Me.AlarmeClass.Descricao = "Renovação Seguro: " & seguro.Empresa
-		Set Me.AlarmeClass = Manager.AdicionarAlarme(Me.AlarmeClass)
-		seguro.IdAlarme = Me.AlarmeClass.Id
-	End If
-	Call Factory.ObterDaoSeguro().ManterSeguro(seguro)
-	Dim frm As frmSeguros
-	Set frm = FormFactory.GetFrameSeguros()
-	frm.IdVeiculo = Me.id_veiculo
-	frm.Show hbFormPopup+hbFormModeless
 End Sub
 
 Private Sub clsHandleMenu_Load()

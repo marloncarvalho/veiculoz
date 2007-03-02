@@ -19,6 +19,125 @@ begin Form
   InitialFocus = ""
   BottomLeft = ""
   Locked = False
+  begin MenuBar
+    begin MenuTitle
+      Caption = "Cadastro"
+      begin MenuItem
+        Name = mnuAbastecimentos
+        Index = 0
+        Caption = "Abastecimentos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuNovoCarro
+        Index = 0
+        Caption = "Veículos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuPosto
+        Index = 0
+        Caption = "Estabelecimentos"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuTiposCombustivel
+        Index = 0
+        Caption = "Tipos Combustível"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuDespesas
+        Index = 0
+        Caption = "Despesas Gerais"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuSair
+        Index = 0
+        Caption = "Sair"
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Relatórios"
+      begin MenuItem
+        Name = mnuRelDespesas
+        Index = 0
+        Caption = "Despesas Abastecimento"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuDespesasGerais
+        Index = 0
+        Caption = "Despesas Gerais"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelConsumoMedio
+        Index = 0
+        Caption = "Consumo Médio"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelMelhorDesempenho
+        Index = 0
+        Caption = "Melhor Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuRelPiorDesempenho
+        Index = 0
+        Caption = "Pior Desempenho"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuGastosPorPosto
+        Index = 0
+        Caption = "Gastos Por Posto"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuConsumoTipoComb
+        Index = 0
+        Caption = "Consumo por Tipo Comb."
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
+        Name = mnuGraficoConsumo
+        Index = 0
+        Caption = "Gráfico Consumo"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuGraficoDespesas
+        Index = 0
+        Caption = "Gráfico Despesas"
+        Shortcut = ""
+      end
+    end
+    begin MenuTitle
+      Caption = "Ajuda"
+      begin MenuItem
+        Name = mnuSobre
+        Index = 0
+        Caption = "Sobre"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuVerificarAtualiza
+        Index = 0
+        Caption = "Verificar Atualizações"
+        Shortcut = ""
+      end
+    end
+  end
   begin ucChart
     Name = chart
     Index = 0
@@ -192,6 +311,27 @@ begin Form
     Above = ""
     Below = ""
   end
+  begin Popup
+    Name = popTipo
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 55
+    Top = 1
+    Width = 104
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "selecione um formato"
+    Font = "Standard"
+    VisibleItems = 3
+    AnchorLeft = True
+    Sorted = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
@@ -211,6 +351,10 @@ end
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 Private Sub Form_Load()
+	Me.popTipo.AddItem "Barras Verticais", 1
+	Me.popTipo.AddItem "Barras Horizontais", 2
+	Me.popTipo.AddItem "Pizza", 3
+
 	Me.chart.Redraw = False
 	Me.chart.Min = 0
 	Me.chart.HighlightColor = hbColorBlue
@@ -220,7 +364,6 @@ Private Sub Form_Load()
 	Me.chart.Show3D = True
 	Me.chart.PersistantToolTip = True
 	Me.chart.ToolTipPosition = TopRight
-	Me.chart.Orientation = Horinzontal
 	Me.chart.Redraw = True
 
 	Dim Carro As clsVeiculo
@@ -238,7 +381,22 @@ Private Sub btnVerGrafico_Click()
 	End If
 
 	Me.chart.Redraw = False
-	Me.chart.GraphType = BarGraph
+
+	If Me.popTipo.ListIndex > -1 Then
+		Select Case Me.popTipo.ItemData(Me.popTipo.ListIndex)
+			Case 1
+				Me.chart.GraphType = BarGraph
+				Me.chart.Orientation = Vertical
+			Case 2
+				Me.chart.GraphType = BarGraph
+				Me.chart.Orientation = Horinzontal
+			Case 3
+				Me.chart.GraphType = Pies
+		End Select
+	Else
+		Me.chart.GraphType = BarGraph
+		Me.chart.Orientation = Horinzontal
+	End If
 	Me.chart.Clear
 
 	Dim ColecaoTiposDespesas As Collection

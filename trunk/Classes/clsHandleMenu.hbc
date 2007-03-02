@@ -26,8 +26,14 @@ Public mnuGraficoConsumo As MenuItem
 Public mnuDespesas As MenuItem
 Public mnuVerificarAtualiza As MenuItem
 Public mnuGraficoDespesas As MenuItem
+Public mnuDespesasGerais As MenuItem
 
 Private Sub Initialize()
+End Sub
+
+Private Sub mnuDespesasGerais_Click()
+	Dim frm As New frmRelatorioDespesasGerais
+	frm.Show hbFormModeless
 End Sub
 
 Private Sub mnuGraficoDespesas_Click()

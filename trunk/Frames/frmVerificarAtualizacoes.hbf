@@ -55,7 +55,7 @@ begin Form
     Top = 20
     Anchors = 0
     Visible = True
-    Caption = "Aguarde..."
+    Caption = "Clique em Verificar."
     Font = "Standard"
   end
   begin Label
@@ -67,7 +67,7 @@ begin Form
     Top = 32
     Anchors = 0
     Visible = True
-    Caption = "Realizando Conexão."
+    Caption = "........................................"
     Font = "Standard"
   end
   begin Button
@@ -75,13 +75,33 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 50
+    Left = 73
     Top = 67
     Width = 40
     Height = 12
     Anchors = 0
     Visible = True
-    Text = "OK"
+    Text = "Sair"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin Button
+    Name = btnVerificar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 27
+    Top = 67
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Verificar"
     Font = "Standard"
     Frame = 1
     Repeating = False
@@ -98,6 +118,7 @@ Private Sub btnOk_Click()
 End Sub
 
 Private Sub Form_Load()
+	Me.Label2.Caption = ""
 End Sub
 
 Private Sub Web_DataArrival(ByRef objData As Stream, ByVal lSize As Long, ByRef sPath As String, ByRef sFile As String, ByRef sMime As String)
@@ -124,6 +145,6 @@ Private Sub Process(Text As String)
 		MsgBox "Não foi possível obter informações sobre atualizações."
 End Sub
 
-Private Sub Form_Activate(ByVal bActivate As Boolean)
+Private Sub btnVerificar_Click()
 	Web.HttpGET "http://marloncarvalho.homeip.net/atualizacoes",8080
 End Sub

@@ -152,7 +152,13 @@ begin Form
       begin MenuItem
         Name = mnuRelDespesas
         Index = 0
-        Caption = "Despesas"
+        Caption = "Despesas Abastecimento"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuDespesasGerais
+        Index = 0
+        Caption = "Despesas Gerais"
         Shortcut = ""
       end
       begin MenuItem
@@ -245,7 +251,7 @@ Private Sub pop_Change()
 End Sub
 
 Private Sub clsHandleMenu_Load()
-	Me.pop.AddItem "Internet",1
+	Me.pop.AddItem "Geral",1
 	Me.pop.AddItem "Dados Motorista",2
 	Versao = "1.2.0"
 	Me.lblVersao.Caption = "Versão " & Versao
