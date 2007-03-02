@@ -4,7 +4,7 @@
 
 begin Project
   Name = VeiculoZ
-  Configuration = Debug
+  Configuration = Release
   Conduit = ""
   Package = ""
   File = "Classes\\clsApplication.hbc"
@@ -69,10 +69,11 @@ begin Project
   File = "Classes\\clsDaoMotorista.hbc"
   File = "Frames\\frmConfigInternet.hbf"
   File = "Frames\\frmGraficoDespesas.hbf"
+  File = "Frames\\frmRelatorioDespesasGerais.hbf"
   begin Configuration
     Name = Debug
     Title = "VeículoZ"
-    Version = "1.2 build 20070205"
+    Version = "1.2.0"
     Icon = "IconeFrenteAplicacao"
     SmallIcon = "IconeFrenteAplicacao"
     MinOSVersion = 50
@@ -94,7 +95,7 @@ begin Project
   begin Configuration
     Name = Release
     Title = "VeículoZ"
-    Version = "1.2 build 20070205"
+    Version = "1.2.0"
     Icon = "IconeFrenteAplicacao"
     SmallIcon = "IconeFormsEdicao"
     MinOSVersion = 50
@@ -190,7 +191,7 @@ begin Project
     end
   end
   begin Package
-    Segment = Graficos
+    Segment = Packages
     Filename = "Packages\\ucChart.hbk"
   end
   begin ImageFamily
@@ -326,7 +327,7 @@ begin Project
     Filename = "Databases\\pvHbMotorista.hbx"
   end
   begin Package
-    Segment = main
+    Segment = Packages
     Filename = "Packages\\ucColorPicker.hbk"
   end
 end

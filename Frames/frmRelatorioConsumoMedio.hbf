@@ -241,6 +241,14 @@ begin Form
       begin MenuSeparator
       end
       begin MenuItem
+        Name = mnuDespesas
+        Index = 0
+        Caption = "Despesas Gerais"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
         Name = mnuSair
         Index = 0
         Caption = "Sair"
@@ -252,7 +260,13 @@ begin Form
       begin MenuItem
         Name = mnuRelDespesas
         Index = 0
-        Caption = "Despesas"
+        Caption = "Despesas Abastecimento"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuDespesasGerais
+        Index = 0
+        Caption = "Despesas Gerais"
         Shortcut = ""
       end
       begin MenuItem
@@ -293,6 +307,12 @@ begin Form
         Caption = "Gráfico Consumo"
         Shortcut = ""
       end
+      begin MenuItem
+        Name = mnuGraficoDespesas
+        Index = 0
+        Caption = "Gráfico Despesas"
+        Shortcut = ""
+      end
     end
     begin MenuTitle
       Caption = "Ajuda"
@@ -300,6 +320,12 @@ begin Form
         Name = mnuSobre
         Index = 0
         Caption = "Sobre"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuVerificarAtualiza
+        Index = 0
+        Caption = "Verificar Atualizações"
         Shortcut = ""
       end
     end
@@ -417,11 +443,11 @@ Private Sub btnPesquisar_Click()
 	Dim Sql As String
 	Dim SqlInvalido As String
 	Dim SqlViagem As String
-	If Me.popCarros.ListIndex>=0 Then
-		Sql = " AND IdCarro=" & Me.popCarros.ItemData(Me.popCarros.ListIndex)
-	Else
-		Sql = ""
+	If Me.popCarros.ListIndex = -1 Then
+		MsgBox "Selecione um Veículo."
+		Exit Sub
 	End If
+	Sql = " AND IdCarro=" & Me.popCarros.ItemData(Me.popCarros.ListIndex)
 	If Me.chkInvalido.Value Then
 		SqlInvalido = " AND Invalido = False "
 	End If

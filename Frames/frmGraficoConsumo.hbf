@@ -25,9 +25,9 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 5
-    Top = 60
+    Top = 56
     Width = 149
-    Height = 75
+    Height = 83
     Anchors = 0
     Visible = True
     NavFlags = 0
@@ -153,6 +153,14 @@ begin Form
       begin MenuSeparator
       end
       begin MenuItem
+        Name = mnuDespesas
+        Index = 0
+        Caption = "Despesas Gerais"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
         Name = mnuSair
         Index = 0
         Caption = "Sair"
@@ -164,7 +172,13 @@ begin Form
       begin MenuItem
         Name = mnuRelDespesas
         Index = 0
-        Caption = "Despesas"
+        Caption = "Despesas Abastecimento"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuDespesasGerais
+        Index = 0
+        Caption = "Despesas Gerais"
         Shortcut = ""
       end
       begin MenuItem
@@ -205,6 +219,12 @@ begin Form
         Caption = "Gráfico Consumo"
         Shortcut = ""
       end
+      begin MenuItem
+        Name = mnuGraficoDespesas
+        Index = 0
+        Caption = "Gráfico Despesas"
+        Shortcut = ""
+      end
     end
     begin MenuTitle
       Caption = "Ajuda"
@@ -212,6 +232,12 @@ begin Form
         Name = mnuSobre
         Index = 0
         Caption = "Sobre"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuVerificarAtualiza
+        Index = 0
+        Caption = "Verificar Atualizações"
         Shortcut = ""
       end
     end
@@ -303,7 +329,10 @@ end
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 Private Sub Form_Load()
+	Me.selDataFinal.Date = Now()
+	Me.selDataInicial.Date = Now()
 	Me.chart.Redraw = False
+	ME.chart.PersistantToolTip = True
 	Me.chart.HighlightColor = hbColorMagenta
 	Me.chart.ShowXAxis = True
 	Me.chart.Show3D = True
@@ -325,7 +354,7 @@ Private Sub btnVerGrafico_Click()
 	Dim Colecao As Collection
 
 	If Me.popCarros.ListIndex = -1 Then
-		MsgBox "Selecione um Carro."
+		MsgBox "Selecione um Veículo."
 		Exit Sub
 	End If
 

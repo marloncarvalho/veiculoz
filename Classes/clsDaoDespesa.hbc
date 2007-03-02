@@ -105,6 +105,19 @@ Public Sub Excluir(Id As Long)
 	Call Db.Update()
 End Sub
 
+Public Function ObterPorVeiculoPeriodo(ByVal IdVeiculo As Long, Per1 As Date, Per2 As Date) As Collection
+	Dim Colecao As New Collection
+	Call Db.OpenRecordset("Data>='"&Per1&"' And Data<='"&Per2&"' And IdVeiculo=" & CStr(IdVeiculo),hbModeOpenExisting+hbModeReadWrite)
+	While Not Db.EOF
+		Dim Despesa As clsDespesa
+		Set Despesa = Me.CriarDespesa(Db)
+		Colecao.Add(Despesa)
+		Call Db.MoveNext()
+	Wend
+	Set ObterPorVeiculoPeriodo = Colecao
+	Call Me.OpenDatabase()
+End Function
+
 Public Function ObterPorTipoVeiculoPeriodo(ByVal IdTipo As Long, ByVal IdVeiculo As Long, Per1 As Date, Per2 As Date) As Collection
 	Dim Colecao As New Collection
 	Call Db.OpenRecordset("Data>='"&Per1&"' And Data<='"&Per2&"' And IdTipo="&IdTipo&" And IdVeiculo=" & CStr(IdVeiculo),hbModeOpenExisting+hbModeReadWrite)

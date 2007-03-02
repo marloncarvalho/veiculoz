@@ -26,11 +26,11 @@ begin Form
     Tag = ""
     Left = 3
     Top = 54
-    Width = 146
+    Width = 149
     Height = 71
     Anchors = 0
     Visible = True
-    Columns = "AwD2AQUAOQBPAAsAAAAAAAAAAAAoAAMABQA5ACUACwAAAAAAAAAAACgAAwAFADgAKAAKAAAAAAAAAAAAKAADAA=="
+    Columns = "AwACAgUAOQBPAAsAAAAAAAAAAAAoAAMABQA5ACUACwAAAAAAAAAAACgAAwAFADkAMgALAAAAAAAAAAAAKAADAA=="
     SelectionMode = 1
     VertScroll = "scroll"
     HorzScroll = ""
@@ -105,6 +105,14 @@ begin Form
       begin MenuSeparator
       end
       begin MenuItem
+        Name = mnuDespesas
+        Index = 0
+        Caption = "Despesas Gerais"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
         Name = mnuSair
         Index = 0
         Caption = "Sair"
@@ -116,7 +124,13 @@ begin Form
       begin MenuItem
         Name = mnuRelDespesas
         Index = 0
-        Caption = "Despesas"
+        Caption = "Despesas Abastecimento"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuDespesasGerais
+        Index = 0
+        Caption = "Despesas Gerais"
         Shortcut = ""
       end
       begin MenuItem
@@ -157,6 +171,12 @@ begin Form
         Caption = "Gráfico Consumo"
         Shortcut = ""
       end
+      begin MenuItem
+        Name = mnuGraficoDespesas
+        Index = 0
+        Caption = "Gráfico Despesas"
+        Shortcut = ""
+      end
     end
     begin MenuTitle
       Caption = "Ajuda"
@@ -166,6 +186,12 @@ begin Form
         Caption = "Sobre"
         Shortcut = ""
       end
+      begin MenuItem
+        Name = mnuVerificarAtualiza
+        Index = 0
+        Caption = "Verificar Atualizações"
+        Shortcut = ""
+      end
     end
   end
   begin Scrollbar
@@ -173,7 +199,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 150
+    Left = 151
     Top = 52
     Width = 7
     Height = 75

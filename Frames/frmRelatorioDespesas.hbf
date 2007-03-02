@@ -10,7 +10,7 @@ begin Form
   Top = 0
   Width = 160
   Height = 160
-  Caption = "Relatório de Despesas"
+  Caption = "Despesas Abastecimento"
   Modal = False
   Help = ""
   DIA = 1
@@ -24,10 +24,10 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 149
+    Left = 150
     Top = 65
     Width = 7
-    Height = 60
+    Height = 66
     Anchors = 0
     Visible = True
     Min = 0
@@ -41,11 +41,11 @@ begin Form
     Tag = ""
     Left = 4
     Top = 67
-    Width = 144
-    Height = 57
+    Width = 146
+    Height = 62
     Anchors = 0
     Visible = True
-    Columns = "AwD2AQUAOQBPAAsAAAAAAAAAAAAoAAMABQA5ACUACwAAAAAAAAAAACgAAwAFADgAKAAKAAAAAAAAAAAAKAADAA=="
+    Columns = "AgBqAQUAOQBkAAsAAAAAAAAAAAAoAAMABQA5AB4ACwAAAAAAAAAAACgAAwA="
     SelectionMode = 1
     VertScroll = "scroll"
     HorzScroll = ""
@@ -55,23 +55,11 @@ begin Form
     Below = ""
   end
   begin Label
-    Name = Label6
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 123
-    Top = 54
-    Anchors = 0
-    Visible = True
-    Caption = "Litro"
-    Font = "Bold"
-  end
-  begin Label
     Name = Label3
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 82
+    Left = 104
     Top = 54
     Anchors = 0
     Visible = True
@@ -87,7 +75,7 @@ begin Form
     Top = 54
     Anchors = 0
     Visible = True
-    Caption = "Posto"
+    Caption = "Local"
     Font = "Bold"
   end
   begin Label
@@ -96,7 +84,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 127
+    Top = 130
     Anchors = 0
     Visible = True
     Caption = "Total Gastos:"
@@ -108,7 +96,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 76
-    Top = 127
+    Top = 130
     Anchors = 0
     Visible = True
     Caption = "                    "
@@ -154,7 +142,7 @@ begin Form
     Left = 41
     Top = 40
     Width = 45
-    Height = 12
+    Height = 10
     Anchors = 0
     Visible = True
     Text = "Data"
@@ -188,7 +176,7 @@ begin Form
     Left = 102
     Top = 40
     Width = 46
-    Height = 12
+    Height = 10
     Anchors = 0
     Visible = True
     Text = "Data"
@@ -245,7 +233,7 @@ begin Form
     Height = 12
     Anchors = 0
     Visible = True
-    Text = "Selecione"
+    Text = "selecione"
     Font = "Standard"
     VisibleItems = 3
     AnchorLeft = True
@@ -285,6 +273,14 @@ begin Form
       begin MenuSeparator
       end
       begin MenuItem
+        Name = mnuDespesas
+        Index = 0
+        Caption = "Despesas Gerais"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
         Name = mnuSair
         Index = 0
         Caption = "Sair"
@@ -296,7 +292,13 @@ begin Form
       begin MenuItem
         Name = mnuRelDespesas
         Index = 0
-        Caption = "Despesas"
+        Caption = "Despesas Abastecimento"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuDespesasGerais
+        Index = 0
+        Caption = "Despesas Gerais"
         Shortcut = ""
       end
       begin MenuItem
@@ -337,6 +339,12 @@ begin Form
         Caption = "Gráfico Consumo"
         Shortcut = ""
       end
+      begin MenuItem
+        Name = mnuGraficoDespesas
+        Index = 0
+        Caption = "Gráfico Despesas"
+        Shortcut = ""
+      end
     end
     begin MenuTitle
       Caption = "Ajuda"
@@ -344,6 +352,12 @@ begin Form
         Name = mnuSobre
         Index = 0
         Caption = "Sobre"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuVerificarAtualiza
+        Index = 0
+        Caption = "Verificar Atualizações"
         Shortcut = ""
       end
     end
@@ -418,8 +432,7 @@ Private Sub gridAbastecimentos_LoadItem(ByVal iRow As Integer, ByVal lItemData A
 	DbAbaste.LookupUniqueID lItemData
 	DbPostos.LookupUniqueID dbAbaste.IdPosto
 	vValue(0) = DbPostos.Nome
-	vValue(1) = DbAbaste.ValorTotal
-	vValue(2) = DbAbaste.ValorLitro
+	vValue(1) = "R$" & DbAbaste.ValorTotal
 End Sub
 
 

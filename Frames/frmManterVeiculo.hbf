@@ -4,7 +4,7 @@
 
 begin Form
   Name = frmManterVeiculo
-  Segment = Formularios
+  Segment = FormulariosManutencao
   Extends = clsHandleMenu
   Left = 0
   Top = 0
@@ -331,6 +331,14 @@ begin Form
       begin MenuSeparator
       end
       begin MenuItem
+        Name = mnuDespesas
+        Index = 0
+        Caption = "Despesas Gerais"
+        Shortcut = ""
+      end
+      begin MenuSeparator
+      end
+      begin MenuItem
         Name = mnuSair
         Index = 0
         Caption = "Sair"
@@ -342,7 +350,13 @@ begin Form
       begin MenuItem
         Name = mnuRelDespesas
         Index = 0
-        Caption = "Despesas"
+        Caption = "Despesas Abastecimento"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuDespesasGerais
+        Index = 0
+        Caption = "Despesas Gerais"
         Shortcut = ""
       end
       begin MenuItem
@@ -383,6 +397,12 @@ begin Form
         Caption = "Gráfico Consumo"
         Shortcut = ""
       end
+      begin MenuItem
+        Name = mnuGraficoDespesas
+        Index = 0
+        Caption = "Gráfico Despesas"
+        Shortcut = ""
+      end
     end
     begin MenuTitle
       Caption = "Ajuda"
@@ -390,6 +410,12 @@ begin Form
         Name = mnuSobre
         Index = 0
         Caption = "Sobre"
+        Shortcut = ""
+      end
+      begin MenuItem
+        Name = mnuVerificarAtualiza
+        Index = 0
+        Caption = "Verificar Atualizações"
         Shortcut = ""
       end
     end
@@ -585,8 +611,6 @@ Private Function Validar() As Boolean
 	Validar = True
 End Function
 
-
-
 Private Sub popOpcoes_Change()
 	Select Case Me.popOpcoes.ItemData(Me.popOpcoes.ListIndex)
 		Case 2
@@ -601,7 +625,7 @@ Private Sub popOpcoes_Change()
 			Dim frm2 As New frmSeguros
 			If Me.Gravar() Then
 				frm2.IdVeiculo = Me.IdEdicao
-				frm2.Show hbFormPopup+hbFormGoto
+				frm2.Show hbFormPopup+hbFormModal
 			End If
 	End Select
 	Me.popOpcoes.ListIndex = -1
