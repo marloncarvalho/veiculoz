@@ -241,7 +241,7 @@ end
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 Private Sub pop_Change()
-	If Me.pop.ListIndex > 0 Then
+	If Me.pop.ListIndex > -1 Then
 		Select Case Me.pop.ItemData(Me.pop.ListIndex)
 			Case 2
 				Dim frm As New frmMotorista
@@ -251,7 +251,7 @@ Private Sub pop_Change()
 End Sub
 
 Private Sub clsHandleMenu_Load()
-	Me.pop.AddItem "Geral",1
+	'Me.pop.AddItem "Geral",1
 	Me.pop.AddItem "Dados Motorista",2
 	Versao = "1.2.0"
 	Me.lblVersao.Caption = "Versão " & Versao

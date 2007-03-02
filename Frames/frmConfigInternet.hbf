@@ -19,4 +19,41 @@ begin Form
   InitialFocus = ""
   BottomLeft = ""
   Locked = False
+  begin Label
+    Name = Label1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 7
+    Top = 22
+    Anchors = 0
+    Visible = True
+    Caption = "Servidor de Atualizações:"
+    Font = "Standard"
+  end
+  begin Field
+    Name = Field1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 7
+    Top = 36
+    Width = 143
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Font = "Standard"
+    Underline = True
+    SingleLine = True
+    Align = 0
+    Editable = True
+    AutoShift = True
+    Numeric = False
+    MaxChar = 80
+    Scrollbar = ""
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
 end
