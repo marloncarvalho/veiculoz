@@ -332,6 +332,15 @@ begin Form
     Above = ""
     Below = ""
   end
+  begin Graffiti
+    Name = Graffiti1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 148
+    Top = 18
+    Anchors = 0
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho
@@ -402,7 +411,6 @@ Private Sub btnVerGrafico_Click()
 	Dim ColecaoTiposDespesas As Collection
 	Dim TipoDespesa As clsTipoDespesa
 	Dim IdCarro As Long
-	Dim Index As Long
 
 	IdCarro = Me.popCarros.ItemData(Me.popCarros.ListIndex)
 
@@ -427,7 +435,7 @@ Private Sub btnVerGrafico_Click()
 		For Each Abast In ColecaoAbast
 			Total = Total + Abast.ValorTotal
 		Next
-		Me.chart.AddValue "Série 1", Total, hbColorYellow, "Abastecimentos", "Abastecimentos - R$" & Total
+		Me.chart.AddValue "Série 1", Total, hbColorYellow, "Abastecimentos", "Abastecimentos - R$" & Format(Total,"currency")
 	End If
 	Me.chart.AutoScale = True
 	Me.chart.Redraw = True

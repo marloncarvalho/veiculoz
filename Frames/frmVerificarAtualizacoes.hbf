@@ -141,8 +141,6 @@ Private Sub Process(Text As String)
 	End If
 	Me.lblInforma.Visible = True
 	Exit Sub
-	Erro:
-		MsgBox "Não foi possível obter informações sobre atualizações."
 End Sub
 
 Private Sub btnVerificar_Click()

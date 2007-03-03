@@ -139,7 +139,7 @@ Public Function ObterAbertasPorKmVeiculo(ByVal IdVeiculo As Long, ByVal Km As St
 	If Km = "" Then
 		Km = 0
 	End If
-	Call Db.OpenRecordset("KmProxima>="&KmAnterior&" And KmProxima<="&Km&" And IdVeiculo=" & CStr(IdVeiculo),hbModeOpenExisting+hbModeReadWrite)
+	Call Db.OpenRecordset("KmProxima>0 And KmProxima>="&KmAnterior&" And KmProxima<="&Km&" And IdVeiculo=" & CStr(IdVeiculo),hbModeOpenExisting+hbModeReadWrite)
 	While Not Db.EOF
 		Dim Despesa As clsDespesa
 		Set Despesa = Me.CriarDespesa(Db)

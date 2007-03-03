@@ -144,7 +144,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 25
-    Top = 46
+    Top = 48
     Anchors = 0
     Visible = True
     Caption = "Nome:"
@@ -156,7 +156,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 52
-    Top = 44
+    Top = 46
     Width = 100
     Height = 12
     Anchors = 0
@@ -181,7 +181,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 4
-    Top = 60
+    Top = 63
     Anchors = 0
     Visible = True
     Caption = "Habilitação:"
@@ -193,7 +193,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 52
-    Top = 58
+    Top = 61
     Width = 78
     Height = 12
     Anchors = 0
@@ -213,24 +213,12 @@ begin Form
     Below = ""
   end
   begin Label
-    Name = Label3
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 5
-    Top = 73
-    Anchors = 0
-    Visible = True
-    Caption = "Renovação:"
-    Font = "Standard"
-  end
-  begin Label
     Name = Label4
     Index = 0
     Layer = 0
     Tag = ""
     Left = 9
-    Top = 88
+    Top = 76
     Anchors = 0
     Visible = True
     Caption = "Categoria:"
@@ -282,7 +270,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 14
-    Top = 101
+    Top = 90
     Anchors = 0
     Visible = True
     Caption = "Validade:"
@@ -294,7 +282,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 17
-    Top = 116
+    Top = 106
     Anchors = 0
     Visible = True
     Caption = "Emissão:"
@@ -333,7 +321,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 52
-    Top = 86
+    Top = 74
     Width = 20
     Height = 12
     Anchors = 0
@@ -358,7 +346,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 53
-    Top = 103
+    Top = 92
     Width = 55
     Height = 10
     Anchors = 0
@@ -380,29 +368,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 53
-    Top = 118
-    Width = 40
-    Height = 10
-    Anchors = 0
-    Visible = True
-    Text = "Data"
-    Font = "Standard"
-    Format = ""
-    AnchorLeft = True
-    Mode = 1
-    DialogTitle = ""
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
-  end
-  begin Selector
-    Name = slcDataRenovacao
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 53
-    Top = 75
+    Top = 108
     Width = 40
     Height = 10
     Anchors = 0
@@ -424,14 +390,23 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 111
-    Top = 104
+    Top = 92
     Anchors = 0
     Visible = True
-    Image = "Alarme"
+    Image = "AlarmeImg"
     NavFlags = 0
     NavOrder = ""
     Above = ""
     Below = ""
+  end
+  begin Graffiti
+    Name = Graffiti1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 150
+    Top = 2
+    Anchors = 0
   end
 end
 Private AlarmeClass As New clsAlarm
@@ -442,7 +417,6 @@ Private Sub clsHandleMenu_Load()
 	Me.fldCategoria.Text = motorista.Categoria
 	Me.fldHabilitacao.Text = motorista.Habilitacao
 	Me.fldNome.Text = motorista.Nome
-	Me.slcDataRenovacao.Date = motorista.Renovacao
 	Me.slcEmissao.Date = motorista.Emissao
 	Me.slcValidade.Date = motorista.Validade
 End Sub
@@ -458,7 +432,6 @@ Private Sub btnOk_Click()
 	motorista.Categoria = Me.fldCategoria.Text
 	motorista.Nome = Me.fldNome.Text
 	motorista.Habilitacao = Me.fldHabilitacao.Text
-	motorista.Renovacao = Me.slcDataRenovacao.Date
 	motorista.Validade = Me.slcValidade.Date
 	motorista.Emissao = Me.slcEmissao.Date
 	If Not Me.AlarmeClass Is Nothing Then

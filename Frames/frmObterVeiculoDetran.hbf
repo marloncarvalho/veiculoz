@@ -153,6 +153,15 @@ begin Form
     Caption = "Necessário conexão com Internet"
     Font = "Standard"
   end
+  begin Graffiti
+    Name = Graffiti1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 139
+    Top = 100
+    Anchors = 0
+  end
 end
 Private Web As New clsHTTP
 
