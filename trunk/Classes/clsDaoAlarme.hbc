@@ -80,7 +80,7 @@ Public Function ObterAlarmes() As Collection
 	Dim Colecao As New Collection
 	Call Db.MoveFirst()
 	While Not Db.EOF
-		Dim Alarme As New clsAlarm
+		Dim Alarme As clsAlarm
 		Set Alarme = CriarAlarme(Db)
 		Colecao.Add(Alarme)
 		Call Db.MoveNext()

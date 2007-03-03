@@ -35,12 +35,13 @@ Public Sub VerificarAlarmeDespesas(ByVal IdVeiculo As Long, ByVal Km As String, 
 	For Each Despesa In Colecao
 		Dim Alarme As New clsAlarm
 		Alarme.Descricao = "Despesa: " & Despesa.Descricao
+		Alarme.Id = Despesa.Id
 		Call ColecaoAlarmes.Add(Alarme)
-		Factory.ObterDaoDespesas().ManterDespesa(Despesa)
 	Next
+	Dim A as clsAlarm
 	If ColecaoAlarmes.Count > 0 Then
 		Dim frm As New frmAlarmes
 		Set frm.Alarmes = ColecaoAlarmes
-		frm.Show hbFormPopup+hbFormModeless
+		frm.Show hbFormPopup+hbFormModal
 	End If
 End Sub

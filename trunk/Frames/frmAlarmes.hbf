@@ -113,6 +113,15 @@ begin Form
     Above = ""
     Below = ""
   end
+  begin Graffiti
+    Name = Graffiti1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 140
+    Top = 121
+    Anchors = 0
+  end
 end
 Private colecao As New Collection
 
@@ -121,9 +130,9 @@ Public Property Set Alarmes(a As Collection)
 End Property
 
 Private Sub Form_Load()
-	Dim alarme As clsAlarm
-	For Each alarme in Me.colecao
-		Me.grid1.AddItem alarme.Id
+	Dim al As clsAlarm
+	For Each al In colecao
+		Me.grid1.AddItem al.Id
 	Next
 	Me.lblData.Caption = CStr(Now())
 End Sub

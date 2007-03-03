@@ -121,6 +121,15 @@ begin Form
     Above = ""
     Below = ""
   end
+  begin Graffiti
+    Name = Graffiti1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 140
+    Top = 14
+    Anchors = 0
+  end
 end
 Private id_veiculo As Long
 

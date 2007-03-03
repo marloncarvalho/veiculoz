@@ -365,14 +365,23 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 112
-    Top = 124
+    Top = 123
     Anchors = 0
     Visible = True
-    Image = "Alarme"
+    Image = "AlarmeImg"
     NavFlags = 0
     NavOrder = ""
     Above = ""
     Below = ""
+  end
+  begin Graffiti
+    Name = Graffiti1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 150
+    Top = 2
+    Anchors = 0
   end
 end
 Private id_veiculo As Long

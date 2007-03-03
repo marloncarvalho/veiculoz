@@ -329,6 +329,15 @@ begin Form
     Above = ""
     Below = ""
   end
+  begin Graffiti
+    Name = Graffiti1
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 148
+    Top = 19
+    Anchors = 0
+  end
 end
 ' VeículoZ - Controle de Veículos
 ' Copyright (C) 2006  Marlon Silva Carvalho

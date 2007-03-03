@@ -56,7 +56,6 @@ Public Function ObterMotorista() As clsMotorista
 	motorista.Habilitacao = Db.Habilitacao
 	motorista.IdAlarme = Db.IdAlarme
 	motorista.Nome = Db.Nome
-	motorista.Renovacao = Db.Renovacao
 	motorista.Validade = Db.Validade
 	Set ObterMotorista = motorista
 End Function
@@ -73,7 +72,6 @@ Public Sub Atualizar(motorista As clsMotorista)
 	Db.Habilitacao = motorista.Habilitacao
 	Db.IdAlarme = motorista.IdAlarme
 	Db.Nome = motorista.Nome
-	Db.Renovacao = motorista.Renovacao
 	Db.Validade = motorista.Validade
 	Call Db.Update()
 End Sub

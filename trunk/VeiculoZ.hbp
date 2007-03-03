@@ -260,7 +260,7 @@ begin Project
     Filename = "Databases\\pvHbAlarmes.hbx"
   end
   begin ImageFamily
-    Name = Alarme
+    Name = AlarmeImg
     begin Image
       Density = 72
       Palette = 3
