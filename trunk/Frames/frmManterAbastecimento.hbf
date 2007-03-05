@@ -1017,7 +1017,9 @@ Private Sub Picture1_PenDown(ByVal x As Integer, ByVal y As Integer)
 	frm.bNew = True
 	frm.IsModal = True
 	Call frm.Show(hbFormModal+hbFormPopup)
-	Call Me.DefinirPopPostos(frm.NovoEstabelecimento.Nome)
+	If Not frm.NovoEStabelecimento Is Nothing And frm.NovoEStabelecimento.Nome <> "" Then
+		Call Me.DefinirPopPostos(frm.NovoEstabelecimento.Nome)
+	End If
 End Sub
 
 
@@ -1026,5 +1028,7 @@ Private Sub Picture2_PenDown(ByVal x As Integer, ByVal y As Integer)
 	frm.bNew = True
 	frm.IsModal = True
 	Call frm.Show(hbFormModal+hbFormPopup)
-	Call Me.DefinirPopTipos(frm.NovoTipo.Nome)
+	If Not frm.NovoTipo Is Nothing And frm.NovoTipo.Nome <> "" Then
+		Call Me.DefinirPopTipos(frm.NovoTipo.Nome)
+	End If
 End Sub
