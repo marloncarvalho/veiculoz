@@ -90,8 +90,7 @@ End Function
 
 Public Function ObterAlarmesPorData(Data As Date) As Collection
 	Dim Colecao As New Collection
-	Db.OpenRecordset "Data>='" & Data & "' Order By Data ASC",hbModeOpenExisting+hbModeReadWrite
-	Call Db.MoveFirst()
+	Db.OpenRecordset "Data='" & Data & "' Order By Data ASC",hbModeOpenExisting+hbModeReadWrite
 	While Not Db.EOF
 		Dim Alarme As clsAlarm
 		Set Alarme = CriarAlarme(Db)
