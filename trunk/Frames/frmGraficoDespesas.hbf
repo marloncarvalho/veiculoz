@@ -424,7 +424,7 @@ Private Sub btnVerGrafico_Click()
 		For Each Despesa In ColecaoDespesas
 			Total = Total + Despesa.Valor
 		Next
-		Me.chart.AddValue "Série 1", Total, TipoDespesa.Cor,TipoDespesa.Descricao, TipoDespesa.Descricao &" - R$" & Total
+		Me.chart.AddValue "Série 1", Total, TipoDespesa.Cor,TipoDespesa.Descricao, TipoDespesa.Descricao &" - R$" & Format(Total,"currency")
 	Next
 
 	If Me.chkAbast.Value Then
