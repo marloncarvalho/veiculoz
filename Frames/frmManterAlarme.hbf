@@ -24,7 +24,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 33
+    Left = 36
     Top = 67
     Width = 40
     Height = 12
@@ -44,7 +44,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 77
+    Left = 80
     Top = 67
     Width = 40
     Height = 12
@@ -64,8 +64,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 3
-    Top = 43
+    Left = 9
+    Top = 42
     Anchors = 0
     Visible = True
     Caption = "Dia:"
@@ -76,13 +76,13 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 24
-    Top = 44
-    Width = 40
+    Left = 30
+    Top = 43
+    Width = 54
     Height = 10
     Anchors = 0
     Visible = True
-    Text = "Data"
+    Text = "12/12/2007"
     Font = "Standard"
     Format = "dd/mm/yyyy"
     AnchorLeft = True
@@ -98,7 +98,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 9
+    Left = 12
     Top = 16
     Anchors = 0
     Visible = True
@@ -110,13 +110,13 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 111
-    Top = 44
-    Width = 40
+    Left = 117
+    Top = 43
+    Width = 29
     Height = 10
     Anchors = 0
     Visible = True
-    Text = "Hora"
+    Text = "99:99"
     Font = "Standard"
     Format = ""
     AnchorLeft = True
@@ -132,8 +132,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 81
-    Top = 43
+    Left = 87
+    Top = 42
     Anchors = 0
     Visible = True
     Caption = "Hora:"
@@ -145,7 +145,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 146
-    Top = 16
+    Top = 74
     Anchors = 0
   end
 end
@@ -162,17 +162,18 @@ End Sub
 Private Sub btnOk_Click()
 	Dim Data As Date
 	Data = DateSerial(Year(Me.selData.Date),Month(Me.selData.Date),Day(Me.selData.Date),Hora(Me.selHora.Time),Minuto(Me.selHora.Time),Segundo(Me.SelHora.Time))
-	Me.Alarme.Id = Me.IdEdicao
+	If Not Me.bNew Then
+		Me.Alarme.Id = Me.IdEdicao
+	End If
 	Me.Alarme.Descricao = Me.Desc
 	Me.Alarme.Data = Data
 	Unload(Me)
 End Sub
 
 Private Sub Form_Load()
-	If Me.bNew Then
-		Me.selData.Date = Now
-		Me.selHora.Time = DatePart("ss",Now)
-	Else
+	Me.selData.Date = Now
+	Me.selHora.Time = DatePart("ss",Now)
+	If Not Me.bNew Then
 		Dim alarme As clsAlarm
 		Set alarme = Manager.ObterAlarme(Me.IdEdicao)
 		If Not alarme Is Nothing Then

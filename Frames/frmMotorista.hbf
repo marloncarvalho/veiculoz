@@ -439,7 +439,6 @@ Private Sub btnOk_Click()
 		Set Me.AlarmeClass = Manager.AdicionarAlarme(Me.AlarmeClass)
 		motorista.IdAlarme = Me.AlarmeClass.Id
 	End If
-	motorista.IdAlarme = Me.AlarmeClass.Id
 	Factory.ObterDaoMotorista().Atualizar(motorista)
 	Call Me.btnCancelar_Click()
 End Sub
@@ -453,7 +452,7 @@ Private Sub picAlarme_PenDown(ByVal x As Integer, ByVal y As Integer)
 	Set motorista = Factory.ObterDaoMotorista().ObterMotorista()
 	Set alarme = Factory.ObterDaoAlarmes().ObterAlarme(motorista.IdAlarme)
 	If Not alarme Is Nothing And motorista.IdAlarme > 0 Then
-		frm.IdEdicao = motorista.IdAlarme
+		frm.IdEdicao = alarme.Id
 		frm.bNew = False
 	End If
 	frm.Show hbFormPopup+hbFormModal

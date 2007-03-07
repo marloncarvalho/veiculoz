@@ -475,7 +475,7 @@ Private Sub picAlarme_PenDown(ByVal x As Integer, ByVal y As Integer)
 		Set seguro = Factory.ObterDaoSeguro().ObterSeguro(Me.IdEdicao)
 		Set alarme = manager.ObterAlarme(seguro.IdAlarme)
 		If Not alarme Is Nothing And seguro.IdAlarme > 0 Then
-			frm.IdEdicao = seguro.IdAlarme
+			frm.IdEdicao = alarme.Id
 			frm.bNew = False
 		End If
 	End If

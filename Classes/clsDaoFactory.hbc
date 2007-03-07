@@ -37,6 +37,18 @@ Private DaoD As New clsDaoDespesa
 Private DaoTD As New clsDaoTipoDespesa
 Private DaoM As New clsDaoMotorista
 
+Private Sub Terminate()
+	Set DaoC = Nothing
+	Set DaoT = Nothing
+	Set DaoP = Nothing
+	Set DaoA = Nothing
+	Set DaoS = Nothing
+	Set DaoAlarmes = Nothing
+	Set DaoD = Nothing
+	Set DaoTD = Nothing
+	Set DaoM = Nothing
+End Sub
+
 Public Function ObterDaoMotorista() As clsDaoMotorista
 	Set ObterDaoMotorista = DaoM
 End Function
