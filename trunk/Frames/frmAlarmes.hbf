@@ -68,7 +68,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 139
+    Left = 140
     Top = 53
     Width = 7
     Height = 59
@@ -125,7 +125,7 @@ begin Form
 end
 Private colecao As New Collection
 
-Public Property Set Alarmes(a As Collection)
+Public Property Set Alarmes(ByRef a As Collection)
 	Set Me.colecao = a
 End Property
 

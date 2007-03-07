@@ -15,19 +15,21 @@ End Sub
 
 Public Function AdicionarAlarme(alarme As clsAlarm) As clsAlarm
 	Set AdicionarAlarme = Factory.ObterDaoAlarmes().ManterAlarme(alarme)
+	Call Me.ExcluirPassados()
 	Call Me.Gerenciar()
 End Function
 
-Public Function AlarmeDisparado(Data As Date) As Collection
+Public Sub AlarmeDisparado(Data As Date)
 	Dim colecao As Collection
 	Dim alarme As clsAlarm
 	Set colecao = Factory.ObterDaoAlarmes().ObterAlarmesPorData(Data)
 	For Each alarme In colecao
-		Call Factory.ObterDaoAlarmes().Excluir(alarme.Id)
+		alarme.Excluir = True
+		Call Factory.ObterDaoAlarmes().ManterAlarme(alarme)
+		Set alarme = Nothing
 	Next
-	Call Me.Gerenciar()
-	Set AlarmeDisparado = colecao
-End Function
+	Set colecao = Nothing
+End Sub
 
 Private Sub Gerenciar()
 	Dim alarme As clsAlarm
@@ -37,11 +39,24 @@ Private Sub Gerenciar()
 	End If
 End Sub
 
+Public Sub ExcluirPassados()
+	Call Factory.ObterDaoAlarmes().ExcluirPassados()
+End Sub
+
+Public Function ObterAlarmeAtual() As clsAlarm
+	Set ObterAlarmeAtual = Factory.ObterDaoAlarmes().ObterAlarmeAtual()
+End Function
+
 Public Function ObterAlarme(id As Long) As clsAlarm
 	Set ObterAlarme = Factory.ObterDaoAlarmes().ObterAlarme(id)
 End Function
 
+Public Function ObterAlarmesPorData(Data As Date) As Collection
+	Set ObterAlarmesPorData = Factory.ObterDaoAlarmes().ObterAlarmesPorData(Data)
+End Function
+
 Public Sub Excluir(Id As Long)
-	Factory.ObterDaoAlarmes().Excluir(Id)
+	Factory.ObterDaoAlarmes.Excluir(Id)
+	Call Me.ExcluirPassados()
 	Call Me.Gerenciar()
 End Sub

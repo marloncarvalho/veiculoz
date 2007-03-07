@@ -33,18 +33,22 @@ Public Property Get Database() As pvHbAlarmes
 	Set Database = Db
 End Property
 
+Private Sub Terminate()
+	Call Me.Db.Close()
+	Set Db = Nothing
+End Sub
+
 'Construtor.
 Private Sub Initialize()
 	Call Me.OpenDatabase()
 End Sub
 
 Private Sub OpenDatabase()
-	Dim e as Integer
 	Try
-	  Db.OpenRecordset "Category>=0 Order By Data Desc", hbModeOpenExisting+hbModeReadWrite
+	  Db.OpenRecordset "Category>=0 And Excluir=False", hbModeOpenExisting+hbModeReadWrite
 	Catch
 		If Err.Number = 43 Then
-			Db.OpenRecordset "Category>=0 Order By Data Desc", hbModeCreateAlways+hbModeReadWrite
+			Db.OpenRecordset "Category>=0 And Excluir=False", hbModeCreateAlways+hbModeReadWrite
 		End If
 	End Catch
 End Sub
@@ -56,12 +60,25 @@ Public Function ManterAlarme(alarme As clsAlarm) As clsAlarm
 	Else
 		Call Db.AddNew()
 	End If
-	Db.Data = alarme.Data
+	Db.Excluir = alarme.Excluir
+	Db.Dia = Day(alarme.Data)
+	Db.Mes = Month(alarme.Data)
+	Db.Ano = Year(alarme.Data)
+	Db.Hora = Hour(alarme.Data)
+	Db.Minuto = Minute(alarme.Data)
 	Db.Descricao = alarme.Descricao
 	Call Db.Update()
-	Call Db.MoveLast()
 	Set ManterAlarme = Me.CriarAlarme(Db)
 End Function
+
+Public Sub ExcluirPassados()
+	Call Db.OpenRecordset("Category>=0 And Excluir=True", hbModeOpenExisting+hbModeReadWrite)
+	While Not Db.EOF
+		Call Db.Delete(hbRecordRemove)
+		Call Db.MoveNext()
+	Wend
+	Call Db.Update()
+End Sub
 
 Public Function ObterAlarme(id As Long) As clsAlarm
 	Try
@@ -90,7 +107,8 @@ End Function
 
 Public Function ObterAlarmesPorData(Data As Date) As Collection
 	Dim Colecao As New Collection
-	Db.OpenRecordset "Data='" & Data & "' Order By Data ASC",hbModeOpenExisting+hbModeReadWrite
+	Db.OpenRecordset "Ano=" & Year(Data) & " And Mes="&Month(Data)&" And Dia="&Day(Data)&" And Hora="& Hour(Data) &" And Minuto="&Minute(Data) & " And Excluir=False",hbModeOpenExisting+hbModeReadWrite
+	Call Db.MoveFirst()
 	While Not Db.EOF
 		Dim Alarme As clsAlarm
 		Set Alarme = CriarAlarme(Db)
@@ -98,30 +116,22 @@ Public Function ObterAlarmesPorData(Data As Date) As Collection
 		Call Db.MoveNext()
 	Wend
 	Set ObterAlarmesPorData = Colecao
-	Call Me.OpenDatabase()
 End Function
 
 Public Function ObterAlarmeAtual() As clsAlarm
-	Db.OpenRecordset "Category>=0 Order By Data ASC", hbModeOpenExisting+hbModeReadWrite
-	Call Db.MoveFirst()
+	Db.OpenRecordset "Category>=0 And Excluir=False Order By Ano Asc, Mes Asc, Dia Asc, Hora Asc, Minuto Asc", hbModeOpenExisting+hbModeReadWrite
+	Dim Al As clsAlarm
 	If Not Db.EOF And Not Db.BOF Then
-		Set ObterAlarmeAtual = Me.CriarAlarme(Db)
+		Call Db.MoveFirst()
+		Set Al = Me.CriarAlarme(Db)
 	Else
-		Set ObterAlarmeAtual = Nothing
+		Set Al = Nothing
 	End If
-	Call Me.OpenDatabase()
-End Function
-
-Public Function ObterAlarmeApos(Data As Date) As clsAlarm
-	Db.OpenRecordset "Data >= '" & CStr(Data) & "' Order By Data Asc", hbModeOpenExisting+hbModeReadWrite
-	Call Db.MoveFirst()
-	Set ObterAlarmeApos = Me.CriarAlarme(Db)
-	Call Me.OpenDatabase()
+	Set ObterAlarmeAtual = Al
 End Function
 
 Public Sub Excluir(Id As Long)
 	Try
-		Call Me.OpenDatabase()
 		Call Db.LookupUniqueID(Id)
 		Call Db.Delete(hbRecordRemove)
 		Call Db.Update()
@@ -131,8 +141,9 @@ End Sub
 
 Private Function CriarAlarme(ByRef DbAlarme As pvHbAlarmes) As clsAlarm
 	Dim alarme As New clsAlarm
-	alarme.Data = DbAlarme.Data
+	alarme.Data = DateSerial(DbAlarme.Ano, DbAlarme.Mes, DbAlarme.Dia, DbAlarme.Hora,DbAlarme.Minuto,0)
 	alarme.Descricao = DbAlarme.Descricao
 	alarme.Id = DbAlarme.UniqueID
+	alarme.Excluir = DbAlarme.Excluir
 	Set CriarAlarme = alarme
 End Function

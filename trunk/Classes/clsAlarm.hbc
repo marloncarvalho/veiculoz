@@ -13,6 +13,15 @@ end
 Private MeData As Date
 Private MeDescription As String
 Private MeId As Long
+Private MeExcluir As Boolean
+
+Public Property Get Excluir()As Boolean
+	Excluir = MeExcluir
+End Property
+
+Public Property Let Excluir(E As Boolean)
+	MeExcluir = E
+End Property
 
 Public Property Get Id() As Long
 	Id = MeId
