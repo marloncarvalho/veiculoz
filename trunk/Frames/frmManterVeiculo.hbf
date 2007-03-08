@@ -546,8 +546,8 @@ Private Function Gravar() As Boolean
 		Carro.Renavam = Me.fldRenavam.Text
 		Carro.Cor = Me.fldCor.Text
 		Carro.Chassi = Me.fldChassi.Text
-		Factory.ObterDaoCarro().ManterCarro(Carro)
 		Gravar = True
+		Me.IdEdicao = Factory.ObterDaoCarro().ManterCarro(Carro).Id
 	Else
 		Gravar = False
 	End If

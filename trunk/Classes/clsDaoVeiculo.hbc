@@ -67,7 +67,7 @@ End Function
 'Atualizar ou Incluir Carros
 '
 '@Param Carro. Carro a ser atualizado ou incluído.
-Public Sub ManterCarro(Carro As clsVeiculo)
+Public Function ManterCarro(Carro As clsVeiculo) As clsVeiculo
 	If Not IsEmpty(Carro.Id) And Carro.Id <> 0 Then
 		DbCar.LookupUniqueID Carro.Id
 		DbCar.Edit
@@ -81,8 +81,10 @@ Public Sub ManterCarro(Carro As clsVeiculo)
 	DbCar.Modelo = Carro.Modelo
 	DbCar.Marca = Carro.Marca
 	DbCar.Chassi = Carro.Chassi
-	DbCar.Update
-End Sub
+	Call DbCar.Update()
+	Call DbCar.MoveLast()
+	Set ManterCarro = Me.CriarCarro(DbCar)
+End Function
 
 ' Localizar um Carro.
 '

@@ -14,9 +14,12 @@ Private Sub Initialize()
 End Sub
 
 Public Function AdicionarAlarme(alarme As clsAlarm) As clsAlarm
-	Set AdicionarAlarme = Factory.ObterDaoAlarmes().ManterAlarme(alarme)
+	If alarme.Data > Now() Then
+		Set AdicionarAlarme = Factory.ObterDaoAlarmes().ManterAlarme(alarme)
+	End If
 	Call Me.ExcluirPassados()
 	Call Me.Gerenciar()
+	Set AdicionarAlarme = Nothing
 End Function
 
 Public Sub AlarmeDisparado(Data As Date)
