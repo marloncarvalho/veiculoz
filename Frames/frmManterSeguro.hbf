@@ -432,7 +432,9 @@ Private Sub btnOk_Click()
 		If Not Me.AlarmeClass Is Nothing Then
 			Me.AlarmeClass.Descricao = "Renovação Seguro: " & seguro.Empresa
 			Set Me.AlarmeClass = Manager.AdicionarAlarme(Me.AlarmeClass)
-			seguro.IdAlarme = Me.AlarmeClass.Id
+			If Not Me.AlarmeClass Is Nothing Then
+				seguro.IdAlarme = Me.AlarmeClass.Id
+			End If
 		End If
 		Call Factory.ObterDaoSeguro().ManterSeguro(seguro)
 		Dim frm As frmSeguros
