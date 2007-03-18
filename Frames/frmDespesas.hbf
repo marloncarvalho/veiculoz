@@ -169,7 +169,7 @@ begin Form
     Height = 63
     Anchors = 0
     Visible = True
-    Columns = "AgBsAQUAOQBcAAsAAAAAAAAAAAAoAAMABQA5ACgACwAAAAAAAAAAACgAAwA="
+    Columns = "AgB2AQUAOQBcAAsAAAAAAAAAAAAoAAMABQA5ADIACwAAAAAAAAAAACgAAwA="
     SelectionMode = 1
     VertScroll = "scroll"
     HorzScroll = ""

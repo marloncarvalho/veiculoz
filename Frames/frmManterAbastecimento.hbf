@@ -689,7 +689,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 141
-    Top = 55
+    Top = 54
     Anchors = 0
     Visible = True
     Image = "Adicionar"
@@ -826,8 +826,8 @@ Private Sub btnOk_Click()
 			Abs.IdPosto = Me.popPosto.ItemData(Me.popPosto.ListIndex)
 			Abs.KmInicial = Me.fldKmInicial.Text
 			Abs.KmFinal = Km
-			Abs.ValorLitro = CDbl(Me.fldValorLitro.Text)
-			Abs.ValorTotal = CDbl(Me.fldValorTotal.Text)
+			Abs.ValorLitro = CDbl(Replace(Me.fldValorLitro.Text,",","."))
+			Abs.ValorTotal = CDbl(Replace(Me.fldValorTotal.Text,",","."))
 			Factory.ObterDaoAbastecimento().ManterAbastecimento(Abs)
 			Me.btnCancelar_Click
 			Call VerificarAlarmeDespesas(Abs.IdCarro,Abs.KmInicial,Me.KmAnterior)
@@ -854,17 +854,17 @@ Private Function Validar() As Boolean
 		Validar = False
 		Exit Function
 	End If
-	If Me.fldKmInicial.Text = "" Or Not IsNumeric(Me.fldKmInicial.Text) Then
+	If Me.fldKmInicial.Text = "" Or Not IsNumeric(Replace(Me.fldKmInicial.Text,",",".")) Then
 		MsgBox "Preencha Corretamente o Campo Km Inicial."
 		Validar = False
 		Exit Function
 	End If
-	If Me.fldValorLitro.Text = "" Or Not IsNumeric(Me.fldValorLitro.Text) Then
+	If Me.fldValorLitro.Text = "" Or Not IsNumeric(Replace(Me.fldValorLitro.Text,",",".")) Then
 		MsgBox "Preencha Corretamente o Campo Valor do Litro."
 		Validar = False
 		Exit Function
 	End If
-	If Me.fldValorTotal.Text = "" Or Not IsNumeric(Me.fldValorTotal.Text) Then
+	If Me.fldValorTotal.Text = "" Or Not IsNumeric(Replace(Me.fldValorTotal.Text,",",".")) Then
 		MsgBox "Preencha Corretamente o Campo Valor do Total."
 		Validar = False
 		Exit Function

@@ -25,12 +25,12 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 3
-    Top = 54
-    Width = 149
+    Top = 55
+    Width = 152
     Height = 71
     Anchors = 0
     Visible = True
-    Columns = "AwACAgUAOQBPAAsAAAAAAAAAAAAoAAMABQA5ACUACwAAAAAAAAAAACgAAwAFADkAMgALAAAAAAAAAAAAKAADAA=="
+    Columns = "AwD/AQUAOABPAAsAAAAAAAAAAAAoAAMABQA4ACUACwAAAAAAAAAAACgAAwAFADgAMgALAAAAAAAAAAAAKAADAA=="
     SelectionMode = 1
     VertScroll = "scroll"
     HorzScroll = ""
@@ -199,7 +199,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 151
+    Left = 153
     Top = 52
     Width = 7
     Height = 75
@@ -365,7 +365,6 @@ Private Sub gridAbastecimentos_Click(ByVal iRow As Integer, ByVal iCol As Intege
 	frm.Show hbFormModeless+hbFormGoto
 End Sub
 
-
 Private Sub gridAbastecimentos_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
 	Dim Abs As clsAbastecimento
 	Dim Posto As clsEstabelecimento
@@ -376,13 +375,11 @@ Private Sub gridAbastecimentos_LoadItem(ByVal iRow As Integer, ByVal lItemData A
 	vValue(2) = "R$ " & Format(Abs.ValorLitro,"currency")
 End Sub
 
-
 Private Sub btnNovo_Click()
 	Dim frm As New frmManterAbastecimento
 	frm.bNew = True
 	frm.Show hbFormModeless+hbFormGoto
 End Sub
-
 
 Private Sub Form_Load()
 	Dim Abs As clsAbastecimento
