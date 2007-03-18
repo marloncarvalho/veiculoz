@@ -616,7 +616,7 @@ Private Sub btnOk_Click()
 	If Me.KmProximo <> "" Then
 		Des.KmProxima = CDbl(Me.KmProximo)
 	End If
-	Des.Valor = CDbl(Me.fldValor.Text)
+	Des.Valor = CDbl(Replace(Me.fldValor.Text,",","."))
 	Call Factory.ObterDaoDespesas().ManterDespesa(Des)
 	Unload(Me)
 	Call frm.Show(hbFormModeless)

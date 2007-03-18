@@ -421,11 +421,11 @@ Private Sub btnOk_Click()
 		seguro.Contrato = Me.fldContrato.Text
 		seguro.Data = Me.selData.Date
 		seguro.Empresa = Me.fldEmpresa.Text
-		seguro.Franquia = CDbl(Me.fldFranquia.Text)
+		seguro.Franquia = CDbl(Replace(Me.fldFranquia.Text,",","."))
 		seguro.IdVeiculo = Me.id_veiculo
 		seguro.Renovacao = Me.selRenovacao.Date
 		seguro.Telefone = Me.fldTelefone.Text
-		seguro.Valor = CDbl(Me.fldValor.Text)
+		seguro.Valor = CDbl(Replace(Me.fldValor.Text,",","."))
 		If Not Me.bNew And Me.IdEdicao <> 0 Then
 			seguro.Id = Me.IdEdicao
 		End If
