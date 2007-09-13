@@ -1,0 +1,48 @@
+' Peter Holmes Consulting HB++ Class file
+' Version 2.11.291.937
+' *** DO NOT EDIT ***
+
+begin Class
+  Name = clsAbastecimentoRN
+  Segment = main
+  Extends = Object
+  Instantiable = True
+  Extendable = True
+  Clonable = False
+end
+
+Public Function ObterConsumoMedioTotal(ByVal IdVeiculo As Long, ByVal Viagem As Boolean, ByVal Invalidos As Boolean, ByVal TanqueCheio As Boolean) As Double
+	If TanqueCheio Then
+		ObterConsumoMedioTotal = Me.ObterConsumoMedioTotalTC(IdVeiculo,Viagem,Invalidos)
+	Else
+	End If
+End Function
+
+Public Function ObterConsumoMedioTotalTC(ByVal IdVeiculo As Long, ByVal Viagem As Boolean, ByVal Invalidos As Boolean) As Double
+	Dim Dao As clsDaoAbastecimento
+	Dim Colecao As Collection
+	Dim Abast As clsAbastecimento
+	Dim AbastAnterior As clsAbastecimento
+	Dim ConsumoTotal As Double
+	Dim Indice As Integer
+
+	Indice = 0
+	ConsumoTotal = 0
+
+	Set Dao = Factory.ObterDaoAbastecimento()
+	Set Colecao = dao.ObterAbastecimentosPorVeiculo(IdVeiculo, " Data DESC, Hora DESC")
+	For Each Abast In Colecao
+		If Abast.TanqueCheio And AbastAnterior Is Nothing Then
+			Set AbastAnterior = Abast
+		Else
+			Dim KmTotal As Double
+			Dim Consumo As Double
+			KmTotal = CDbl(Abast.KmFinal) - CDbl(Abast.KmInicial)
+			Consumo = AbastAnterior.ValorTotal / AbastAnterior.ValorLitro
+			ConsumoTotal = ConsumoTotal + Consumo
+			Indice = Indice + 1
+		End If
+	Next
+	ConsumoTotal = ConsumoTotal / Indice
+	ObterConsumoMedioTotalTC = ConsumoTotal
+End Function
