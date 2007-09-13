@@ -1,0 +1,42 @@
+<hbtable>
+  <fields>
+    <field>
+      <name>UniqueID</name>
+      <type>Long</type>
+      <synchro>*:0</synchro>
+      <comment xml:space="preserve">Unique identifier</comment>
+    </field>
+    <field>
+      <name>Category</name>
+      <type>Integer</type>
+      <synchro>*:0</synchro>
+      <comment xml:space="preserve">Category</comment>
+    </field>
+    <field>
+      <name>Dirty</name>
+      <type>Boolean</type>
+      <synchro>*:0</synchro>
+      <comment xml:space="preserve">Modified since last HotSync</comment>
+    </field>
+    <field>
+      <name>Secret</name>
+      <type>Boolean</type>
+      <synchro>*:0</synchro>
+      <comment xml:space="preserve">Private record</comment>
+    </field>
+    <field>
+      <name>Descricao</name>
+      <type>String</type>
+      <synchro>*:0</synchro>
+      <comment/>
+    </field>
+    <field>
+      <name>Cor</name>
+      <type>Long</type>
+      <synchro>*:0</synchro>
+      <comment/>
+    </field>
+  </fields>
+  <categories/>
+  <records/>
+</hbtable>

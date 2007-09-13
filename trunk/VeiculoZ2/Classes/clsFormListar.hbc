@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsFormListar</Name>
+  <Segment>classes</Segment>
+  <Extends>Form</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private bRegrasNegocio As clsRNGenerico
+Private Grid1 As GridEx
+Private Ordenacao As Integer
+Private bColunaOrdenacao As String
+Private bColecaoGrid As Collection
+
+Public Event DesenharItem(ByRef Objeto As clsObjetoGenerico, ByRef Valor As String, ByVal iColuna As Integer, ByVal iIdItem As Long)
+Public Event TelaManutencao(ByRef Tela As clsRepassador)
+Public Event DesenhoItemOK(ByRef Objeto As clsObjetoGenerico)
+
+Private Sub DesenharItem(ByRef Objeto As clsObjetoGenerico, ByRef Valor As String,ByVal iColuna As Integer, ByVal iIdItem As Long)
+	RaiseEvent DesenharItem(Objeto, Valor, iColuna, iIdItem)
+End Sub
+
+Private Sub DesenhoItemOK(ByRef Objeto As clsObjetoGenerico)
+	RaiseEvent DesenhoItemOK(Objeto)
+End Sub
+
+Private Sub TelaManutencao(ByRef Tela As clsRepassador)
+	RaiseEvent TelaManutencao(Tela)
+End Sub
+
+Public Property Set Grid(ByRef Gr As GridEx)
+	Set Me.Grid1 = Gr
+End Property
+
+Public Property Set ColecaoGrid(ByRef Colecao As Collection)
+	Me.bColecaoGrid = Colecao
+End Property
+
+Public Property Let ColunaOrdenacao(ByVal Coluna As String)
+	Me.bColunaOrdenacao = Coluna
+End Property
+
+Public Property Set RegrasNegocio(ByRef RN As clsRNGenerico)
+	Set Me.bRegrasNegocio = RN
+End Property
+
+Public Sub Novo()
+	Dim Repassador As New clsRepassador
+	Dim Form As clsFormManter
+	Me.TelaManutencao(Repassador)
+	Set Form = clsFormManter(Repassador.Objeto)
+	If Not Form Is Nothing Then
+		Form.Show(hbFormGoto)
+	End If
+End Sub
+
+Public Sub Ordenar(ByVal Campo As String)
+	Dim Colecao As Collection
+	Dim Objeto As clsObjetoGenerico
+	Me.Grid1.Clear()
+	If Me.Ordenacao = 1 Then
+		Me.Ordenacao = 2
+		Set Colecao = Me.bRegrasNegocio.ObterTodos(Campo & " ASC")
+	Else
+		Me.Ordenacao = 1
+		Set Colecao = Me.bRegrasNegocio.ObterTodos(Campo & " DESC")
+	End If
+	For Each Objeto In Colecao
+		Me.Grid1.AddItem(Objeto.Id)
+	Next
+End Sub
+
+Public Sub Listar()
+	Dim Colecao As Collection
+	Dim Objeto As clsObjetoGenerico
+	Me.Grid1.Clear()
+	If Me.bColecaoGrid Is Nothing Then
+		If Me.bColunaOrdenacao <> "" Then
+			Set Colecao = Me.bRegrasNegocio.ObterTodos(Me.bColunaOrdenacao)
+		Else
+			Set Colecao = Me.bRegrasNegocio.ObterTodos()
+		End If
+		For Each Objeto In Colecao
+			Me.Grid1.AddItem(Objeto.Id)
+			Me.DesenhoItemOK(Objeto)
+		Next
+	Else
+		For Each Objeto In Me.bColecaoGrid
+			Me.Grid1.AddItem(Objeto.Id)
+			Me.DesenhoItemOK(Objeto)
+		Next
+	End If
+End Sub
+
+Private Sub Grid1_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
+	Dim Repassador As New clsRepassador
+	Dim Form As clsFormManter
+	Me.TelaManutencao(Repassador)
+	Set Form = clsFormManter(Repassador.Objeto)
+	If Not Form Is Nothing Then
+		Form.Identificador = lItemData
+		Form.Iniciar()
+		Form.Show(hbFormGoto)
+	End If
+End Sub
+
+Private Sub Grid1_DrawItem(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long, ByVal iLeft As Integer, ByVal iTop As Integer, ByVal iWidth As Integer, ByVal iHeight As Integer)
+	Dim Objeto As clsObjetoGenerico
+	Dim Valor As String
+	Set Objeto = clsObjetoGenerico(Me.bRegrasNegocio.Obter(lItemData))
+  If (iRow mod 2) = 0 Then
+  '  Grid1.BackColor = Configuracoes.GridCorLinhaNormal
+  Else
+  '  Grid1.BackColor = Configuracoes.GridCorLinhaAlternada
+  End If
+  Grid1.Rectangle(iLeft, iTop, iLeft+(iWidth-1), iTop+iHeight, hbRectFillSolid)
+	Me.DesenharItem(Objeto, Valor, iCol, lItemData)
+	Grid1.TextOut iLeft+1, iTop-1, Valor
+End Sub
+
+Public Property Get RegrasNegocio() As clsRNGenerico
+	RegrasNegocio = Me.bRegrasNegocio
+End Property]]></Source>
+</Class>

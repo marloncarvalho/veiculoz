@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsPercurso</Name>
+  <Segment>classes</Segment>
+  <Extends>clsObjetoGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private bDescricao As String
+Private bViagem As Boolean
+Private bVeiculo As clsVeiculo
+Private bKmInicial As String
+Private bKmFinal As String
+Private bAbastecimentoInicial As clsAbastecimento
+Private bAbastecimentoFinal As clsAbastecimento
+Private bObservacoes As String
+
+Public Function ObterGastoTotal() As Double
+	If Not Me.AbastecimentoFinal Is Nothing Then
+		ObterGastoTotal = ObterGastoTotal + Me.AbastecimentoFinal.ValorTotal
+	End If
+	If Not Me.AbastecimentoInicial Is Nothing Then
+		ObterGastoTotal = ObterGastoTotal + Me.AbastecimentoInicial.ValorTotal
+	End If
+End Function
+
+Public Function ConsumoMedioExato() As Boolean
+	If Me.bAbastecimentoInicial.TanqueCheio() And Me.bAbastecimentoFinal.TanqueCheio() Then
+		ConsumoMedioExato = True
+	Else
+		ConsumoMedioExato = False
+	End If
+End Function
+
+Public Property Get PostoConsumoMedio() As clsEmpresa
+	Try
+		If Me.bAbastecimentoInicial.TanqueCheio() And Me.bAbastecimentoFinal.TanqueCheio() Then
+			PostoConsumoMedio = Me.bAbastecimentoFinal.Empresa
+		Else
+			PostoConsumoMedio = Me.bAbastecimentoInicial.Empresa
+		End If
+	Catch
+		PostoConsumoMedio = New clsEmpresa
+	End Catch
+End Property
+
+Public Property Get Abastecimento() As clsAbastecimento
+	Try
+		If Me.bAbastecimentoInicial.TanqueCheio() And Me.bAbastecimentoFinal.TanqueCheio() Then
+			Abastecimento = Me.bAbastecimentoFinal
+		Else
+			Abastecimento = Me.bAbastecimentoInicial
+		End If
+	Catch
+		Abastecimento = Nothing
+	End Catch
+End Property
+
+Public Function KmPercorridos() As Double
+	Try
+		KmPercorridos = CDbl(Me.bKmFinal) - CDbl(Me.bKmInicial)
+	Catch
+		KmPercorridos = 0
+	End Catch
+End Function
+
+Public Function DiasDecorridos() As Integer
+	Try
+		DiasDecorridos = Me.bAbastecimentoFinal.Data() - Me.bAbastecimentoInicial.Data()
+	Catch
+	End Catch
+End Function
+
+Public Property Get AbastecimentoInicial() As clsAbastecimento
+	Set AbastecimentoInicial = Me.bAbastecimentoInicial
+End Property
+
+Public Property Set AbastecimentoInicial(ByRef Abs As clsAbastecimento)
+	Set Me.bAbastecimentoInicial = Abs
+End Property
+
+Public Property Get AbastecimentoFinal() As clsAbastecimento
+	Set AbastecimentoFinal = Me.bAbastecimentoFinal
+End Property
+
+Public Property Set AbastecimentoFinal(ByRef Abs As clsAbastecimento)
+	Set Me.bAbastecimentoFinal = Abs
+End Property
+
+Public Property Get LitrosConsumidos() As Double
+	Try
+		If Me.bAbastecimentoInicial.TanqueCheio() And Me.bAbastecimentoFinal.TanqueCheio() Then
+			LitrosConsumidos = Me.bAbastecimentoFinal.Litros()
+		Else
+			LitrosConsumidos = Me.bAbastecimentoInicial.Litros()
+		End If
+	Catch
+		LitrosConsumidos = 0
+	End Catch
+End Property
+
+Public Property Get Descricao() As String
+	Descricao = Me.bDescricao
+End Property
+
+Public Property Let Descricao(ByVal Desc As String)
+	Me.bDescricao = Desc
+End Property
+
+Public Property Get Viagem() As Boolean
+	Viagem = Me.bViagem
+End Property
+
+Public Property Let Viagem(ByVal V As Boolean)
+	Me.bViagem = V
+End Property
+
+Public Property Get Veiculo() As clsVeiculo
+	Set Veiculo = Me.bVeiculo
+End Property
+
+Public Property Set Veiculo(ByRef V As clsVeiculo)
+	Set Me.bVeiculo = V
+End Property
+
+Public Property Get KmInicial() As String
+	KmInicial = Me.bKmInicial
+End Property
+
+Public Property Let KmInicial(ByVal Km As String)
+	Me.bKmInicial = Km
+End Property
+
+Public Property Get KmFinal() As String
+	KmFinal = Me.bKmFinal
+End Property
+
+Public Property Let KmFinal(ByVal Km As String)
+	Me.bKmFinal = Km
+End Property
+
+Public Property Get Observacoes() As String
+	Observacoes = Me.bObservacoes
+End Property
+
+Public Property Let Observacoes(ByVal Obs As String)
+	Me.bObservacoes = Obs
+End Property
+
+Public Function ConsumoMedio() As Double
+	Try
+		Dim KMI As Double
+		Dim KmF As Double
+		Dim KmPercorridos As Double
+		Dim Litros As Double
+		KmI = CDbl(Me.KmInicial)
+		KmF = CDbl(Me.KmFinal)
+		KmPercorridos = KmF - KmI
+		Litros = Me.LitrosConsumidos()
+		If Litros = 0 Then
+			ConsumoMedio = 0
+		Else
+			ConsumoMedio = KmPercorridos / Litros
+		End If
+	Catch
+		ConsumoMedio = 0
+	End Catch
+End Function]]></Source>
+</Class>

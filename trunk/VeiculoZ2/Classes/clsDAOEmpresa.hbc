@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsDAOEmpresa</Name>
+  <Segment>classes</Segment>
+  <Extends>clsDAOGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub Initialize()
+	Set Me.Database = New TabelaEmpresas
+End Sub
+
+Private Sub clsDAOGenerico_Preencher(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	Dim Empresa As New clsEmpresa
+	Dim Tabela As TabelaEmpresas
+	Set Tabela = TabelaEmpresas(Record)
+	Empresa.Bairro = Tabela.Bairro
+	Empresa.CEP = Tabela.CEP
+	Empresa.Cidade = Tabela.Cidade
+	Empresa.Distribuidora = Tabela.Distribuidora
+	Empresa.Estado = Tabela.Estado
+	Empresa.Id = Tabela.UniqueID
+	Empresa.Nome = Tabela.Nome
+	Empresa.Observacoes = Tabela.Observacoes
+	Empresa.Posto = Tabela.Posto
+	Empresa.Rua = Tabela.Rua
+	Set Repassador.Objeto = Empresa
+End Sub
+
+Private Sub clsDAOGenerico_Persistir(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	Dim Empresa As clsEmpresa
+	Dim Tabela As TabelaEmpresas
+	Set Tabela = TabelaEmpresas(Record)
+	Set Empresa = clsEmpresa(Repassador.Objeto)
+	Tabela.Bairro = Empresa.Bairro
+	Tabela.CEP = Empresa.CEP
+	Tabela.Cidade = Empresa.Cidade
+	Tabela.Distribuidora = Empresa.Distribuidora
+	Tabela.Estado = Empresa.Estado
+	Tabela.Nome = Empresa.Nome
+	Tabela.Observacoes = Empresa.Observacoes
+	Tabela.Posto = Empresa.Posto
+	Tabela.Rua = Empresa.Rua
+End Sub]]></Source>
+</Class>

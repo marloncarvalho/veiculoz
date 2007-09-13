@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Form file -->
+<Form Version="2.50">
+  <Name>formPrincipal</Name>
+  <Segment>forms</Segment>
+  <Extends>Form</Extends>
+  <Locked>False</Locked>
+  <Layout Target="Palm OS">
+    <Left>0</Left>
+    <Top>0</Top>
+    <Width>160</Width>
+    <Height>160</Height>
+    <Caption xml:space="preserve">Form</Caption>
+    <Modal>False</Modal>
+    <Help/>
+    <DIA>0</DIA>
+    <SaveBehind>False</SaveBehind>
+    <NavState>0</NavState>
+    <InitialFocus/>
+    <BottomLeft/>
+    <Button>
+      <Name>Button1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>41</Left>
+      <Top>29</Top>
+      <Width>40</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">Manter</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Button>
+      <Name>Button2</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>84</Left>
+      <Top>29</Top>
+      <Width>40</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">Listar</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Button>
+      <Name>Button3</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>55</Left>
+      <Top>52</Top>
+      <Width>49</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">button</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+  </Layout>
+  <Source xml:space="preserve"><![CDATA[Private Sub Button1_Click()
+	Dim form As New FormManterPercurso
+	form.Show(hbFormGoto)
+End Sub
+
+Private Sub Button2_Click()
+	Dim form As New FormListarPercursos
+	form.Show(hbFormGoto)
+End Sub
+
+Private Sub Button3_Click()
+	Dim form As New FormRelatorioCM
+	form.Show(hbFormGoto+hbFormModeless)
+End Sub]]></Source>
+</Form>

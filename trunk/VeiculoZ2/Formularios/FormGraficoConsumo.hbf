@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Form file -->
+<Form Version="2.50">
+  <Name>FormGraficoConsumo</Name>
+  <Segment>forms</Segment>
+  <Extends>Form</Extends>
+  <Locked>False</Locked>
+  <Layout Target="Palm OS">
+    <Left>0</Left>
+    <Top>0</Top>
+    <Width>160</Width>
+    <Height>160</Height>
+    <Caption xml:space="preserve">VeículoZ</Caption>
+    <Modal>False</Modal>
+    <Help/>
+    <DIA>0</DIA>
+    <SaveBehind>False</SaveBehind>
+    <NavState>0</NavState>
+    <InitialFocus/>
+    <BottomLeft/>
+    <CheckBox>
+      <Name>chkViagem</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>41</Left>
+      <Top>144</Top>
+      <Width>55</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">Viagem?</Text>
+      <Font>Standard</Font>
+      <Value>False</Value>
+      <AnchorLeft>True</AnchorLeft>
+      <Group>0</Group>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </CheckBox>
+    <Picture>
+      <Name>Picture3</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>140</Left>
+      <Top>145</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>BotaoVoltar</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Popup>
+      <Name>popVeiculos</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>48</Left>
+      <Top>1</Top>
+      <Width>112</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">Selecione um Veículo</Text>
+      <Font>Standard</Font>
+      <VisibleItems>3</VisibleItems>
+      <AnchorLeft>True</AnchorLeft>
+      <Sorted>0</Sorted>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Popup>
+    <Selector>
+      <Name>SelectorData2</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>99</Left>
+      <Top>42</Top>
+      <Width>55</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">12/12/2007</Text>
+      <Font>Standard</Font>
+      <Format/>
+      <AnchorLeft>True</AnchorLeft>
+      <Mode>1</Mode>
+      <DialogTitle/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Selector>
+    <Label>
+      <Name>Label4</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>78</Left>
+      <Top>42</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">até</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Label>
+      <Name>Label3</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>5</Left>
+      <Top>42</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">De</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Selector>
+      <Name>SelectorData1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>19</Left>
+      <Top>42</Top>
+      <Width>54</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">12/12/2007</Text>
+      <Font>Standard</Font>
+      <Format/>
+      <AnchorLeft>True</AnchorLeft>
+      <Mode>1</Mode>
+      <DialogTitle/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Selector>
+    <Label>
+      <Name>Label2</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>38</Left>
+      <Top>28</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Informe o Período:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Label>
+      <Name>Label1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>38</Left>
+      <Top>17</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Gráfico Consumo Médio</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Picture>
+      <Name>Picture1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>7</Left>
+      <Top>17</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>ImagemRelatorios</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Picture>
+      <Name>btnPesquisar</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>2</Left>
+      <Top>142</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>ImagemPesquisar</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <UserControl>
+      <Name>ucChart</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Type>ucChart</Type>
+      <Left>0</Left>
+      <Top>59</Top>
+      <Width>160</Width>
+      <Height>81</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </UserControl>
+  </Layout>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub Form_Load()
+	Me.ucChart.Clear()
+	Me.ucChart.Redraw = False
+	Me.ucChart.PersistantToolTip = True
+	Me.ucChart.HighlightColor = hbColorMagenta
+	Me.ucChart.ShowXAxis = True
+	Me.ucChart.Show3D = True
+	Me.ucChart.DrawFrame = True
+	Me.ucChart.GraphType = Lines
+	Me.ucChart.ShowSelectedValue = True
+	Me.ucChart.Redraw = True
+	ObterVeiculos(Me.popVeiculos)
+	If Me.popVeiculos.ListCount > 0 Then
+		Me.popVeiculos.ListIndex = 0
+	End If
+	Me.SelectorData1.Date = Now()
+	Me.SelectorData2.Date = Now()
+End Sub
+
+Private Function Validar() As Boolean
+	Validar = True
+	If Me.popVeiculos.ListIndex < 0 Then
+		MsgBox("Selecione um Veículo.")
+		Validar = False
+	End If
+End Function
+
+Private Sub btnPesquisar_PenDown(ByVal x As Integer, ByVal y As Integer)
+	If Validar() Then
+		Dim RN As clsRNPercurso
+		Dim Resultado As New Collection
+		Dim Veiculo As Long
+		Dim Periodo1 As Date
+		Dim Periodo2 As Date
+		Dim Percurso As clsPercurso
+		Me.ucChart.Redraw = False
+		Me.ucChart.Clear
+		Veiculo = CLng(Me.popVeiculos.ItemData(Me.popVeiculos.ListIndex))
+		Periodo1 = Me.SelectorData1.Date
+		Periodo2 = Me.SelectorData2.Date
+		RN = RNFactory.RNPercursos()
+		Resultado = RN.ObterPorVeiculoPeriodo(Veiculo,Periodo1,Periodo2, Me.chkViagem.Value)
+		If Resultado.Count = 0 Then
+			MsgBox("Nenhum Abastecimento Encontrado.")
+		Else
+			For Each Percurso In Resultado
+				Me.ucChart.AddValue "Série 1", Percurso.ConsumoMedio(),hbColorBlue,"", Percurso.ConsumoMedio()
+			Next
+		End If
+	End If
+	Me.ucChart.Redraw = True
+End Sub
+
+Private Sub Picture3_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim Form As New FormInicial
+	Form.Show(hbFormModeless+hbFormGoto)
+End Sub]]></Source>
+</Form>

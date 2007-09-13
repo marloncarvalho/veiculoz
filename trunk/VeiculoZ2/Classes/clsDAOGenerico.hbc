@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsDAOGenerico</Name>
+  <Segment>main</Segment>
+  <Extends>Object</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+' ATRIBUTOS
+Private pDatabase As Recordset
+
+' EVENTOS
+Public Event Preencher(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+Public Event Persistir(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+Public Event Exclusao(ByRef Record As Recordset)
+
+Public Property Get Database() As Recordset
+	Set Database = Me.pDatabase
+End Property
+
+Public Property Set Database(p As Recordset)
+	If Me.pDatabase Is Nothing Then
+		Set Me.pDatabase = p
+		Me.pDatabase.OpenRecordset("Category >= 0", hbModeReadWrite)
+	End If
+End Property
+
+Private Sub Terminate()
+	Me.pDatabase.Close()
+	Set Me.pDatabase = Nothing
+End Sub
+
+Public Function ObterTodos(Optional Ordenacao As String = "") As Collection
+	Dim Colecao As New Collection
+	If Ordenacao <> "" Then
+		Me.pDatabase.OpenRecordset("Category >= 0 Order By " & Ordenacao, hbModeReadWrite)
+	Else
+		Me.pDatabase.OpenRecordset("Category >= 0", hbModeReadWrite)
+	End If
+	Me.pDatabase.MoveFirst()
+	While Not pDatabase.EOF
+		Dim Objeto As New clsRepassador
+		Preencher(pDatabase, Objeto)
+		Colecao.Add(Objeto.Objeto)
+		pDatabase.MoveNext()
+	Wend
+	Set ObterTodos = Colecao
+End Function
+
+
+Public Function Existe(ByVal SQL As String) As Boolean
+	Me.pDatabase.OpenRecordset(SQL,hbModeReadWrite)
+	If Me.pDatabase.EOF Or Me.pDatabase.BOF Then
+		Existe = False
+	Else
+		Existe = True
+	End If
+End Function
+
+Public Function ObterPorQuery(ByVal Query As String) As Collection
+	Dim Colecao As New Collection
+	Me.pDatabase.OpenRecordset(Query,hbModeReadWrite)
+	While Not pDatabase.EOF
+		Dim Objeto As New clsRepassador
+		Preencher(pDatabase, Objeto)
+		Colecao.Add(Objeto.Objeto)
+		pDatabase.MoveNext()
+	Wend
+	Set ObterPorQuery = Colecao
+End Function
+
+Public Function Obter(ByVal Id As Long) As Object
+	If Id = 0 Then
+		Obter = Nothing
+		Exit Function
+	End If
+	Dim Repassador As New clsRepassador
+	Me.pDatabase.LookupUniqueID(Id)
+	Me.Preencher(Me.pDatabase, Repassador)
+	Set Obter = Repassador.Objeto
+End Function
+
+Public Function ObterUltimoRegistro() As Object
+	Me.pDatabase.OpenRecordset("Category >= 0 Order By UniqueID DESC", hbModeReadWrite)
+	If Not Me.pDatabase.EOF Or Not Me.pDatabase.BOF Then
+		Me.pDatabase.MoveFirst()
+		Dim Repassador As New clsRepassador
+		Me.Preencher(Me.pDatabase,Repassador)
+		ObterUltimoRegistro = Repassador.Objeto
+	Else
+		ObterUltimoRegistro = Nothing
+	End If
+End Function
+
+Public Function ObterPrimeiroRegistro() As Object
+	Me.pDatabase.OpenRecordset("Category >= 0 Order By UniqueID ASC", hbModeReadWrite)
+	Me.pDatabase.MoveFirst()
+	Dim Repassador As New clsRepassador
+	Me.Preencher(Me.pDatabase,Repassador)
+	ObterPrimeiroRegistro = Repassador.Objeto
+End Function
+
+Public Sub Salvar(ByRef Objeto As clsObjetoGenerico)
+	Dim Repassador As New clsRepassador
+	Set Repassador.Objeto = Objeto
+	If Objeto.Id = 0 Then
+		Me.pDatabase.AddNew()
+	Else
+		Me.pDatabase.LookupUniqueId(Objeto.Id)
+		Me.pDatabase.Edit()
+	End If
+	Me.Persistir(Me.pDatabase, Repassador)
+	Me.pDatabase.Update()
+	If Objeto.Id = 0 Then
+		Me.pDatabase.MoveLast()
+	End If
+	Objeto.Id = Me.pDatabase.UniqueID
+End Sub
+
+Public Sub Excluir(ByVal Id As Long)
+	Me.pDatabase.LookupUniqueID(Id)
+	Me.Exclusao(Me.pDatabase)
+	Me.pDatabase.Delete(hbRecordRemove)
+	Me.pDatabase.Update()
+	Me.pDatabase.Requery()
+End Sub
+
+Private Sub Preencher(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	RaiseEvent Preencher(Record, Repassador)
+End Sub
+
+Private Sub Persistir(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	RaiseEvent Persistir(Record, Repassador)
+End Sub
+
+Private Sub Exclusao(ByRef Record As Recordset)
+	RaiseEvent Exclusao(Record)
+End Sub]]></Source>
+</Class>

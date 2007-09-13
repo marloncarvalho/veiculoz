@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsConfiguracoes</Name>
+  <Segment>classes</Segment>
+  <Extends>Object</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private bGridCorLinhaNormal As Long
+Private bGridCorLinhaAlternada As Long
+
+Public Sub Initialize()
+	Me.bGridCorLinhaAlternada = Color(210,215,255)
+	Me.bGridCorLinhaNormal = Color(196,215,255)
+End Sub
+
+Public Property Get GridCorLinhaAlternada() As Long
+	GridCorLinhaAlternada = Me.bGridCorLinhaAlternada
+End Property
+
+Public Property Get GridCorLinhaNormal() As Long
+		GridCorLinhaNormal = Me.bGridCorLinhaNormal
+End Property]]></Source>
+</Class>

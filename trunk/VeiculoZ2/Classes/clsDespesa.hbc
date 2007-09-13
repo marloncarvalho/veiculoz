@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsDespesa</Name>
+  <Segment>classes</Segment>
+  <Extends>clsObjetoGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private bData As Date
+Private bDescricao As String
+Private bVeiculo As clsVeiculo
+Private bEmpresa As clsEmpresa
+Private bTipo As clsTipoDespesa
+Private bValor As Double
+Private bKM As Long
+Private bHora As Long
+Private bObservacoes As String
+Private bProximaDespesa As Long
+
+Public Property Get ProximaDespesa() As Long
+	ProximaDespesa = Me.bProximaDespesa
+End Property
+
+Public Property Let ProximaDespesa(ByVal Proxima As Long)
+	Me.bProximaDespesa = Proxima
+End Property
+
+Public Property Get Observacoes() As String
+	Observacoes = Me.bObservacoes
+End Property
+
+Public Property Let Observacoes(ByVal O As String)
+	Me.bObservacoes = O
+End Property
+
+Public Property Get Hora() As Long
+	Hora = Me.bHora
+End Property
+
+Public Property Let Hora(ByVal h As Long)
+	Me.bHora = h
+End Property
+
+Public Property Get Data() As Date
+	Data = Me.bData
+End Property
+
+Public Property Let Data(ByVal D As Date)
+	Me.bData = D
+End Property
+
+Public Property Get Descricao() As String
+	Descricao = Me.bDescricao
+End Property
+
+Public Property Let Descricao(ByVal D As String)
+	Me.bDescricao = D
+End Property
+
+Public Property Get Veiculo() As clsVeiculo
+	Veiculo = Me.bVeiculo
+End Property
+
+Public Property Set Veiculo(ByRef V As clsVeiculo)
+	Me.bVeiculo = V
+End Property
+
+Public Property Get Local() As clsEmpresa
+	Local = Me.bEmpresa
+End Property
+
+Public Property Set Local(ByRef L As clsEmpresa)
+	Me.bEmpresa = L
+End Property
+
+Public Property Get Tipo() As clsTipoDespesa
+	Tipo = Me.bTipo
+End Property
+
+Public Property Set Tipo(ByRef T As clsTipoDespesa)
+	Me.bTipo = T
+End Property
+
+Public Property Get Valor() As Double
+	Valor = Me.bValor
+End Property
+
+Public Property Let Valor(ByVal V As Double)
+	Me.bValor = V
+End Property
+
+Public Property Get KM() As Long
+	KM = Me.bKM
+End Property
+
+Public Property Let KM(ByVal K As Long)
+	Me.bKM = K
+End Property]]></Source>
+</Class>

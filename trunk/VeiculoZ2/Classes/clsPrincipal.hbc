@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsPrincipal</Name>
+  <Segment>main</Segment>
+  <Extends>Application</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub Application_NormalLaunch()
+	' Removendo os Abastecimentos 'Órfãos.
+	RNFactory.RNAbastecimentos().RemoverAbastecimentosOrfaos()
+
+	'Definindo BitDepth para a aplicação.
+	Dim sm as New ScreenMode
+	sm.FindFirstMode
+	sm.BitDepth = 16
+	Set ScreenMode = sm
+
+  Dim f As New FormInicial
+  f.Show hbFormModeless+hbFormGoto
+End Sub
+
+Private Sub Application_DisplayAlarm()
+	SystemSound(hbSoundAlarm)
+End Sub
+
+Private Sub Application_AlarmTriggered(ByRef bPurge As Boolean)
+	Dim RNLembrete As clsRNLembrete
+	Dim Colecao As Collection
+	Dim Lembrete As clsLembrete
+	RNLembrete = RNFactory.RNLembrete()
+	Colecao = RNLembrete.ObterLembretesPorPeriodo(Now())
+	For Each Lembrete In Colecao
+		Lembrete.Excluir = True
+		RNLembrete.Salvar(Lembrete)
+	Next
+	RNLembrete.ExcluirLembretesDisparados()
+	Dim Form As New FormListarLembretes
+	Form.ColecaoGrid = Colecao
+	Form.Show(hbFormPopup+hbFormModal)
+End Sub]]></Source>
+</Class>

@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Form file -->
+<Form Version="2.50">
+  <Name>FormManterMotorista</Name>
+  <Segment>formsmanter</Segment>
+  <Extends>clsFormManter</Extends>
+  <Locked>False</Locked>
+  <Layout Target="Palm OS">
+    <Left>0</Left>
+    <Top>0</Top>
+    <Width>160</Width>
+    <Height>160</Height>
+    <Caption xml:space="preserve">VeículoZ</Caption>
+    <Modal>False</Modal>
+    <Help/>
+    <DIA>0</DIA>
+    <SaveBehind>False</SaveBehind>
+    <NavState>0</NavState>
+    <InitialFocus/>
+    <BottomLeft/>
+    <Label>
+      <Name>lblMarca</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>33</Left>
+      <Top>44</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Nome:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Picture>
+      <Name>btnSalvar</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>4</Left>
+      <Top>142</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>BotaoSalvar</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Picture>
+      <Name>btnVoltar</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>141</Left>
+      <Top>144</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>BotaoVoltar</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Graffiti>
+      <Name>graffiti</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>150</Left>
+      <Top>2</Top>
+      <Anchors>0</Anchors>
+    </Graffiti>
+    <Label>
+      <Name>Label1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>32</Left>
+      <Top>21</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Informações Motorista</Caption>
+      <Font>LargeBold</Font>
+    </Label>
+    <Field>
+      <Name>FieldNome</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>60</Left>
+      <Top>42</Top>
+      <Width>84</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>False</Numeric>
+      <MaxChar>80</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+    <Label>
+      <Name>lblMarca1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>12</Left>
+      <Top>60</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Habilitação:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Field>
+      <Name>FieldCategoria</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>60</Left>
+      <Top>73</Top>
+      <Width>24</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>False</Numeric>
+      <MaxChar>4</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+    <Label>
+      <Name>lblMarca2</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>17</Left>
+      <Top>75</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Categoria:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Field>
+      <Name>FieldHabilitacao</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>60</Left>
+      <Top>58</Top>
+      <Width>61</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>False</Numeric>
+      <MaxChar>80</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+    <Label>
+      <Name>lblMarca3</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>8</Left>
+      <Top>91</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Vencimento:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Label>
+      <Name>lblMarca4</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>25</Left>
+      <Top>108</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Emissão:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Picture>
+      <Name>imgLinhaSeparacao</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>0</Left>
+      <Top>138</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>LinhaSeparacaoSimples</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Picture>
+      <Name>Picture1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>9</Left>
+      <Top>21</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>ImagemManter</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Selector>
+      <Name>SelectorVcto</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>61</Left>
+      <Top>91</Top>
+      <Width>55</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text/>
+      <Font>Standard</Font>
+      <Format/>
+      <AnchorLeft>True</AnchorLeft>
+      <Mode>1</Mode>
+      <DialogTitle/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Selector>
+    <Selector>
+      <Name>SelectorEmissao</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>61</Left>
+      <Top>108</Top>
+      <Width>55</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text/>
+      <Font>Standard</Font>
+      <Format/>
+      <AnchorLeft>True</AnchorLeft>
+      <Mode>1</Mode>
+      <DialogTitle/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Selector>
+  </Layout>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub Initialize()
+	Me.RegrasNegocio = RNFactory.RNMotorista()
+	Me.SelectorEmissao.Date = Now()
+	Me.SelectorVcto.Date = Now()
+End Sub
+
+Private Sub clsFormManter_Preencher(ByRef Repassador As clsRepassador)
+	Dim Motorista As clsMotorista
+	Motorista = clsMotorista(Me.RegrasNegocio.ObterUltimo())
+	If Motorista Is Nothing Then
+		Motorista = New clsMotorista
+	End If
+	Motorista.Nome = Me.FieldNome.Text
+	Motorista.Habilitacao = Me.FieldHabilitacao.Text
+	Motorista.Categoria = Me.FieldCategoria.Text
+	Motorista.Vencimento = Me.SelectorVcto.Date
+	Motorista.Emissao = Me.SelectorEmissao.Date
+	Repassador.Objeto = Motorista
+End Sub
+
+Private Sub clsFormManter_Validar(ByRef Objeto As clsObjetoGenerico, ByRef MsgErro As String)
+	Dim Motorista As clsMotorista
+	Set Motorista = clsMotorista(Objeto)
+	If Motorista.Nome = "" Then
+		MsgErro = "Informe o Campo Nome."
+		Exit Sub
+	End If
+End Sub
+
+Private Sub clsFormManter_PreencherCampos(ByRef Objeto As clsObjetoGenerico)
+	Dim Motorista As New clsMotorista
+	Set Motorista = clsMotorista(Objeto)
+	Me.FieldNome.Text = Motorista.Nome
+	Me.FieldHabilitacao.Text = Motorista.Habilitacao
+	Me.FieldCategoria.Text = Motorista.Categoria
+	Me.SelectorEmissao.Date = Motorista.Emissao
+	Me.SelectorVcto.Date = Motorista.Vencimento
+End Sub
+
+Private Sub btnSalvar_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Me.Salvar()
+End Sub
+
+Private Sub btnVoltar_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim Form As New FormInicial
+	Form.Show(hbFormModal+hbFormGoto)
+End Sub
+
+Private Sub clsFormManter_LimparCampos()
+	Me.FieldNome.Text = ""
+	Me.FieldHabilitacao.Text = ""
+	Me.FieldCategoria.Text = ""
+	Me.SelectorEmissao.Date = Now()
+	Me.SelectorVcto.Date = Now()
+End Sub]]></Source>
+</Form>

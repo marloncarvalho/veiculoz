@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsAbastecimento</Name>
+  <Segment>classes</Segment>
+  <Extends>clsObjetoGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private bValorLitro As Double
+Private bValorTotal As Double
+Private bTanqueCheio As Boolean
+Private bData As Date
+Private bHora As Long
+Private bTipoCombustivel As clsTipoCombustivel
+Private bEmpresa As clsEmpresa
+Private bObservacoes As String
+Private bDuplicado As Boolean
+
+Public Property Get Duplicado() As Boolean
+	Duplicado = Me.bDuplicado
+End Property
+
+Public Property Let Duplicado(ByVal D As Boolean)
+	Me.bDuplicado = D
+End Property
+
+Public Property Get Observacoes() As String
+	Observacoes = Me.bObservacoes
+End Property
+
+Public Property Let Observacoes(ByVal Obs As String)
+	Me.bObservacoes = Obs
+End Property
+
+Public Property Get TanqueCheio() As Boolean
+	TanqueCheio = Me.bTanqueCheio
+End Property
+
+Public Property Let TanqueCheio(ByVal Tanque As Boolean)
+	Me.bTanqueCheio = Tanque
+End Property
+
+Public Property Get ValorLitro() As Double
+	ValorLitro = Me.bValorLitro
+End Property
+
+Public Property Let ValorLitro(ByVal Valor As Double)
+	Me.bValorLitro = Valor
+End Property
+
+Public Property Get ValorTotal() As Double
+	ValorTotal = Me.bValorTotal
+End Property
+
+Public Property Let ValorTotal(ByVal Valor As Double)
+	Me.bValorTotal = Valor
+End Property
+
+Public Property Get Data() As Date
+	Data = Me.bData
+End Property
+
+Public Property Let Data(ByVal D As Date)
+	Me.bData = D
+End Property
+
+Public Property Get Hora() As Long
+	Hora = Me.bHora
+End Property
+
+Public Property Let Hora(ByVal H As Long)
+	Me.bHora = H
+End Property
+
+Public Property Get TipoCombustivel() As clsTipoCombustivel
+	Set TipoCombustivel = Me.bTipoCombustivel
+End Property
+
+Public Property Set TipoCombustivel(ByRef Tipo As clsTipoCombustivel)
+	Set Me.bTipoCombustivel = Tipo
+End Property
+
+Public Property Get Empresa() As clsEmpresa
+	Set Empresa = Me.bEmpresa
+End Property
+
+Public Property Set Empresa(ByRef Emp As clsEmpresa)
+	Set Me.bEmpresa = Emp
+End Property
+
+
+Public Property Get Litros() As Double
+	Litros = 0
+	If Me.bValorLitro <= 0 Then
+		Litros = 0
+	Else
+		If Me.bValorLitro <= 0 Then
+			Litros = 0
+		Else
+			Litros = Me.bValorTotal / Me.bValorLitro
+		End If
+	End If
+End Property]]></Source>
+</Class>

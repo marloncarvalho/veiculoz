@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsRNFactory</Name>
+  <Segment>classes</Segment>
+  <Extends>Object</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+Private bRNMotorista As clsRNMotorista
+Private bRNAbastecimentos As clsRNAbastecimentos
+Private bRNSeguros As clsRNSeguro
+Private bRNPercursos As clsRNPercurso
+Private bRNVeiculos As clsRNVeiculo
+Private bRNEmpresas As clsRNEmpresa
+Private bRNTiposCombustivel As clsRNTipoCombustivel
+Private bRNTiposDespesas As clsRNTipoDespesa
+Private bRNDespesas As clsRNDespesas
+Private bRNLembretes As clsRNLembrete
+
+Public Property Get RNLembrete() As clsRNLembrete
+	If Me.bRNLembretes Is Nothing Then
+		Me.bRNLembretes = New clsRNLembrete
+	End If
+	RNLembrete = Me.bRNLembretes
+End Property
+
+Public Property Get RNMotorista() As clsRNMotorista
+	If Me.bRNMotorista Is Nothing Then
+		Me.bRNMotorista = New clsRNMotorista
+	End If
+	RNMotorista = Me.bRNMotorista
+End Property
+
+Public Property Get RNSeguros() As clsRNSeguro
+	If Me.bRNSeguros Is Nothing Then
+		Me.bRNSeguros = New clsRNSeguro
+	End If
+	RNSeguros = Me.bRNSeguros
+End Property
+
+Public Property Get RNDespesas() As clsRNDespesas
+	If Me.bRNDespesas Is Nothing Then
+		Me.bRNDespesas = New clsRNDespesas
+	End If
+	RNDespesas = Me.bRNDespesas
+End Property
+
+Public Property Get RNTiposDespesas() As clsRNTipoDespesa
+	If bRNTiposDespesas Is Nothing Then
+		bRNTiposDespesas = New clsRNTipoDespesa
+	End If
+	RNTiposDespesas = Me.bRNTiposDespesas
+End Property
+
+Public Property Get RNAbastecimentos() As clsRNAbastecimentos
+	If Me.bRNAbastecimentos Is Nothing Then
+		Me.bRNAbastecimentos = New clsRNAbastecimentos
+	End If
+	Set RNAbastecimentos = Me.bRNAbastecimentos
+End Property
+
+Public Property Get RNVeiculos() As clsRNVeiculo
+	If Me.bRNVeiculos Is Nothing Then
+		Me.bRNVeiculos = New clsRNVeiculo
+	End If
+	Set RNVeiculos = Me.bRNVeiculos
+End Property
+
+Public Property Get RNEmpresas() As clsRNEmpresa
+	If Me.bRNEmpresas Is Nothing Then
+		Me.bRNEmpresas = New clsRNEmpresa
+	End If
+	Set RNEmpresas = Me.bRNEmpresas
+End Property
+
+Public Property Get RNTiposCombustivel() As clsRNTipoCombustivel
+	If Me.bRNTiposCombustivel Is Nothing Then
+		Me.bRNTiposCombustivel = New clsRNTipoCombustivel
+	End If
+	Set RNTiposCombustivel = Me.bRNTiposCombustivel
+End Property
+
+Public Property Get RNPercursos() As clsRNPercurso
+	If Me.bRNPercursos Is Nothing Then
+		Me.bRNPercursos = New clsRNPercurso
+	End If
+	Set RNPercursos = Me.bRNPercursos
+End Property]]></Source>
+</Class>

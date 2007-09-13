@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Form file -->
+<Form Version="2.50">
+  <Name>FormAgendaKM</Name>
+  <Segment>forms</Segment>
+  <Extends>Form</Extends>
+  <Locked>False</Locked>
+  <Layout Target="Palm OS">
+    <Left>2</Left>
+    <Top>40</Top>
+    <Width>156</Width>
+    <Height>80</Height>
+    <Caption xml:space="preserve">VeículoZ</Caption>
+    <Modal>True</Modal>
+    <Help/>
+    <DIA>0</DIA>
+    <SaveBehind>False</SaveBehind>
+    <NavState>0</NavState>
+    <InitialFocus/>
+    <BottomLeft/>
+    <Label>
+      <Name>Label1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>6</Left>
+      <Top>17</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Digite KM para a Despesa seguinte:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Field>
+      <Name>FieldKM</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>39</Left>
+      <Top>36</Top>
+      <Width>61</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>2</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>True</Numeric>
+      <MaxChar>20</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+    <Label>
+      <Name>Label2</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>102</Left>
+      <Top>38</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">KM</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Button>
+      <Name>btnOK</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>58</Left>
+      <Top>62</Top>
+      <Width>40</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">OK</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Picture>
+      <Name>Picture1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>130</Left>
+      <Top>55</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>IconeAgendarGrande</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+  </Layout>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private bFieldOrigem As Field
+
+Public Property Set FieldOrigem(ByRef Origem As Field)
+	Me.bFieldOrigem = Origem
+	Me.FieldKM.Text = Origem.Text
+End Property
+
+Private Sub btnOK_Click()
+	Me.bFieldOrigem.Text = Me.FieldKM.Text
+	Unload(Me)
+End Sub]]></Source>
+</Form>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsMotorista</Name>
+  <Segment>classes</Segment>
+  <Extends>clsObjetoGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private bNome As String
+Private bHabilitacao As String
+Private bCategoria As String
+Private bVencimento As Date
+Private bEmissao As Date
+
+Public Property Get Nome() As String
+	Nome = Me.bNome
+End Property
+
+Public Property Let Nome(ByVal N As String)
+	Me.bNome = N
+End Property
+
+Public Property Get Habilitacao() As String
+	Habilitacao = Me.bHabilitacao
+End Property
+
+Public Property Let Habilitacao(ByVal H As String)
+	Me.bHabilitacao = H
+End Property
+
+Public Property Get Categoria() As String
+	Categoria = Me.bCategoria
+End Property
+
+Public Property Let Categoria(ByVal Cat As String)
+	Me.bCategoria = Cat
+End Property
+
+Public Property Get Vencimento() As Date
+	Vencimento = Me.bVencimento
+End Property
+
+Public Property Let Vencimento(ByVal Venc As Date)
+	Me.bVencimento = Venc
+End Property
+
+Public Property Get Emissao() As Date
+	Emissao = Me.bEmissao
+End Property
+
+Public Property Let Emissao(ByVal Emis As Date)
+	Me.bEmissao = Emis
+End Property]]></Source>
+</Class>

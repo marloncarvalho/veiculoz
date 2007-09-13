@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsDAOVeiculo</Name>
+  <Segment>classes</Segment>
+  <Extends>clsDAOGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub Initialize()
+	Set Me.Database = New TabelaVeiculos
+End Sub
+
+Private Sub clsDAOGenerico_Preencher(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	Dim Veiculo As New clsVeiculo
+	Dim Tabela As TabelaVeiculos
+	Set Tabela = TabelaVeiculos(Record)
+	Veiculo.Ano = Tabela.Ano
+	Veiculo.Chassi = Tabela.Chassi
+	Veiculo.Cor = Tabela.Cor
+	Veiculo.Marca = Tabela.Marca
+	Veiculo.Modelo = Tabela.Modelo
+	Veiculo.Placa = Tabela.Placa
+	Veiculo.Renavam = Tabela.Renavam
+	Veiculo.Id = Tabela.UniqueID
+	Set Repassador.Objeto = Veiculo
+End Sub
+
+Private Sub clsDAOGenerico_Persistir(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	Dim Tabela As TabelaVeiculos
+	Dim Veiculo As New clsVeiculo
+	Set Veiculo = clsVeiculo(Repassador.Objeto)
+	Set Tabela = TabelaVeiculos(Record)
+	Tabela.Ano = Veiculo.Ano
+	Tabela.Chassi = Veiculo.Chassi
+	Tabela.Cor = Veiculo.Cor
+	Tabela.Marca = Veiculo.Marca
+	Tabela.Modelo = Veiculo.Modelo
+	Tabela.Placa = Veiculo.Placa
+	Tabela.Renavam = Veiculo.Renavam
+End Sub]]></Source>
+</Class>

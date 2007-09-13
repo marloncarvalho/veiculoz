@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Form file -->
+<Form Version="2.50">
+  <Name>FormManterDespesa</Name>
+  <Segment>formsmanter</Segment>
+  <Extends>clsFormManter</Extends>
+  <Locked>False</Locked>
+  <Layout Target="Palm OS">
+    <Left>0</Left>
+    <Top>0</Top>
+    <Width>160</Width>
+    <Height>160</Height>
+    <Caption xml:space="preserve">VeículoZ</Caption>
+    <Modal>False</Modal>
+    <Help/>
+    <DIA>0</DIA>
+    <SaveBehind>True</SaveBehind>
+    <NavState>0</NavState>
+    <InitialFocus/>
+    <BottomLeft/>
+    <Picture>
+      <Name>btnVoltar</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>141</Left>
+      <Top>144</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>BotaoVoltar</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Graffiti>
+      <Name>graffiti</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>150</Left>
+      <Top>2</Top>
+      <Anchors>0</Anchors>
+    </Graffiti>
+    <Picture>
+      <Name>imgLinhaSeparacao</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>0</Left>
+      <Top>138</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>LinhaSeparacaoSimples</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Picture>
+      <Name>btnObservacoes</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>121</Left>
+      <Top>142</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>ImagemObservacoes</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Field>
+      <Name>FieldObservacoes</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>70</Left>
+      <Top>0</Top>
+      <Width>40</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>False</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>False</Numeric>
+      <MaxChar>80</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+    <Picture>
+      <Name>btnAdicionarPosto</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>143</Left>
+      <Top>87</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>BotaoAdicionar</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Picture>
+      <Name>btnAdicionarTipo</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>143</Left>
+      <Top>100</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>BotaoAdicionar</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Popup>
+      <Name>PopupLocal</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>31</Left>
+      <Top>86</Top>
+      <Width>109</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">Selecione</Text>
+      <Font>Standard</Font>
+      <VisibleItems>6</VisibleItems>
+      <AnchorLeft>True</AnchorLeft>
+      <Sorted>0</Sorted>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Popup>
+    <Field>
+      <Name>FieldKM</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>111</Left>
+      <Top>115</Top>
+      <Width>43</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>True</Numeric>
+      <MaxChar>80</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+    <Label>
+      <Name>lblMarca6</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>83</Left>
+      <Top>45</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Hora:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Selector>
+      <Name>SelectorHora</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>107</Left>
+      <Top>45</Top>
+      <Width>47</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text/>
+      <Font>Standard</Font>
+      <Format/>
+      <AnchorLeft>True</AnchorLeft>
+      <Mode>2</Mode>
+      <DialogTitle/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Selector>
+    <Label>
+      <Name>lblMarca5</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>4</Left>
+      <Top>45</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Data:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Selector>
+      <Name>SelectorData</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>28</Left>
+      <Top>45</Top>
+      <Width>46</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text/>
+      <Font>Standard</Font>
+      <Format/>
+      <AnchorLeft>True</AnchorLeft>
+      <Mode>1</Mode>
+      <DialogTitle/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Selector>
+    <Label>
+      <Name>lblMarca4</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>94</Left>
+      <Top>117</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">KM:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Label>
+      <Name>Label3</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>7</Left>
+      <Top>86</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Local:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Popup>
+      <Name>PopupTipo</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>31</Left>
+      <Top>101</Top>
+      <Width>109</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">Selecione</Text>
+      <Font>Standard</Font>
+      <VisibleItems>6</VisibleItems>
+      <AnchorLeft>True</AnchorLeft>
+      <Sorted>0</Sorted>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Popup>
+    <Label>
+      <Name>Label2</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>10</Left>
+      <Top>101</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Tipo:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Field>
+      <Name>FieldValor</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>31</Left>
+      <Top>114</Top>
+      <Width>46</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>True</Numeric>
+      <MaxChar>10</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+    <Label>
+      <Name>lblMarca2</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>6</Left>
+      <Top>116</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Valor:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Picture>
+      <Name>Picture1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>9</Left>
+      <Top>21</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>ImagemManter</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Label>
+      <Name>Label1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>32</Left>
+      <Top>21</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Cadastro de Despesas</Caption>
+      <Font>LargeBold</Font>
+    </Label>
+    <Label>
+      <Name>lblMarca7</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>4</Left>
+      <Top>61</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Descrição:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Field>
+      <Name>FieldDescricao</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>6</Left>
+      <Top>71</Top>
+      <Width>149</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>False</Numeric>
+      <MaxChar>80</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+    <Popup>
+      <Name>PopupVeiculos</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>49</Left>
+      <Top>1</Top>
+      <Width>100</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">Selecione um Veículo</Text>
+      <Font>Standard</Font>
+      <VisibleItems>3</VisibleItems>
+      <AnchorLeft>True</AnchorLeft>
+      <Sorted>0</Sorted>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Popup>
+    <Picture>
+      <Name>btnSalvar</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>23</Left>
+      <Top>142</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>BotaoSalvar</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Picture>
+      <Name>btnExcluir</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>43</Left>
+      <Top>143</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>BotaoExcluir</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Picture>
+      <Name>btnNovo</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>4</Left>
+      <Top>141</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>BotaoNovo</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Picture>
+      <Name>btnAgendar</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>100</Left>
+      <Top>141</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>IconeAgendar</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Field>
+      <Name>FieldProximaDespesa</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>102</Left>
+      <Top>61</Top>
+      <Width>40</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>False</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>False</Numeric>
+      <MaxChar>80</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+  </Layout>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub Initialize()
+	Set Me.RegrasNegocio = RNFactory.RNDespesas()
+End Sub
+
+Private Sub clsFormManter_Inicializar()
+	ObterPostos(Me.PopupLocal)
+	ObterTiposDespesas(Me.PopupTipo)
+	ObterVeiculos(Me.PopupVeiculos)
+	If Me.PopupVeiculos.ListCount > 0 Then
+		Me.PopupVeiculos.ListIndex = 0
+	End If
+	Me.SelectorData.Date = Now()
+	Me.SelectorHora.Time = DatePart("ss",Now())
+End Sub
+
+Private Sub clsFormManter_Preencher(ByRef Repassador As clsRepassador)
+	Dim Despesa As New clsDespesa
+	Dim Tipo As New clsTipoDespesa
+	Dim Local As New clsEmpresa
+	Dim Veiculo As New clsVeiculo
+	Despesa.Id = Me.Identificador
+	Despesa.Data = Me.SelectorData.Date
+	Despesa.Hora = Me.SelectorData.Time
+	Despesa.Descricao = Me.FieldDescricao.Text
+	If Me.FieldProximaDespesa.Text <> "" Then
+		Despesa.ProximaDespesa = CDbl(Me.FieldProximaDespesa.Text)
+	End If
+	If Me.FieldKM.Text <> "" Then
+		Despesa.KM = Me.FieldKM.Text
+	Else
+		Despesa.KM = 0
+	End If
+	If Me.FieldValor.Text <> "" Then
+		Despesa.Valor = CDbl(Me.FieldValor.Text)
+	Else
+		Despesa.Valor = 0
+	End If
+	If Me.PopupVeiculos.ListIndex > -1 Then
+		Veiculo.Id = Me.PopupVeiculos.ItemData(Me.PopupVeiculos.ListIndex)
+	End If
+	If Me.PopupTipo.ListIndex > -1 Then
+		Tipo.Id = Me.PopupTipo.ItemData(Me.PopupTipo.ListIndex)
+	End If
+	If Me.PopupLocal.ListIndex > -1 Then
+		Local.Id = Me.PopupLocal.ItemData(Me.PopupLocal.ListIndex)
+	End If
+	Despesa.Veiculo = Veiculo
+	Despesa.Tipo = Tipo
+	Despesa.Local = Local
+	Despesa.Observacoes = Me.FieldObservacoes.Text
+	Set Repassador.Objeto = Despesa
+End Sub
+
+Private Sub clsFormManter_Validar(ByRef Objeto As clsObjetoGenerico, ByRef MsgErro As String)
+	Dim Despesa As clsDespesa
+	Set Despesa = clsDespesa(Objeto)
+	If Despesa.Veiculo.Id <= 0 Then
+		MsgErro = "Informe o Veículo."
+		Exit Sub
+	End If
+	If Despesa.Local.Id <= 0 Then
+		MsgErro = "Informe o Local."
+		Exit Sub
+	End If
+	If Despesa.Tipo.Id <= 0 Then
+		MsgErro = "Informe o Tipo de Despesa."
+		Exit Sub
+	End If
+	If Despesa.Valor = 0 Then
+		MsgErro = "Informe o Valor."
+		Exit Sub
+	End If
+	If Despesa.Descricao = "" Then
+		MsgErro = "Informe a Descrição."
+		Exit Sub
+	End If
+End Sub
+
+Private Sub clsFormManter_PreencherCampos(ByRef Objeto As clsObjetoGenerico)
+	Dim Despesa As clsDespesa
+	Set Despesa = clsDespesa(Objeto)
+	Me.FieldDescricao.Text = Despesa.Descricao
+	Me.FieldValor.Text = CStr(Despesa.Valor)
+	Me.FieldKM.Text = Despesa.KM
+	Me.FieldObservacoes.Text = Despesa.Observacoes
+	Me.SelectorData.Date = Despesa.Data
+	Me.SelectorHora.Time = Despesa.Hora
+	Me.Identificador = Despesa.Id
+	Me.PopupLocal.ListIndex = Me.PopupLocal.FindItemData(Despesa.Local.Id)
+	Me.PopupTipo.ListIndex = Me.PopupTipo.FindItemData(Despesa.Tipo.Id)
+	Me.PopupVeiculos.ListIndex = Me.PopupVeiculos.FindItemData(Despesa.Veiculo.Id)
+	Me.FieldProximaDespesa.Text = CStr(Despesa.ProximaDespesa)
+End Sub
+
+Private Sub btnSalvar_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Me.Salvar()
+End Sub
+
+Private Sub btnExcluir_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Me.Excluir()
+End Sub
+
+Private Sub btnVoltar_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Me.Voltar()
+End Sub
+
+Private Sub clsFormManter_LimparCampos()
+	Me.FieldDescricao.Text = ""
+	Me.FieldValor.Text = ""
+	Me.FieldKM.Text = ""
+	Me.FieldObservacoes.Text = ""
+	Me.SelectorData.Date = Now()
+	Me.PopupLocal.ListIndex = 0
+	Me.PopupTipo.ListIndex = 0
+	Me.Identificador = 0
+	Me.Estado = 1
+End Sub
+
+Private Sub clsFormManter_TelaListagem(ByRef Tela As clsRepassador)
+	Set Tela.Objeto = New FormListarDespesas
+End Sub
+
+Private Sub btnObservacoes_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim Form As New FormNotas
+	Set Form.FieldPreencher = Me.FieldObservacoes
+	Form.Show(hbFormModeless+hbFormPopup)
+End Sub
+
+Private Sub btnAdicionarPosto_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim Form As New FormManterEmpresa
+	Dim Empresa As clsEmpresa
+	Form.IsModal = True
+	Form.Show(hbFormModal+hbFormPopup)
+	If Not Form.Objeto Is Nothing Then
+		Set Empresa = clsEmpresa(Form.Objeto)
+		ObterPostos(Me.PopupLocal,Empresa.Nome)
+	End If
+End Sub
+
+Private Sub btnAdicionarTipo_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim Form As New FormManterTipoDespesa
+	Dim Tipo As clsTipoDespesa
+	Form.IsModal = True
+	Form.Show(hbFormModal+hbFormPopup)
+	If Not Form.Objeto Is Nothing Then
+		Set Tipo = clsTipoDespesa(Form.Objeto)
+		ObterTiposDespesas(Me.PopupTipo,Tipo.Descricao)
+	End If
+End Sub
+
+Private Sub btnNovo_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Me.LimparCampos()
+End Sub
+
+Private Sub btnAgendar_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim Form As New FormAgendaKM
+	Form.FieldOrigem = Me.FieldProximaDespesa
+	Form.Show(hbFormPopup)
+End Sub]]></Source>
+</Form>

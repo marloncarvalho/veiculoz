@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsDAOMotorista</Name>
+  <Segment>classes</Segment>
+  <Extends>clsDAOGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub Initialize()
+	Set Me.Database = New TabelaMotorista
+End Sub
+
+Private Sub clsDAOGenerico_Preencher(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	Dim Motorista As New clsMotorista
+	Dim Tabela As TabelaMotorista
+	Tabela = TabelaMotorista(Record)
+	Motorista.Categoria = Tabela.Categoria
+	Motorista.Nome = Tabela.Nome
+	Motorista.Habilitacao = Tabela.Habilitacao
+	Motorista.Vencimento = Tabela.Vencimento
+	Motorista.Emissao = Tabela.Emissao
+	Motorista.Id = Tabela.UniqueID
+	Repassador.Objeto = Motorista
+End Sub
+
+Private Sub clsDAOGenerico_Persistir(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	Dim Motorista As clsMotorista
+	Dim Tabela As TabelaMotorista
+	Set Tabela = TabelaMotorista(Record)
+	Set Motorista = clsMotorista(Repassador.Objeto)
+	Tabela.Categoria = Motorista.Categoria
+	Tabela.Nome = Motorista.Nome
+	Tabela.Habilitacao = Motorista.Habilitacao
+	Tabela.Vencimento = Motorista.Vencimento
+	Tabela.Emissao = Motorista.Emissao
+End Sub]]></Source>
+</Class>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsDAODespesa</Name>
+  <Segment>classes</Segment>
+  <Extends>clsDAOGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub Initialize()
+	Set Me.Database = New TabelaDespesas
+End Sub
+
+Private Sub clsDAOGenerico_Preencher(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	Dim Despesa As New clsDespesa
+	Dim Tabela As TabelaDespesas
+	Dim Tipo As New clsTipoDespesa
+	Dim Empresa As New clsEmpresa
+	Dim Veiculo As clsVeiculo
+	Tabela = TabelaDespesas(Record)
+	Despesa.ProximaDespesa = Tabela.ProximaDespesa
+	Despesa.Hora = Tabela.Hora
+	Despesa.Observacoes = Tabela.Observacoes
+	Despesa.Data = Tabela.Data
+	Despesa.Descricao = Tabela.Descricao
+	Despesa.Id = Tabela.UniqueID
+	Despesa.KM = Tabela.KM
+	Despesa.Valor = Tabela.Valor
+	Empresa = clsEmpresa(RNFactory.RNEmpresas().Obter(Tabela.IdEmpresa))
+	Tipo = clsTipoDespesa(RNFactory.RNTiposDespesas().Obter(Tabela.IdTipo))
+	Veiculo = clsVeiculo(RNFactory.RNVeiculos().Obter(Tabela.IdVeiculo))
+	Despesa.Local = Empresa
+	Despesa.Tipo = Tipo
+	Despesa.Veiculo = Veiculo
+	Repassador.Objeto = Despesa
+End Sub
+
+Private Sub clsDAOGenerico_Persistir(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	Dim Despesa As clsDespesa
+	Dim Tabela As TabelaDespesas
+	Tabela = TabelaDespesas(Record)
+	Despesa = clsDespesa(Repassador.Objeto)
+	Tabela.ProximaDespesa = Despesa.ProximaDespesa
+	Tabela.Data = Despesa.Data
+	Tabela.Observacoes = Despesa.Observacoes
+	Tabela.Hora = Despesa.Hora
+	Tabela.Descricao = Despesa.Descricao
+	Tabela.KM = Despesa.KM
+	Tabela.Valor = Despesa.Valor
+	Tabela.IdEmpresa = Despesa.Local.Id
+	Tabela.IdTipo = Despesa.Tipo.Id
+	Tabela.IdVeiculo = Despesa.Veiculo.Id
+End Sub]]></Source>
+</Class>

@@ -1,0 +1,72 @@
+<hbtable>
+  <fields>
+    <field>
+      <name>UniqueID</name>
+      <type>Long</type>
+      <synchro>*:0</synchro>
+      <comment xml:space="preserve">Unique identifier</comment>
+    </field>
+    <field>
+      <name>Category</name>
+      <type>Integer</type>
+      <synchro>*:0</synchro>
+      <comment xml:space="preserve">Category</comment>
+    </field>
+    <field>
+      <name>Dirty</name>
+      <type>Boolean</type>
+      <synchro>*:0</synchro>
+      <comment xml:space="preserve">Modified since last HotSync</comment>
+    </field>
+    <field>
+      <name>Secret</name>
+      <type>Boolean</type>
+      <synchro>*:0</synchro>
+      <comment xml:space="preserve">Private record</comment>
+    </field>
+    <field>
+      <name>Empresa</name>
+      <type>String</type>
+      <synchro>*:0</synchro>
+      <comment/>
+    </field>
+    <field>
+      <name>Telefone</name>
+      <type>String</type>
+      <synchro>*:0</synchro>
+      <comment/>
+    </field>
+    <field>
+      <name>Contrato</name>
+      <type>String</type>
+      <synchro>*:0</synchro>
+      <comment/>
+    </field>
+    <field>
+      <name>Valor</name>
+      <type>Double</type>
+      <synchro>*:0</synchro>
+      <comment/>
+    </field>
+    <field>
+      <name>Franquia</name>
+      <type>Double</type>
+      <synchro>*:0</synchro>
+      <comment/>
+    </field>
+    <field>
+      <name>DataVencimento</name>
+      <type>Date</type>
+      <synchro>*:0</synchro>
+      <comment/>
+    </field>
+    <field>
+      <name>IdVeiculo</name>
+      <type>Long</type>
+      <synchro>*:0</synchro>
+      <comment/>
+    </field>
+  </fields>
+  <categories/>
+  <records/>
+</hbtable>

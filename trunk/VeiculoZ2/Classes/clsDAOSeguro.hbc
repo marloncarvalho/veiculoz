@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsDAOSeguro</Name>
+  <Segment>classes</Segment>
+  <Extends>clsDAOGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+' Método Construtor.
+'
+' @return void.
+Private Sub Initialize()
+	Set Me.Database = New TabelaSeguros
+End Sub
+
+' Resposta ao Evento de Preenchimento de um Objeto a partir de dados do Banco de Dados.
+'
+' @param Record Recordset contendo os dados.
+' @param Repassador Contém o Objeto a ser preenchido com os dados do Banco de Dados.
+' @return void.
+'
+Private Sub clsDAOGenerico_Preencher(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	Dim Seguro As New clsSeguro
+	Dim Tabela As TabelaSeguros
+	Set Tabela = TabelaSeguros(Record)
+	Seguro.Contrato = Tabela.Contrato
+	Seguro.DataVencimento = Tabela.DataVencimento
+	Seguro.Empresa = Tabela.Empresa
+	Seguro.Franquia = Tabela.Franquia
+	Seguro.Telefone = Tabela.Telefone
+	Seguro.Valor = Tabela.Valor
+	Seguro.Id = Tabela.UniqueID
+	Seguro.Veiculo = clsVeiculo(RNFactory.RNVeiculos().Obter(Tabela.IdVeiculo))
+	Set Repassador.Objeto = Seguro
+End Sub
+
+' Resposta ao Evento de Preenchimento do Banco de Dados a partir dos dados de um objeto.
+'
+' @param Record Recordset que será preenchido..
+' @param Repassador Contém o Objeto que possui os dados.
+' @return Void.
+'
+Private Sub clsDAOGenerico_Persistir(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	Dim Seguro As clsSeguro
+	Dim Tabela As TabelaSeguros
+	Set Tabela = TabelaSeguros(Record)
+	Set Seguro = clsSeguro(Repassador.Objeto)
+	Tabela.IdVeiculo = Seguro.Veiculo.Id
+	Tabela.Contrato = Seguro.Contrato
+	Tabela.DataVencimento = Seguro.DataVencimento
+	Tabela.Empresa = Seguro.Empresa
+	Tabela.Telefone = Seguro.Telefone
+	Tabela.Franquia = Seguro.Franquia
+	Tabela.Valor = Seguro.Valor
+End Sub]]></Source>
+</Class>

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Form file -->
+<Form Version="2.50">
+  <Name>FormInicial</Name>
+  <Segment>forms</Segment>
+  <Extends>Form</Extends>
+  <Locked>False</Locked>
+  <Layout Target="Palm OS">
+    <Left>0</Left>
+    <Top>0</Top>
+    <Width>160</Width>
+    <Height>160</Height>
+    <Caption xml:space="preserve">VeículoZ</Caption>
+    <Modal>False</Modal>
+    <Help/>
+    <DIA>0</DIA>
+    <SaveBehind>True</SaveBehind>
+    <NavState>0</NavState>
+    <InitialFocus/>
+    <BottomLeft/>
+    <Label>
+      <Name>Label1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>27</Left>
+      <Top>18</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Controle de Veículos</Caption>
+      <Font>LargeBold</Font>
+    </Label>
+    <Label>
+      <Name>Label4</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>32</Left>
+      <Top>149</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">veiculoz.wordpress.com</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Picture>
+      <Name>Picture1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>50</Left>
+      <Top>37</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>ImagemPrincipal</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Label>
+      <Name>Label5</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>115</Left>
+      <Top>1</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Versão 2.0</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Picture>
+      <Name>Picture2</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>0</Left>
+      <Top>148</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>LinhaSeparacaoSimples</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <MenuBar>
+      <MenuTitle>
+        <Caption xml:space="preserve">Opções</Caption>
+        <MenuItem>
+          <Name>MenuAbastecimentos</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Abastecimentos</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuItem>
+          <Name>MenuPostos</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Postos</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuItem>
+          <Name>MenuTiposCombustivel</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Tipos Combustível</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuItem>
+          <Name>MenuVeiculos</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Veículos</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuItem>
+          <Name>MenuSeguros</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Seguros</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuItem>
+          <Name>MenuMotorista</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Motorista</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuItem>
+          <Name>MenuLembretes</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Lembretes</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuSeparator/>
+        <MenuItem>
+          <Name>MenuGastosGerais</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Despesas Gerais</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuItem>
+          <Name>MenuTipoDespesa</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Tipos Despesa</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuSeparator/>
+        <MenuItem>
+          <Name>MenuSobre</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Sobre</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuItem>
+          <Name>MenuSair</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Sair</Caption>
+          <Shortcut/>
+        </MenuItem>
+      </MenuTitle>
+      <MenuTitle>
+        <Caption xml:space="preserve">Relatórios</Caption>
+        <MenuItem>
+          <Name>MenuRelatorioCM</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Consumo Médio (CM)</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuItem>
+          <Name>MenuItem9</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">CM Por Tipo Combustível</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuItem>
+          <Name>MenuItem10</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Despesas Abastecimento</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuItem>
+          <Name>MenuItem11</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Despesas Gerais</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuItem>
+          <Name>MenuItem12</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Gastos Por Posto</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuItem>
+          <Name>MenuItem13</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Melhor Desempenho</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuItem>
+          <Name>MenuItem14</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Pior Desempenho</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuSeparator/>
+        <MenuItem>
+          <Name>MenuItem16</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Gráfico Gastos</Caption>
+          <Shortcut/>
+        </MenuItem>
+        <MenuItem>
+          <Name>MenuItem17</Name>
+          <Index>0</Index>
+          <Caption xml:space="preserve">Gráfico Consumo Médio</Caption>
+          <Shortcut/>
+        </MenuItem>
+      </MenuTitle>
+    </MenuBar>
+  </Layout>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub MenuPostos_Click()
+	Dim Form As New FormListarEmpresas
+	Form.Show(hbFormGoto+hbFormModeless)
+End Sub
+
+Private Sub MenuRelatorioCM_Click()
+	Dim Form As New FormRelatorioCM
+	Form.Show(hbFormGoto+hbFormModal)
+End Sub
+
+Private Sub MenuAbastecimentos_Click()
+	Dim Form As New FormListarPercursos
+	Form.Show(hbFormGoto+hbFormModal)
+End Sub
+
+Private Sub MenuSobre_Click()
+	Dim Form As New FormSobre
+	Form.Show(hbFormPopup)
+End Sub
+
+Private Sub MenuItem9_Click()
+	Dim Form As New FormRelatorioCMT
+	Form.Show(hbFormModal+hbFormGoto)
+End Sub
+
+Private Sub MenuVeiculos_Click()
+	Dim Form As New FormListarVeiculos
+	Form.Show(hbFormModal+hbFormGoto)
+End Sub
+
+Private Sub MenuTiposCombustivel_Click()
+	Dim Form As New FormListarTiposCombustivel
+	Form.Show(hbFormModal+hbFormGoto)
+End Sub
+
+Private Sub MenuItem17_Click()
+	Dim Form As New FormGraficoConsumo
+	Form.Show(hbFormModal+hbFormGoto)
+End Sub
+
+Private Sub MenuTipoDespesa_Click()
+	Dim Form As New FormListarTipoDespesas
+	Form.Show(hbFormModal+hbFormGoto)
+End Sub
+
+Private Sub MenuGastosGerais_Click()
+	Dim Form As New FormListarDespesas
+	Form.Show(hbFormModal+hbFormGoto)
+End Sub
+
+Private Sub MenuItem16_Click()
+	Dim Form As New FormGraficoDespesas
+	Form.Show(hbFormModal+hbFormGoto)
+End Sub
+
+Private Sub MenuItem10_Click()
+	Dim Form As New FormRelatorioDA
+	Form.Show(hbFormModal+hbFormGoto)
+End Sub
+
+Private Sub MenuItem11_Click()
+	Dim Form As New FormRelatorioDG
+	Form.Show(hbFormModal+hbFormGoto)
+End Sub
+
+Private Sub MenuSeguros_Click()
+	Dim Form As New FormListarSeguros
+	Form.Show(hbFormGoto+hbFormModal)
+End Sub
+
+Private Sub MenuSair_Click()
+	Dim Application As New clsPrincipal
+	Application.Quit()
+End Sub
+
+Private Sub MenuMotorista_Click()
+	Dim Motorista As clsMotorista
+	Dim Form As New FormManterMotorista
+	Motorista = clsMotorista(RNFactory.RNMotorista().ObterUltimo())
+	If Not Motorista Is Nothing Then
+		Form.Identificador = Motorista.Id
+	End If
+	Form.Iniciar()
+	Form.Show(hbFormGoto+hbFormModal)
+End Sub
+
+Private Sub MenuLembretes_Click()
+	Dim Form As New FormListarLembretes
+	Form.Show(hbFormGoto+hbFormModal)
+End Sub]]></Source>
+</Form>

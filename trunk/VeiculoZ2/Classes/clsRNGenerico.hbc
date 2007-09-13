@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsRNGenerico</Name>
+  <Segment>main</Segment>
+  <Extends>Object</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private pDao As clsDAOGenerico
+Public Event ValidarExclusao(ByRef Id As Long, ByRef Mensagem As String)
+
+Public Sub ValidarExclusao(ByRef Id As Long, ByRef Mensagem As String)
+	RaiseEvent ValidarExclusao(Id, Mensagem)
+End Sub
+
+Public Property Set Dao(ByRef D As clsDAOGenerico)
+	Set Me.pDao = D
+End Property
+
+Public Property Get Dao() As clsDAOGenerico
+	Set Dao = Me.pDao
+End Property
+
+Public Function ObterTodos(Optional Ordenacao As String = "") As Collection
+	Set ObterTodos = Me.Dao.ObterTodos(Ordenacao)
+End Function
+
+Public Function Obter(ByVal Id As Long) As Object
+	Set Obter = Me.Dao.obter(Id)
+End Function
+
+Public Sub Excluir(ByVal Id As Long)
+	Dim Mensagem As String
+	Me.ValidarExclusao(Id, Mensagem)
+	If Mensagem <> "" Then
+		Err.Raise(100,Mensagem)
+		Exit Sub
+	End If
+	Me.Dao.Excluir(Id)
+End Sub
+
+Public Sub Salvar(ByRef Objeto As clsObjetoGenerico)
+	Me.Dao.Salvar(Objeto)
+End Sub
+
+Public Function ObterUltimo() As clsObjetoGenerico
+	ObterUltimo = clsObjetoGenerico(Me.Dao.ObterUltimoRegistro())
+End Function]]></Source>
+</Class>
