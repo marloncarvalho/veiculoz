@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsSeguro</Name>
+  <Segment>classes</Segment>
+  <Extends>clsObjetoGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private bEmpresa As String
+Private bTelefone As String
+Private bContrato As String
+Private bValor As Double
+Private bFranquia As Double
+Private bDataVencimento As Date
+Private bVeiculo As clsVeiculo
+
+Public Property Get Veiculo() As clsVeiculo
+	Veiculo = Me.bVeiculo
+End Property
+
+Public Property Set Veiculo(ByRef Veic As clsVeiculo)
+	Me.bVeiculo = Veic
+End Property
+
+Public Property Get Empresa() As String
+	Empresa = Me.bEmpresa
+End Property
+
+Public Property Let Empresa(ByVal Emp As String)
+	Me.bEmpresa = Emp
+End Property
+
+Public Property Get Telefone() As String
+	Telefone = Me.bTelefone
+End Property
+
+Public Property Let Telefone(ByVal Tel As String)
+	Me.bTelefone = Tel
+End Property
+
+Public Property Get Contrato() As String
+	Contrato = Me.bContrato
+End Property
+
+Public Property Let Contrato(ByVal C As String)
+	Me.bContrato = C
+End Property
+
+Public Property Get Valor() As Double
+	Valor = Me.bValor
+End Property
+
+Public Property Let Valor(ByVal Val As Double)
+	Me.bValor = Val
+End Property
+
+Public Property Get Franquia() As Double
+	Franquia = Me.bFranquia
+End Property
+
+Public Property Let Franquia(ByVal Franq As Double)
+	Me.bFranquia = Franq
+End Property
+
+Public Property Get DataVencimento() As Date
+	DataVencimento = Me.bDataVencimento
+End Property
+
+Public Property Let DataVencimento(ByVal Data As Date)
+	Me.bDataVencimento = Data
+End Property]]></Source>
+</Class>

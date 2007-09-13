@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsDAOPercurso</Name>
+  <Segment>classes</Segment>
+  <Extends>clsDAOGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub Initialize()
+	Set Me.Database = New TabelaPercursos
+End Sub
+
+Private Sub clsDAOGenerico_Preencher(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	Dim Percurso As New clsPercurso
+	Dim RNAbastecimento As clsRNAbastecimentos
+	Dim Tabela As TabelaPercursos
+	Dim Veiculo As New clsVeiculo
+	Set Tabela = TabelaPercursos(Record)
+	Set RNAbastecimento = RNFactory.RNAbastecimentos()
+	Percurso.Id = Tabela.UniqueID
+
+	Set Percurso.AbastecimentoInicial = clsAbastecimento(RNAbastecimento.Obter(Tabela.IdAbastInicial))
+	Set Percurso.AbastecimentoFinal = clsAbastecimento(RNAbastecimento.Obter(Tabela.IdAbastFinal))
+
+	Percurso.Descricao = Tabela.Descricao
+	Percurso.KmFinal = Tabela.KmFinal
+	Percurso.KmInicial = Tabela.KmInicial
+	Percurso.Observacoes = Tabela.Observacoes
+	Veiculo.Id = Tabela.IdVeiculo
+	Set Percurso.Veiculo = Veiculo
+
+	Percurso.Viagem = Tabela.Viagem
+	Set Repassador.Objeto = Percurso
+	Set RNAbastecimento = Nothing
+End Sub
+
+Private Sub clsDAOGenerico_Persistir(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	Dim Percurso As clsPercurso
+	Dim Tabela As TabelaPercursos
+	Dim RNAbastecimento As clsRNAbastecimentos
+	Dim Abast As clsAbastecimento
+	Set RNAbastecimento = RNFactory.RNAbastecimentos()
+	Set Tabela = TabelaPercursos(Record)
+	Set Percurso = clsPercurso(Repassador.Objeto)
+	Set Abast = clsAbastecimento(RNAbastecimento.Obter(Percurso.AbastecimentoInicial.Id))
+	Tabela.Descricao = Percurso.Descricao
+	Tabela.KmFinal = Percurso.KmFinal
+	Tabela.KmInicial = Percurso.KmInicial
+	Tabela.IdAbastFinal = Percurso.AbastecimentoFinal.Id
+	Tabela.IdAbastInicial = Percurso.AbastecimentoInicial.Id
+	Tabela.IdVeiculo = Percurso.Veiculo.Id
+	Tabela.Viagem = Percurso.Viagem
+	Tabela.Observacoes = Percurso.Observacoes
+	Tabela.Data = Abast.Data
+End Sub
+
+Private Sub clsDAOGenerico_Exclusao(ByRef Record As Recordset)
+	Dim RNAbastecimento As clsRNAbastecimentos
+	Dim DBPercurso As TabelaPercursos
+	Set DBPercurso = TabelaPercursos(Record)
+	Set RNAbastecimento = RNFactory.RNAbastecimentos()
+	If DBPercurso.IdAbastFinal <> 0 Then
+		RNAbastecimento.Excluir(DBPercurso.IdAbastFinal)
+	End If
+	If DBPercurso.IdAbastInicial <> 0 Then
+		RNAbastecimento.Excluir(DBPercurso.IdAbastInicial)
+	End If
+End Sub]]></Source>
+</Class>

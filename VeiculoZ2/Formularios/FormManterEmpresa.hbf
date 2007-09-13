@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Form file -->
+<Form Version="2.50">
+  <Name>FormManterEmpresa</Name>
+  <Segment>formsmanter</Segment>
+  <Extends>clsFormManter</Extends>
+  <Locked>False</Locked>
+  <Layout Target="Palm OS">
+    <Left>0</Left>
+    <Top>0</Top>
+    <Width>160</Width>
+    <Height>160</Height>
+    <Caption xml:space="preserve">VeículoZ</Caption>
+    <Modal>False</Modal>
+    <Help/>
+    <DIA>0</DIA>
+    <SaveBehind>True</SaveBehind>
+    <NavState>0</NavState>
+    <InitialFocus/>
+    <BottomLeft/>
+    <Label>
+      <Name>lblMarca</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>13</Left>
+      <Top>43</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Nome:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Picture>
+      <Name>btnSalvar</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>23</Left>
+      <Top>142</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>BotaoSalvar</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Picture>
+      <Name>btnExcluir</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>43</Left>
+      <Top>143</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>BotaoExcluir</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Picture>
+      <Name>btnNovo</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>4</Left>
+      <Top>141</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>BotaoNovo</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Picture>
+      <Name>btnVoltar</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>141</Left>
+      <Top>144</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>BotaoVoltar</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Graffiti>
+      <Name>graffiti</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>150</Left>
+      <Top>2</Top>
+      <Anchors>0</Anchors>
+    </Graffiti>
+    <Label>
+      <Name>Label1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>32</Left>
+      <Top>21</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Cadastro de Local</Caption>
+      <Font>LargeBold</Font>
+    </Label>
+    <Field>
+      <Name>FieldNome</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>40</Left>
+      <Top>41</Top>
+      <Width>105</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>False</Numeric>
+      <MaxChar>80</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+    <Label>
+      <Name>lblMarca1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>22</Left>
+      <Top>56</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Rua:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Field>
+      <Name>FieldRua</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>40</Left>
+      <Top>54</Top>
+      <Width>105</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>False</Numeric>
+      <MaxChar>4</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+    <Label>
+      <Name>lblMarca2</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>12</Left>
+      <Top>69</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Bairro:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Field>
+      <Name>FieldBairro</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>40</Left>
+      <Top>67</Top>
+      <Width>106</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>False</Numeric>
+      <MaxChar>80</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+    <Label>
+      <Name>lblMarca3</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>10</Left>
+      <Top>82</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Cidade:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Field>
+      <Name>FieldCidade</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>40</Left>
+      <Top>80</Top>
+      <Width>54</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>False</Numeric>
+      <MaxChar>10</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+    <Label>
+      <Name>lblMarca4</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>10</Left>
+      <Top>94</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Estado:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Field>
+      <Name>FieldEstado</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>40</Left>
+      <Top>92</Top>
+      <Width>54</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>False</Numeric>
+      <MaxChar>80</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+    <Label>
+      <Name>lblRenavam</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>23</Left>
+      <Top>106</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">CEP:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Field>
+      <Name>FieldCEP</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>40</Left>
+      <Top>104</Top>
+      <Width>53</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>False</Numeric>
+      <MaxChar>50</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+    <Label>
+      <Name>lblDistribuidora</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>8</Left>
+      <Top>118</Top>
+      <Anchors>0</Anchors>
+      <Visible>False</Visible>
+      <Caption xml:space="preserve">Distrib.:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Field>
+      <Name>FieldDistribuidora</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>40</Left>
+      <Top>116</Top>
+      <Width>105</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>False</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>False</Numeric>
+      <MaxChar>60</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+    <Picture>
+      <Name>imgLinhaSeparacao</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>0</Left>
+      <Top>138</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>LinhaSeparacaoSimples</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Picture>
+      <Name>Picture1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>9</Left>
+      <Top>21</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>ImagemManter</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <CheckBox>
+      <Name>chkPosto</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>100</Left>
+      <Top>91</Top>
+      <Width>49</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">Posto?</Text>
+      <Font>Standard</Font>
+      <Value>False</Value>
+      <AnchorLeft>True</AnchorLeft>
+      <Group>0</Group>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </CheckBox>
+    <Picture>
+      <Name>btnObservacoes</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>121</Left>
+      <Top>142</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>ImagemObservacoes</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Field>
+      <Name>FieldObservacoes</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>94</Left>
+      <Top>0</Top>
+      <Width>40</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>False</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>True</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>False</Numeric>
+      <MaxChar>80</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+  </Layout>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub Initialize()
+	Set Me.RegrasNegocio = RNFactory.RNEmpresas
+End Sub
+
+Private Sub clsFormManter_Preencher(ByRef Repassador As clsRepassador)
+	Dim Empresa As New clsEmpresa
+	Empresa.Bairro = Me.FieldBairro.Text
+	Empresa.Rua = Me.FieldRua.Text
+	Empresa.Nome = Me.FieldNome.Text
+	Empresa.Cidade = Me.FieldCidade.Text
+	Empresa.Estado = Me.FieldEstado.Text
+	Empresa.CEP = Me.FieldCEP.Text
+	Empresa.Distribuidora = Me.FieldDistribuidora.Text
+	Empresa.Posto = Me.chkPosto.Value
+	Empresa.Id = Me.Identificador
+	Empresa.Observacoes = Me.FieldObservacoes.Text
+	Set Repassador.Objeto = Empresa
+End Sub
+
+Private Sub clsFormManter_Validar(ByRef Objeto As clsObjetoGenerico, ByRef MsgErro As String)
+	Dim Empresa As clsEmpresa
+	Set Empresa = clsEmpresa(Objeto)
+	If Empresa.Nome = "" Then
+		MsgErro = "Informe o Campo Nome."
+		Exit Sub
+	End If
+End Sub
+
+Private Sub clsFormManter_PreencherCampos(ByRef Objeto As clsObjetoGenerico)
+	Dim Empresa As New clsEmpresa
+	Set Empresa = clsEmpresa(Objeto)
+	Me.FieldBairro.Text = Empresa.Bairro
+	Me.FieldRua.Text = Empresa.Rua
+	Me.FieldNome.Text = Empresa.Nome
+	Me.FieldCidade.Text = Empresa.Cidade
+	Me.FieldEstado.Text = Empresa.Estado
+	Me.FieldCEP.Text = Empresa.CEP
+	Me.FieldDistribuidora.Text = Empresa.Distribuidora
+	Me.FieldObservacoes.Text = Empresa.Observacoes
+	Me.chkPosto.Value = Empresa.Posto
+	Me.chkPosto_Click()
+	Me.Identificador = Empresa.Id
+End Sub
+
+Private Sub btnSalvar_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Me.Salvar()
+End Sub
+
+Private Sub btnExcluir_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Me.Excluir()
+End Sub
+
+Private Sub btnNovo_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Me.LimparCampos()
+End Sub
+
+Private Sub btnVoltar_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Me.Voltar()
+End Sub
+
+Private Sub clsFormManter_LimparCampos()
+	Me.FieldBairro.Text = ""
+	Me.FieldRua.Text = ""
+	Me.FieldNome.Text = ""
+	Me.FieldCidade.Text = ""
+	Me.FieldEstado.Text = ""
+	Me.FieldCEP.Text = ""
+	Me.FieldDistribuidora.Text = ""
+	Me.FieldObservacoes.Text = ""
+	Me.chkPosto.Value = False
+	Me.Identificador = 0
+	Me.Estado = 1
+End Sub
+
+Private Sub clsFormManter_TelaListagem(ByRef Tela As clsRepassador)
+	Set Tela.Objeto = New FormListarEmpresas
+End Sub
+
+Private Sub btnObservacoes_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim Form As New FormNotas
+	Set Form.FieldPreencher = Me.FieldObservacoes
+	Form.Show(hbFormModeless+hbFormPopup)
+End Sub
+
+Private Sub chkPosto_Click()
+	If Me.chkPosto.Value Then
+		Me.FieldDistribuidora.Visible = True
+		Me.lblDistribuidora.Visible = True
+	Else
+		Me.FieldDistribuidora.Visible = False
+		Me.lblDistribuidora.Visible = False
+	End If
+End Sub]]></Source>
+</Form>

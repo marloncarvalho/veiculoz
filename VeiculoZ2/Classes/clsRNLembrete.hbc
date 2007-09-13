@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsRNLembrete</Name>
+  <Segment>classes</Segment>
+  <Extends>clsRNGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub Initialize()
+	Set Me.Dao = New clsDAOLembrete
+End Sub
+
+Public Function ObterLembretesPorPeriodo(ByVal Periodo1 As Date) As Collection
+	Dim SQL As String
+	SQL = "Data='" & CStr(Periodo1) & "' AND Data='" & CStr(Periodo1) & "' AND Excluir=False"
+	ObterLembretesPorPeriodo = Me.Dao.ObterPorQuery(SQL)
+End Function
+
+Public Sub ExcluirLembretesDisparados()
+	Dim SQL As String
+	Dim Colecao As Collection
+	Dim Lembrete As clsLembrete
+	SQL = "Excluir = True"
+	Colecao = Me.Dao.ObterPorQuery(SQL)
+	For Each Lembrete In Colecao
+		Me.Excluir(Lembrete.Id)
+	Next
+End Sub
+
+Public Function ObterLembreteMaisRecente() As clsLembrete
+	Dim SQL As String
+	Dim Colecao As Collection
+	SQL = "Excluir=False Order By Data ASC"
+	Colecao = Me.Dao.ObterPorQuery(SQL)
+	If Not Colecao Is Nothing And Colecao.Count > 0 Then
+		ObterLembreteMaisRecente = clsLembrete(Colecao.Item(1))
+	End If
+End Function
+
+Public Sub GerenciarLembretes()
+	Dim Lembrete As clsLembrete
+	Lembrete = Me.ObterLembreteMaisRecente()
+	If Not Lembrete Is Nothing Then
+		App.Alarm = Lembrete.Data
+	End If
+End Sub]]></Source>
+</Class>

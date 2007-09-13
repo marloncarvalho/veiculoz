@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsDAOAbastecimento</Name>
+  <Segment>classes</Segment>
+  <Extends>clsDAOGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub Initialize()
+	Set Me.Database = New TabelaAbastecimentos
+End Sub
+
+Private Sub clsDAOGenerico_Preencher(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	Dim Abast As New clsAbastecimento
+	Dim Tabela As TabelaAbastecimentos
+	Dim Tipo As New clsTipoCombustivel
+	Dim Empresa As New clsEmpresa
+	Tabela = TabelaAbastecimentos(Record)
+	Abast.Duplicado = Tabela.Duplicado
+	Abast.Data = Tabela.Data
+	Abast.Hora = Tabela.Hora
+	Abast.Id = Tabela.UniqueID
+	Abast.TanqueCheio = Tabela.TanqueCheio
+	Abast.ValorLitro = Tabela.ValorLitro
+	Abast.ValorTotal = Tabela.ValorTotal
+	Abast.Observacoes = Tabela.Observacoes
+	Empresa = clsEmpresa(RNFactory.RNEmpresas().Obter(Tabela.IdEmpresa))
+	Tipo = clsTipoCombustivel(RNFactory.RNTiposCombustivel.Obter(Tabela.IdTipoCombustiv))
+	Abast.Empresa = Empresa
+	Abast.TipoCombustivel = Tipo
+	Repassador.Objeto = Abast
+End Sub
+
+Private Sub clsDAOGenerico_Persistir(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	Dim Abast As clsAbastecimento
+	Dim Tabela As TabelaAbastecimentos
+	Tabela = TabelaAbastecimentos(Record)
+	Abast = clsAbastecimento(Repassador.Objeto)
+	Tabela.Duplicado = Abast.Duplicado
+	Tabela.Hora = Abast.Hora
+	Tabela.Data = Abast.Data
+	Tabela.ValorLitro = Abast.ValorLitro
+	Tabela.ValorTotal = Abast.ValorTotal
+	Tabela.TanqueCheio = Abast.TanqueCheio
+	Tabela.IdEmpresa = Abast.Empresa.Id
+	Tabela.IdTipoCombustiv = Abast.TipoCombustivel.Id
+	Tabela.Observacoes = Abast.Observacoes
+End Sub]]></Source>
+</Class>

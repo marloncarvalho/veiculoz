@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsRNDespesas</Name>
+  <Segment>classes</Segment>
+  <Extends>clsRNGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub Initialize()
+	Set Me.Dao = New clsDAODespesa
+End Sub
+
+Public Function ObterPorTipoDespesaVeiculo(ByVal Id As Long, ByVal Veiculo As Long) As Collection
+	Dim SQL As String
+	Dim Colecao As Collection
+	SQL = "IdTipo = " & Id & " AND IdVeiculo=" & Veiculo & " Order By Data DESC"
+	Colecao = Me.Dao.ObterPorQuery(SQL)
+	ObterPorTipoDespesaVeiculo = Colecao
+End Function
+
+Public Function ObterPorTipoVeiculoPeriodo(ByVal Id As Long, ByVal Veiculo As Long, ByVal Per1 As Date, ByVal Per2 As Date) As Collection
+	Dim SQL As String
+	Dim Colecao As Collection
+	If Id <> 0 Then
+		SQL = "IdTipo = " & Id & " AND IdVeiculo=" & Veiculo & " AND Data <= '" & CStr(Per1) & "' AND Data >= '" & CStr(Per2) & "' Order By Data DESC"
+	Else
+		SQL = "IdVeiculo=" & Veiculo & " AND Data <= '" & CStr(Per1) & "' AND Data >= '" & CStr(Per2) & "' Order By Data DESC"
+	End If
+	Colecao = Me.Dao.ObterPorQuery(SQL)
+	ObterPorTipoVeiculoPeriodo = Colecao
+End Function
+
+Public Function ObterProximasDespesas(ByVal Veiculo As Long, ByVal KmAnterior As Long, ByVal KmAtual As Long) As Collection
+	Dim SQL As String
+	SQL = "IdVeiculo=" & Veiculo & " AND ProximaDespesa >=" & KmAnterior & " AND ProximaDespesa <= " & KmAtual
+	ObterProximasDespesas = Me.Dao.ObterPorQuery(SQL)
+End Function
+
+Public Function ExisteDespesaVeiculo(ByVal Id As Long) As Boolean
+	Dim SQL As String
+	SQL = "IdVeiculo = " & Id
+	ExisteDespesaVeiculo = Me.Dao.Existe(SQL)
+End Function
+
+Public Function ExisteDespesaTipo(ByVal Id As Long) As Boolean
+	Dim SQL As String
+	SQL = "IdTipo = " & Id
+	ExisteDespesaTipo = Me.Dao.Existe(SQL)
+End Function
+
+Public Function ExisteDespesaEmpresa(ByVal Id As Long) As Boolean
+	Dim SQL As String
+	SQL = "IdEmpresa = " & Id
+	ExisteDespesaEmpresa = Me.Dao.Existe(SQL)
+End Function]]></Source>
+</Class>

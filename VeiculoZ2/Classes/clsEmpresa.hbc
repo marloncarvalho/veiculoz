@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsEmpresa</Name>
+  <Segment>classes</Segment>
+  <Extends>clsObjetoGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+' ATRIBUTOS
+Private bNome As String
+Private bRua As String
+Private bCidade As String
+Private bBairro As String
+Private bCep As String
+Private bPosto As Boolean
+Private bDistribuidora As String
+Private bObservacoes As String
+Private bEstado As String
+
+Public Property Get Nome() As String
+	Nome = Me.bNome
+End Property
+
+Public Property Let Nome(ByVal N As String)
+	Me.bNome = N
+End Property
+
+Public Property Get Rua() As String
+	Rua = Me.bRua
+End Property
+
+Public Property Let Rua(ByVal R As String)
+	Me.bRua = R
+End Property
+
+Public Property Get Cidade() As String
+	Cidade = Me.bCidade
+End Property
+
+Public Property Let Cidade(ByVal C As String)
+	Me.bCidade = C
+End Property
+
+Public Property Get Bairro() As String
+	Bairro = Me.bBairro
+End Property
+
+Public Property Let Bairro(ByVal B As String)
+	Me.bBairro = B
+End Property
+
+Public Property Get CEP() As String
+	CEP = Me.bCep
+End Property
+
+Public Property Let CEP(ByVal C As String)
+	Me.bCep = C
+End Property
+
+Public Property Get Posto() As Boolean
+	Posto = Me.bPosto
+End Property
+
+Public Property Let Posto(ByVal P As Boolean)
+	Me.bPosto = P
+End Property
+
+Public Property Get Distribuidora() As String
+	Distribuidora = Me.bDistribuidora
+End Property
+
+Public Property Let Distribuidora(ByVal D As String)
+	Me.bDistribuidora = D
+End Property
+
+Public Property Get Observacoes() As String
+	Observacoes = Me.bObservacoes
+End Property
+
+Public Property Let Observacoes(ByVal O As String)
+	Me.bObservacoes = O
+End Property
+
+Public Property Get Estado() As String
+	Estado = Me.bEstado
+End Property
+
+Public Property Let Estado(ByVal E As String)
+	Me.bEstado = E
+End Property]]></Source>
+</Class>

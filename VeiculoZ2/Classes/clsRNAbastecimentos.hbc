@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsRNAbastecimentos</Name>
+  <Segment>classes</Segment>
+  <Extends>clsRNGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub Initialize()
+	Set Me.Dao = New clsDAOAbastecimento
+End Sub
+
+Public Sub RemoverAbastecimentosOrfaos()
+	Dim Existe As Boolean
+	Dim Colecao As Collection
+	Dim Abast As clsAbastecimento
+	Colecao = Me.ObterTodos()
+	For Each Abast In Colecao
+		Existe = RNFactory.RNPercursos().ExistePercursoComAbastecimento(Abast.Id)
+		If Not Existe Then
+			Me.Excluir(Abast.Id)
+		End If
+	Next
+End Sub
+
+Public Function ExisteAbastecimentoTipo(ByVal Id As Long) As Boolean
+	Dim SQL As String
+	SQL = "IdTipo = " & Id
+	ExisteAbastecimentoTipo = Me.Dao.Existe(SQL)
+End Function
+
+Public Function ExisteAbastecimentoPosto(ByVal Id As Long) As Boolean
+	Dim SQL As String
+	SQL = "IdEmpresa = " & Id
+	ExisteAbastecimentoPosto = Me.Dao.Existe(SQL)
+End Function]]></Source>
+</Class>

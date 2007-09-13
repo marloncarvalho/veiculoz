@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsLembrete</Name>
+  <Segment>classes</Segment>
+  <Extends>clsObjetoGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private bData As Date
+Private bDescription As String
+Private bExcluir As Boolean
+
+Public Property Get Excluir()As Boolean
+	Excluir = bExcluir
+End Property
+
+Public Property Let Excluir(E As Boolean)
+	bExcluir = E
+End Property
+
+Public Property Get Data() As Date
+	Data = bData
+End Property
+
+Public Property Let Data(D As Date)
+	bData = D
+End Property
+
+Public Property Get Descricao() As String
+	Descricao = bDescription
+End Property
+
+Public Property Let Descricao(S As String)
+	bDescription = S
+End Property]]></Source>
+</Class>

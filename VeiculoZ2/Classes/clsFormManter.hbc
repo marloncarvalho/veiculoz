@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsFormManter</Name>
+  <Segment>main</Segment>
+  <Extends>Form</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+' ATRIBUTOS
+Private bIdentificador As Long
+Private RNGenerico As clsRNGenerico
+Private bMensagemErro As String
+Private bEstado As Integer
+Private bIsModal As Boolean
+Private bObjeto As clsObjetoGenerico
+
+' EVENTOS
+Public Event Validar(ByRef Objeto As clsObjetoGenerico, ByRef MsgErro As String)
+Public Event Preencher(ByRef Repassador As clsRepassador)
+Public Event PreencherCampos(ByRef Objeto As clsObjetoGenerico)
+Public Event LimparCampos()
+Public Event TelaListagem(ByRef Tela As clsRepassador)
+Public Event Inicializar()
+
+' MÉTODOS
+Private Sub Initialize()
+	Me.bEstado = 1
+End Sub
+
+Private Sub TelaListagem(ByRef Tela As clsRepassador)
+	RaiseEvent TelaListagem(Tela)
+End Sub
+
+Protected Sub LimparCampos()
+	Dim Resultado As Integer
+	Resultado = MsgBox("Os dados modificados serão perdidos. Deseja continuar?",hbMsgBoxYesNo)
+	If Resultado = 1 Then
+		RaiseEvent LimparCampos()
+	End If
+End Sub
+
+Public Sub Form_Load()
+	Me.Inicializar()
+End Sub
+
+Public Sub Voltar()
+	If Me.IsModal() Then
+		Unload(Me)
+	Else
+		Dim Repassador As New clsRepassador
+		Dim Form As Form
+		Me.TelaListagem(Repassador)
+		Set Form = clsFormListar(Repassador.Objeto)
+		Form.Show(hbFormGoto)
+	End If
+End Sub
+
+Public Sub Inicializar()
+	RaiseEvent Inicializar()
+End Sub
+
+Public Sub Iniciar()
+	If Me.bIdentificador <> 0 Then
+		Dim Objeto As clsObjetoGenerico
+		Set Objeto = clsObjetoGenerico(Me.RNGenerico.Obter(Me.bIdentificador))
+		Me.PreencherCampos(Objeto)
+		Me.bEstado = 2
+		Set Me.Objeto = Objeto
+	End If
+End Sub
+
+Public Sub Excluir()
+	Try
+		Dim Resultado As Integer
+		If Me.bEstado = 2 And Me.bIdentificador <> 0 Then
+			Resultado = MsgBox("Confirma Exclusão?",hbMsgBoxYesNo)
+			If Resultado = 1 Then
+				Me.RNGenerico.Excluir(Me.bIdentificador)
+				Set Me.Objeto = Nothing
+				Me.Voltar()
+			End If
+		Else
+			MsgBox("Os dados deste formulário ainda não foram salvos. Não é possível realizar a exclusão.")
+		End If
+	Catch
+		MsgBox(Err.Description,hbMsgBoxError)
+	End Catch
+End Sub
+
+Private Sub PreencherCampos(ByRef Objeto As clsObjetoGenerico)
+	RaiseEvent PreencherCampos(Objeto)
+End Sub
+
+Private Sub Validar(ByRef Objeto As clsObjetoGenerico, ByRef MsgErro As String)
+	RaiseEvent Validar(Objeto, MsgErro)
+End Sub
+
+Private Sub Preencher(ByRef Repassador As clsRepassador)
+	RaiseEvent Preencher(Repassador)
+End Sub
+
+Public Sub Salvar()
+	Dim Repassador As New clsRepassador
+	Dim ObjetoGenerico As clsObjetoGenerico
+	Me.bMensagemErro = ""
+	Me.Preencher(Repassador)
+	Set ObjetoGenerico = clsObjetoGenerico(Repassador.Objeto)
+	Me.Validar(ObjetoGenerico, Me.bMensagemErro)
+	If Me.MensagemErro = "" Then
+		Me.RNGenerico.Salvar(ObjetoGenerico)
+		Me.bIdentificador = ObjetoGenerico.Id
+		Me.bEstado = 2
+		MsgBox("Operação Realizada com Sucesso!",hbMsgBoxInformation)
+	Else
+		MsgBox(Me.MensagemErro)
+	End If
+	Set Me.Objeto = ObjetoGenerico
+End Sub
+
+' PROPRIEDADES
+Public Property Get Identificador() As Long
+	Identificador = Me.bIdentificador
+End Property
+
+Public Property Let Identificador(ByVal P As Long)
+	Me.bIdentificador = P
+End Property
+
+Public Property Get MensagemErro() As String
+	MensagemErro = Me.bMensagemErro
+End Property
+
+Public Property Let MensagemErro(ByVal Mensagem As String)
+	Me.bMensagemErro = Mensagem
+End Property
+
+Public Property Set RegrasNegocio(ByRef RNG As clsRNGenerico)
+	Set Me.RNGenerico = RNG
+End Property
+
+Public Property Get RegrasNegocio() As clsRNGenerico
+	Set RegrasNegocio = Me.RNGenerico
+End Property
+
+Public Property Let Estado(ByVal Est As Integer)
+	Me.bEstado = Est
+End Property
+
+Public Property Get IsModal() As Boolean
+	IsModal = Me.bIsModal
+End Property
+
+Public Property Let IsModal(ByVal B As Boolean)
+	Me.bIsModal = B
+End Property
+
+Public Property Get Objeto() As clsObjetoGenerico
+	Set Objeto = Me.bObjeto
+End Property
+
+Public Property Set Objeto(ByRef Obj As clsObjetoGenerico)
+	Set Me.bObjeto = Obj
+End Property]]></Source>
+</Class>

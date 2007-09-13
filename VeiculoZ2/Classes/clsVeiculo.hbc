@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsVeiculo</Name>
+  <Segment>classes</Segment>
+  <Extends>clsObjetoGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private pChassi As String
+Private pModelo As String
+Private pMarca As String
+Private pPlaca As String
+Private pRenavam as String
+Private pCor As String
+Private pAno As String
+
+Public Function OrdenarModelo(ByRef Objeto1 As Variant, ByRef Objeto2 As Variant) As Integer
+	Dim Veiculo1 As clsVeiculo
+	Dim Veiculo2 As clsVeiculo
+	Set Veiculo1 = clsVeiculo(Objeto1)
+	Set Veiculo2 = clsVeiculo(Objeto2)
+	OrdenarModelo = StrComp(Veiculo1.Modelo, Veiculo2.Modelo, hbCompareBinary)
+End Function
+
+Public Function OrdenarMarca(ByRef Objeto1 As Variant, ByRef Objeto2 As Variant) As Integer
+	Dim Veiculo1 As clsVeiculo
+	Dim Veiculo2 As clsVeiculo
+	Set Veiculo1 = clsVeiculo(Objeto1)
+	Set Veiculo2 = clsVeiculo(Objeto2)
+	OrdenarMarca = StrComp(Veiculo1.Marca, Veiculo2.Marca, hbCompareBinary)
+End Function
+
+' PROPRIEDADES
+
+' Obter o Chassi do Veículo.
+'
+' Retorna: Chassi do Veículo.
+Public Property Get Chassi() As String
+	Chassi = Me.pChassi
+End Property
+
+' Definir o Chassi do Veículo.
+'
+' Parâmetro p: Chassi do Veículo.
+Public Property Let Chassi(p As String)
+	Me.pChassi = p
+End Property
+
+' Obter o Modelo do Veículo.
+'
+' Retorna: Modelo.
+Public Property Get Modelo() As String
+	Modelo = Me.pModelo
+End Property
+
+' Definir o Modelo do Veículo.
+'
+' Parâmetro p: Modelo.
+Public Property Let Modelo(p As String)
+	Me.pModelo = p
+End Property
+
+' Obter a Marca do Veículo.
+'
+' Retorna: Marca.
+Public Property Get Marca() As String
+	Marca = Me.pMarca
+End Property
+
+' Definir a Marca do Veículo.
+'
+' Parâmetro p: Marca.
+Public Property Let Marca(p As String)
+	Me.pMarca = p
+End Property
+
+' Obter a Placa do Veículo.
+'
+' Retorna: Placa.
+Public Property Get Placa() As String
+	Placa = Me.pPlaca
+End Property
+
+' Definir a Placa do Veículo.
+'
+' Parâmetro p: Placa.
+Public Property Let Placa(p As String)
+	Me.pPlaca = p
+End Property
+
+' Obter o Renavam do Veículo.
+'
+' Retorna: Renavam.
+Public Property Get Renavam() As String
+	Renavam = Me.pRenavam
+End Property
+
+' Definir o Renavam do Veículo.
+'
+' Parâmetro p: Renavam.
+Public Property Let Renavam(p As String)
+	Me.pRenavam = p
+End Property
+
+' Obter a Cor do Veículo.
+'
+' Retorna: Cor.
+Public Property Get Cor() As String
+	Cor = Me.pCor
+End Property
+
+' Definir a Cor do Veículo.
+'
+' Parâmetro p: Cor.
+Public Property Let Cor(p As String)
+	Me.pCor = p
+End Property
+
+' Obter o Ano do Veículo.
+'
+' Retorna: Renavam.
+Public Property Get Ano() As String
+	Ano = Me.pAno
+End Property
+
+' Definir a Ano do Veículo.
+'
+' Parâmetro p: Ano.
+Public Property Let Ano(p As String)
+	Me.pAno = p
+End Property]]></Source>
+</Class>

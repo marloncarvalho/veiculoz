@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsRNPercurso</Name>
+  <Segment>classes</Segment>
+  <Extends>clsRNGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub Initialize()
+	Me.Dao = New clsDAOPercurso
+End Sub
+
+Public Function ObterPorVeiculoPeriodo(ByVal Veiculo As Long, ByVal Periodo1 As Date, ByVal Periodo2 As Date, Optional Viagem As Boolean=False) As Collection
+	Dim Sql As String
+	Sql = "Viagem=" & Viagem & " AND IdVeiculo = " & CStr(Veiculo) & " AND Data >= '" & CStr(Periodo1) & "' AND Data <= '" & CStr(Periodo2) & "' Order By Data DESC"
+	ObterPorVeiculoPeriodo = Me.Dao.ObterPorQuery(Sql)
+End Function
+
+Public Function ObterPorVeiculoPeriodoTipo(ByVal Veiculo As Long, ByVal Tipo As Long, ByVal Periodo1 As Date, ByVal Periodo2 As Date, Optional Viagem As Boolean=False) As Collection
+	Dim Sql As String
+	Dim Colecao As Collection
+	Dim Percurso As clsPercurso
+	Dim ColecaoFinal As New Collection
+	Sql = "Viagem=" & Viagem & " AND IdVeiculo = " & CStr(Veiculo) & " AND Data >= '" & CStr(Periodo1) & "' AND Data <= '" & CStr(Periodo2) & "' Order By Data DESC"
+	Colecao = Me.Dao.ObterPorQuery(Sql)
+	For Each Percurso In Colecao
+		If Not Percurso.Abastecimento Is Nothing Then
+			If Percurso.Abastecimento.TipoCombustivel.Id = Tipo Then
+				ColecaoFinal.Add(Percurso)
+			End If
+		End If
+	Next
+	ObterPorVeiculoPeriodoTipo = ColecaoFinal
+End Function
+
+Public Function ObterPorVeiculo(ByVal Id As Long) As Collection
+	Dim SQL As String
+	Dim Colecao As Collection
+	If Id = 0 Then
+		ObterPorVeiculo = Me.ObterTodos()
+	Else
+		SQL = "IdVeiculo=" & Id & " Order By Data DESC"
+		Colecao = Me.Dao.ObterPorQuery(SQL)
+		ObterPorVeiculo = Colecao
+	End If
+End Function
+
+Public Function ObterUltimoPercurso() As clsPercurso
+	Dim Percurso As clsPercurso
+	Percurso = clsPercurso(Me.Dao.ObterUltimoRegistro())
+	ObterUltimoPercurso = Percurso
+End Function
+
+Public Function ExistePercursoComAbastecimento(ByVal Id As Long) As Boolean
+	Dim SQL As String
+	Dim Colecao As Collection
+	SQL = "IdAbastFinal = " & Id & " OR IdAbastInicial = " & Id
+	Colecao = Me.Dao.ObterPorQuery(SQL)
+	If Colecao.Count > 0 Then
+		ExistePercursoComAbastecimento = True
+	Else
+		ExistePercursoComAbastecimento = False
+	End If
+End Function
+
+Public Function ObterGastosPorVeiculoPeriodo(ByVal Id As Long, ByVal Per1 As Date, ByVal Per2 As Date) As Double
+	Dim Colecao As Collection
+	Dim Percurso As clsPercurso
+	Dim Total As Double
+	Colecao = Me.ObterPorVeiculoPeriodo(Id,Per1,Per2)
+	For Each Percurso In Colecao
+		Total = Total + Percurso.ObterGastoTotal()
+	Next
+	ObterGastosPorVeiculoPeriodo = Total
+End Function
+
+Public Function ExistePercursoVeiculo(ByVal Id As Long) As Boolean
+	Dim SQL As String
+	SQL = "IdVeiculo = " & Id
+	ExistePercursoVeiculo = Me.Dao.Existe(SQL)
+End Function]]></Source>
+</Class>

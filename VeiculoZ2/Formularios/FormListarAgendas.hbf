@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Form file -->
+<Form Version="2.50">
+  <Name>FormListarAgendas</Name>
+  <Segment>forms</Segment>
+  <Extends>Form</Extends>
+  <Locked>False</Locked>
+  <Layout Target="Palm OS">
+    <Left>2</Left>
+    <Top>2</Top>
+    <Width>156</Width>
+    <Height>137</Height>
+    <Caption xml:space="preserve">VeículoZ</Caption>
+    <Modal>True</Modal>
+    <Help/>
+    <DIA>0</DIA>
+    <SaveBehind>False</SaveBehind>
+    <NavState>0</NavState>
+    <InitialFocus/>
+    <BottomLeft/>
+    <Label>
+      <Name>Label1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>35</Left>
+      <Top>14</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Lembretes</Caption>
+      <Font>LargeBold</Font>
+    </Label>
+    <GridEx>
+      <Name>Grid1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>2</Left>
+      <Top>42</Top>
+      <Width>152</Width>
+      <Height>65</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <SelectionMode>0</SelectionMode>
+      <VertScroll>Spin</VertScroll>
+      <HorzScroll/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+      <Columns>
+        <Column>
+          <ColumnType>5</ColumnType>
+          <Masked>False</Masked>
+          <Width>100</Width>
+          <Alignment>0</Alignment>
+          <Font>Standard</Font>
+        </Column>
+      </Columns>
+    </GridEx>
+    <Button>
+      <Name>btnOK</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>94</Left>
+      <Top>117</Top>
+      <Width>40</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">OK</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <SpinButton>
+      <Name>Spin</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>140</Left>
+      <Top>17</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </SpinButton>
+    <Label>
+      <Name>Label2</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>35</Left>
+      <Top>27</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Despesas Agendadas</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Picture>
+      <Name>Picture1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>-2</Left>
+      <Top>40</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>LinhaSeparacaoSimples</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Picture>
+      <Name>Picture2</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>-2</Left>
+      <Top>107</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>LinhaSeparacaoSimples</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Button>
+      <Name>btnDespesa</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>20</Left>
+      <Top>117</Top>
+      <Width>67</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">Nova Despesa</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Picture>
+      <Name>Picture3</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>5</Left>
+      <Top>12</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>IconeSino</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+  </Layout>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private bColecao As Collection
+
+Public Property Set Colecao(ByRef Col As Collection)
+	Me.bColecao = Col
+End Property
+
+Private Sub btnOK_Click()
+	Unload(Me)
+End Sub
+
+Public Sub Mostrar()
+	Me.Grid1.Clear()
+	Dim Despesa As clsDespesa
+	For Each Despesa In Me.bColecao
+		Me.Grid1.AddItem(Despesa.Id)
+	Next
+End Sub
+
+Private Sub Grid1_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
+	Dim Despesa As clsDespesa
+	Despesa = clsDespesa(RNFactory.RNDespesas().Obter(lItemData))
+	vValue(0) = Despesa.Descricao
+End Sub
+
+Private Sub btnDespesa_Click()
+	Dim Form As New FormManterDespesa
+	Form.Show(hbFormModal+hbFormGoto)
+End Sub]]></Source>
+</Form>

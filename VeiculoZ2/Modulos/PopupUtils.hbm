@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Module file -->
+<Module Version="2.50">
+  <Name>PopupUtils</Name>
+  <Segment>main</Segment>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Public Sub ObterTiposDespesas(ByRef Pop As Popup, Optional SelectedValue As String = "")
+	Dim RNTipos As clsRNTipoDespesa
+	Dim ColecaoTipos As Collection
+	Dim Tipo As clsTipoDespesa
+	Dim Indice As Integer
+	Indice = 0
+	Set RNTipos = RNFactory.RNTiposDespesas()
+	Set ColecaoTipos = RNTipos.ObterTodos()
+	Pop.Clear()
+	For Each Tipo In ColecaoTipos
+		Pop.AddItem(Tipo.Descricao,Tipo.Id)
+		If Tipo.Descricao = SelectedValue Then
+			Pop.ListIndex = Indice
+		End If
+		Indice = Indice + 1
+	Next
+End Sub
+
+Public Sub ObterTipos(ByRef Pop As Popup, Optional SelectedValue As String = "")
+	Dim RNTipos As clsRNTipoCombustivel
+	Dim ColecaoTipos As Collection
+	Dim Tipo As clsTipoCombustivel
+	Dim Indice As Integer
+	Indice = 0
+	Set RNTipos = RNFactory.RNTiposCombustivel()
+	Set ColecaoTipos = RNTipos.ObterTodos()
+	Pop.Clear()
+	For Each Tipo In ColecaoTipos
+		Pop.AddItem(Tipo.Descricao,Tipo.Id)
+		If Tipo.Descricao = SelectedValue Then
+			Pop.ListIndex = Indice
+		End If
+		Indice = Indice + 1
+	Next
+End Sub
+
+Public Sub ObterPostos(ByRef Pop As Popup, Optional SelectedValue As String = "")
+	Dim RNEmpresas As clsRNEmpresa
+	Dim ColecaoEmpresas As Collection
+	Dim Empresa As clsEmpresa
+	Dim Indice As Integer
+	Indice = 0
+	Set RNEmpresas = RNFactory.RNEmpresas()
+	Set ColecaoEmpresas = RNEmpresas.ObterTodos()
+	Pop.Clear()
+	For Each Empresa In ColecaoEmpresas
+		Pop.AddItem(Empresa.Nome,Empresa.Id)
+		If Empresa.Nome = SelectedValue Then
+			Pop.ListIndex = Indice
+		End If
+		Indice = Indice + 1
+	Next
+End Sub
+
+Public Sub ObterEmpresas(ByRef Pop As Popup, Optional SelectedValue As String = "")
+	Dim RNEmpresas As clsRNEmpresa
+	Dim ColecaoEmpresas As Collection
+	Dim Empresa As clsEmpresa
+	Dim Indice As Integer
+	Indice = 0
+	Set RNEmpresas = RNFactory.RNEmpresas()
+	Set ColecaoEmpresas = RNEmpresas.ObterTodos()
+	Pop.Clear()
+	For Each Empresa In ColecaoEmpresas
+		Pop.AddItem(Empresa.Nome,Empresa.Id)
+		If Empresa.Nome = SelectedValue Then
+			Pop.ListIndex = Indice
+		End If
+		Indice = Indice + 1
+	Next
+End Sub
+
+Public Sub ObterVeiculos(ByRef Pop As Popup, Optional SelectedValue As String = "")
+	Dim RNVeiculos As clsRNVeiculo
+	Dim Colecao As Collection
+	Dim Veiculo As clsVeiculo
+	Dim Indice As Integer
+	Indice = 0
+	Set RNVeiculos = RNFactory.RNVeiculos
+	Set Colecao = RNVeiculos.ObterTodos()
+	Pop.Clear()
+	For Each Veiculo In Colecao
+		Pop.AddItem(Veiculo.Modelo,Veiculo.Id)
+		If Veiculo.Modelo = SelectedValue Then
+			Pop.ListIndex = Indice
+		End If
+		Indice = Indice + 1
+	Next
+End Sub]]></Source>
+</Module>

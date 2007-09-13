@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Class file -->
+<Class Version="2.50">
+  <Name>clsDAOLembrete</Name>
+  <Segment>classes</Segment>
+  <Extends>clsDAOGenerico</Extends>
+  <Instantiable>True</Instantiable>
+  <Extendable>True</Extendable>
+  <Cloneable>False</Cloneable>
+  <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
+'
+' VeículoZ is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' VeículoZ is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Private Sub Initialize()
+	Set Me.Database = New TabelaLembretes
+End Sub
+
+Private Sub clsDAOGenerico_Preencher(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	Dim Lembrete As New clsLembrete
+	Dim Tabela As TabelaLembretes
+	Tabela = TabelaLembretes(Record)
+	Lembrete.Id = Tabela.UniqueID
+	Lembrete.Descricao = Tabela.Descricao
+	Lembrete.Data = Tabela.Data
+	Lembrete.Excluir = Tabela.Excluir
+	Set Repassador.Objeto = Lembrete
+End Sub
+
+Private Sub clsDAOGenerico_Persistir(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
+	Dim Lembrete As clsLembrete
+	Dim Tabela As TabelaLembretes
+	Tabela = TabelaLembretes(Record)
+	Lembrete = clsLembrete(Repassador.Objeto)
+	Tabela.Descricao = Lembrete.Descricao
+	Tabela.Data = Lembrete.Data
+	Tabela.Excluir = Lembrete.Excluir
+End Sub]]></Source>
+</Class>
