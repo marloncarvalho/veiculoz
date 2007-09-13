@@ -37,6 +37,8 @@ Private dbl_valorlitro As Double
 
 Private dbl_valortotal As Double
 
+Private boo_cheio As Boolean
+
 Private dte_data As Date
 
 Private str_kminicial As String
@@ -149,4 +151,12 @@ End Property
 
 Public Property Let Hora (h As Long)
 	lng_hora = h
+End Property
+
+Public Property Get TanqueCheio() As Boolean
+	TanqueCheio = Me.boo_cheio
+End Property
+
+Public Property Let TanqueCheio (t As Boolean)
+	Me.boo_cheio = t
 End Property

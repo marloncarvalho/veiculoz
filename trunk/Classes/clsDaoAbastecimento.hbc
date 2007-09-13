@@ -28,10 +28,16 @@ end
 ' Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 Private Db As New pvHbAbastecimentos
+Private DbExtra As New pvHbAbastecimentosExtra
 
 Public Property Get Database() As pvHbAbastecimentos
 	Set Database = Db
 End Property
+
+Public Property Get DatabaseExtra() As pvHbAbastecimentosExtra
+	Set DatabaseExtra = DbExtra
+End Property
+
 
 'Construtor.
 Private Sub Initialize()
@@ -40,6 +46,13 @@ Private Sub Initialize()
 	Catch
 		If Err.Number = 43 Then
 			Db.OpenRecordset "Category>=0 Order By Data Desc", hbModeCreateAlways+hbModeReadWrite
+		End If
+	End Catch
+	Try
+	  DbExtra.OpenRecordset "Category>=0", hbModeOpenExisting+hbModeReadWrite
+	Catch
+		If Err.Number = 43 Then
+			DbExtra.OpenRecordset "Category>=0", hbModeCreateAlways+hbModeReadWrite
 		End If
 	End Catch
 End Sub
@@ -51,8 +64,14 @@ Public Sub ManterAbastecimento(Abs As clsAbastecimento)
 	If Not IsEmpty(Abs.Id) And Abs.Id <> 0 Then
 		Db.LookupUniqueID Abs.Id
 		Db.Edit
+		If Me.ObterAbastecimentoExtra(Abs.Id) Then
+			Call Me.DbExtra.Edit()
+		Else
+			Call Me.DbExtra.AddNew()
+		End If
 	Else
-		Db.AddNew
+		Call Db.AddNew()
+		Call DbExtra.AddNew()
 	End If
 	Db.Viagem = Abs.Viagem
 	Db.Data = Abs.Data
@@ -65,8 +84,26 @@ Public Sub ManterAbastecimento(Abs As clsAbastecimento)
 	Db.ValorLitro = Abs.ValorLitro
 	Db.ValorTotal = Abs.ValorTotal
 	Db.Invalido = Abs.Invalido
-	Db.Update
+	Call Db.Update()
+	DbExtra.IdAbastecimento = Db.UniqueID
+	DbExtra.TanqueCheio = Abs.TanqueCheio
+	Call DbExtra.Update()
 End Sub
+
+Private Function ObterAbastecimentoExtra(IdAbast As Long) As Boolean
+	Try
+		Call DbExtra.OpenRecordset("IdAbastecimento=" & IdAbast, hbModeReadWrite)
+		If Not Me.DbExtra.EOF Then
+			Call DbExtra.MoveFirst()
+			ObterAbastecimentoExtra = True
+		Else
+			ObterAbastecimentoExtra = False
+		End If
+	Catch
+		Err.MsgBox
+		ObterAbastecimentoExtra = False
+	End Catch
+End Function
 
 ' Localizar um Carro.
 '
@@ -100,6 +137,11 @@ Private Function CriarAbastecimento(ByRef Db As pvHbAbastecimentos) As clsAbaste
 	Abs.ValorTotal = Db.ValorTotal
 	Abs.Invalido = Db.Invalido
 	Abs.Viagem = Db.Viagem
+	If Me.ObterAbastecimentoExtra(Db.UniqueID) Then
+		Abs.TanqueCheio = Me.DbExtra.TanqueCheio
+	Else
+		Abs.TanqueCheio = False
+	End If
 	Set CriarAbastecimento = Abs
 End Function
 
