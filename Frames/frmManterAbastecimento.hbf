@@ -604,7 +604,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 21
+    Left = 2
     Top = 129
     Width = 58
     Height = 12
@@ -625,7 +625,7 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 84
+    Left = 56
     Top = 129
     Width = 59
     Height = 12
@@ -706,6 +706,27 @@ begin Form
     Left = 149
     Top = 18
     Anchors = 0
+  end
+  begin CheckBox
+    Name = chkTanque
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 112
+    Top = 129
+    Width = 47
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Cheio?"
+    Font = "Standard"
+    Value = False
+    AnchorLeft = True
+    Group = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
   end
 end
 ' VeículoZ - Controle de Veículos
@@ -828,6 +849,7 @@ Private Sub btnOk_Click()
 			Abs.KmFinal = Km
 			Abs.ValorLitro = CDbl(Replace(Me.fldValorLitro.Text,",","."))
 			Abs.ValorTotal = CDbl(Replace(Me.fldValorTotal.Text,",","."))
+			Abs.TanqueCheio = Me.chkTanque.Value
 			Factory.ObterDaoAbastecimento().ManterAbastecimento(Abs)
 			Me.btnCancelar_Click
 			Call VerificarAlarmeDespesas(Abs.IdCarro,Abs.KmInicial,Me.KmAnterior)
@@ -935,6 +957,7 @@ Private Sub Form_Load()
 		Me.fldValorTotal.Text = CStr(Abs.ValorTotal)
 		Me.chkInvalido.Value = Abs.Invalido
 		Me.chkViagem.Value = Abs.Viagem
+		Me.chkTanque.Value = Abs.TanqueCheio
 		If Abs.KmFinal <> "" Then
 			Me.fldDiferenca.Text = CStr(CLng(Abs.KmFinal)-CLng(Abs.KmInicial)) & " Kms"
 		End If
