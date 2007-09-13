@@ -70,6 +70,7 @@ begin Project
   File = "Frames\\frmConfigInternet.hbf"
   File = "Frames\\frmGraficoDespesas.hbf"
   File = "Frames\\frmRelatorioDespesasGerais.hbf"
+  File = "Classes\\clsAbastecimentoRN.hbc"
   begin Configuration
     Name = Debug
     Title = "VeículoZ"
@@ -329,5 +330,14 @@ begin Project
   begin Package
     Segment = Packages
     Filename = "Packages\\ucColorPicker.hbk"
+  end
+  begin Table
+    Name = pvHbAbastecimentosExtra
+    Creator = "*"
+    Type = "DATA"
+    Backup = False
+    Bundled = False
+    PDB = 0
+    Filename = "Databases\\pvHbAbastecimentosExtra.hbx"
   end
 end

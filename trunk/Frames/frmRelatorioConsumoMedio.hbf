@@ -25,9 +25,9 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 150
-    Top = 66
+    Top = 76
     Width = 7
-    Height = 63
+    Height = 57
     Anchors = 0
     Visible = True
     Min = 0
@@ -40,7 +40,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 104
-    Top = 58
+    Top = 66
     Anchors = 0
     Visible = True
     Caption = "Consumo"
@@ -52,7 +52,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 4
-    Top = 58
+    Top = 66
     Anchors = 0
     Visible = True
     Caption = "Posto"
@@ -63,8 +63,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 4
-    Top = 129
+    Left = 33
+    Top = 131
     Anchors = 0
     Visible = True
     Caption = "Consumo Médio:"
@@ -75,8 +75,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 87
-    Top = 129
+    Left = 116
+    Top = 131
     Anchors = 0
     Visible = True
     Caption = "                    "
@@ -88,7 +88,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 35
-    Top = 144
+    Top = 145
     Width = 42
     Height = 12
     Anchors = 0
@@ -107,8 +107,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 53
-    Top = 17
+    Left = 34
+    Top = 16
     Anchors = 0
     Visible = True
     Caption = "Data Inicial"
@@ -119,8 +119,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 54
-    Top = 29
+    Left = 35
+    Top = 28
     Width = 45
     Height = 12
     Anchors = 0
@@ -141,8 +141,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 105
-    Top = 17
+    Left = 86
+    Top = 16
     Anchors = 0
     Visible = True
     Caption = "Data Final"
@@ -153,8 +153,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 106
-    Top = 29
+    Left = 87
+    Top = 28
     Width = 46
     Height = 12
     Anchors = 0
@@ -165,26 +165,6 @@ begin Form
     AnchorLeft = True
     Mode = 1
     DialogTitle = ""
-    NavFlags = 0
-    NavOrder = ""
-    Above = ""
-    Below = ""
-  end
-  begin Button
-    Name = Button1
-    Index = 0
-    Layer = 0
-    Tag = ""
-    Left = 83
-    Top = 144
-    Width = 42
-    Height = 12
-    Anchors = 0
-    Visible = True
-    Text = "Voltar"
-    Font = "Standard"
-    Frame = 1
-    Repeating = False
     NavFlags = 0
     NavOrder = ""
     Above = ""
@@ -336,7 +316,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 2
-    Top = 46
+    Top = 43
     Width = 78
     Height = 12
     Anchors = 0
@@ -357,7 +337,7 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 83
-    Top = 46
+    Top = 43
     Width = 74
     Height = 12
     Anchors = 0
@@ -377,8 +357,8 @@ begin Form
     Index = 0
     Layer = 0
     Tag = ""
-    Left = 7
-    Top = 20
+    Left = 5
+    Top = 17
     Anchors = 0
     Visible = True
     Image = "Relatorio"
@@ -393,9 +373,9 @@ begin Form
     Layer = 0
     Tag = ""
     Left = 4
-    Top = 70
-    Width = 146
-    Height = 56
+    Top = 78
+    Width = 144
+    Height = 52
     Anchors = 0
     Visible = True
     Columns = "AgB0AQUAOQBkAAsAAAAAAAAAAAAoAAMABQA5ACgACwAAAAAAAAAAACgAAwA="
@@ -415,6 +395,47 @@ begin Form
     Left = 150
     Top = 148
     Anchors = 0
+  end
+  begin Button
+    Name = btnVoltar
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 84
+    Top = 145
+    Width = 40
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Voltar"
+    Font = "Standard"
+    Frame = 1
+    Repeating = False
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
+  end
+  begin CheckBox
+    Name = chkTanqueCheio
+    Index = 0
+    Layer = 0
+    Tag = ""
+    Left = 16
+    Top = 55
+    Width = 127
+    Height = 12
+    Anchors = 0
+    Visible = True
+    Text = "Apenas com Tanque Cheio"
+    Font = "Standard"
+    Value = False
+    AnchorLeft = True
+    Group = 0
+    NavFlags = 0
+    NavOrder = ""
+    Above = ""
+    Below = ""
   end
 end
 ' VeículoZ - Controle de Veículos
@@ -436,8 +457,10 @@ end
 
 Dim DbAbaste As pvHbAbastecimentos
 Dim DbPostos As pvHbPostos
+Dim DbAbasteExtra As pvHbAbastecimentosExtra
 
 Private Sub Form_Load()
+	Set DbAbasteExtra = Factory.ObterDaoAbastecimento().DatabaseExtra()
 	Set DbAbaste = Factory.ObterDaoAbastecimento().Database()
 	Set DbPostos = Factory.ObterDaoPosto().Database()
 	Dim Carro As clsVeiculo
@@ -449,44 +472,14 @@ Private Sub Form_Load()
 End Sub
 
 Private Sub btnPesquisar_Click()
-	Dim Sql As String
-	Dim SqlInvalido As String
-	Dim SqlViagem As String
-	If Me.popCarros.ListIndex = -1 Then
-		MsgBox "Selecione um Veículo."
-		Exit Sub
-	End If
-	Sql = " AND IdCarro=" & Me.popCarros.ItemData(Me.popCarros.ListIndex)
-	If Me.chkInvalido.Value Then
-		SqlInvalido = " AND Invalido = False "
-	End If
-	If Me.chkViagem.Value Then
-		SqlViagem = " AND Viagem = False "
-	End If
-	DbAbaste.OpenRecordset "KmFinal <> '' And KmFinal <> 0 AND Data>='" & CStr(Me.slcDataInicial.Date) & "' AND Data<='" & CStr(Me.slcDataFinal.Date) & "'" & Sql & SqlInvalido & SqlViagem,hbModeOpenAlways
-
-	Dim Total As Double
-	Dim Count As Integer
-	Count = 0
-	Total = 0
-	While Not DbAbaste.EOF
-		Dim KmRodados As Double
-		Dim Litros As Double
-		Count = Count + 1
-		KmRodados =  CDbl(DbAbaste.KmFinal)-CDbl(DbAbaste.KmInicial)
-		Litros = DbAbaste.ValorTotal / DbAbaste.ValorLitro
-		Total = Total + (KmRodados/Litros)
-		DbAbaste.MoveNext
-	Wend
+	Dim RN As New clsAbastecimentoRN
 	Dim ValorFinal As Double
-	If Total = 0.0 Then
-		ValorFinal = 0
-	Else
-		ValorFinal = Total/Count
-	End If
-	DbAbaste.MoveFirst
+	Dim IdCarro As Long
+
+	IdCarro = Me.popCarros.ItemData(Me.popCarros.ListIndex)
+	ValorFinal = RN.ObterConsumoMedioTotal(IdCarro,Me.chkViagem.Value,Me.chkInvalido.Value,Me.chkTanqueCheio.Value)
 	Me.lblTotal.Caption = Mid(CStr(ValorFinal),1,8) & " Km/L"
-	Me.gridAbastecimentos.Populate DbAbaste
+	'Me.gridAbastecimentos.Populate DbAbaste
 End Sub
 
 
@@ -504,8 +497,7 @@ Private Sub gridAbastecimentos_LoadItem(ByVal iRow As Integer, ByVal lItemData A
 	vValue(1) = Mid(CStr(Total),1,6)
 End Sub
 
-
-Private Sub Button1_Click()
+Private Sub btnVoltar_Click()
 	Dim frm As New frmMain
 	frm.Show hbFormModeless+hbFormGoto
 End Sub
