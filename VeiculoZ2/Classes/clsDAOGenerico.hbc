@@ -24,6 +24,7 @@
 
 ' ATRIBUTOS
 Private pDatabase As Recordset
+Private Cache As New Collection:clsObjetoGenerico
 
 ' EVENTOS
 Public Event Preencher(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
@@ -56,8 +57,12 @@ Public Function ObterTodos(Optional Ordenacao As String = "") As Collection
 	Me.pDatabase.MoveFirst()
 	While Not pDatabase.EOF
 		Dim Objeto As New clsRepassador
-		Preencher(pDatabase, Objeto)
-		Colecao.Add(Objeto.Objeto)
+		If Me.Cache.Has(Me.pDatabase.UniqueID & "") Then
+			Colecao.Add(Me.Cache.Item(Me.pDatabase.UniqueID & ""))
+		Else
+			Preencher(pDatabase, Objeto)
+			Colecao.Add(Objeto.Objeto)
+		End If
 		pDatabase.MoveNext()
 	Wend
 	Set ObterTodos = Colecao
@@ -78,8 +83,12 @@ Public Function ObterPorQuery(ByVal Query As String) As Collection
 	Me.pDatabase.OpenRecordset(Query,hbModeReadWrite)
 	While Not pDatabase.EOF
 		Dim Objeto As New clsRepassador
-		Preencher(pDatabase, Objeto)
-		Colecao.Add(Objeto.Objeto)
+		If Me.Cache.Has(Me.pDatabase.UniqueID & "") Then
+			Colecao.Add(Me.Cache.Item(Me.pDatabase.UniqueID & ""))
+		Else
+			Preencher(pDatabase, Objeto)
+			Colecao.Add(Objeto.Objeto)
+		End If
 		pDatabase.MoveNext()
 	Wend
 	Set ObterPorQuery = Colecao
@@ -90,10 +99,15 @@ Public Function Obter(ByVal Id As Long) As Object
 		Obter = Nothing
 		Exit Function
 	End If
-	Dim Repassador As New clsRepassador
+	Me.pDatabase.OpenRecordset("Category >= 0", hbModeReadWrite)
 	Me.pDatabase.LookupUniqueID(Id)
-	Me.Preencher(Me.pDatabase, Repassador)
-	Set Obter = Repassador.Objeto
+	If Me.Cache.Has(Me.pDatabase.UniqueID & "") Then
+		Obter = Me.Cache.Item(Me.pDatabase.UniqueID & "")
+	Else
+		Dim Repassador As New clsRepassador
+		Me.Preencher(Me.pDatabase, Repassador)
+		Obter = Repassador.Objeto
+	End If
 End Function
 
 Public Function ObterUltimoRegistro() As Object
@@ -131,6 +145,10 @@ Public Sub Salvar(ByRef Objeto As clsObjetoGenerico)
 		Me.pDatabase.MoveLast()
 	End If
 	Objeto.Id = Me.pDatabase.UniqueID
+	If Me.Cache.Has(Objeto.Id & "") Then
+		Me.Cache.Remove(Objeto.Id & "")
+	End If
+	Me.Cache.Add(Objeto,Objeto.Id &"")
 End Sub
 
 Public Sub Excluir(ByVal Id As Long)
@@ -139,6 +157,9 @@ Public Sub Excluir(ByVal Id As Long)
 	Me.pDatabase.Delete(hbRecordRemove)
 	Me.pDatabase.Update()
 	Me.pDatabase.Requery()
+	If Me.Cache.Has(Id & "") Then
+		Me.Cache.Remove(Id & "")
+	End If
 End Sub
 
 Private Sub Preencher(ByRef Record As Recordset, ByRef Repassador As clsRepassador)

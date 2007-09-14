@@ -278,6 +278,21 @@
       <Above/>
       <Below/>
     </Selector>
+    <Picture>
+      <Name>btnLembrete</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>118</Left>
+      <Top>88</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>IconeAgendar</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
   </Layout>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
 '
@@ -348,5 +363,12 @@ Private Sub clsFormManter_LimparCampos()
 	Me.FieldCategoria.Text = ""
 	Me.SelectorEmissao.Date = Now()
 	Me.SelectorVcto.Date = Now()
+End Sub
+
+Private Sub btnLembrete_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim Form As New FormManterLembrete
+	Form.SelectorData.Date = Me.SelectorVcto.Date
+	Form.FieldDescricao.Text = "Renovar Habilitação"
+	Form.Show(hbFormPopup)
 End Sub]]></Source>
 </Form>
