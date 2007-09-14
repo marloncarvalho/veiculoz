@@ -54,5 +54,6 @@ Private Sub Application_AlarmTriggered(ByRef bPurge As Boolean)
 	Form.ColecaoGrid = Colecao
 	Form.Show(hbFormPopup+hbFormModal)
 	RNLembrete.ExcluirLembretesDisparados()
+	RNLembrete.GerenciarLembretes()
 End Sub]]></Source>
 </Class>
