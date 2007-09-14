@@ -50,9 +50,9 @@ Private Sub Application_AlarmTriggered(ByRef bPurge As Boolean)
 		Lembrete.Excluir = True
 		RNLembrete.Salvar(Lembrete)
 	Next
-	RNLembrete.ExcluirLembretesDisparados()
 	Dim Form As New FormListarLembretes
 	Form.ColecaoGrid = Colecao
 	Form.Show(hbFormPopup+hbFormModal)
+	RNLembrete.ExcluirLembretesDisparados()
 End Sub]]></Source>
 </Class>

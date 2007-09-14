@@ -6,12 +6,12 @@
   <Extends>clsFormManter</Extends>
   <Locked>False</Locked>
   <Layout Target="Palm OS">
-    <Left>0</Left>
-    <Top>0</Top>
-    <Width>160</Width>
-    <Height>160</Height>
+    <Left>2</Left>
+    <Top>2</Top>
+    <Width>156</Width>
+    <Height>156</Height>
     <Caption xml:space="preserve">VeículoZ</Caption>
-    <Modal>False</Modal>
+    <Modal>True</Modal>
     <Help/>
     <DIA>0</DIA>
     <SaveBehind>False</SaveBehind>
@@ -23,8 +23,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>8</Left>
-      <Top>45</Top>
+      <Left>3</Left>
+      <Top>48</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Descrição:</Caption>
@@ -35,41 +35,11 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>23</Left>
-      <Top>142</Top>
+      <Left>3</Left>
+      <Top>139</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoSalvar</Image>
-      <NavFlags>0</NavFlags>
-      <NavOrder/>
-      <Above/>
-      <Below/>
-    </Picture>
-    <Picture>
-      <Name>btnExcluir</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>43</Left>
-      <Top>143</Top>
-      <Anchors>0</Anchors>
-      <Visible>True</Visible>
-      <Image>BotaoExcluir</Image>
-      <NavFlags>0</NavFlags>
-      <NavOrder/>
-      <Above/>
-      <Below/>
-    </Picture>
-    <Picture>
-      <Name>btnNovo</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>4</Left>
-      <Top>141</Top>
-      <Anchors>0</Anchors>
-      <Visible>True</Visible>
-      <Image>BotaoNovo</Image>
       <NavFlags>0</NavFlags>
       <NavOrder/>
       <Above/>
@@ -80,8 +50,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>141</Left>
-      <Top>144</Top>
+      <Left>137</Left>
+      <Top>140</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoVoltar</Image>
@@ -104,7 +74,7 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>32</Left>
+      <Left>30</Left>
       <Top>21</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -116,9 +86,9 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>50</Left>
-      <Top>43</Top>
-      <Width>96</Width>
+      <Left>45</Left>
+      <Top>46</Top>
+      <Width>105</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -129,7 +99,7 @@
       <Editable>True</Editable>
       <AutoShift>True</AutoShift>
       <Numeric>False</Numeric>
-      <MaxChar>80</MaxChar>
+      <MaxChar>120</MaxChar>
       <Scrollbar/>
       <NavFlags>0</NavFlags>
       <NavOrder/>
@@ -141,8 +111,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>26</Left>
-      <Top>63</Top>
+      <Left>21</Left>
+      <Top>66</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Data:</Caption>
@@ -153,8 +123,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>138</Top>
+      <Left>-2</Left>
+      <Top>135</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -208,8 +178,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>50</Left>
-      <Top>62</Top>
+      <Left>45</Left>
+      <Top>65</Top>
       <Width>55</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -230,8 +200,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>26</Left>
-      <Top>81</Top>
+      <Left>21</Left>
+      <Top>84</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Hora:</Caption>
@@ -242,8 +212,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>50</Left>
-      <Top>81</Top>
+      <Left>45</Left>
+      <Top>84</Top>
       <Width>55</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -275,10 +245,12 @@
 ' You should have received a copy of the GNU General Public License
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+Private Sub clsFormManter_Load()
+	Me.SelectorHora.Time = DatePart("ss",Now())
+End Sub
+
 Private Sub Initialize()
 	Set Me.RegrasNegocio = RNFactory.RNLembrete()
-	Me.SelectorData.Date = Now()
-	Me.SelectorHora.Time = DatePart("ss",Now())
 End Sub
 
 Private Sub clsFormManter_Preencher(ByRef Repassador As clsRepassador)
@@ -320,16 +292,8 @@ Private Sub btnSalvar_PenDown(ByVal x As Integer, ByVal y As Integer)
 	RNFactory.RNLembrete().GerenciarLembretes()
 End Sub
 
-Private Sub btnExcluir_PenDown(ByVal x As Integer, ByVal y As Integer)
-	Me.Excluir()
-End Sub
-
-Private Sub btnNovo_PenDown(ByVal x As Integer, ByVal y As Integer)
-	Me.LimparCampos()
-End Sub
-
 Private Sub btnVoltar_PenDown(ByVal x As Integer, ByVal y As Integer)
-	Me.Voltar()
+ Unload(Me)
 End Sub
 
 Private Sub clsFormManter_LimparCampos()

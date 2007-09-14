@@ -137,21 +137,6 @@
       </Columns>
     </GridEx>
     <Picture>
-      <Name>btnNovo</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>4</Left>
-      <Top>137</Top>
-      <Anchors>0</Anchors>
-      <Visible>True</Visible>
-      <Image>BotaoNovo</Image>
-      <NavFlags>0</NavFlags>
-      <NavOrder/>
-      <Above/>
-      <Below/>
-    </Picture>
-    <Picture>
       <Name>btnVoltar</Name>
       <Index>0</Index>
       <Layer>0</Layer>
@@ -260,12 +245,8 @@ Private Sub clsFormListar_DesenharItem(ByRef Objeto As clsObjetoGenerico, ByRef 
 		Case 0
 			Valor = Lembrete.Descricao
 		Case 1
-			Valor = CStr(Lembrete.Data)
+			Valor = Format(Lembrete.Data,"shortdate")
 	End Select
-End Sub
-
-Private Sub btnNovo_PenDown(ByVal x As Integer, ByVal y As Integer)
-	Me.Novo()
 End Sub
 
 Private Sub clsFormListar_TelaManutencao(ByRef Tela As clsRepassador)
@@ -273,7 +254,6 @@ Private Sub clsFormListar_TelaManutencao(ByRef Tela As clsRepassador)
 End Sub
 
 Private Sub btnVoltar_PenDown(ByVal x As Integer, ByVal y As Integer)
-	Dim Form As New FormInicial
-	Form.Show(hbFormModeless+hbFormGoto)
+	Unload(Me)
 End Sub]]></Source>
 </Form>
