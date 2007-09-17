@@ -94,5 +94,67 @@ Public Function ExistePercursoVeiculo(ByVal Id As Long) As Boolean
 	Dim SQL As String
 	SQL = "IdVeiculo = " & Id
 	ExistePercursoVeiculo = Me.Dao.Existe(SQL)
+End Function
+
+Public Function ObterMelhorDesempenhoPorVeiculo(ByVal Veiculo As Long) As clsPercurso
+	Dim SQL As String
+	Dim Colecao As Collection
+	Dim Percurso As clsPercurso
+	Dim PercursoEscolhido As clsPercurso
+	Dim CalculoAnterior As Double
+	SQL = "Viagem=False AND IdVeiculo=" & Veiculo
+	Colecao = Me.Dao.ObterPorQuery(SQL)
+	For Each Percurso In Colecao
+		Dim Calculo As Double
+		'Este cálculo leva em consideração a seguinte idéia:
+		'Para percorrer 100KM, quanto você gastaria neste posto?
+		'Este cálculo leva em consideração o valor do combustível e o consumo médio.
+		If Percurso.ConsumoMedio() > 0 Then
+			Calculo = (Percurso.ConsumoMedio() / 100) * Percurso.Abastecimento().ValorLitro()
+		Else
+			Calculo = 0
+		End If
+		If CalculoAnterior = 0 Then
+			CalculoAnterior = Calculo
+			PercursoEscolhido = Percurso
+		Else
+			If Calculo < CalculoAnterior Then
+				CalculoAnterior = Calculo
+				PercursoEscolhido = Percurso
+			End If
+		End If
+	Next
+	ObterMelhorDesempenhoPorVeiculo = PercursoEscolhido
+End Function
+
+Public Function ObterPiorDesempenhoPorVeiculo(ByVal Veiculo As Long) As clsPercurso
+	Dim SQL As String
+	Dim Colecao As Collection
+	Dim Percurso As clsPercurso
+	Dim PercursoEscolhido As clsPercurso
+	Dim CalculoAnterior As Double
+	SQL = "Viagem=False AND IdVeiculo=" & Veiculo
+	Colecao = Me.Dao.ObterPorQuery(SQL)
+	For Each Percurso In Colecao
+		Dim Calculo As Double
+		'Este cálculo leva em consideração a seguinte idéia:
+		'Para percorrer 100KM, quanto você gastaria neste posto?
+		'Este cálculo leva em consideração o valor do combustível e o consumo médio.
+		If Percurso.ConsumoMedio() > 0 Then
+			Calculo = (Percurso.ConsumoMedio() / 100) * Percurso.Abastecimento().ValorLitro()
+		Else
+			Calculo = 0
+		End If
+		If CalculoAnterior = 0 Then
+			CalculoAnterior = Calculo
+			PercursoEscolhido = Percurso
+		Else
+			If Calculo > CalculoAnterior Then
+				CalculoAnterior = Calculo
+				PercursoEscolhido = Percurso
+			End If
+		End If
+	Next
+	ObterPiorDesempenhoPorVeiculo = PercursoEscolhido
 End Function]]></Source>
 </Class>

@@ -58,6 +58,8 @@ Public Sub GerenciarLembretes()
 	Lembrete = Me.ObterLembreteMaisRecente()
 	If Not Lembrete Is Nothing Then
 		App.Alarm = Lembrete.Data
+	Else
+		App.Alarm = Now()-10
 	End If
 End Sub]]></Source>
 </Class>

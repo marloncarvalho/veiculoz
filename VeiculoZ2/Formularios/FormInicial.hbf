@@ -24,7 +24,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>27</Left>
-      <Top>18</Top>
+      <Top>16</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Controle de Veículos</Caption>
@@ -35,12 +35,12 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>32</Left>
-      <Top>149</Top>
+      <Left>20</Left>
+      <Top>137</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">veiculoz.wordpress.com</Caption>
-      <Font>Standard</Font>
+      <Font>Bold</Font>
     </Label>
     <Picture>
       <Name>Picture1</Name>
@@ -48,7 +48,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>50</Left>
-      <Top>37</Top>
+      <Top>32</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>ImagemPrincipal</Image>
@@ -57,18 +57,6 @@
       <Above/>
       <Below/>
     </Picture>
-    <Label>
-      <Name>Label5</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>115</Left>
-      <Top>1</Top>
-      <Anchors>0</Anchors>
-      <Visible>True</Visible>
-      <Caption xml:space="preserve">Versão 2.0</Caption>
-      <Font>Standard</Font>
-    </Label>
     <Picture>
       <Name>Picture2</Name>
       <Index>0</Index>
@@ -121,12 +109,6 @@
           <Name>MenuMotorista</Name>
           <Index>0</Index>
           <Caption xml:space="preserve">Motorista</Caption>
-          <Shortcut/>
-        </MenuItem>
-        <MenuItem>
-          <Name>MenuLembretes</Name>
-          <Index>0</Index>
-          <Caption xml:space="preserve">Lembretes</Caption>
           <Shortcut/>
         </MenuItem>
         <MenuSeparator/>
@@ -183,12 +165,6 @@
           <Shortcut/>
         </MenuItem>
         <MenuItem>
-          <Name>MenuItem12</Name>
-          <Index>0</Index>
-          <Caption xml:space="preserve">Gastos Por Posto</Caption>
-          <Shortcut/>
-        </MenuItem>
-        <MenuItem>
           <Name>MenuItem13</Name>
           <Index>0</Index>
           <Caption xml:space="preserve">Melhor Desempenho</Caption>
@@ -215,6 +191,45 @@
         </MenuItem>
       </MenuTitle>
     </MenuBar>
+    <Picture>
+      <Name>Picture3</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>0</Left>
+      <Top>137</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>LinhaSeparacaoSimples</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Label>
+      <Name>Label6</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>27</Left>
+      <Top>149</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">versão 2.0 de 17/09/2007</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Label>
+      <Name>Label7</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>65</Left>
+      <Top>1</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Licença GPL Versão 3.0</Caption>
+      <Font>Standard</Font>
+    </Label>
   </Layout>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
 '
@@ -317,8 +332,13 @@ Private Sub MenuMotorista_Click()
 	Form.Show(hbFormGoto+hbFormModal)
 End Sub
 
-Private Sub MenuLembretes_Click()
-	Dim Form As New FormListarLembretes
+Private Sub MenuItem13_Click()
+	Dim Form As New FormRelatorioMD
+	Form.Show(hbFormGoto+hbFormModal)
+End Sub
+
+Private Sub MenuItem14_Click()
+	Dim Form As New FormRelatorioPD
 	Form.Show(hbFormGoto+hbFormModal)
 End Sub]]></Source>
 </Form>
