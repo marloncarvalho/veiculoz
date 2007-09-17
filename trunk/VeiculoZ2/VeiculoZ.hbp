@@ -2,8 +2,8 @@
 <!-- Peter Holmes Consulting HB++ Project file -->
 <Project Version="2.50">
   <Name>VeiculoZ</Name>
-  <Configuration>Debug</Configuration>
-  <BuildNumber>786</BuildNumber>
+  <Configuration>Release</Configuration>
+  <BuildNumber>811</BuildNumber>
   <AutoIncrement>True</AutoIncrement>
   <Conduit/>
   <PackageBuilder/>
@@ -78,6 +78,8 @@
   <File>Classes\clsRNLembrete.hbc</File>
   <File>Formularios\FormListarLembretes.hbf</File>
   <File>Formularios\FormManterLembrete.hbf</File>
+  <File>Formularios\FormRelatorioMD.hbf</File>
+  <File>Formularios\FormRelatorioPD.hbf</File>
   <Settings>
     <Name>Debug</Name>
     <OutputPath>.\Debug</OutputPath>
