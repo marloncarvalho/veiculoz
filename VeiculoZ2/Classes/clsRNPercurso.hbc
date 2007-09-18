@@ -156,5 +156,22 @@ Public Function ObterPiorDesempenhoPorVeiculo(ByVal Veiculo As Long) As clsPercu
 		End If
 	Next
 	ObterPiorDesempenhoPorVeiculo = PercursoEscolhido
+End Function
+
+Public Function ObterConsumoMedioPorVeiculo(ByVal Veiculo As Long) As Double
+	Dim SQL As String
+	Dim Colecao As Collection
+	Dim Percurso As clsPercurso
+	Dim Total As Double
+	Dim Indice As Integer
+	SQL = "IdVeiculo=" & Veiculo & " AND Viagem=False"
+	Colecao = Me.Dao.ObterPorQuery(SQL)
+	For Each Percurso In Colecao
+		If Percurso.ConsumoMedio() > 0 Then
+			Total = Percurso.ConsumoMedio()
+			Indice = Indice + 1
+		End If
+	Next
+	ObterConsumoMedioPorVeiculo = Total / Indice
 End Function]]></Source>
 </Class>

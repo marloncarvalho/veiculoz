@@ -3,7 +3,7 @@
 <Project Version="2.50">
   <Name>VeiculoZ</Name>
   <Configuration>Release</Configuration>
-  <BuildNumber>813</BuildNumber>
+  <BuildNumber>830</BuildNumber>
   <AutoIncrement>True</AutoIncrement>
   <Conduit/>
   <PackageBuilder/>
@@ -78,8 +78,6 @@
   <File>Classes\clsRNLembrete.hbc</File>
   <File>Formularios\FormListarLembretes.hbf</File>
   <File>Formularios\FormManterLembrete.hbf</File>
-  <File>Formularios\FormRelatorioMD.hbf</File>
-  <File>Formularios\FormRelatorioPD.hbf</File>
   <Settings>
     <Name>Debug</Name>
     <OutputPath>.\Debug</OutputPath>
