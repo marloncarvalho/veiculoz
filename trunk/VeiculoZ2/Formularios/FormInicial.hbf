@@ -24,7 +24,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>27</Left>
-      <Top>16</Top>
+      <Top>20</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Controle de Veículos</Caption>
@@ -47,8 +47,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>50</Left>
-      <Top>32</Top>
+      <Left>48</Left>
+      <Top>54</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>ImagemPrincipal</Image>
@@ -228,6 +228,18 @@
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Licença GPL Versão 3.0</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Label>
+      <Name>Label8</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>38</Left>
+      <Top>35</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Versão 2.0 Preview 1</Caption>
       <Font>Standard</Font>
     </Label>
   </Layout>
