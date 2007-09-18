@@ -50,7 +50,6 @@ Public Sub Excluir(ByVal Id As Long)
 	Me.ValidarExclusao(Id, Mensagem)
 	If Mensagem <> "" Then
 		Err.Raise(100,Mensagem)
-		Exit Sub
 	End If
 	Me.Dao.Excluir(Id)
 End Sub

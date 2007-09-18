@@ -35,8 +35,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>20</Left>
-      <Top>137</Top>
+      <Left>19</Left>
+      <Top>141</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">veiculoz.wordpress.com</Caption>
@@ -48,7 +48,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>48</Left>
-      <Top>54</Top>
+      <Top>48</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>ImagemPrincipal</Image>
@@ -63,7 +63,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>0</Left>
-      <Top>148</Top>
+      <Top>152</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -197,7 +197,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>0</Left>
-      <Top>137</Top>
+      <Top>141</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -207,15 +207,15 @@
       <Below/>
     </Picture>
     <Label>
-      <Name>Label6</Name>
+      <Name>Label8</Name>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>27</Left>
-      <Top>149</Top>
+      <Left>38</Left>
+      <Top>35</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
-      <Caption xml:space="preserve">versão 2.0 de 17/09/2007</Caption>
+      <Caption xml:space="preserve">Versão 2.0 Preview 1</Caption>
       <Font>Standard</Font>
     </Label>
     <Label>
@@ -230,18 +230,64 @@
       <Caption xml:space="preserve">Licença GPL Versão 3.0</Caption>
       <Font>Standard</Font>
     </Label>
-    <Label>
-      <Name>Label8</Name>
+    <Popup>
+      <Name>PopupVeiculo</Name>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>38</Left>
-      <Top>35</Top>
+      <Left>28</Left>
+      <Top>113</Top>
+      <Width>104</Width>
+      <Height>12</Height>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
-      <Caption xml:space="preserve">Versão 2.0 Preview 1</Caption>
+      <Text xml:space="preserve">Selecione um Veículo</Text>
+      <Font>Standard</Font>
+      <VisibleItems>3</VisibleItems>
+      <AnchorLeft>True</AnchorLeft>
+      <Sorted>0</Sorted>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Popup>
+    <Label>
+      <Name>Label9</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>6</Left>
+      <Top>126</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Consumo Médio:</Caption>
       <Font>Standard</Font>
     </Label>
+    <Field>
+      <Name>FieldCM</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>73</Left>
+      <Top>124</Top>
+      <Width>81</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Font>Standard</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>0</Align>
+      <Editable>False</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>False</Numeric>
+      <MaxChar>80</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
   </Layout>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
 '
@@ -345,12 +391,26 @@ Private Sub MenuMotorista_Click()
 End Sub
 
 Private Sub MenuItem13_Click()
-	Dim Form As New FormRelatorioMD
-	Form.Show(hbFormGoto+hbFormModal)
+'	Dim Form As New FormRelatorioMD
+'	Form.Show(hbFormGoto+hbFormModal)
 End Sub
 
 Private Sub MenuItem14_Click()
-	Dim Form As New FormRelatorioPD
-	Form.Show(hbFormGoto+hbFormModal)
+'	Dim Form As New FormRelatorioPD
+'	Form.Show(hbFormGoto+hbFormModal)
+End Sub
+
+Private Sub PopupVeiculo_Change()
+	If Me.PopupVeiculo.ListIndex > -1 Then
+		Dim Veiculo As Long
+		Dim CM As Double
+		Veiculo = Me.PopupVeiculo.ItemData(Me.PopupVeiculo.ListIndex)
+		CM = RNFactory.RNPercursos().ObterConsumoMedioPorVeiculo(Veiculo)
+		Me.FieldCM.Text = Format(CM,"0.0000") & " KMs/Litro"
+	End If
+End Sub
+
+Private Sub Form_Load()
+	ObterVeiculos(Me.PopupVeiculo)
 End Sub]]></Source>
 </Form>
