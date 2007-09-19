@@ -22,37 +22,53 @@
 ' You should have received a copy of the GNU General Public License
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-' ATRIBUTOS
+' Tabela associada ao DAO.
 Private pDatabase As Recordset
+
+' Cache de Objetos, para evitar muitos acessos na Tabela, sempre recriando os objetos.
 Private Cache As New Collection:clsObjetoGenerico
 
-' EVENTOS
-Public Event Preencher(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
-Public Event Persistir(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
-Public Event Exclusao(ByRef Record As Recordset)
-
+' Propriedade para retornar a tabela associada ao DAO.
+'
+' @return Recordset.
 Public Property Get Database() As Recordset
 	Set Database = Me.pDatabase
 End Property
 
+' Propriedade para definir a tabela associada ao DAO.
+'
+' @param Record Recordset contendo os dados.
+' @return void.
 Public Property Set Database(p As Recordset)
-	If Me.pDatabase Is Nothing Then
-		Set Me.pDatabase = p
-		Me.pDatabase.OpenRecordset("Category >= 0", hbModeReadWrite)
-	End If
+	Try
+		Me.pDatabase = p
+	  Me.pDatabase.OpenRecordset("Category>=0", hbModeOpenExisting+hbModeReadWrite)
+	Catch
+		If Err.Number = 43 Then
+			Me.pDatabase.OpenRecordset("Category>=0", hbModeCreateAlways+hbModeReadWrite)
+		End If
+	End Catch
 End Property
 
+' "Destrutor(?)" da classe.
+'
+' @return void.
 Private Sub Terminate()
 	Me.pDatabase.Close()
 	Set Me.pDatabase = Nothing
 End Sub
 
+' Obter todos os registros da tabela, retornando uma coleção de Objetos Genéricos,
+' ordenados caso o parâmetro "Ordenacao" seja informado.
+'
+' @param Ordenacao Coluna para ordenar a coleção.
+' @return Colecao de Objetos Genéricos.
 Public Function ObterTodos(Optional Ordenacao As String = "") As Collection
 	Dim Colecao As New Collection
 	If Ordenacao <> "" Then
-		Me.pDatabase.OpenRecordset("Category >= 0 Order By " & Ordenacao, hbModeReadWrite)
+		Me.pDatabase.OpenRecordset("Category >= 0 Order By " & Ordenacao, hbModeReadWrite+hbModeOpenExisting)
 	Else
-		Me.pDatabase.OpenRecordset("Category >= 0", hbModeReadWrite)
+		Me.pDatabase.OpenRecordset("Category >= 0", hbModeReadWrite+hbModeOpenExisting)
 	End If
 	Me.pDatabase.MoveFirst()
 	While Not pDatabase.EOF
@@ -62,15 +78,21 @@ Public Function ObterTodos(Optional Ordenacao As String = "") As Collection
 		Else
 			Preencher(pDatabase, Objeto)
 			Colecao.Add(Objeto.Objeto)
+			Dim ObjetoGenerico As clsObjetoGenerico
+			ObjetoGenerico = clsObjetoGenerico(Objeto.Objeto)
+			Me.Cache.Add(ObjetoGenerico,ObjetoGenerico.Id)
 		End If
 		pDatabase.MoveNext()
 	Wend
 	Set ObterTodos = Colecao
 End Function
 
-
+' Verificar se existe algum registro na tabela que atenda a query SQL passada como parâmetro.
+'
+' @param SQL Query SQL.
+' @return Verdadeiro caso exista um registro que atenda a query, Falso caso contrário.
 Public Function Existe(ByVal SQL As String) As Boolean
-	Me.pDatabase.OpenRecordset(SQL,hbModeReadWrite)
+	Me.pDatabase.OpenRecordset(SQL,hbModeReadWrite+hbModeOpenExisting)
 	If Me.pDatabase.EOF Or Me.pDatabase.BOF Then
 		Existe = False
 	Else
@@ -78,28 +100,39 @@ Public Function Existe(ByVal SQL As String) As Boolean
 	End If
 End Function
 
+' Obter uma coleção de objetos que atendem a Query SQL passada como parâmetro.
+'
+' @param SQL Query SQL.
+' @return Coleção contendo os objetos que atendem à query.
 Public Function ObterPorQuery(ByVal Query As String) As Collection
 	Dim Colecao As New Collection
-	Me.pDatabase.OpenRecordset(Query,hbModeReadWrite)
+	Me.pDatabase.OpenRecordset(Query,hbModeReadWrite+hbModeOpenExisting)
 	While Not pDatabase.EOF
 		Dim Objeto As New clsRepassador
 		If Me.Cache.Has(Me.pDatabase.UniqueID & "") Then
 			Colecao.Add(Me.Cache.Item(Me.pDatabase.UniqueID & ""))
 		Else
-			Preencher(pDatabase, Objeto)
+			Preencher(pDatabase,Objeto)
+			Dim ObjetoGenerico As clsObjetoGenerico
+			ObjetoGenerico = clsObjetoGenerico(Objeto.Objeto)
 			Colecao.Add(Objeto.Objeto)
+			Me.Cache.Add(ObjetoGenerico,ObjetoGenerico.Id)
 		End If
 		pDatabase.MoveNext()
 	Wend
 	Set ObterPorQuery = Colecao
 End Function
 
+' Obter um Objeto específico, que possua o ID passado como parâmetro.
+'
+' @param Id Identificador do objeto a ser obtido.
+' @return Objeto que contém o identificador.
 Public Function Obter(ByVal Id As Long) As Object
 	If Id = 0 Then
 		Obter = Nothing
 		Exit Function
 	End If
-	Me.pDatabase.OpenRecordset("Category >= 0", hbModeReadWrite)
+	Me.pDatabase.OpenRecordset("Category >= 0", hbModeReadWrite+hbModeOpenExisting)
 	Me.pDatabase.LookupUniqueID(Id)
 	If Me.Cache.Has(Me.pDatabase.UniqueID & "") Then
 		Obter = Me.Cache.Item(Me.pDatabase.UniqueID & "")
@@ -110,8 +143,11 @@ Public Function Obter(ByVal Id As Long) As Object
 	End If
 End Function
 
+' Obter o último objeto inserido na tabela.
+'
+' @return Último objeto inserido.
 Public Function ObterUltimoRegistro() As Object
-	Me.pDatabase.OpenRecordset("Category >= 0 Order By UniqueID DESC", hbModeReadWrite)
+	Me.pDatabase.OpenRecordset("Category >= 0 Order By UniqueID DESC", hbModeReadWrite+hbModeOpenExisting)
 	If Not Me.pDatabase.EOF Or Not Me.pDatabase.BOF Then
 		Me.pDatabase.MoveFirst()
 		Dim Repassador As New clsRepassador
@@ -122,14 +158,21 @@ Public Function ObterUltimoRegistro() As Object
 	End If
 End Function
 
+' Obter o primeiro objeto inserido no banco.
+'
+' @return Primeiro objeto inserido.
 Public Function ObterPrimeiroRegistro() As Object
-	Me.pDatabase.OpenRecordset("Category >= 0 Order By UniqueID ASC", hbModeReadWrite)
+	Me.pDatabase.OpenRecordset("Category >= 0 Order By UniqueID ASC", hbModeReadWrite+hbModeOpenExisting)
 	Me.pDatabase.MoveFirst()
 	Dim Repassador As New clsRepassador
 	Me.Preencher(Me.pDatabase,Repassador)
 	ObterPrimeiroRegistro = Repassador.Objeto
 End Function
 
+' Persistir os dados de um objeto, incluindo ou atualizando um existente.
+'
+' @param Objeto Objeto a ser incluído ou atualizado.
+' @return void
 Public Sub Salvar(ByRef Objeto As clsObjetoGenerico)
 	Dim Repassador As New clsRepassador
 	Set Repassador.Objeto = Objeto
@@ -148,9 +191,14 @@ Public Sub Salvar(ByRef Objeto As clsObjetoGenerico)
 	If Me.Cache.Has(Objeto.Id & "") Then
 		Me.Cache.Remove(Objeto.Id & "")
 	End If
+	Objeto = clsObjetoGenerico(Me.Obter(Objeto.Id))
 	Me.Cache.Add(Objeto,Objeto.Id &"")
 End Sub
 
+' Excluir um Objeto da Tabela.
+'
+' @param Id Identificador do Objeto a ser excluído.
+' @return void
 Public Sub Excluir(ByVal Id As Long)
 	Me.pDatabase.LookupUniqueID(Id)
 	Me.Exclusao(Me.pDatabase)
@@ -162,14 +210,34 @@ Public Sub Excluir(ByVal Id As Long)
 	End If
 End Sub
 
+' Evento a ser chamado para preencher o objeto com dados oriundos da tabela.
+'
+' @param Record Recordset contendo os dados.
+' @param Repassador Contém o Objeto a ser preenchido com os dados do Banco de Dados.
+' @return void.
+'
+Public Event Preencher(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
 Private Sub Preencher(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
 	RaiseEvent Preencher(Record, Repassador)
 End Sub
 
+' Evento a ser chamado para persistir os dados de um objeto.
+'
+' @param Record Recordset contendo os dados.
+' @param Repassador Contém o Objeto que possui os dados a serem persistidos.
+' @return void.
+'
+Public Event Persistir(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
 Private Sub Persistir(ByRef Record As Recordset, ByRef Repassador As clsRepassador)
 	RaiseEvent Persistir(Record, Repassador)
 End Sub
 
+' Evento a ser chamado para validar a exclusão de um registri
+'
+' @param Record Recordset contendo os dados.
+' @return void.
+'
+Public Event Exclusao(ByRef Record As Recordset)
 Private Sub Exclusao(ByRef Record As Recordset)
 	RaiseEvent Exclusao(Record)
 End Sub]]></Source>

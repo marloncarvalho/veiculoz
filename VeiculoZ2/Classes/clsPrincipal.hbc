@@ -37,10 +37,6 @@ Private Sub Application_NormalLaunch()
 End Sub
 
 Private Sub Application_DisplayAlarm()
-	SystemSound(hbSoundAlarm)
-End Sub
-
-Private Sub Application_AlarmTriggered(ByRef bPurge As Boolean)
 	Dim RNLembrete As clsRNLembrete
 	Dim Colecao As Collection
 	Dim Lembrete As clsLembrete
@@ -50,10 +46,14 @@ Private Sub Application_AlarmTriggered(ByRef bPurge As Boolean)
 		Lembrete.Excluir = True
 		RNLembrete.Salvar(Lembrete)
 	Next
+	RNLembrete.ExcluirLembretesDisparados()
 	Dim Form As New FormListarLembretes
 	Form.ColecaoGrid = Colecao
 	Form.Show(hbFormPopup+hbFormModal)
-	RNLembrete.ExcluirLembretesDisparados()
 	RNLembrete.GerenciarLembretes()
+End Sub
+
+Private Sub Application_AlarmTriggered(ByRef bPurge As Boolean)
+'	SystemSound(hbSoundAlarm)
 End Sub]]></Source>
 </Class>
