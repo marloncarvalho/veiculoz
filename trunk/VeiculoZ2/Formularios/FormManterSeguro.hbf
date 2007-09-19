@@ -369,6 +369,21 @@
       <Above/>
       <Below/>
     </Popup>
+    <Picture>
+      <Name>btnLembrete</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>107</Left>
+      <Top>114</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>IconeAgendar</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
   </Layout>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
 '
@@ -474,5 +489,12 @@ End Sub
 
 Private Sub btnNovo_PenDown(ByVal x As Integer, ByVal y As Integer)
 	Me.LimparCampos()
+End Sub
+
+Private Sub btnLembrete_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim Form As New FormManterLembrete
+	Form.SelectorData.Date = Me.SelectorVcto.Date
+	Form.FieldDescricao.Text = "Renovar Seguro"
+	Form.Show(hbFormPopup)
 End Sub]]></Source>
 </Form>

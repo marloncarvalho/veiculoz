@@ -178,15 +178,6 @@
       <Caption xml:space="preserve">Lembretes / Alarmes</Caption>
       <Font>LargeBold</Font>
     </Label>
-    <Graffiti>
-      <Name>Graffiti</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>150</Left>
-      <Top>2</Top>
-      <Anchors>0</Anchors>
-    </Graffiti>
     <Picture>
       <Name>imgOrdenaDescricao</Name>
       <Index>0</Index>

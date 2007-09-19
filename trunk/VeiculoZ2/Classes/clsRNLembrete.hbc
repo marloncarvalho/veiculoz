@@ -59,7 +59,7 @@ Public Sub GerenciarLembretes()
 	If Not Lembrete Is Nothing Then
 		App.Alarm = Lembrete.Data
 	Else
-		App.Alarm = Now()-10
+		App.Alarm = hbLimitDateMin
 	End If
 End Sub]]></Source>
 </Class>
