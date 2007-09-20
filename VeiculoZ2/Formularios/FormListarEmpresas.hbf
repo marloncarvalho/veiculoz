@@ -112,7 +112,7 @@
       <Height>88</Height>
       <Anchors>12</Anchors>
       <Visible>True</Visible>
-      <SelectionMode>1</SelectionMode>
+      <SelectionMode>3</SelectionMode>
       <VertScroll>Spin</VertScroll>
       <HorzScroll/>
       <NavFlags>0</NavFlags>

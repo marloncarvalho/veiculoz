@@ -172,6 +172,10 @@ Public Function ObterConsumoMedioPorVeiculo(ByVal Veiculo As Long) As Double
 			Indice = Indice + 1
 		End If
 	Next
-	ObterConsumoMedioPorVeiculo = Total / Indice
+	If Total = 0 Or Indice = 0 Then
+		ObterConsumoMedioPorVeiculo = 0
+	Else
+		ObterConsumoMedioPorVeiculo = Total / Indice
+	End If
 End Function]]></Source>
 </Class>

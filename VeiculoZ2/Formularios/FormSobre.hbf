@@ -9,7 +9,7 @@
     <Left>2</Left>
     <Top>25</Top>
     <Width>156</Width>
-    <Height>108</Height>
+    <Height>124</Height>
     <Caption xml:space="preserve">VeículoZ</Caption>
     <Modal>True</Modal>
     <Help/>
@@ -40,7 +40,7 @@
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Marlon Silva Carvalho</Caption>
-      <Font>Large</Font>
+      <Font>LargeBold</Font>
     </Label>
     <Label>
       <Name>Label3</Name>
@@ -48,7 +48,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>35</Left>
-      <Top>69</Top>
+      <Top>89</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Licença GPL Versão 3</Caption>
@@ -59,12 +59,12 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>56</Left>
-      <Top>59</Top>
+      <Left>51</Left>
+      <Top>79</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Versão 2.0</Caption>
-      <Font>Standard</Font>
+      <Font>Bold</Font>
     </Label>
     <Button>
       <Name>btnOK</Name>
@@ -72,7 +72,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>58</Left>
-      <Top>88</Top>
+      <Top>106</Top>
       <Width>40</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -92,10 +92,22 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>10</Left>
-      <Top>40</Top>
+      <Top>41</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">http://www.marloncarvalho.net/</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Label>
+      <Name>Label6</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>29</Left>
+      <Top>59</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">ícones por everaldo.com</Caption>
       <Font>Standard</Font>
     </Label>
   </Layout>

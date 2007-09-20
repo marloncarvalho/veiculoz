@@ -173,6 +173,10 @@ Public Function ConsumoMedio() As Double
 		KmF = CDbl(Me.KmFinal)
 		KmPercorridos = KmF - KmI
 		Litros = Me.LitrosConsumidos()
+		If KmPercorridos <= 0 Then
+			ConsumoMedio = 0
+			Exit Function
+		End If
 		If Litros = 0 Then
 			ConsumoMedio = 0
 		Else
