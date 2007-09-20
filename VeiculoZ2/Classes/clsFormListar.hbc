@@ -32,6 +32,11 @@ Private bColecaoCache As New Collection
 Public Event DesenharItem(ByRef Objeto As clsObjetoGenerico, ByRef Valor As String, ByVal iColuna As Integer, ByVal iIdItem As Long)
 Public Event TelaManutencao(ByRef Tela As clsRepassador)
 Public Event DesenhoItemOK(ByRef Objeto As clsObjetoGenerico)
+Public Event CarregarItem(ByRef Objeto As clsObjetoGenerico, ByRef Valores() As Variant)
+
+Private Sub CarregarItem(ByRef Objeto As clsObjetoGenerico, ByRef Valores() As Variant)
+	RaiseEvent CarregarItem(Objeto,Valores)
+End Sub
 
 Private Sub DesenharItem(ByRef Objeto As clsObjetoGenerico, ByRef Valor As String,ByVal iColuna As Integer, ByVal iIdItem As Long)
 	RaiseEvent DesenharItem(Objeto, Valor, iColuna, iIdItem)
@@ -126,18 +131,25 @@ Private Sub Grid1_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lIte
 	End If
 End Sub
 
+Private Sub Grid1_LoadItem(ByVal iRow As Integer, ByVal lItemData As Long, ByVal vValue() As Variant)
+	Dim Objeto As clsObjetoGenerico
+	Dim Valor As String
+	Objeto = clsObjetoGenerico(Me.bColecaoCache.Item(lItemData & ""))
+	Me.CarregarItem(Objeto,vValue)
+End Sub
+
 Private Sub Grid1_DrawItem(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long, ByVal iLeft As Integer, ByVal iTop As Integer, ByVal iWidth As Integer, ByVal iHeight As Integer)
 	Try
 		Dim Objeto As clsObjetoGenerico
 		Dim Valor As String
 		Objeto = clsObjetoGenerico(Me.bColecaoCache.Item(lItemData & ""))
+		Me.DesenharItem(Objeto, Valor, iCol, lItemData)
 		If (iRow Mod 2) = 0 Then
 			Me.Grid1.BackColor = Configuracoes.GridCorLinhaNormal
 		Else
 			Me.Grid1.BackColor = Configuracoes.GridCorLinhaAlternada
 		End If
 		Me.Grid1.Rectangle(iLeft, (iTop), iLeft+(iWidth+1), iTop+(iHeight-1), hbRectFillSolid)
-		Me.DesenharItem(Objeto, Valor, iCol, lItemData)
 		Me.Grid1.TextOut(iLeft, iTop, Valor)
 	Catch
 		MsgBox(Err.Description)
