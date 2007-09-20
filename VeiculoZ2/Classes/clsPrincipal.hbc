@@ -28,9 +28,11 @@ Private Sub Application_NormalLaunch()
 
 	'Definindo BitDepth para a aplicação.
 	Dim sm as New ScreenMode
-	sm.FindFirstMode
+	sm.FindFirstMode()
 	sm.BitDepth = 16
-	Set ScreenMode = sm
+	sm.Color = True
+
+	ScreenMode = sm
 
   Dim f As New FormInicial
   f.Show hbFormModeless+hbFormGoto

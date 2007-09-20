@@ -3,7 +3,7 @@
 <Project Version="2.50">
   <Name>VeiculoZ</Name>
   <Configuration>Release</Configuration>
-  <BuildNumber>905</BuildNumber>
+  <BuildNumber>934</BuildNumber>
   <AutoIncrement>True</AutoIncrement>
   <Conduit/>
   <PackageBuilder/>
@@ -78,6 +78,8 @@
   <File>Classes\clsRNLembrete.hbc</File>
   <File>Formularios\FormListarLembretes.hbf</File>
   <File>Formularios\FormManterLembrete.hbf</File>
+  <File>Formularios\FormRelatorioMD.hbf</File>
+  <File>Formularios\FormRelatorioPD.hbf</File>
   <Settings>
     <Name>Debug</Name>
     <OutputPath>.\Debug</OutputPath>
@@ -118,7 +120,7 @@
     <Target>Palm OS</Target>
     <Icon>IconeAplicacao</Icon>
     <SmallIcon>IconeAplicacao</SmallIcon>
-    <MinOSVersion>30</MinOSVersion>
+    <MinOSVersion>50</MinOSVersion>
     <Database>VeículoZ</Database>
     <Creator>MSCC</Creator>
     <Type>appl</Type>
@@ -127,12 +129,12 @@
     <Reset>False</Reset>
     <Hidden>False</Hidden>
     <Const>NDEBUG</Const>
-    <Optimize>1</Optimize>
+    <Optimize>2</Optimize>
     <Debug>False</Debug>
-    <CheckNull>False</CheckNull>
-    <CheckArray>False</CheckArray>
-    <CheckFPU>False</CheckFPU>
-    <ConstSingle>False</ConstSingle>
+    <CheckNull>True</CheckNull>
+    <CheckArray>True</CheckArray>
+    <CheckFPU>True</CheckFPU>
+    <ConstSingle>True</ConstSingle>
     <PreBuild/>
     <PostBuild/>
   </Settings>

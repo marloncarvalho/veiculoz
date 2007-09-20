@@ -41,7 +41,7 @@ End Sub
 
 Public Function ExisteAbastecimentoTipo(ByVal Id As Long) As Boolean
 	Dim SQL As String
-	SQL = "IdTipo = " & Id
+	SQL = "IdTipoCombustiv = " & Id
 	ExisteAbastecimentoTipo = Me.Dao.Existe(SQL)
 End Function
 

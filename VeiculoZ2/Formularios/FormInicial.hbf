@@ -391,13 +391,13 @@ Private Sub MenuMotorista_Click()
 End Sub
 
 Private Sub MenuItem13_Click()
-'	Dim Form As New FormRelatorioMD
-'	Form.Show(hbFormGoto+hbFormModal)
+	Dim Form As New FormRelatorioMD
+	Form.Show(hbFormGoto+hbFormModal)
 End Sub
 
 Private Sub MenuItem14_Click()
-'	Dim Form As New FormRelatorioPD
-'	Form.Show(hbFormGoto+hbFormModal)
+	Dim Form As New FormRelatorioPD
+	Form.Show(hbFormGoto+hbFormModal)
 End Sub
 
 Private Sub PopupVeiculo_Change()
