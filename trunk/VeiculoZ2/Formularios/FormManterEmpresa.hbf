@@ -469,6 +469,10 @@ Private Sub Initialize()
 	Set Me.RegrasNegocio = RNFactory.RNEmpresas
 End Sub
 
+Private Sub Terminate()
+	Me.RegrasNegocio = Nothing
+End Sub
+
 Private Sub clsFormManter_Preencher(ByRef Repassador As clsRepassador)
 	Dim Empresa As New clsEmpresa
 	Empresa.Bairro = Me.FieldBairro.Text

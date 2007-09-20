@@ -99,12 +99,13 @@ Public Sub Listar()
 			Set Colecao = Me.bRegrasNegocio.ObterTodos()
 		End If
 		For Each Objeto In Colecao
-			Me.bColecaoCache.Add(Objeto, CStr(Objeto.Id))
+			Me.bColecaoCache.Add(Objeto, Objeto.Id & "")
 			Me.Grid1.AddItem(Objeto.Id)
 			Me.DesenhoItemOK(Objeto)
 		Next
 	Else
 		For Each Objeto In Me.bColecaoGrid
+			Me.bColecaoCache.Add(Objeto, Objeto.Id & "")
 			Me.Grid1.AddItem(Objeto.Id)
 			Me.DesenhoItemOK(Objeto)
 		Next
@@ -120,25 +121,35 @@ Private Sub Grid1_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lIte
 	If Not Form Is Nothing Then
 		Form.Identificador = lItemData
 		Form.Iniciar()
-		Form.Show(hbFormGoto)
+		Form.Show(hbFormGoto+hbFormModeless)
+		Exit Sub
 	End If
 End Sub
 
 Private Sub Grid1_DrawItem(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long, ByVal iLeft As Integer, ByVal iTop As Integer, ByVal iWidth As Integer, ByVal iHeight As Integer)
- 	Dim Objeto As clsObjetoGenerico
- 	Dim Valor As String
- 	Objeto = clsObjetoGenerico(Me.bColecaoCache.Item(CStr(lItemData)))
-  If (iRow Mod 2) = 0 Then
-    Me.Grid1.BackColor = Configuracoes.GridCorLinhaNormal
-  Else
-    Me.Grid1.BackColor = Configuracoes.GridCorLinhaAlternada
-  End If
-  Me.Grid1.Rectangle(iLeft, (iTop), iLeft+(iWidth+1), iTop+iHeight, hbRectFillSolid)
-	Me.DesenharItem(Objeto, Valor, iCol, lItemData)
-	Me.Grid1.TextOut iLeft, iTop, Valor
+	Try
+		Dim Objeto As clsObjetoGenerico
+		Dim Valor As String
+		Objeto = clsObjetoGenerico(Me.bColecaoCache.Item(lItemData & ""))
+		If (iRow Mod 2) = 0 Then
+			Me.Grid1.BackColor = Configuracoes.GridCorLinhaNormal
+		Else
+			Me.Grid1.BackColor = Configuracoes.GridCorLinhaAlternada
+		End If
+		Me.Grid1.Rectangle(iLeft, (iTop), iLeft+(iWidth+1), iTop+(iHeight-1), hbRectFillSolid)
+		Me.DesenharItem(Objeto, Valor, iCol, lItemData)
+		Me.Grid1.TextOut(iLeft, iTop, Valor)
+	Catch
+		MsgBox(Err.Description)
+	End Catch
 End Sub
 
 Public Property Get RegrasNegocio() As clsRNGenerico
 	RegrasNegocio = Me.bRegrasNegocio
-End Property]]></Source>
+End Property
+
+Private Sub Terminate()
+	Me.bColecaoCache.Clear()
+	Me.bColecaoCache = Nothing
+End Sub]]></Source>
 </Class>

@@ -62,12 +62,16 @@ End Sub
 Public Sub Voltar()
 	If Me.IsModal() Then
 		Unload(Me)
+		Exit Sub
 	Else
 		Dim Repassador As New clsRepassador
 		Dim Form As Form
 		Me.TelaListagem(Repassador)
 		Set Form = clsFormListar(Repassador.Objeto)
+		Me.RegrasNegocio = Nothing
+		Me.bObjeto = Nothing
 		Form.Show(hbFormGoto+hbFormModeless)
+		Exit Sub
 	End If
 End Sub
 
@@ -94,6 +98,7 @@ Public Sub Excluir()
 				Me.RNGenerico.Excluir(Me.bIdentificador)
 				Set Me.Objeto = Nothing
 				Me.Voltar()
+				Exit Sub
 			End If
 		Else
 			MsgBox("Os dados deste formulário ainda não foram salvos. Não é possível realizar a exclusão.")
