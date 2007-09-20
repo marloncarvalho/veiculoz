@@ -4,7 +4,7 @@
   <Name>clsFormListar</Name>
   <Segment>classes</Segment>
   <Extends>Form</Extends>
-  <Instantiable>True</Instantiable>
+  <Instantiable>False</Instantiable>
   <Extendable>True</Extendable>
   <Cloneable>False</Cloneable>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
@@ -27,6 +27,7 @@ Private Grid1 As GridEx
 Private Ordenacao As Integer
 Private bColunaOrdenacao As String
 Private bColecaoGrid As Collection
+Private bColecaoCache As New Collection
 
 Public Event DesenharItem(ByRef Objeto As clsObjetoGenerico, ByRef Valor As String, ByVal iColuna As Integer, ByVal iIdItem As Long)
 Public Event TelaManutencao(ByRef Tela As clsRepassador)
@@ -89,6 +90,7 @@ End Sub
 Public Sub Listar()
 	Dim Colecao As Collection
 	Dim Objeto As clsObjetoGenerico
+	Me.Grid1.Redraw = False
 	Me.Grid1.Clear()
 	If Me.bColecaoGrid Is Nothing Then
 		If Me.bColunaOrdenacao <> "" Then
@@ -97,6 +99,7 @@ Public Sub Listar()
 			Set Colecao = Me.bRegrasNegocio.ObterTodos()
 		End If
 		For Each Objeto In Colecao
+			Me.bColecaoCache.Add(Objeto, CStr(Objeto.Id))
 			Me.Grid1.AddItem(Objeto.Id)
 			Me.DesenhoItemOK(Objeto)
 		Next
@@ -106,6 +109,7 @@ Public Sub Listar()
 			Me.DesenhoItemOK(Objeto)
 		Next
 	End If
+	Me.Grid1.Redraw = True
 End Sub
 
 Private Sub Grid1_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
@@ -121,17 +125,17 @@ Private Sub Grid1_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lIte
 End Sub
 
 Private Sub Grid1_DrawItem(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long, ByVal iLeft As Integer, ByVal iTop As Integer, ByVal iWidth As Integer, ByVal iHeight As Integer)
-	Dim Objeto As clsObjetoGenerico
-	Dim Valor As String
-	Set Objeto = clsObjetoGenerico(Me.bRegrasNegocio.Obter(lItemData))
-  If (iRow mod 2) = 0 Then
-  '  Grid1.BackColor = Configuracoes.GridCorLinhaNormal
+ 	Dim Objeto As clsObjetoGenerico
+ 	Dim Valor As String
+ 	Objeto = clsObjetoGenerico(Me.bColecaoCache.Item(CStr(lItemData)))
+  If (iRow Mod 2) = 0 Then
+    Me.Grid1.BackColor = Configuracoes.GridCorLinhaNormal
   Else
-  '  Grid1.BackColor = Configuracoes.GridCorLinhaAlternada
+    Me.Grid1.BackColor = Configuracoes.GridCorLinhaAlternada
   End If
-  Grid1.Rectangle(iLeft, iTop, iLeft+(iWidth-1), iTop+iHeight, hbRectFillSolid)
+  Me.Grid1.Rectangle(iLeft, (iTop), iLeft+(iWidth+1), iTop+iHeight, hbRectFillSolid)
 	Me.DesenharItem(Objeto, Valor, iCol, lItemData)
-	Grid1.TextOut iLeft+1, iTop-1, Valor
+	Me.Grid1.TextOut iLeft, iTop, Valor
 End Sub
 
 Public Property Get RegrasNegocio() As clsRNGenerico

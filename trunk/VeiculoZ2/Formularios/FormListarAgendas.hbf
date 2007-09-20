@@ -7,7 +7,7 @@
   <Locked>False</Locked>
   <Layout Target="Palm OS">
     <Left>2</Left>
-    <Top>2</Top>
+    <Top>10</Top>
     <Width>156</Width>
     <Height>137</Height>
     <Caption xml:space="preserve">VeículoZ</Caption>
@@ -36,7 +36,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>2</Left>
-      <Top>42</Top>
+      <Top>43</Top>
       <Width>152</Width>
       <Height>65</Height>
       <Anchors>0</Anchors>
@@ -64,7 +64,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>94</Left>
-      <Top>117</Top>
+      <Top>118</Top>
       <Width>40</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -110,7 +110,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>-2</Left>
-      <Top>40</Top>
+      <Top>41</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -125,7 +125,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>-2</Left>
-      <Top>107</Top>
+      <Top>108</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -140,7 +140,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>20</Left>
-      <Top>117</Top>
+      <Top>118</Top>
       <Width>67</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>

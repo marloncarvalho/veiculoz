@@ -4,7 +4,7 @@
   <Name>clsFormManter</Name>
   <Segment>main</Segment>
   <Extends>Form</Extends>
-  <Instantiable>True</Instantiable>
+  <Instantiable>False</Instantiable>
   <Extendable>True</Extendable>
   <Cloneable>False</Cloneable>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
@@ -67,7 +67,7 @@ Public Sub Voltar()
 		Dim Form As Form
 		Me.TelaListagem(Repassador)
 		Set Form = clsFormListar(Repassador.Objeto)
-		Form.Show(hbFormGoto)
+		Form.Show(hbFormGoto+hbFormModeless)
 	End If
 End Sub
 
