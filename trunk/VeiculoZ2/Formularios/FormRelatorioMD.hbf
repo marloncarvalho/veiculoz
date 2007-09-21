@@ -372,6 +372,6 @@ End Sub
 
 Private Sub Picture3_PenDown(ByVal x As Integer, ByVal y As Integer)
 	Dim Form As New FormInicial
-	Form.Show(hbFormGoto+hbFormModal)
+	Form.Show(hbFormGoto+hbFormModeless)
 End Sub]]></Source>
 </Form>
