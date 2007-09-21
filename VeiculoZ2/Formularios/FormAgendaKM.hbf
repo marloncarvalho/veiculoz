@@ -87,21 +87,6 @@
       <Above/>
       <Below/>
     </Button>
-    <Picture>
-      <Name>Picture1</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>130</Left>
-      <Top>55</Top>
-      <Anchors>0</Anchors>
-      <Visible>True</Visible>
-      <Image>IconeAgendarGrande</Image>
-      <NavFlags>0</NavFlags>
-      <NavOrder/>
-      <Above/>
-      <Below/>
-    </Picture>
   </Layout>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
 '

@@ -121,17 +121,17 @@
       <Below/>
       <Columns>
         <Column>
-          <ColumnType>4</ColumnType>
+          <ColumnType>5</ColumnType>
           <Masked>False</Masked>
           <Width>100</Width>
-          <Height>11</Height>
+          <Alignment>0</Alignment>
           <Font>Standard</Font>
         </Column>
         <Column>
-          <ColumnType>4</ColumnType>
+          <ColumnType>5</ColumnType>
           <Masked>False</Masked>
           <Width>58</Width>
-          <Height>11</Height>
+          <Alignment>0</Alignment>
           <Font>Standard</Font>
         </Column>
       </Columns>
@@ -239,9 +239,16 @@ Private Sub clsFormListar_Load()
 	Me.Listar()
 End Sub
 
+Private Sub clsFormListar_CarregarItem(ByRef Objeto As clsObjetoGenerico, ByRef Valores() As Variant)
+	Dim Despesa As clsDespesa
+	Despesa = clsDespesa(Objeto)
+	Valores(0) = " " & Despesa.Descricao
+	Valores(1) = Despesa.Local.Nome
+End Sub
+
 Private Sub clsFormListar_DesenharItem(ByRef Objeto As clsObjetoGenerico, ByRef Valor As String, ByVal iColuna As Integer, ByVal iIdItem As Long)
 	Dim Despesa As clsDespesa
-	Set Despesa = clsDespesa(Objeto)
+	Despesa = clsDespesa(Objeto)
 	Select Case iColuna
 		Case 0
 			Valor = Despesa.Descricao

@@ -149,7 +149,7 @@ Private Sub Grid1_DrawItem(ByVal iRow As Integer, ByVal iCol As Integer, ByVal l
 		Else
 			Me.Grid1.BackColor = Configuracoes.GridCorLinhaAlternada
 		End If
-		Me.Grid1.Rectangle(iLeft, (iTop), iLeft+(iWidth+1), iTop+(iHeight-1), hbRectFillSolid)
+'		Me.Grid1.Rectangle(iLeft, (iTop), iLeft+(iWidth+1), iTop+(iHeight-1), hbRectFillPattern)
 		Me.Grid1.TextOut(iLeft, iTop, Valor)
 	Catch
 		MsgBox(Err.Description)

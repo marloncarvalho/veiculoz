@@ -121,17 +121,17 @@
       <Below/>
       <Columns>
         <Column>
-          <ColumnType>4</ColumnType>
+          <ColumnType>5</ColumnType>
           <Masked>False</Masked>
           <Width>100</Width>
-          <Height>11</Height>
+          <Alignment>0</Alignment>
           <Font>Standard</Font>
         </Column>
         <Column>
-          <ColumnType>4</ColumnType>
+          <ColumnType>5</ColumnType>
           <Masked>False</Masked>
           <Width>58</Width>
-          <Height>11</Height>
+          <Alignment>0</Alignment>
           <Font>Standard</Font>
         </Column>
       </Columns>
@@ -254,9 +254,16 @@ Private Sub clsFormListar_Load()
 	Me.Listar()
 End Sub
 
+Private Sub clsFormListar_CarregarItem(ByRef Objeto As clsObjetoGenerico, ByRef Valores() As Variant)
+	Dim Veiculo As clsVeiculo
+	Veiculo = clsVeiculo(Objeto)
+	Valores(0) = " " & Veiculo.Modelo
+	Valores(1) = Veiculo.Marca
+End Sub
+
 Private Sub clsFormListar_DesenharItem(ByRef Objeto As clsObjetoGenerico, ByRef Valor As String, ByVal iColuna As Integer, ByVal iIdItem As Long)
 	Dim Veiculo As clsVeiculo
-	Set Veiculo = clsVeiculo(Objeto)
+	Veiculo = clsVeiculo(Objeto)
 	Select Case iColuna
 		Case 0
 			Valor = Veiculo.Modelo

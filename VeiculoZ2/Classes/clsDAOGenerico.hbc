@@ -55,7 +55,8 @@ End Property
 ' @return void.
 Private Sub Terminate()
 	Me.pDatabase.Close()
-	Set Me.pDatabase = Nothing
+	Me.pDatabase = Nothing
+	Me.Cache = Nothing
 End Sub
 
 ' Obter todos os registros da tabela, retornando uma coleção de Objetos Genéricos,

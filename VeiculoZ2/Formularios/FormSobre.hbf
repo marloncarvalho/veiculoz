@@ -6,11 +6,11 @@
   <Extends>Form</Extends>
   <Locked>False</Locked>
   <Layout Target="Palm OS">
-    <Left>2</Left>
+    <Left>10</Left>
     <Top>25</Top>
-    <Width>156</Width>
+    <Width>140</Width>
     <Height>124</Height>
-    <Caption xml:space="preserve">VeículoZ</Caption>
+    <Caption/>
     <Modal>True</Modal>
     <Help/>
     <DIA>0</DIA>
@@ -23,8 +23,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>43</Left>
-      <Top>16</Top>
+      <Left>35</Left>
+      <Top>3</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Desenvolvido Por</Caption>
@@ -35,8 +35,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>23</Left>
-      <Top>27</Top>
+      <Left>15</Left>
+      <Top>14</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Marlon Silva Carvalho</Caption>
@@ -47,8 +47,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>35</Left>
-      <Top>89</Top>
+      <Left>27</Left>
+      <Top>67</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Licença GPL Versão 3</Caption>
@@ -59,8 +59,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>51</Left>
-      <Top>79</Top>
+      <Left>43</Left>
+      <Top>57</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Versão 2.0</Caption>
@@ -71,8 +71,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>58</Left>
-      <Top>106</Top>
+      <Left>50</Left>
+      <Top>92</Top>
       <Width>40</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -91,8 +91,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>10</Left>
-      <Top>41</Top>
+      <Left>2</Left>
+      <Top>28</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">http://www.marloncarvalho.net/</Caption>
@@ -103,8 +103,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>29</Left>
-      <Top>59</Top>
+      <Left>22</Left>
+      <Top>109</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">ícones por everaldo.com</Caption>
