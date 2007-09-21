@@ -29,6 +29,10 @@ Public Sub ValidarExclusao(ByRef Id As Long, ByRef Mensagem As String)
 	RaiseEvent ValidarExclusao(Id, Mensagem)
 End Sub
 
+Private Sub Terminate()
+	Me.Dao = Nothing
+End Sub
+
 Public Property Set Dao(ByRef D As clsDAOGenerico)
 	Set Me.pDao = D
 End Property

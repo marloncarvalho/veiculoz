@@ -316,7 +316,7 @@ KMs = Quilômetros Rodados</Help>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>73</Left>
+      <Left>71</Left>
       <Top>63</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -328,7 +328,7 @@ KMs = Quilômetros Rodados</Help>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>125</Left>
+      <Left>122</Left>
       <Top>63</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>

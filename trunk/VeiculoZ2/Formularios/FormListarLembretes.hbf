@@ -49,7 +49,7 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>102</Left>
+      <Left>101</Left>
       <Top>38</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -121,17 +121,17 @@
       <Below/>
       <Columns>
         <Column>
-          <ColumnType>4</ColumnType>
+          <ColumnType>5</ColumnType>
           <Masked>False</Masked>
           <Width>100</Width>
-          <Height>11</Height>
+          <Alignment>0</Alignment>
           <Font>Standard</Font>
         </Column>
         <Column>
-          <ColumnType>4</ColumnType>
+          <ColumnType>5</ColumnType>
           <Masked>False</Masked>
           <Width>58</Width>
-          <Height>11</Height>
+          <Alignment>0</Alignment>
           <Font>Standard</Font>
         </Column>
       </Columns>
@@ -198,7 +198,7 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>129</Left>
+      <Left>128</Left>
       <Top>42</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -223,10 +223,18 @@
 '
 ' You should have received a copy of the GNU General Public License
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 Private Sub clsFormListar_Load()
 	Set Me.RegrasNegocio = RNFactory.RNLembrete()
 	Set Me.Grid = Me.Grid2
 	Me.Listar()
+End Sub
+
+Private Sub clsFormListar_CarregarItem(ByRef Objeto As clsObjetoGenerico, ByRef Valores() As Variant)
+	Dim Lembrete As clsLembrete
+	Lembrete = clsLembrete(Objeto)
+	Valores(0) = " " & Lembrete.Descricao
+	Valores(1) = Format(Lembrete.Data,"shortdate")
 End Sub
 
 Private Sub clsFormListar_DesenharItem(ByRef Objeto As clsObjetoGenerico, ByRef Valor As String, ByVal iColuna As Integer, ByVal iIdItem As Long)

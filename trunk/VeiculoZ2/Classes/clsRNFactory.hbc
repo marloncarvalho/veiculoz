@@ -32,6 +32,19 @@ Private bRNTiposDespesas As clsRNTipoDespesa
 Private bRNDespesas As clsRNDespesas
 Private bRNLembretes As clsRNLembrete
 
+Private Sub Terminate()
+	Me.bRNMotorista = Nothing
+	Me.bRNAbastecimentos = Nothing
+	Me.bRNSeguros = Nothing
+	Me.bRNPercursos = Nothing
+	Me.bRNVeiculos = Nothing
+	Me.bRNEmpresas = Nothing
+	Me.bRNTiposCombustivel = Nothing
+	Me.bRNTiposDespesas = Nothing
+	Me.bRNDespesas = Nothing
+	Me.bRNLembretes = Nothing
+End Sub
+
 Public Property Get RNLembrete() As clsRNLembrete
 	If Me.bRNLembretes Is Nothing Then
 		Me.bRNLembretes = New clsRNLembrete

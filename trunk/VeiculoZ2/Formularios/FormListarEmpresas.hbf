@@ -49,7 +49,7 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>102</Left>
+      <Left>101</Left>
       <Top>38</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -112,7 +112,7 @@
       <Height>88</Height>
       <Anchors>12</Anchors>
       <Visible>True</Visible>
-      <SelectionMode>3</SelectionMode>
+      <SelectionMode>1</SelectionMode>
       <VertScroll>Spin</VertScroll>
       <HorzScroll/>
       <NavFlags>0</NavFlags>
@@ -123,7 +123,7 @@
         <Column>
           <ColumnType>5</ColumnType>
           <Masked>False</Masked>
-          <Width>100</Width>
+          <Width>98</Width>
           <Alignment>0</Alignment>
           <Font>Standard</Font>
         </Column>
@@ -222,7 +222,7 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>136</Left>
+      <Left>135</Left>
       <Top>42</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -257,7 +257,7 @@ End Sub
 Private Sub clsFormListar_CarregarItem(ByRef Objeto As clsObjetoGenerico, ByRef Valores() As Variant)
 	Dim Empresa As clsEmpresa
 	Set Empresa = clsEmpresa(Objeto)
-	Valores(0) = Empresa.Nome
+	Valores(0) = " " & Empresa.Nome
 	Valores(1) = Empresa.Bairro
 End Sub
 
