@@ -6,12 +6,12 @@
   <Extends>clsFormListar</Extends>
   <Locked>False</Locked>
   <Layout Target="Palm OS">
-    <Left>0</Left>
-    <Top>0</Top>
-    <Width>160</Width>
-    <Height>160</Height>
-    <Caption xml:space="preserve">VeículoZ</Caption>
-    <Modal>False</Modal>
+    <Left>2</Left>
+    <Top>2</Top>
+    <Width>156</Width>
+    <Height>156</Height>
+    <Caption/>
+    <Modal>True</Modal>
     <Help/>
     <DIA>0</DIA>
     <SaveBehind>False</SaveBehind>
@@ -23,8 +23,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>146</Left>
-      <Top>18</Top>
+      <Left>142</Left>
+      <Top>16</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <NavFlags>0</NavFlags>
@@ -38,7 +38,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>1</Left>
-      <Top>38</Top>
+      <Top>35</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">CM</Caption>
@@ -50,7 +50,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>36</Left>
-      <Top>38</Top>
+      <Top>35</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Litros</Caption>
@@ -61,8 +61,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>49</Top>
+      <Left>-2</Left>
+      <Top>46</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -76,8 +76,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>124</Top>
+      <Left>-2</Left>
+      <Top>121</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -91,8 +91,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>37</Top>
+      <Left>-2</Left>
+      <Top>34</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -107,8 +107,8 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>0</Left>
-      <Top>50</Top>
-      <Width>160</Width>
+      <Top>47</Top>
+      <Width>156</Width>
       <Height>74</Height>
       <Anchors>12</Anchors>
       <Visible>True</Visible>
@@ -121,31 +121,31 @@
       <Below/>
       <Columns>
         <Column>
-          <ColumnType>5</ColumnType>
+          <ColumnType>4</ColumnType>
           <Masked>False</Masked>
           <Width>34</Width>
-          <Alignment>0</Alignment>
+          <Height>11</Height>
           <Font>Standard</Font>
         </Column>
         <Column>
-          <ColumnType>5</ColumnType>
+          <ColumnType>4</ColumnType>
           <Masked>False</Masked>
           <Width>43</Width>
-          <Alignment>0</Alignment>
+          <Height>11</Height>
           <Font>Standard</Font>
         </Column>
         <Column>
-          <ColumnType>5</ColumnType>
+          <ColumnType>4</ColumnType>
           <Masked>False</Masked>
           <Width>45</Width>
-          <Alignment>0</Alignment>
+          <Height>11</Height>
           <Font>Standard</Font>
         </Column>
         <Column>
-          <ColumnType>5</ColumnType>
+          <ColumnType>4</ColumnType>
           <Masked>False</Masked>
           <Width>35</Width>
-          <Alignment>0</Alignment>
+          <Height>11</Height>
           <Font>Standard</Font>
         </Column>
       </Columns>
@@ -156,7 +156,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>4</Left>
-      <Top>141</Top>
+      <Top>138</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoNovo</Image>
@@ -170,8 +170,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>141</Left>
-      <Top>144</Top>
+      <Left>137</Left>
+      <Top>141</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoVoltar</Image>
@@ -185,8 +185,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>5</Left>
-      <Top>20</Top>
+      <Left>4</Left>
+      <Top>18</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>ImagemListagem</Image>
@@ -200,29 +200,20 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>26</Left>
-      <Top>19</Top>
+      <Left>23</Left>
+      <Top>17</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Cadastro de Percursos</Caption>
       <Font>LargeBold</Font>
     </Label>
-    <Graffiti>
-      <Name>Graffiti</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>150</Left>
-      <Top>2</Top>
-      <Anchors>0</Anchors>
-    </Graffiti>
     <Label>
       <Name>Label4</Name>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
       <Left>80</Left>
-      <Top>38</Top>
+      <Top>35</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">KM R.</Caption>
@@ -234,7 +225,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>126</Left>
-      <Top>38</Top>
+      <Top>35</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Dias</Caption>
@@ -245,8 +236,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>138</Top>
+      <Left>-2</Left>
+      <Top>135</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -260,8 +251,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>10</Left>
-      <Top>126</Top>
+      <Left>4</Left>
+      <Top>123</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Consumo Médio Geral:</Caption>
@@ -272,11 +263,23 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>101</Left>
-      <Top>126</Top>
+      <Left>95</Left>
+      <Top>123</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">............................</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Label>
+      <Name>Label7</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>3</Left>
+      <Top>1</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Veículo:</Caption>
       <Font>Standard</Font>
     </Label>
     <Popup>
@@ -284,7 +287,7 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>48</Left>
+      <Left>37</Left>
       <Top>1</Top>
       <Width>99</Width>
       <Height>12</Height>
@@ -300,6 +303,30 @@
       <Above/>
       <Below/>
     </Popup>
+    <Picture>
+      <Name>imgLinha4</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>-2</Left>
+      <Top>13</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>LinhaSeparacaoSimples</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Graffiti>
+      <Name>Graffiti</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>145</Left>
+      <Top>2</Top>
+      <Anchors>0</Anchors>
+    </Graffiti>
   </Layout>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
 '
@@ -333,21 +360,12 @@ Private Sub clsFormListar_Load()
 	ConsumoMedio = 0
 End Sub
 
-Private Sub clsFormListar_CarregarItem(ByRef Objeto As clsObjetoGenerico, ByRef Valores() As Variant)
-	Dim Percurso As clsPercurso
-	Percurso = clsPercurso(Objeto)
-	Valores(0) = " " & Format(Percurso.ConsumoMedio(), "0.00")
-	Valores(1) = Format(Percurso.LitrosConsumidos(), "0.00")
-	Valores(2) = Percurso.KmPercorridos()
-	Valores(3) = Percurso.DiasDecorridos()
-End Sub
-
 Private Sub clsFormListar_DesenharItem(ByRef Objeto As clsObjetoGenerico, ByRef Valor As String, ByVal iColuna As Integer, ByVal iIdItem As Long)
 	Dim Percurso As clsPercurso
 	Set Percurso = clsPercurso(Objeto)
 	Select Case iColuna
 		Case 0
-			Valor = Format(Percurso.ConsumoMedio(), "0.00")
+			Valor = " " & Format(Percurso.ConsumoMedio(), "0.00")
 		Case 1
 			Valor = Format(Percurso.LitrosConsumidos(), "0.00")
 		Case 2

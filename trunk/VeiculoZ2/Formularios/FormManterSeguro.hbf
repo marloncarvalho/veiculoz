@@ -6,12 +6,12 @@
   <Extends>clsFormManter</Extends>
   <Locked>False</Locked>
   <Layout Target="Palm OS">
-    <Left>0</Left>
-    <Top>0</Top>
-    <Width>160</Width>
-    <Height>160</Height>
-    <Caption xml:space="preserve">VeículoZ</Caption>
-    <Modal>False</Modal>
+    <Left>2</Left>
+    <Top>2</Top>
+    <Width>156</Width>
+    <Height>156</Height>
+    <Caption/>
+    <Modal>True</Modal>
     <Help/>
     <DIA>0</DIA>
     <SaveBehind>False</SaveBehind>
@@ -23,8 +23,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>11</Left>
-      <Top>45</Top>
+      <Left>8</Left>
+      <Top>39</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Empresa:</Caption>
@@ -36,7 +36,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>23</Left>
-      <Top>142</Top>
+      <Top>138</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoSalvar</Image>
@@ -51,7 +51,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>43</Left>
-      <Top>143</Top>
+      <Top>139</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoExcluir</Image>
@@ -66,7 +66,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>4</Left>
-      <Top>141</Top>
+      <Top>137</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoNovo</Image>
@@ -80,8 +80,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>141</Left>
-      <Top>144</Top>
+      <Left>138</Left>
+      <Top>139</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoVoltar</Image>
@@ -90,34 +90,13 @@
       <Above/>
       <Below/>
     </Picture>
-    <Graffiti>
-      <Name>graffiti</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>150</Left>
-      <Top>2</Top>
-      <Anchors>0</Anchors>
-    </Graffiti>
-    <Label>
-      <Name>Label1</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>32</Left>
-      <Top>21</Top>
-      <Anchors>0</Anchors>
-      <Visible>True</Visible>
-      <Caption xml:space="preserve">Cadastro de Seguros</Caption>
-      <Font>LargeBold</Font>
-    </Label>
     <Field>
       <Name>FieldEmpresa</Name>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>49</Left>
-      <Top>43</Top>
+      <Left>46</Left>
+      <Top>37</Top>
       <Width>103</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -141,8 +120,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>9</Left>
-      <Top>59</Top>
+      <Left>6</Left>
+      <Top>53</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Telefone:</Caption>
@@ -153,8 +132,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>49</Left>
-      <Top>57</Top>
+      <Left>46</Left>
+      <Top>51</Top>
       <Width>58</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -178,8 +157,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>9</Left>
-      <Top>72</Top>
+      <Left>6</Left>
+      <Top>66</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Contrato:</Caption>
@@ -190,8 +169,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>49</Left>
-      <Top>70</Top>
+      <Left>46</Left>
+      <Top>64</Top>
       <Width>57</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -215,8 +194,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>23</Left>
-      <Top>86</Top>
+      <Left>20</Left>
+      <Top>80</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Valor:</Caption>
@@ -227,8 +206,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>49</Left>
-      <Top>84</Top>
+      <Left>46</Left>
+      <Top>78</Top>
       <Width>46</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -252,8 +231,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>11</Left>
-      <Top>100</Top>
+      <Left>8</Left>
+      <Top>94</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Franquia:</Caption>
@@ -264,8 +243,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>11</Left>
-      <Top>116</Top>
+      <Left>8</Left>
+      <Top>110</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Vigência:</Caption>
@@ -276,26 +255,11 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>138</Top>
+      <Left>-2</Left>
+      <Top>134</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
-      <NavFlags>0</NavFlags>
-      <NavOrder/>
-      <Above/>
-      <Below/>
-    </Picture>
-    <Picture>
-      <Name>Picture1</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>9</Left>
-      <Top>21</Top>
-      <Anchors>0</Anchors>
-      <Visible>True</Visible>
-      <Image>ImagemManter</Image>
       <NavFlags>0</NavFlags>
       <NavOrder/>
       <Above/>
@@ -306,8 +270,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>49</Left>
-      <Top>98</Top>
+      <Left>46</Left>
+      <Top>92</Top>
       <Width>46</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -331,8 +295,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>50</Left>
-      <Top>117</Top>
+      <Left>47</Left>
+      <Top>111</Top>
       <Width>55</Width>
       <Height>11</Height>
       <Anchors>0</Anchors>
@@ -353,8 +317,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>50</Left>
-      <Top>1</Top>
+      <Left>29</Left>
+      <Top>24</Top>
       <Width>98</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -374,11 +338,47 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>107</Left>
-      <Top>114</Top>
+      <Left>104</Left>
+      <Top>108</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>IconeAgendar</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Graffiti>
+      <Name>graffiti</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>145</Left>
+      <Top>7</Top>
+      <Anchors>0</Anchors>
+    </Graffiti>
+    <Label>
+      <Name>Label1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>26</Left>
+      <Top>5</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Cadastro de Seguros</Caption>
+      <Font>LargeBold</Font>
+    </Label>
+    <Picture>
+      <Name>Picture1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>4</Left>
+      <Top>5</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>ImagemManter</Image>
       <NavFlags>0</NavFlags>
       <NavOrder/>
       <Above/>

@@ -10,7 +10,7 @@
     <Top>40</Top>
     <Width>156</Width>
     <Height>80</Height>
-    <Caption xml:space="preserve">VeículoZ</Caption>
+    <Caption/>
     <Modal>True</Modal>
     <Help/>
     <DIA>0</DIA>
@@ -23,12 +23,12 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>6</Left>
-      <Top>17</Top>
+      <Left>20</Left>
+      <Top>11</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
-      <Caption xml:space="preserve">Digite KM para a Despesa seguinte:</Caption>
-      <Font>Standard</Font>
+      <Caption xml:space="preserve">Digite a KM da próxima</Caption>
+      <Font>Bold</Font>
     </Label>
     <Field>
       <Name>FieldKM</Name>
@@ -87,6 +87,18 @@
       <Above/>
       <Below/>
     </Button>
+    <Label>
+      <Name>Label3</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>21</Left>
+      <Top>22</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">despesa a ser realizada.</Caption>
+      <Font>Bold</Font>
+    </Label>
   </Layout>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
 '
