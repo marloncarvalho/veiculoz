@@ -7,10 +7,10 @@
   <Locked>False</Locked>
   <Layout Target="Palm OS">
     <Left>2</Left>
-    <Top>84</Top>
+    <Top>66</Top>
     <Width>156</Width>
-    <Height>74</Height>
-    <Caption xml:space="preserve">Nota</Caption>
+    <Height>80</Height>
+    <Caption/>
     <Modal>True</Modal>
     <Help/>
     <DIA>0</DIA>
@@ -24,7 +24,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>9</Left>
-      <Top>15</Top>
+      <Top>20</Top>
       <Width>140</Width>
       <Height>37</Height>
       <Anchors>0</Anchors>
@@ -49,7 +49,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>58</Left>
-      <Top>56</Top>
+      <Top>62</Top>
       <Width>40</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -63,6 +63,18 @@
       <Above/>
       <Below/>
     </Button>
+    <Label>
+      <Name>Label1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>17</Left>
+      <Top>2</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Preencha a Nota abaixo:</Caption>
+      <Font>LargeBold</Font>
+    </Label>
   </Layout>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
 '

@@ -95,7 +95,7 @@ End Sub
 Public Sub Listar()
 	Dim Colecao As Collection
 	Dim Objeto As clsObjetoGenerico
-	Me.Grid1.Redraw = False
+	Me.Grid1.Redraw = True
 	Me.Grid1.Clear()
 	If Me.bColecaoGrid Is Nothing Then
 		If Me.bColunaOrdenacao <> "" Then
@@ -115,7 +115,7 @@ Public Sub Listar()
 			Me.DesenhoItemOK(Objeto)
 		Next
 	End If
-	Me.Grid1.Redraw = True
+	Me.Grid1.Redraw = False
 End Sub
 
 Private Sub Grid1_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
@@ -149,7 +149,7 @@ Private Sub Grid1_DrawItem(ByVal iRow As Integer, ByVal iCol As Integer, ByVal l
 		Else
 			Me.Grid1.BackColor = Configuracoes.GridCorLinhaAlternada
 		End If
-'		Me.Grid1.Rectangle(iLeft, (iTop), iLeft+(iWidth+1), iTop+(iHeight-1), hbRectFillPattern)
+		Me.Grid1.Rectangle(iLeft, (iTop), iLeft+(iWidth+1), iTop+(iHeight-1), hbRectFillPattern)
 		Me.Grid1.TextOut(iLeft, iTop, Valor)
 	Catch
 		MsgBox(Err.Description)

@@ -6,12 +6,12 @@
   <Extends>clsFormManter</Extends>
   <Locked>False</Locked>
   <Layout Target="Palm OS">
-    <Left>0</Left>
-    <Top>0</Top>
-    <Width>160</Width>
-    <Height>160</Height>
-    <Caption xml:space="preserve">VeículoZ</Caption>
-    <Modal>False</Modal>
+    <Left>2</Left>
+    <Top>2</Top>
+    <Width>156</Width>
+    <Height>156</Height>
+    <Caption/>
+    <Modal>True</Modal>
     <Help/>
     <DIA>1</DIA>
     <SaveBehind>True</SaveBehind>
@@ -23,8 +23,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>15</Left>
-      <Top>40</Top>
+      <Left>14</Left>
+      <Top>29</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Marca:</Caption>
@@ -36,7 +36,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>23</Left>
-      <Top>142</Top>
+      <Top>138</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoSalvar</Image>
@@ -51,7 +51,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>43</Left>
-      <Top>143</Top>
+      <Top>139</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoExcluir</Image>
@@ -66,7 +66,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>4</Left>
-      <Top>141</Top>
+      <Top>137</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoNovo</Image>
@@ -80,8 +80,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>141</Left>
-      <Top>144</Top>
+      <Left>137</Left>
+      <Top>140</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoVoltar</Image>
@@ -95,8 +95,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>150</Left>
-      <Top>2</Top>
+      <Left>145</Left>
+      <Top>7</Top>
       <Anchors>0</Anchors>
     </Graffiti>
     <Label>
@@ -104,8 +104,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>32</Left>
-      <Top>21</Top>
+      <Left>26</Left>
+      <Top>6</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Cadastro de Veículos</Caption>
@@ -116,8 +116,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>44</Left>
-      <Top>38</Top>
+      <Left>43</Left>
+      <Top>27</Top>
       <Width>105</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -141,8 +141,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>26</Left>
-      <Top>53</Top>
+      <Left>25</Left>
+      <Top>42</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Ano:</Caption>
@@ -153,8 +153,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>44</Left>
-      <Top>51</Top>
+      <Left>43</Left>
+      <Top>40</Top>
       <Width>24</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -178,8 +178,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>11</Left>
-      <Top>67</Top>
+      <Left>10</Left>
+      <Top>56</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Modelo:</Caption>
@@ -190,8 +190,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>44</Left>
-      <Top>65</Top>
+      <Left>43</Left>
+      <Top>54</Top>
       <Width>106</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -215,8 +215,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>20</Left>
-      <Top>80</Top>
+      <Left>19</Left>
+      <Top>69</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Placa:</Caption>
@@ -227,8 +227,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>44</Left>
-      <Top>78</Top>
+      <Left>43</Left>
+      <Top>67</Top>
       <Width>37</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -252,8 +252,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>27</Left>
-      <Top>94</Top>
+      <Left>26</Left>
+      <Top>83</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Cor:</Caption>
@@ -264,8 +264,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>44</Left>
-      <Top>92</Top>
+      <Left>43</Left>
+      <Top>81</Top>
       <Width>38</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -289,8 +289,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>3</Left>
-      <Top>107</Top>
+      <Left>2</Left>
+      <Top>96</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Renavam:</Caption>
@@ -301,8 +301,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>44</Left>
-      <Top>105</Top>
+      <Left>43</Left>
+      <Top>94</Top>
       <Width>106</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -326,8 +326,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>16</Left>
-      <Top>122</Top>
+      <Left>15</Left>
+      <Top>111</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Chassi:</Caption>
@@ -338,8 +338,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>44</Left>
-      <Top>120</Top>
+      <Left>43</Left>
+      <Top>109</Top>
       <Width>106</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -363,8 +363,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>138</Top>
+      <Left>-2</Left>
+      <Top>134</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -378,8 +378,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>9</Left>
-      <Top>21</Top>
+      <Left>4</Left>
+      <Top>5</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>ImagemManter</Image>
@@ -393,8 +393,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>120</Left>
-      <Top>144</Top>
+      <Left>118</Left>
+      <Top>140</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>IconeSeguros</Image>

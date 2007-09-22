@@ -70,7 +70,7 @@ Public Sub Voltar()
 		Set Form = clsFormListar(Repassador.Objeto)
 		Me.RegrasNegocio = Nothing
 		Me.bObjeto = Nothing
-		Form.Show(hbFormGoto+hbFormModeless)
+		Form.Show(hbFormModal+hbFormPopup)
 		Exit Sub
 	End If
 End Sub
