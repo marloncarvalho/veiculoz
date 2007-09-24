@@ -99,8 +99,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>43</Left>
-      <Top>100</Top>
+      <Left>44</Left>
+      <Top>117</Top>
       <Width>34</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -184,7 +184,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>80</Left>
-      <Top>64</Top>
+      <Top>63</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Data:</Caption>
@@ -217,8 +217,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>5</Left>
-      <Top>102</Top>
+      <Left>6</Left>
+      <Top>119</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Q. Litros:</Caption>
@@ -286,8 +286,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>120</Left>
-      <Top>83</Top>
+      <Left>44</Left>
+      <Top>100</Top>
       <Width>34</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -311,8 +311,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>80</Left>
-      <Top>85</Top>
+      <Left>4</Left>
+      <Top>102</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Val. Litro:</Caption>
@@ -324,7 +324,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>81</Left>
-      <Top>102</Top>
+      <Top>119</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Tanque Cheio:</Caption>
@@ -335,8 +335,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>138</Left>
-      <Top>102</Top>
+      <Left>137</Left>
+      <Top>119</Top>
       <Width>16</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -457,6 +457,36 @@
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Picture>
+      <Name>btnCalcValTotal</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>78</Left>
+      <Top>80</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>IconeCalculadora</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Picture>
+      <Name>btnCalcValLitro</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>78</Left>
+      <Top>97</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>IconeCalculadora</Image>
       <NavFlags>0</NavFlags>
       <NavOrder/>
       <Above/>
@@ -625,5 +655,19 @@ Private Sub CalcularLitros()
 		Me.FieldQuantidade.Text = Format(Qtd,"0.000")
 	Catch
 	End Catch
+End Sub
+
+Private Sub btnCalcValTotal_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim Form As New FormCalculadora
+	Form.FieldRetorno = Me.FieldTotal
+	Form.Show(hbFormModal+hbFormPopup)
+	Me.CalcularLitros()
+End Sub
+
+Private Sub btnCalcValLitro_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim Form As New FormCalculadora
+	Form.FieldRetorno = Me.FieldLitro
+	Form.Show(hbFormModal+hbFormPopup)
+	Me.CalcularLitros()
 End Sub]]></Source>
 </Form>

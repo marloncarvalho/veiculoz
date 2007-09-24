@@ -168,7 +168,7 @@ Public Function ObterConsumoMedioPorVeiculo(ByVal Veiculo As Long) As Double
 	Colecao = Me.Dao.ObterPorQuery(SQL)
 	For Each Percurso In Colecao
 		If Percurso.ConsumoMedio() > 0 Then
-			Total = Percurso.ConsumoMedio()
+			Total = Total + Percurso.ConsumoMedio()
 			Indice = Indice + 1
 		End If
 	Next
