@@ -144,9 +144,9 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>110</Left>
-      <Top>110</Top>
-      <Width>43</Width>
+      <Left>113</Left>
+      <Top>114</Top>
+      <Width>39</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -237,8 +237,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>93</Left>
-      <Top>112</Top>
+      <Left>96</Left>
+      <Top>116</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">KM:</Caption>
@@ -295,7 +295,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>30</Left>
-      <Top>109</Top>
+      <Top>113</Top>
       <Width>46</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -320,7 +320,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>5</Left>
-      <Top>111</Top>
+      <Top>115</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Valor:</Caption>
@@ -505,6 +505,21 @@
       <Above/>
       <Below/>
     </Picture>
+    <Picture>
+      <Name>btnCalculadora</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>77</Left>
+      <Top>111</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>IconeCalculadora</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
   </Layout>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
 '
@@ -679,5 +694,11 @@ Private Sub btnAgendar_PenDown(ByVal x As Integer, ByVal y As Integer)
 	Dim Form As New FormAgendaKM
 	Form.FieldOrigem = Me.FieldProximaDespesa
 	Form.Show(hbFormPopup)
+End Sub
+
+Private Sub btnCalculadora_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim Form As New FormCalculadora
+	Form.FieldRetorno = Me.FieldValor
+	Form.Show(hbFormModal+hbFormPopup)
 End Sub]]></Source>
 </Form>

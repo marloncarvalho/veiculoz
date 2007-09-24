@@ -3,7 +3,7 @@
 <Project Version="2.50">
   <Name>VeiculoZ</Name>
   <Configuration>Release</Configuration>
-  <BuildNumber>1008</BuildNumber>
+  <BuildNumber>1021</BuildNumber>
   <AutoIncrement>True</AutoIncrement>
   <Conduit/>
   <PackageBuilder/>
@@ -80,6 +80,7 @@
   <File>Formularios\FormManterLembrete.hbf</File>
   <File>Formularios\FormRelatorioMD.hbf</File>
   <File>Formularios\FormRelatorioPD.hbf</File>
+  <File>Formularios\FormCalculadora.hbf</File>
   <Settings>
     <Name>Debug</Name>
     <OutputPath>.\Debug</OutputPath>
@@ -442,4 +443,15 @@
     <PDB>0</PDB>
     <Filename>Tabelas\TabelaLembretes.hbx</Filename>
   </Table>
+  <ImageFamily>
+    <Name>IconeCalculadora</Name>
+    <Image>
+      <Density>72</Density>
+      <Palette>4</Palette>
+      <Compression>255</Compression>
+      <TransparencyColor>-1</TransparencyColor>
+      <Locale>0</Locale>
+      <Filename>Imagens\IconeCalculadora.bmp</Filename>
+    </Image>
+  </ImageFamily>
 </Project>
