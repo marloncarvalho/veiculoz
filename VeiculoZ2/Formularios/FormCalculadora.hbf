@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Peter Holmes Consulting HB++ Form file -->
+<Form Version="2.50">
+  <Name>FormCalculadora</Name>
+  <Segment>forms</Segment>
+  <Extends>Form</Extends>
+  <Locked>False</Locked>
+  <Layout Target="Palm OS">
+    <Left>39</Left>
+    <Top>32</Top>
+    <Width>88</Width>
+    <Height>111</Height>
+    <Caption/>
+    <Modal>True</Modal>
+    <Help/>
+    <DIA>0</DIA>
+    <SaveBehind>False</SaveBehind>
+    <NavState>0</NavState>
+    <InitialFocus/>
+    <BottomLeft/>
+    <Button>
+      <Name>btn7</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>10</Left>
+      <Top>25</Top>
+      <Width>19</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">7</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Button>
+      <Name>btn8</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>34</Left>
+      <Top>25</Top>
+      <Width>19</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">8</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Button>
+      <Name>btn9</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>58</Left>
+      <Top>25</Top>
+      <Width>19</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">9</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Button>
+      <Name>btn4</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>10</Left>
+      <Top>42</Top>
+      <Width>19</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">4</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Button>
+      <Name>btn5</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>34</Left>
+      <Top>42</Top>
+      <Width>19</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">5</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Button>
+      <Name>btn6</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>58</Left>
+      <Top>42</Top>
+      <Width>19</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">6</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Button>
+      <Name>btn1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>10</Left>
+      <Top>59</Top>
+      <Width>19</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">1</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Button>
+      <Name>btn2</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>34</Left>
+      <Top>59</Top>
+      <Width>19</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">2</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Button>
+      <Name>btn3</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>58</Left>
+      <Top>59</Top>
+      <Width>19</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">3</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Button>
+      <Name>btn0</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>10</Left>
+      <Top>75</Top>
+      <Width>19</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">0</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Button>
+      <Name>btnPonto</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>34</Left>
+      <Top>75</Top>
+      <Width>19</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">.</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Button>
+      <Name>btnVirgual</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>58</Left>
+      <Top>75</Top>
+      <Width>19</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">,</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Button>
+      <Name>btnC</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>10</Left>
+      <Top>91</Top>
+      <Width>19</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">C</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Button>
+      <Name>btnOK</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>34</Left>
+      <Top>91</Top>
+      <Width>42</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">OK</Text>
+      <Font>Standard</Font>
+      <Frame>1</Frame>
+      <Repeating>False</Repeating>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Button>
+    <Field>
+      <Name>FieldValor</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>11</Left>
+      <Top>4</Top>
+      <Width>68</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Font>Bold</Font>
+      <Underline>True</Underline>
+      <SingleLine>True</SingleLine>
+      <Align>2</Align>
+      <Editable>False</Editable>
+      <AutoShift>True</AutoShift>
+      <Numeric>True</Numeric>
+      <MaxChar>80</MaxChar>
+      <Scrollbar/>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Field>
+  </Layout>
+  <Source xml:space="preserve"><![CDATA[Public FieldRetorno As Field
+
+Private Sub Form_Load()
+	If Not Me.FieldRetorno Is Nothing Then
+		Me.FieldValor.Text = Me.FieldRetorno.Text
+	End If
+End Sub
+
+Private Sub btn7_Click()
+	Me.FieldValor.Text = Me.FieldValor.Text & "7"
+End Sub
+
+Private Sub btn8_Click()
+	Me.FieldValor.Text = Me.FieldValor.Text & "8"
+End Sub
+
+Private Sub btn9_Click()
+	Me.FieldValor.Text = Me.FieldValor.Text & "9"
+End Sub
+
+Private Sub btn4_Click()
+	Me.FieldValor.Text = Me.FieldValor.Text & "4"
+End Sub
+
+Private Sub btn5_Click()
+	Me.FieldValor.Text = Me.FieldValor.Text & "5"
+End Sub
+
+Private Sub btn6_Click()
+	Me.FieldValor.Text = Me.FieldValor.Text & "6"
+End Sub
+
+Private Sub btn1_Click()
+	Me.FieldValor.Text = Me.FieldValor.Text & "1"
+End Sub
+
+Private Sub btn2_Click()
+	Me.FieldValor.Text = Me.FieldValor.Text & "2"
+End Sub
+
+Private Sub btn3_Click()
+	Me.FieldValor.Text = Me.FieldValor.Text & "3"
+End Sub
+
+Private Sub btn0_Click()
+	Me.FieldValor.Text = Me.FieldValor.Text & "0"
+End Sub
+
+Private Sub btnPonto_Click()
+	Me.FieldValor.Text = Me.FieldValor.Text & "."
+End Sub
+
+Private Sub btnVirgual_Click()
+	Me.FieldValor.Text = Me.FieldValor.Text & ","
+End Sub
+
+Private Sub btnC_Click()
+	Me.FieldValor.Text = ""
+End Sub
+
+Private Sub btnOK_Click()
+	If Not Me.FieldRetorno Is Nothing Then
+		Me.FieldRetorno.Text = Me.FieldValor.Text
+	End If
+	Unload(Me)
+End Sub]]></Source>
+</Form>
