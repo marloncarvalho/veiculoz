@@ -3,7 +3,7 @@
 <Project Version="2.50">
   <Name>VeiculoZ</Name>
   <Configuration>Release</Configuration>
-  <BuildNumber>1021</BuildNumber>
+  <BuildNumber>1055</BuildNumber>
   <AutoIncrement>True</AutoIncrement>
   <Conduit/>
   <PackageBuilder/>

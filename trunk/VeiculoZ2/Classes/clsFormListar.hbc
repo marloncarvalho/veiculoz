@@ -97,6 +97,7 @@ Public Sub Listar()
 	Dim Objeto As clsObjetoGenerico
 	Me.Grid1.Redraw = True
 	Me.Grid1.Clear()
+	Me.bColecaoCache.Clear()
 	If Me.bColecaoGrid Is Nothing Then
 		If Me.bColunaOrdenacao <> "" Then
 			Set Colecao = Me.bRegrasNegocio.ObterTodos(Me.bColunaOrdenacao)

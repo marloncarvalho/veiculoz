@@ -24,7 +24,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>27</Left>
-      <Top>20</Top>
+      <Top>18</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Controle de Veículos</Caption>
@@ -48,7 +48,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>48</Left>
-      <Top>48</Top>
+      <Top>47</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>ImagemPrincipal</Image>
@@ -212,7 +212,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>38</Left>
-      <Top>35</Top>
+      <Top>33</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Versão 2.0 Preview 2</Caption>

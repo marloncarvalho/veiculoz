@@ -46,6 +46,14 @@ Public Function ObterPorTipoVeiculoPeriodo(ByVal Id As Long, ByVal Veiculo As Lo
 	ObterPorTipoVeiculoPeriodo = Colecao
 End Function
 
+Public Function ObterPorVeiculo(ByVal Veiculo As Long) As Collection
+	Dim SQL As String
+	Dim Colecao As Collection
+	SQL = "IdVeiculo=" & Veiculo & " Order By Data DESC"
+	Colecao = Me.Dao.ObterPorQuery(SQL)
+	ObterPorVeiculo = Colecao
+End Function
+
 Public Function ObterProximasDespesas(ByVal Veiculo As Long, ByVal KmAnterior As Long, ByVal KmAtual As Long) As Collection
 	Dim SQL As String
 	SQL = "IdVeiculo=" & Veiculo & " AND ProximaDespesa >=" & KmAnterior & " AND ProximaDespesa <= " & KmAtual
