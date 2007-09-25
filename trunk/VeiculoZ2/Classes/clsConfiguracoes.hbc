@@ -26,8 +26,8 @@ Private bGridCorLinhaNormal As Long
 Private bGridCorLinhaAlternada As Long
 
 Public Sub Initialize()
-	Me.bGridCorLinhaAlternada = HTMLColor("gray")
-	Me.bGridCorLinhaNormal = HTMLColor("lightgray")
+	Me.bGridCorLinhaAlternada = HTMLColor("lightgray")
+	Me.bGridCorLinhaNormal = HTMLColor("whitesmoke")
 End Sub
 
 Public Property Get GridCorLinhaAlternada() As Long
