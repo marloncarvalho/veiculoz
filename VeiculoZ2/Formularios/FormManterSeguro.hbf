@@ -24,7 +24,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>8</Left>
-      <Top>39</Top>
+      <Top>38</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Empresa:</Caption>
@@ -96,7 +96,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>46</Left>
-      <Top>37</Top>
+      <Top>36</Top>
       <Width>103</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -158,7 +158,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>6</Left>
-      <Top>66</Top>
+      <Top>68</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Contrato:</Caption>
@@ -170,7 +170,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>46</Left>
-      <Top>64</Top>
+      <Top>66</Top>
       <Width>57</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -195,7 +195,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>20</Left>
-      <Top>80</Top>
+      <Top>85</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Valor:</Caption>
@@ -207,7 +207,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>46</Left>
-      <Top>78</Top>
+      <Top>83</Top>
       <Width>46</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -232,7 +232,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>8</Left>
-      <Top>94</Top>
+      <Top>101</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Franquia:</Caption>
@@ -244,7 +244,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>8</Left>
-      <Top>110</Top>
+      <Top>118</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Vigência:</Caption>
@@ -271,7 +271,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>46</Left>
-      <Top>92</Top>
+      <Top>99</Top>
       <Width>46</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -296,7 +296,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>47</Left>
-      <Top>111</Top>
+      <Top>119</Top>
       <Width>55</Width>
       <Height>11</Height>
       <Anchors>0</Anchors>
@@ -317,7 +317,7 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>29</Left>
+      <Left>46</Left>
       <Top>24</Top>
       <Width>98</Width>
       <Height>12</Height>
@@ -339,7 +339,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>104</Left>
-      <Top>108</Top>
+      <Top>116</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>IconeAgendar</Image>
@@ -390,7 +390,34 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>93</Left>
-      <Top>79</Top>
+      <Top>80</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>IconeCalculadora</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Label>
+      <Name>lblMarca5</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>14</Left>
+      <Top>24</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Veículo:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Picture>
+      <Name>btnCalcFranquia</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>93</Left>
+      <Top>96</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>IconeCalculadora</Image>
@@ -511,5 +538,17 @@ Private Sub btnLembrete_PenDown(ByVal x As Integer, ByVal y As Integer)
 	Form.SelectorData.Date = Me.SelectorVcto.Date
 	Form.FieldDescricao.Text = "Renovar Seguro"
 	Form.Show(hbFormPopup)
+End Sub
+
+Private Sub btnCalcValTotal_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim Form As New FormCalculadora
+	Form.FieldRetorno = Me.FieldValor
+	Form.Show(hbFormModal+hbFormPopup)
+End Sub
+
+Private Sub btnCalcFranquia_PenDown(ByVal x As Integer, ByVal y As Integer)
+	Dim Form As New FormCalculadora
+	Form.FieldRetorno = Me.FieldFranquia
+	Form.Show(hbFormModal+hbFormPopup)
 End Sub]]></Source>
 </Form>
