@@ -384,6 +384,21 @@
       <Above/>
       <Below/>
     </Picture>
+    <Picture>
+      <Name>btnCalcValTotal</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>93</Left>
+      <Top>79</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>IconeCalculadora</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
   </Layout>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
 '

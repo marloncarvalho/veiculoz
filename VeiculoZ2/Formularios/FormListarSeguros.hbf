@@ -72,36 +72,6 @@
       <Above/>
       <Below/>
     </Picture>
-    <Picture>
-      <Name>imgOrdenacao</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>46</Left>
-      <Top>39</Top>
-      <Anchors>0</Anchors>
-      <Visible>True</Visible>
-      <Image>ImagemOrdenacaoBaixo</Image>
-      <NavFlags>0</NavFlags>
-      <NavOrder/>
-      <Above/>
-      <Below/>
-    </Picture>
-    <Picture>
-      <Name>imgOrdenacaoMarca</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>146</Left>
-      <Top>39</Top>
-      <Anchors>0</Anchors>
-      <Visible>True</Visible>
-      <Image>ImagemOrdenacaoBaixo</Image>
-      <NavFlags>0</NavFlags>
-      <NavOrder/>
-      <Above/>
-      <Below/>
-    </Picture>
     <GridEx>
       <Name>Grid2</Name>
       <Index>0</Index>
@@ -298,6 +268,14 @@
 
 Private Sub clsFormListar_Load()
 	Me.RegrasNegocio = RNFactory.RNSeguros()
+	ObterVeiculos(Me.PopupVeiculos)
+	Me.PopupVeiculos.AddItem("Todos",0)
+	If Me.PopupVeiculos.ListCount() > 0 Then
+		Me.PopupVeiculos.ListIndex = 0
+		Me.ColecaoGrid = RNFactory.RNSeguros().ObterPorVeiculo(Me.PopupVeiculos.ItemData(0))
+	Else
+		Me.ColecaoGrid = RNFactory.RNSeguros().ObterTodos()
+	End If
 	Me.Grid = Me.Grid2
 	Me.Listar()
 End Sub
@@ -328,16 +306,19 @@ Private Sub clsFormListar_TelaManutencao(ByRef Tela As clsRepassador)
 	Tela.Objeto = New FormManterSeguro
 End Sub
 
-Private Sub imgOrdenacao_PenDown(ByVal x As Integer, ByVal y As Integer)
-	Me.Ordenar("Empresa")
-End Sub
-
-Private Sub imgOrdenacaoMarca_PenDown(ByVal x As Integer, ByVal y As Integer)
-	Me.Ordenar("Franquia")
-End Sub
-
 Private Sub btnVoltar_PenDown(ByVal x As Integer, ByVal y As Integer)
 	Dim Form As New FormInicial
 	Form.Show(hbFormGoto+hbFormModal)
+End Sub
+
+Private Sub PopupVeiculos_Change()
+	If Me.PopupVeiculos.ListCount() > 0 Then
+		If Me.PopupVeiculos.ItemData(Me.PopupVeiculos.ListIndex) <> 0 Then
+			Me.ColecaoGrid = RNFactory.RNSeguros().ObterPorVeiculo(Me.PopupVeiculos.ItemData(Me.PopupVeiculos.ListIndex))
+		Else
+			Me.ColecaoGrid = RNFactory.RNSeguros().ObterTodos()
+		End If
+	End If
+	Me.Listar()
 End Sub]]></Source>
 </Form>

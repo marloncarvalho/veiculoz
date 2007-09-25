@@ -467,7 +467,7 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>78</Left>
+      <Left>79</Left>
       <Top>80</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -482,8 +482,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>78</Left>
-      <Top>97</Top>
+      <Left>79</Left>
+      <Top>98</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>IconeCalculadora</Image>

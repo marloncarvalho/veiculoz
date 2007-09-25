@@ -33,5 +33,11 @@ Public Function ExisteSeguroVeiculo(ByVal Id As Long) As Boolean
 	Dim SQL As String
 	SQL = "IdVeiculo = " & Id
 	ExisteSeguroVeiculo = Me.Dao.Existe(SQL)
+End Function
+
+Public Function ObterPorVeiculo(ByVal Veiculo As Long) As Collection
+	Dim SQL As String
+	SQL = "IdVeiculo = "  & Veiculo
+	ObterPorVeiculo = Me.Dao.ObterPorQuery(SQL)
 End Function]]></Source>
 </Class>

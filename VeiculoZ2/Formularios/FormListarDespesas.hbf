@@ -24,7 +24,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>2</Left>
-      <Top>38</Top>
+      <Top>36</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Descrição</Caption>
@@ -36,7 +36,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>102</Left>
-      <Top>38</Top>
+      <Top>36</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Local</Caption>
@@ -47,8 +47,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>49</Top>
+      <Left>-2</Left>
+      <Top>47</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -62,8 +62,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>37</Top>
+      <Left>-2</Left>
+      <Top>35</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -78,9 +78,9 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>0</Left>
-      <Top>50</Top>
+      <Top>48</Top>
       <Width>156</Width>
-      <Height>85</Height>
+      <Height>87</Height>
       <Anchors>12</Anchors>
       <Visible>True</Visible>
       <SelectionMode>1</SelectionMode>
@@ -107,21 +107,6 @@
         </Column>
       </Columns>
     </GridEx>
-    <Picture>
-      <Name>imgOrdenacao</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>51</Left>
-      <Top>42</Top>
-      <Anchors>0</Anchors>
-      <Visible>True</Visible>
-      <Image>ImagemOrdenacaoBaixo</Image>
-      <NavFlags>0</NavFlags>
-      <NavOrder/>
-      <Above/>
-      <Below/>
-    </Picture>
     <SpinButton>
       <Name>Spin</Name>
       <Index>0</Index>
@@ -282,8 +267,16 @@
 ' along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Private Sub clsFormListar_Load()
+	ObterVeiculos(Me.PopupVeiculos)
 	Set Me.RegrasNegocio = RNFactory.RNDespesas()
 	Set Me.Grid = Me.Grid2
+	Me.PopupVeiculos.AddItem("Todos",0)
+	If Me.PopupVeiculos.ListCount() > 0 Then
+		Me.PopupVeiculos.ListIndex = 0
+		Me.ColecaoGrid = RNFactory.RNDespesas().ObterPorVeiculo(Me.PopupVeiculos.ItemData(0))
+	Else
+		Me.ColecaoGrid = RNFactory.RNDespesas().ObterTodos()
+	End If
 	Me.Listar()
 End Sub
 
@@ -313,12 +306,19 @@ Private Sub clsFormListar_TelaManutencao(ByRef Tela As clsRepassador)
 	Set Tela.Objeto = New FormManterDespesa
 End Sub
 
-Private Sub imgOrdenacao_PenDown(ByVal x As Integer, ByVal y As Integer)
-	Me.Ordenar("Descricao")
-End Sub
-
 Private Sub btnVoltar_PenDown(ByVal x As Integer, ByVal y As Integer)
 	Dim Form As New FormInicial
 	Form.Show(hbFormModeless+hbFormGoto)
+End Sub
+
+Private Sub PopupVeiculos_Change()
+	If Me.PopupVeiculos.ListCount() > 0 Then
+		If Me.PopupVeiculos.ItemData(Me.PopupVeiculos.ListIndex) <> 0 Then
+			Me.ColecaoGrid = RNFactory.RNDespesas().ObterPorVeiculo(Me.PopupVeiculos.ItemData(Me.PopupVeiculos.ListIndex))
+		Else
+			Me.ColecaoGrid = RNFactory.RNDespesas().ObterTodos()
+		End If
+	End If
+	Me.Listar()
 End Sub]]></Source>
 </Form>
