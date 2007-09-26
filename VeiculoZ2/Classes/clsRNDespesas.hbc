@@ -40,7 +40,7 @@ Public Function ObterPorTipoVeiculoPeriodo(ByVal Id As Long, ByVal Veiculo As Lo
 	If Id <> 0 Then
 		SQL = "IdTipo = " & Id & " AND IdVeiculo=" & Veiculo & " AND Data >= '" & CStr(Per1) & "' AND Data <= '" & CStr(Per2) & "' Order By Data DESC"
 	Else
-		SQL = "IdVeiculo=" & Veiculo & " AND Data <= '" & CStr(Per1) & "' AND Data >= '" & CStr(Per2) & "' Order By Data DESC"
+		SQL = "IdVeiculo=" & Veiculo & " AND Data >= '" & CStr(Per1) & "' AND Data <= '" & CStr(Per2) & "' Order By Data DESC"
 	End If
 	Colecao = Me.Dao.ObterPorQuery(SQL)
 	ObterPorTipoVeiculoPeriodo = Colecao

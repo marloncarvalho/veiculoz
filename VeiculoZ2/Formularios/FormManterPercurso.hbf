@@ -353,9 +353,9 @@
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Font>Standard</Font>
-      <Underline>True</Underline>
+      <Underline>False</Underline>
       <SingleLine>True</SingleLine>
-      <Align>0</Align>
+      <Align>2</Align>
       <Editable>False</Editable>
       <AutoShift>True</AutoShift>
       <Numeric>False</Numeric>

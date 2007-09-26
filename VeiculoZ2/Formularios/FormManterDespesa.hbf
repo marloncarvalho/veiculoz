@@ -581,7 +581,7 @@ Private Sub clsFormManter_Preencher(ByRef Repassador As clsRepassador)
 		Despesa.KM = 0
 	End If
 	If Me.FieldValor.Text <> "" Then
-		Despesa.Valor = CDbl(Me.FieldValor.Text)
+		Despesa.Valor = CDbl(Replace(Me.FieldValor.Text,",","."))
 	Else
 		Despesa.Valor = 0
 	End If

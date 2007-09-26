@@ -3,7 +3,7 @@
 <Project Version="2.50">
   <Name>VeiculoZ</Name>
   <Configuration>Release</Configuration>
-  <BuildNumber>1090</BuildNumber>
+  <BuildNumber>1112</BuildNumber>
   <AutoIncrement>True</AutoIncrement>
   <Conduit/>
   <PackageBuilder/>
@@ -130,10 +130,10 @@
     <Reset>False</Reset>
     <Hidden>False</Hidden>
     <Const>NDEBUG</Const>
-    <Optimize>2</Optimize>
+    <Optimize>1</Optimize>
     <Debug>False</Debug>
-    <CheckNull>True</CheckNull>
-    <CheckArray>True</CheckArray>
+    <CheckNull>False</CheckNull>
+    <CheckArray>False</CheckArray>
     <CheckFPU>True</CheckFPU>
     <ConstSingle>True</ConstSingle>
     <PreBuild/>

@@ -6,12 +6,12 @@
   <Extends>clsFormManter</Extends>
   <Locked>False</Locked>
   <Layout Target="Palm OS">
-    <Left>0</Left>
-    <Top>0</Top>
-    <Width>160</Width>
-    <Height>160</Height>
-    <Caption xml:space="preserve">VeículoZ</Caption>
-    <Modal>False</Modal>
+    <Left>2</Left>
+    <Top>2</Top>
+    <Width>156</Width>
+    <Height>156</Height>
+    <Caption/>
+    <Modal>True</Modal>
     <Help/>
     <DIA>0</DIA>
     <SaveBehind>False</SaveBehind>
@@ -24,7 +24,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>33</Left>
-      <Top>44</Top>
+      <Top>30</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Nome:</Caption>
@@ -36,7 +36,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>4</Left>
-      <Top>142</Top>
+      <Top>138</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoSalvar</Image>
@@ -50,8 +50,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>141</Left>
-      <Top>144</Top>
+      <Left>138</Left>
+      <Top>139</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoVoltar</Image>
@@ -60,34 +60,13 @@
       <Above/>
       <Below/>
     </Picture>
-    <Graffiti>
-      <Name>graffiti</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>150</Left>
-      <Top>2</Top>
-      <Anchors>0</Anchors>
-    </Graffiti>
-    <Label>
-      <Name>Label1</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>32</Left>
-      <Top>21</Top>
-      <Anchors>0</Anchors>
-      <Visible>True</Visible>
-      <Caption xml:space="preserve">Informações Motorista</Caption>
-      <Font>LargeBold</Font>
-    </Label>
     <Field>
       <Name>FieldNome</Name>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
       <Left>60</Left>
-      <Top>42</Top>
+      <Top>28</Top>
       <Width>84</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -112,7 +91,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>12</Left>
-      <Top>60</Top>
+      <Top>47</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Habilitação:</Caption>
@@ -124,7 +103,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>60</Left>
-      <Top>73</Top>
+      <Top>61</Top>
       <Width>24</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -149,7 +128,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>17</Left>
-      <Top>75</Top>
+      <Top>63</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Categoria:</Caption>
@@ -161,7 +140,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>60</Left>
-      <Top>58</Top>
+      <Top>45</Top>
       <Width>61</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -186,7 +165,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>8</Left>
-      <Top>91</Top>
+      <Top>81</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Vencimento:</Caption>
@@ -198,7 +177,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>25</Left>
-      <Top>108</Top>
+      <Top>101</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Emissão:</Caption>
@@ -209,26 +188,11 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>138</Top>
+      <Left>-2</Left>
+      <Top>134</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
-      <NavFlags>0</NavFlags>
-      <NavOrder/>
-      <Above/>
-      <Below/>
-    </Picture>
-    <Picture>
-      <Name>Picture1</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>9</Left>
-      <Top>21</Top>
-      <Anchors>0</Anchors>
-      <Visible>True</Visible>
-      <Image>ImagemManter</Image>
       <NavFlags>0</NavFlags>
       <NavOrder/>
       <Above/>
@@ -240,7 +204,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>61</Left>
-      <Top>91</Top>
+      <Top>81</Top>
       <Width>55</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -262,7 +226,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>61</Left>
-      <Top>108</Top>
+      <Top>101</Top>
       <Width>55</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -284,7 +248,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>118</Left>
-      <Top>88</Top>
+      <Top>78</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>IconeAgendar</Image>
@@ -293,6 +257,42 @@
       <Above/>
       <Below/>
     </Picture>
+    <Label>
+      <Name>Label1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>26</Left>
+      <Top>5</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Informações Motorista</Caption>
+      <Font>LargeBold</Font>
+    </Label>
+    <Picture>
+      <Name>Picture1</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>4</Left>
+      <Top>5</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>ImagemManter</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
+    <Graffiti>
+      <Name>graffiti</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>145</Left>
+      <Top>7</Top>
+      <Anchors>0</Anchors>
+    </Graffiti>
   </Layout>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
 '
