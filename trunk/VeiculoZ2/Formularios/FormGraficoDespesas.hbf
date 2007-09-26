@@ -304,7 +304,7 @@ Private Sub btnPesquisar_PenDown(ByVal x As Integer, ByVal y As Integer)
 		Dim ColecaoDespesas As Collection
 		Dim Despesa As clsDespesa
 		Total = 0
-		ColecaoDespesas = RNFactory.RNDespesas().ObterPorTipoDespesaVeiculo(TipoDespesa.Id, Veiculo)
+		ColecaoDespesas = RNFactory.RNDespesas().ObterPorTipoVeiculoPeriodo(TipoDespesa.Id, Veiculo,Me.SelectorData1.Date,Me.SelectorData2.Date)
 		For Each Despesa In ColecaoDespesas
 			Total = Total + Despesa.Valor
 		Next

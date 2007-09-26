@@ -145,7 +145,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>113</Left>
-      <Top>114</Top>
+      <Top>113</Top>
       <Width>39</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -169,7 +169,7 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>82</Left>
+      <Left>80</Left>
       <Top>43</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -181,7 +181,7 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>106</Left>
+      <Left>104</Left>
       <Top>43</Top>
       <Width>47</Width>
       <Height>12</Height>
@@ -238,7 +238,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>96</Left>
-      <Top>116</Top>
+      <Top>115</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">KM:</Caption>
@@ -368,9 +368,9 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>28</Left>
-      <Top>24</Top>
-      <Width>100</Width>
+      <Left>34</Left>
+      <Top>25</Top>
+      <Width>114</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -520,6 +520,18 @@
       <Above/>
       <Below/>
     </Picture>
+    <Label>
+      <Name>Label4</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>2</Left>
+      <Top>25</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Veículo:</Caption>
+      <Font>Standard</Font>
+    </Label>
   </Layout>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
 '

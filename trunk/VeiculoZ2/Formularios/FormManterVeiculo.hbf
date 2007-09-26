@@ -165,7 +165,7 @@
       <Align>0</Align>
       <Editable>True</Editable>
       <AutoShift>True</AutoShift>
-      <Numeric>False</Numeric>
+      <Numeric>True</Numeric>
       <MaxChar>4</MaxChar>
       <Scrollbar/>
       <NavFlags>0</NavFlags>

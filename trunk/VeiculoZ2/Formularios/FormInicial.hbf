@@ -47,8 +47,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>48</Left>
-      <Top>47</Top>
+      <Left>56</Left>
+      <Top>55</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>ImagemPrincipal</Image>
@@ -211,11 +211,11 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>29</Left>
+      <Left>55</Left>
       <Top>33</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
-      <Caption xml:space="preserve">Versão 2.0 Estável Build 1</Caption>
+      <Caption xml:space="preserve">Versão 2.0.1</Caption>
       <Font>Standard</Font>
     </Label>
     <Label>
