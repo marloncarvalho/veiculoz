@@ -38,7 +38,7 @@ Public Function ObterPorTipoVeiculoPeriodo(ByVal Id As Long, ByVal Veiculo As Lo
 	Dim SQL As String
 	Dim Colecao As Collection
 	If Id <> 0 Then
-		SQL = "IdTipo = " & Id & " AND IdVeiculo=" & Veiculo & " AND Data <= '" & CStr(Per1) & "' AND Data >= '" & CStr(Per2) & "' Order By Data DESC"
+		SQL = "IdTipo = " & Id & " AND IdVeiculo=" & Veiculo & " AND Data >= '" & CStr(Per1) & "' AND Data <= '" & CStr(Per2) & "' Order By Data DESC"
 	Else
 		SQL = "IdVeiculo=" & Veiculo & " AND Data <= '" & CStr(Per1) & "' AND Data >= '" & CStr(Per2) & "' Order By Data DESC"
 	End If
