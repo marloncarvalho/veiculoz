@@ -6,12 +6,12 @@
   <Extends>Form</Extends>
   <Locked>False</Locked>
   <Layout Target="Palm OS">
-    <Left>0</Left>
-    <Top>0</Top>
-    <Width>160</Width>
-    <Height>160</Height>
-    <Caption xml:space="preserve">VeículoZ</Caption>
-    <Modal>False</Modal>
+    <Left>2</Left>
+    <Top>2</Top>
+    <Width>156</Width>
+    <Height>156</Height>
+    <Caption/>
+    <Modal>True</Modal>
     <Help/>
     <DIA>0</DIA>
     <SaveBehind>False</SaveBehind>
@@ -23,8 +23,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>140</Left>
-      <Top>145</Top>
+      <Left>138</Left>
+      <Top>141</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoVoltar</Image>
@@ -39,7 +39,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>34</Left>
-      <Top>30</Top>
+      <Top>16</Top>
       <Width>112</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -60,11 +60,11 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>38</Left>
-      <Top>17</Top>
+      <Top>4</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Melhor Desempenho</Caption>
-      <Font>Standard</Font>
+      <Font>Bold</Font>
     </Label>
     <Picture>
       <Name>Picture1</Name>
@@ -72,7 +72,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>7</Left>
-      <Top>17</Top>
+      <Top>4</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>ImagemRelatorios</Image>
@@ -87,7 +87,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>2</Left>
-      <Top>142</Top>
+      <Top>139</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>ImagemPesquisar</Image>
@@ -101,8 +101,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>43</Top>
+      <Left>-2</Left>
+      <Top>29</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -116,8 +116,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>139</Top>
+      <Left>-2</Left>
+      <Top>136</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -132,7 +132,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>18</Left>
-      <Top>51</Top>
+      <Top>39</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Posto:</Caption>
@@ -144,7 +144,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>4</Left>
-      <Top>64</Top>
+      <Top>55</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Consumo:</Caption>
@@ -156,7 +156,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>21</Left>
-      <Top>77</Top>
+      <Top>71</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Data:</Caption>
@@ -168,7 +168,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>23</Left>
-      <Top>91</Top>
+      <Top>86</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Tipo:</Caption>
@@ -180,7 +180,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>17</Left>
-      <Top>104</Top>
+      <Top>101</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Litros:</Caption>
@@ -192,7 +192,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>23</Left>
-      <Top>118</Top>
+      <Top>117</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">KMs:</Caption>
@@ -204,7 +204,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>45</Left>
-      <Top>50</Top>
+      <Top>38</Top>
       <Width>99</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -229,7 +229,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>44</Left>
-      <Top>62</Top>
+      <Top>53</Top>
       <Width>54</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -254,7 +254,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>44</Left>
-      <Top>75</Top>
+      <Top>69</Top>
       <Width>54</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -279,7 +279,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>44</Left>
-      <Top>89</Top>
+      <Top>84</Top>
       <Width>101</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -304,7 +304,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>44</Left>
-      <Top>102</Top>
+      <Top>99</Top>
       <Width>54</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -329,7 +329,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>44</Left>
-      <Top>116</Top>
+      <Top>115</Top>
       <Width>54</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>

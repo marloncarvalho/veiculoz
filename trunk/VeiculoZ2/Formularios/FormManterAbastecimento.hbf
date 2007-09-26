@@ -149,8 +149,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>4</Left>
-      <Top>63</Top>
+      <Left>86</Left>
+      <Top>62</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Hora:</Caption>
@@ -161,9 +161,9 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>29</Left>
-      <Top>64</Top>
-      <Width>46</Width>
+      <Left>111</Left>
+      <Top>63</Top>
+      <Width>39</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -183,8 +183,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>80</Left>
-      <Top>63</Top>
+      <Left>4</Left>
+      <Top>62</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Data:</Caption>
@@ -195,8 +195,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>105</Left>
-      <Top>64</Top>
+      <Left>29</Left>
+      <Top>63</Top>
       <Width>46</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -323,7 +323,7 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>81</Left>
+      <Left>85</Left>
       <Top>119</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -335,7 +335,7 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>137</Left>
+      <Left>141</Left>
       <Top>119</Top>
       <Width>16</Width>
       <Height>12</Height>

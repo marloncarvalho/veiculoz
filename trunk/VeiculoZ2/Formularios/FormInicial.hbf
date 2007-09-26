@@ -24,7 +24,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>27</Left>
-      <Top>18</Top>
+      <Top>17</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Controle de Veículos</Caption>
@@ -35,8 +35,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>19</Left>
-      <Top>144</Top>
+      <Left>18</Left>
+      <Top>132</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">veiculoz.wordpress.com</Caption>
@@ -48,7 +48,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>56</Left>
-      <Top>55</Top>
+      <Top>49</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>ImagemPrincipal</Image>
@@ -62,8 +62,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>155</Top>
+      <Left>-2</Left>
+      <Top>143</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -196,8 +196,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>144</Top>
+      <Left>-2</Left>
+      <Top>132</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -212,22 +212,10 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>55</Left>
-      <Top>33</Top>
+      <Top>32</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
-      <Caption xml:space="preserve">Versão 2.0.1</Caption>
-      <Font>Standard</Font>
-    </Label>
-    <Label>
-      <Name>Label7</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>65</Left>
-      <Top>1</Top>
-      <Anchors>0</Anchors>
-      <Visible>True</Visible>
-      <Caption xml:space="preserve">Licença GPL Versão 3.0</Caption>
+      <Caption xml:space="preserve">Versão 2.0.0</Caption>
       <Font>Standard</Font>
     </Label>
     <Popup>
@@ -236,7 +224,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>28</Left>
-      <Top>113</Top>
+      <Top>101</Top>
       <Width>104</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -256,8 +244,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>6</Left>
-      <Top>127</Top>
+      <Left>3</Left>
+      <Top>116</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Consumo Médio:</Caption>
@@ -268,8 +256,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>73</Left>
-      <Top>125</Top>
+      <Left>70</Left>
+      <Top>114</Top>
       <Width>81</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -288,6 +276,18 @@
       <Above/>
       <Below/>
     </Field>
+    <Label>
+      <Name>Label7</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>33</Left>
+      <Top>146</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Licença GPL Versão 3.0</Caption>
+      <Font>Standard</Font>
+    </Label>
   </Layout>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
 '

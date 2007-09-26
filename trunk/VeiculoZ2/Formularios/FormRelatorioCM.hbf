@@ -6,11 +6,11 @@
   <Extends>Form</Extends>
   <Locked>False</Locked>
   <Layout Target="Palm OS">
-    <Left>0</Left>
-    <Top>0</Top>
+    <Left>2</Left>
+    <Top>2</Top>
     <Width>160</Width>
     <Height>160</Height>
-    <Caption xml:space="preserve">VeículoZ</Caption>
+    <Caption/>
     <Modal>False</Modal>
     <Help xml:space="preserve">CM = Consumo Médio
 KMs = Quilômetros Rodados</Help>
@@ -24,7 +24,7 @@ KMs = Quilômetros Rodados</Help>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
+      <Left>-2</Left>
       <Top>75</Top>
       <Width>160</Width>
       <Height>51</Height>
@@ -87,7 +87,7 @@ KMs = Quilômetros Rodados</Help>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
+      <Left>-2</Left>
       <Top>126</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -102,8 +102,8 @@ KMs = Quilômetros Rodados</Help>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>140</Left>
-      <Top>145</Top>
+      <Left>139</Left>
+      <Top>143</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoVoltar</Image>
@@ -117,8 +117,8 @@ KMs = Quilômetros Rodados</Help>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>48</Left>
-      <Top>1</Top>
+      <Left>46</Left>
+      <Top>-1</Top>
       <Width>112</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -138,7 +138,7 @@ KMs = Quilômetros Rodados</Help>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
+      <Left>-2</Left>
       <Top>74</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -222,7 +222,7 @@ KMs = Quilômetros Rodados</Help>
       <Layer>0</Layer>
       <Tag/>
       <Left>38</Left>
-      <Top>28</Top>
+      <Top>27</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Informe o Período:</Caption>
@@ -234,7 +234,7 @@ KMs = Quilômetros Rodados</Help>
       <Layer>0</Layer>
       <Tag/>
       <Left>38</Left>
-      <Top>17</Top>
+      <Top>16</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Relatório Consumo Médio</Caption>
@@ -261,7 +261,7 @@ KMs = Quilômetros Rodados</Help>
       <Layer>0</Layer>
       <Tag/>
       <Left>2</Left>
-      <Top>142</Top>
+      <Top>141</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>ImagemPesquisar</Image>
@@ -276,7 +276,7 @@ KMs = Quilômetros Rodados</Help>
       <Layer>0</Layer>
       <Tag/>
       <Left>122</Left>
-      <Top>144</Top>
+      <Top>142</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <NavFlags>0</NavFlags>
@@ -289,7 +289,7 @@ KMs = Quilômetros Rodados</Help>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
+      <Left>-2</Left>
       <Top>62</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -304,7 +304,7 @@ KMs = Quilômetros Rodados</Help>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>3</Left>
+      <Left>1</Left>
       <Top>63</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -316,7 +316,7 @@ KMs = Quilômetros Rodados</Help>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>71</Left>
+      <Left>69</Left>
       <Top>63</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -328,7 +328,7 @@ KMs = Quilômetros Rodados</Help>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>122</Left>
+      <Left>120</Left>
       <Top>63</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -340,7 +340,7 @@ KMs = Quilômetros Rodados</Help>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
+      <Left>-2</Left>
       <Top>139</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -355,7 +355,7 @@ KMs = Quilômetros Rodados</Help>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>3</Left>
+      <Left>2</Left>
       <Top>128</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -367,13 +367,40 @@ KMs = Quilômetros Rodados</Help>
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>94</Left>
+      <Left>92</Left>
       <Top>128</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">...............................</Caption>
       <Font>Standard</Font>
     </Label>
+    <Label>
+      <Name>Label9</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>4</Left>
+      <Top>-1</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Veículo:</Caption>
+      <Font>Bold</Font>
+    </Label>
+    <Picture>
+      <Name>Picture7</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>-2</Left>
+      <Top>12</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>LinhaSeparacaoSimples</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
   </Layout>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
 '

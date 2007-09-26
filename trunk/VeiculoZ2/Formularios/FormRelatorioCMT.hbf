@@ -10,7 +10,7 @@
     <Top>0</Top>
     <Width>160</Width>
     <Height>160</Height>
-    <Caption xml:space="preserve">VeículoZ</Caption>
+    <Caption/>
     <Modal>False</Modal>
     <Help/>
     <DIA>0</DIA>
@@ -111,27 +111,6 @@
       <Above/>
       <Below/>
     </Picture>
-    <Popup>
-      <Name>popVeiculos</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>48</Left>
-      <Top>1</Top>
-      <Width>112</Width>
-      <Height>12</Height>
-      <Anchors>0</Anchors>
-      <Visible>True</Visible>
-      <Text xml:space="preserve">Selecione um Veículo</Text>
-      <Font>Standard</Font>
-      <VisibleItems>3</VisibleItems>
-      <AnchorLeft>True</AnchorLeft>
-      <Sorted>0</Sorted>
-      <NavFlags>0</NavFlags>
-      <NavOrder/>
-      <Above/>
-      <Below/>
-    </Popup>
     <Picture>
       <Name>Picture2</Name>
       <Index>0</Index>
@@ -406,6 +385,54 @@
       <Caption xml:space="preserve">Tipo:</Caption>
       <Font>Standard</Font>
     </Label>
+    <Label>
+      <Name>Label10</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>8</Left>
+      <Top>0</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Veículo:</Caption>
+      <Font>Bold</Font>
+    </Label>
+    <Popup>
+      <Name>popVeiculos</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>48</Left>
+      <Top>0</Top>
+      <Width>112</Width>
+      <Height>12</Height>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Text xml:space="preserve">Selecione um Veículo</Text>
+      <Font>Standard</Font>
+      <VisibleItems>3</VisibleItems>
+      <AnchorLeft>True</AnchorLeft>
+      <Sorted>0</Sorted>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Popup>
+    <Picture>
+      <Name>Picture7</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>0</Left>
+      <Top>12</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Image>LinhaSeparacaoSimples</Image>
+      <NavFlags>0</NavFlags>
+      <NavOrder/>
+      <Above/>
+      <Below/>
+    </Picture>
   </Layout>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
 '
