@@ -101,6 +101,7 @@ End Sub
 Public Sub Listar()
 	Dim Colecao As Collection
 	Dim Objeto As clsObjetoGenerico
+	Me.Grid1.Visible = False
 	Me.Grid1.Redraw = False
 	Me.Grid1.Clear()
 	Me.bColecaoCache.Clear()
@@ -123,6 +124,7 @@ Public Sub Listar()
 		Next
 	End If
 	Me.Grid1.Redraw = True
+	Me.Grid1.Visible = True
 End Sub
 
 Private Sub Grid1_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
