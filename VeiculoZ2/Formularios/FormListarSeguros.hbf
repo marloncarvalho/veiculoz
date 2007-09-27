@@ -307,11 +307,15 @@ Private Sub clsFormListar_TelaManutencao(ByRef Tela As clsRepassador)
 End Sub
 
 Private Sub btnVoltar_PenDown(ByVal x As Integer, ByVal y As Integer)
-	Dim Form As New FormInicial
-	Form.Show(hbFormGoto+hbFormModal)
+	Unload(Me)
 End Sub
 
 Private Sub PopupVeiculos_Change()
+	Me.Recarregar()
+	Me.Listar()
+End Sub
+
+Private Sub clsFormListar_Recarregar()
 	If Me.PopupVeiculos.ListCount() > 0 Then
 		If Me.PopupVeiculos.ItemData(Me.PopupVeiculos.ListIndex) <> 0 Then
 			Me.ColecaoGrid = RNFactory.RNSeguros().ObterPorVeiculo(Me.PopupVeiculos.ItemData(Me.PopupVeiculos.ListIndex))
@@ -319,6 +323,5 @@ Private Sub PopupVeiculos_Change()
 			Me.ColecaoGrid = RNFactory.RNSeguros().ObterTodos()
 		End If
 	End If
-	Me.Listar()
 End Sub]]></Source>
 </Form>

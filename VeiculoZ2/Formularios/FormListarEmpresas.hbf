@@ -14,7 +14,7 @@
     <Modal>True</Modal>
     <Help/>
     <DIA>0</DIA>
-    <SaveBehind>False</SaveBehind>
+    <SaveBehind>True</SaveBehind>
     <NavState>0</NavState>
     <InitialFocus/>
     <BottomLeft/>
@@ -304,7 +304,6 @@ Private Sub imgOrdenacaoMarca_PenDown(ByVal x As Integer, ByVal y As Integer)
 End Sub
 
 Private Sub btnVoltar_PenDown(ByVal x As Integer, ByVal y As Integer)
-	Dim Form As New FormInicial
-	Form.Show(hbFormModeless+hbFormGoto)
+	Unload(Me)
 End Sub]]></Source>
 </Form>

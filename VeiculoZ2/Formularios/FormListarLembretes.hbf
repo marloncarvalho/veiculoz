@@ -14,7 +14,7 @@
     <Modal>True</Modal>
     <Help/>
     <DIA>0</DIA>
-    <SaveBehind>False</SaveBehind>
+    <SaveBehind>True</SaveBehind>
     <NavState>0</NavState>
     <InitialFocus/>
     <BottomLeft/>

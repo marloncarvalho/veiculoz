@@ -34,6 +34,11 @@ Public Event TelaManutencao(ByRef Tela As clsRepassador)
 Public Event DesenhoItemOK(ByRef Objeto As clsObjetoGenerico)
 Public Event CarregarItem(ByRef Objeto As clsObjetoGenerico, ByRef Valores() As Variant)
 
+Public Event Recarregar()
+Public Sub Recarregar()
+	RaiseEvent Recarregar()
+End Sub
+
 Private Sub CarregarItem(ByRef Objeto As clsObjetoGenerico, ByRef Valores() As Variant)
 	RaiseEvent CarregarItem(Objeto,Valores)
 End Sub
@@ -72,7 +77,8 @@ Public Sub Novo()
 	Me.TelaManutencao(Repassador)
 	Set Form = clsFormManter(Repassador.Objeto)
 	If Not Form Is Nothing Then
-		Form.Show(hbFormGoto)
+		Form.TelaListagem = Me
+		Form.Show(hbFormModal+hbFormPopup)
 	End If
 End Sub
 
@@ -95,7 +101,7 @@ End Sub
 Public Sub Listar()
 	Dim Colecao As Collection
 	Dim Objeto As clsObjetoGenerico
-	Me.Grid1.Redraw = True
+	Me.Grid1.Redraw = False
 	Me.Grid1.Clear()
 	Me.bColecaoCache.Clear()
 	If Me.bColecaoGrid Is Nothing Then
@@ -116,7 +122,7 @@ Public Sub Listar()
 			Me.DesenhoItemOK(Objeto)
 		Next
 	End If
-	Me.Grid1.Redraw = False
+	Me.Grid1.Redraw = True
 End Sub
 
 Private Sub Grid1_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lItemData As Long)
@@ -127,7 +133,8 @@ Private Sub Grid1_Click(ByVal iRow As Integer, ByVal iCol As Integer, ByVal lIte
 	If Not Form Is Nothing Then
 		Form.Identificador = lItemData
 		Form.Iniciar()
-		Form.Show(hbFormGoto+hbFormModeless)
+		Form.TelaListagem = Me
+		Form.Show(hbFormPopup+hbFormModal)
 		Exit Sub
 	End If
 End Sub

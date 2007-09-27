@@ -14,7 +14,7 @@
     <Modal>True</Modal>
     <Help/>
     <DIA>0</DIA>
-    <SaveBehind>False</SaveBehind>
+    <SaveBehind>True</SaveBehind>
     <NavState>0</NavState>
     <InitialFocus/>
     <BottomLeft/>
@@ -384,15 +384,12 @@ Private Sub clsFormListar_TelaManutencao(ByRef Tela As clsRepassador)
 End Sub
 
 Private Sub btnVoltar_PenDown(ByVal x As Integer, ByVal y As Integer)
-	Dim Form As New FormInicial
-	Form.Show(hbFormModeless+hbFormGoto)
+	Unload(Me)
 End Sub
 
 Private Sub PopupVeiculos_Change()
-		Me.IndiceCM = 0
-		Me.ConsumoMedio = 0
-		Me.ColecaoGrid = RNFactory.RNPercursos().ObterPorVeiculo(Me.PopupVeiculos.ItemData(Me.PopupVeiculos.ListIndex))
-		Me.Listar()
+	Me.Recarregar()
+	Me.Listar()
 End Sub
 
 Private Sub clsFormListar_DesenhoItemOK(ByRef Objeto As clsObjetoGenerico)
@@ -401,5 +398,11 @@ Private Sub clsFormListar_DesenhoItemOK(ByRef Objeto As clsObjetoGenerico)
 	Me.IndiceCM = Me.IndiceCM + 1
 	Me.ConsumoMedio = Me.ConsumoMedio + Percurso.ConsumoMedio()
 	Me.lblCM.Caption = Format(Me.ConsumoMedio/IndiceCM,"0.0000") & " Km/L"
+End Sub
+
+Private Sub clsFormListar_Recarregar()
+	Me.IndiceCM = 0
+	Me.ConsumoMedio = 0
+	Me.ColecaoGrid = RNFactory.RNPercursos().ObterPorVeiculo(Me.PopupVeiculos.ItemData(Me.PopupVeiculos.ListIndex))
 End Sub]]></Source>
 </Form>

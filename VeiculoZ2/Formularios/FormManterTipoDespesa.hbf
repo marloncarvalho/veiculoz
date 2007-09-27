@@ -285,9 +285,5 @@ Private Sub clsFormManter_LimparCampos()
 	Me.FieldDescricao.Text = ""
 	Me.Identificador = 0
 	Me.Estado = 1
-End Sub
-
-Private Sub clsFormManter_TelaListagem(ByRef Tela As clsRepassador)
-	Set Tela.Objeto = New FormListarTipoDespesas
 End Sub]]></Source>
 </Form>
