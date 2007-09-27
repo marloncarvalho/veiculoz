@@ -29,13 +29,13 @@ Private bMensagemErro As String
 Private bEstado As Integer
 Private bIsModal As Boolean
 Private bObjeto As clsObjetoGenerico
+Private bTelaListagem As Form
 
 ' EVENTOS
 Public Event Validar(ByRef Objeto As clsObjetoGenerico, ByRef MsgErro As String)
 Public Event Preencher(ByRef Repassador As clsRepassador)
 Public Event PreencherCampos(ByRef Objeto As clsObjetoGenerico)
 Public Event LimparCampos()
-Public Event TelaListagem(ByRef Tela As clsRepassador)
 Public Event Inicializar()
 
 ' MÉTODOS
@@ -43,9 +43,13 @@ Private Sub Initialize()
 	Me.bEstado = 1
 End Sub
 
-Private Sub TelaListagem(ByRef Tela As clsRepassador)
-	RaiseEvent TelaListagem(Tela)
-End Sub
+Public Property Set TelaListagem(ByRef form As Form)
+	Me.bTelaListagem = form
+End Property
+
+Public Property Get TelaListagem() As Form
+	TelaListagem = Me.bTelaListagem
+End Property
 
 Protected Sub LimparCampos()
 	Dim Resultado As Integer
@@ -60,19 +64,13 @@ Public Sub Form_Load()
 End Sub
 
 Public Sub Voltar()
-	If Me.IsModal() Then
-		Unload(Me)
-		Exit Sub
-	Else
-		Dim Repassador As New clsRepassador
-		Dim Form As Form
-		Me.TelaListagem(Repassador)
-		Set Form = clsFormListar(Repassador.Objeto)
-		Me.RegrasNegocio = Nothing
-		Me.bObjeto = Nothing
-		Form.Show(hbFormModal+hbFormPopup)
-		Exit Sub
+	If Not Me.bTelaListagem Is Nothing Then
+		Dim Listagem As clsFormListar
+		Listagem = clsFormListar(Me.bTelaListagem)
+		Listagem.Recarregar()
+		Listagem.Listar()
 	End If
+	Unload(Me)
 End Sub
 
 Public Sub Inicializar()

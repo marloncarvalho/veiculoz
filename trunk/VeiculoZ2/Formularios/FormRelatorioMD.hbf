@@ -371,7 +371,6 @@ Private Sub btnPesquisar_PenDown(ByVal x As Integer, ByVal y As Integer)
 End Sub
 
 Private Sub Picture3_PenDown(ByVal x As Integer, ByVal y As Integer)
-	Dim Form As New FormInicial
-	Form.Show(hbFormGoto+hbFormModeless)
+	Unload(Me)
 End Sub]]></Source>
 </Form>

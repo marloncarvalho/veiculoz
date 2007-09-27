@@ -666,10 +666,6 @@ Private Sub clsFormManter_LimparCampos()
 	Me.Estado = 1
 End Sub
 
-Private Sub clsFormManter_TelaListagem(ByRef Tela As clsRepassador)
-	Set Tela.Objeto = New FormListarDespesas
-End Sub
-
 Private Sub btnObservacoes_PenDown(ByVal x As Integer, ByVal y As Integer)
 	Dim Form As New FormNotas
 	Set Form.FieldPreencher = Me.FieldObservacoes

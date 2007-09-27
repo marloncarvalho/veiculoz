@@ -301,9 +301,5 @@ Private Sub clsFormManter_LimparCampos()
 	Me.SelectorData.Date = Now()+1
 	Me.Identificador = 0
 	Me.Estado = 1
-End Sub
-
-Private Sub clsFormManter_TelaListagem(ByRef Tela As clsRepassador)
-	Set Tela.Objeto = New FormListarLembretes
 End Sub]]></Source>
 </Form>

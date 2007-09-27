@@ -306,17 +306,17 @@
 
 Private Sub MenuPostos_Click()
 	Dim Form As New FormListarEmpresas
-	Form.Show(hbFormGoto+hbFormModeless)
+	Form.Show(hbFormPopup+hbFormModal)
 End Sub
 
 Private Sub MenuRelatorioCM_Click()
 	Dim Form As New FormRelatorioCM
-	Form.Show(hbFormGoto+hbFormModal)
+	Form.Show(hbFormGoto+hbFormModeless)
 End Sub
 
 Private Sub MenuAbastecimentos_Click()
 	Dim Form As New FormListarPercursos
-	Form.Show(hbFormGoto+hbFormModal)
+	Form.Show(hbFormPopup+hbFormModal)
 End Sub
 
 Private Sub MenuSobre_Click()
@@ -326,52 +326,52 @@ End Sub
 
 Private Sub MenuItem9_Click()
 	Dim Form As New FormRelatorioCMT
-	Form.Show(hbFormModal+hbFormGoto)
+	Form.Show(hbFormModeless+hbFormGoto)
 End Sub
 
 Private Sub MenuVeiculos_Click()
 	Dim Form As New FormListarVeiculos
-	Form.Show(hbFormModal+hbFormGoto)
+	Form.Show(hbFormModal+hbFormPopup)
 End Sub
 
 Private Sub MenuTiposCombustivel_Click()
 	Dim Form As New FormListarTiposCombustivel
-	Form.Show(hbFormModal+hbFormGoto)
+	Form.Show(hbFormModal+hbFormPopup)
 End Sub
 
 Private Sub MenuItem17_Click()
 	Dim Form As New FormGraficoConsumo
-	Form.Show(hbFormModal+hbFormGoto)
+	Form.Show(hbFormModeless+hbFormGoto)
 End Sub
 
 Private Sub MenuTipoDespesa_Click()
 	Dim Form As New FormListarTipoDespesas
-	Form.Show(hbFormModal+hbFormGoto)
+	Form.Show(hbFormModal+hbFormPopup)
 End Sub
 
 Private Sub MenuGastosGerais_Click()
 	Dim Form As New FormListarDespesas
-	Form.Show(hbFormModal+hbFormGoto)
+	Form.Show(hbFormModal+hbFormPopup)
 End Sub
 
 Private Sub MenuItem16_Click()
 	Dim Form As New FormGraficoDespesas
-	Form.Show(hbFormModal+hbFormGoto)
+	Form.Show(hbFormModeless+hbFormGoto)
 End Sub
 
 Private Sub MenuItem10_Click()
 	Dim Form As New FormRelatorioDA
-	Form.Show(hbFormModal+hbFormGoto)
+	Form.Show(hbFormModeless+hbFormGoto)
 End Sub
 
 Private Sub MenuItem11_Click()
 	Dim Form As New FormRelatorioDG
-	Form.Show(hbFormModal+hbFormGoto)
+	Form.Show(hbFormModeless+hbFormGoto)
 End Sub
 
 Private Sub MenuSeguros_Click()
 	Dim Form As New FormListarSeguros
-	Form.Show(hbFormGoto+hbFormModal)
+	Form.Show(hbFormPopup+hbFormModal)
 End Sub
 
 Private Sub MenuSair_Click()
@@ -387,17 +387,17 @@ Private Sub MenuMotorista_Click()
 		Form.Identificador = Motorista.Id
 	End If
 	Form.Iniciar()
-	Form.Show(hbFormGoto+hbFormModal)
+	Form.Show(hbFormPopup+hbFormModal)
 End Sub
 
 Private Sub MenuItem13_Click()
 	Dim Form As New FormRelatorioMD
-	Form.Show(hbFormGoto+hbFormModal)
+	Form.Show(hbFormPopup+hbFormModal)
 End Sub
 
 Private Sub MenuItem14_Click()
 	Dim Form As New FormRelatorioPD
-	Form.Show(hbFormGoto+hbFormModal)
+	Form.Show(hbFormPopup+hbFormModal)
 End Sub
 
 Private Sub PopupVeiculo_Change()
