@@ -69,8 +69,8 @@ Public Sub Voltar()
 		Listagem = clsFormListar(Me.bTelaListagem)
 		Listagem.Recarregar()
 		Listagem.Listar()
+		Listagem.Show(hbFormPopup)
 	End If
-	Unload(Me)
 End Sub
 
 Public Sub Inicializar()
