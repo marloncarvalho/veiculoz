@@ -3,7 +3,7 @@
 <Project Version="2.50">
   <Name>VeiculoZ</Name>
   <Configuration>Debug</Configuration>
-  <BuildNumber>1196</BuildNumber>
+  <BuildNumber>1222</BuildNumber>
   <AutoIncrement>True</AutoIncrement>
   <Conduit/>
   <PackageBuilder/>
@@ -114,7 +114,7 @@
     <Name>Release</Name>
     <OutputPath>.\Release</OutputPath>
     <Title xml:space="preserve">VeículoZ</Title>
-    <Version>2.0</Version>
+    <Version>2.0.1</Version>
     <Locale>1033</Locale>
     <Overlays/>
     <Stripped>False</Stripped>
