@@ -14,7 +14,7 @@
     <Modal>True</Modal>
     <Help/>
     <DIA>0</DIA>
-    <SaveBehind>True</SaveBehind>
+    <SaveBehind>False</SaveBehind>
     <NavState>0</NavState>
     <InitialFocus/>
     <BottomLeft/>
@@ -365,9 +365,17 @@ Private Sub clsFormListar_DesenharItem(ByRef Objeto As clsObjetoGenerico, ByRef 
 	Set Percurso = clsPercurso(Objeto)
 	Select Case iColuna
 		Case 0
-			Valor = " " & Format(Percurso.ConsumoMedio(), "0.00")
+			If Percurso.ConsumoMedio() <= 0 Then
+				Valor = " 0"
+			Else
+				Valor = " " & Format(Percurso.ConsumoMedio(), "0.00")
+			End If
 		Case 1
-			Valor = Format(Percurso.LitrosConsumidos(), "0.00")
+			If Percurso.LitrosConsumidos() <= 0 Then
+				Valor = " 0"
+			Else
+				Valor = Format(Percurso.LitrosConsumidos(), "0.00")
+			End If
 		Case 2
 			Valor = Percurso.KmPercorridos()
 		Case 3

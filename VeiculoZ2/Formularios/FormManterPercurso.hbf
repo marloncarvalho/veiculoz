@@ -542,7 +542,8 @@ Private Sub clsFormManter_Validar(ByRef Objeto As clsObjetoGenerico, ByRef MsgEr
 		MsgErro = "Informe o Veículo."
 		Exit Sub
 	End If
-	If Percurso.KmInicial > Percurso.KmFinal Then
+
+	If Percurso.KmFinal <> "" And CDbl(Percurso.KmInicial) > CDbl(Percurso.KmFinal) Then
 		MsgErro = "O campo KM Inicial deve ser menor que o KM Final."
 		Exit Sub
 	End If

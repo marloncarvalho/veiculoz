@@ -82,8 +82,13 @@ End Function
 
 Public Function DiasDecorridos() As Integer
 	Try
-		DiasDecorridos = Me.bAbastecimentoFinal.Data() - Me.bAbastecimentoInicial.Data()
+		If Me.bAbastecimentoInicial Is Nothing Or Me.bAbastecimentoFinal Is Nothing Then
+			DiasDecorridos = 0
+		Else
+			DiasDecorridos = Me.bAbastecimentoFinal.Data() - Me.bAbastecimentoInicial.Data()
+		End If
 	Catch
+		DiasDecorridos = 0
 	End Catch
 End Function
 
@@ -105,10 +110,14 @@ End Property
 
 Public Property Get LitrosConsumidos() As Double
 	Try
-		If Me.bAbastecimentoInicial.TanqueCheio() And Me.bAbastecimentoFinal.TanqueCheio() Then
-			LitrosConsumidos = Me.bAbastecimentoFinal.Litros()
+		If Me.bAbastecimentoInicial Is Nothing Or Me.bAbastecimentoFinal Is Nothing Then
+			LitrosConsumidos = 0
 		Else
-			LitrosConsumidos = Me.bAbastecimentoInicial.Litros()
+			If Me.bAbastecimentoInicial.TanqueCheio() And Me.bAbastecimentoFinal.TanqueCheio() Then
+				LitrosConsumidos = Me.bAbastecimentoFinal.Litros()
+			Else
+				LitrosConsumidos = Me.bAbastecimentoInicial.Litros()
+			End If
 		End If
 	Catch
 		LitrosConsumidos = 0
@@ -165,6 +174,10 @@ End Property
 
 Public Function ConsumoMedio() As Double
 	Try
+		If Me.LitrosConsumidos() = 0 Or Me.KmFinal = "" Or Me.KmInicial = "" Then
+			ConsumoMedio = 0
+			Exit Function
+		End If
 		Dim KMI As Double
 		Dim KmF As Double
 		Dim KmPercorridos As Double

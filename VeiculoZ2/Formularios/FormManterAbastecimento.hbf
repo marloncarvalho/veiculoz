@@ -589,7 +589,7 @@ Private Sub btnExcluir_PenDown(ByVal x As Integer, ByVal y As Integer)
 End Sub
 
 Private Sub btnVoltar_PenDown(ByVal x As Integer, ByVal y As Integer)
-	Me.Voltar()
+	Unload(Me)
 End Sub
 
 Private Sub clsFormManter_LimparCampos()
