@@ -50,10 +50,14 @@ End Function
 
 Public Property Get PostoConsumoMedio() As clsEmpresa
 	Try
-		If Me.bAbastecimentoInicial.TanqueCheio() And Me.bAbastecimentoFinal.TanqueCheio() Then
-			PostoConsumoMedio = Me.bAbastecimentoFinal.Empresa
+		If Me.bAbastecimentoInicial Is Nothing Or Me.bAbastecimentoFinal Is Nothing Then
+			PostoConsumoMedio = New clsEmpresa
 		Else
-			PostoConsumoMedio = Me.bAbastecimentoInicial.Empresa
+			If Me.bAbastecimentoInicial.TanqueCheio() And Me.bAbastecimentoFinal.TanqueCheio() Then
+				PostoConsumoMedio = Me.bAbastecimentoFinal.Empresa
+			Else
+				PostoConsumoMedio = Me.bAbastecimentoInicial.Empresa
+			End If
 		End If
 	Catch
 		PostoConsumoMedio = New clsEmpresa
