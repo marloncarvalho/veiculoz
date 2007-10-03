@@ -6,12 +6,12 @@
   <Extends>Form</Extends>
   <Locked>False</Locked>
   <Layout Target="Palm OS">
-    <Left>0</Left>
-    <Top>0</Top>
-    <Width>160</Width>
-    <Height>160</Height>
-    <Caption xml:space="preserve">VeículoZ</Caption>
-    <Modal>False</Modal>
+    <Left>2</Left>
+    <Top>2</Top>
+    <Width>156</Width>
+    <Height>156</Height>
+    <Caption/>
+    <Modal>True</Modal>
     <Help/>
     <DIA>0</DIA>
     <SaveBehind>False</SaveBehind>
@@ -24,7 +24,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>28</Left>
-      <Top>144</Top>
+      <Top>140</Top>
       <Width>88</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -44,8 +44,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>140</Left>
-      <Top>145</Top>
+      <Left>137</Left>
+      <Top>140</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoVoltar</Image>
@@ -59,7 +59,7 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>48</Left>
+      <Left>40</Left>
       <Top>1</Top>
       <Width>112</Width>
       <Height>12</Height>
@@ -81,7 +81,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>99</Left>
-      <Top>42</Top>
+      <Top>39</Top>
       <Width>55</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -103,7 +103,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>78</Left>
-      <Top>42</Top>
+      <Top>39</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">até</Caption>
@@ -115,7 +115,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>5</Left>
-      <Top>42</Top>
+      <Top>39</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">De</Caption>
@@ -127,7 +127,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>19</Left>
-      <Top>42</Top>
+      <Top>39</Top>
       <Width>54</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -149,7 +149,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>38</Left>
-      <Top>28</Top>
+      <Top>25</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Informe o Período:</Caption>
@@ -161,7 +161,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>38</Left>
-      <Top>17</Top>
+      <Top>14</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Gráfico Despesas Gerais</Caption>
@@ -173,7 +173,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>7</Left>
-      <Top>17</Top>
+      <Top>14</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>ImagemRelatorios</Image>
@@ -188,7 +188,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>2</Left>
-      <Top>142</Top>
+      <Top>137</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>ImagemPesquisar</Image>
@@ -203,8 +203,8 @@
       <Layer>0</Layer>
       <Tag/>
       <Type>ucChart</Type>
-      <Left>0</Left>
-      <Top>71</Top>
+      <Left>-2</Left>
+      <Top>67</Top>
       <Width>160</Width>
       <Height>69</Height>
       <Anchors>0</Anchors>
@@ -219,8 +219,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>25</Left>
-      <Top>58</Top>
+      <Left>21</Left>
+      <Top>54</Top>
       <Width>133</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -240,11 +240,23 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>5</Left>
-      <Top>58</Top>
+      <Left>1</Left>
+      <Top>54</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Tipo:</Caption>
+      <Font>Standard</Font>
+    </Label>
+    <Label>
+      <Name>Label6</Name>
+      <Index>0</Index>
+      <Layer>0</Layer>
+      <Tag/>
+      <Left>7</Left>
+      <Top>1</Top>
+      <Anchors>0</Anchors>
+      <Visible>True</Visible>
+      <Caption xml:space="preserve">Veículo:</Caption>
       <Font>Standard</Font>
     </Label>
   </Layout>
@@ -319,8 +331,7 @@ Private Sub btnPesquisar_PenDown(ByVal x As Integer, ByVal y As Integer)
 End Sub
 
 Private Sub Picture3_PenDown(ByVal x As Integer, ByVal y As Integer)
-	Dim Form As New FormInicial
-	Form.Show(hbFormGoto+hbFormModeless)
+	Unload(Me)
 End Sub
 
 Private Sub Form_Load()

@@ -311,7 +311,7 @@ End Sub
 
 Private Sub MenuRelatorioCM_Click()
 	Dim Form As New FormRelatorioCM
-	Form.Show(hbFormGoto+hbFormModeless)
+	Form.Show(hbFormPopup+hbFormModal)
 End Sub
 
 Private Sub MenuAbastecimentos_Click()
@@ -326,7 +326,7 @@ End Sub
 
 Private Sub MenuItem9_Click()
 	Dim Form As New FormRelatorioCMT
-	Form.Show(hbFormModeless+hbFormGoto)
+	Form.Show(hbFormPopup+hbFormModal)
 End Sub
 
 Private Sub MenuVeiculos_Click()
@@ -341,7 +341,7 @@ End Sub
 
 Private Sub MenuItem17_Click()
 	Dim Form As New FormGraficoConsumo
-	Form.Show(hbFormModeless+hbFormGoto)
+	Form.Show(hbFormPopup+hbFormModal)
 End Sub
 
 Private Sub MenuTipoDespesa_Click()
@@ -356,17 +356,17 @@ End Sub
 
 Private Sub MenuItem16_Click()
 	Dim Form As New FormGraficoDespesas
-	Form.Show(hbFormModeless+hbFormGoto)
+	Form.Show(hbFormPopup+hbFormModal)
 End Sub
 
 Private Sub MenuItem10_Click()
 	Dim Form As New FormRelatorioDA
-	Form.Show(hbFormModeless+hbFormGoto)
+	Form.Show(hbFormPopup+hbFormModal)
 End Sub
 
 Private Sub MenuItem11_Click()
 	Dim Form As New FormRelatorioDG
-	Form.Show(hbFormModeless+hbFormGoto)
+	Form.Show(hbFormPopup+hbFormModal)
 End Sub
 
 Private Sub MenuSeguros_Click()
