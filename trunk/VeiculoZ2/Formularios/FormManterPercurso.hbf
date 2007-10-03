@@ -496,7 +496,9 @@ Private Sub clsFormManter_Inicializar()
 		End If
 		Me.FieldKmInicial.Text = CStr(PercursoAnterior.KmFinal)
 		Me.PopVeiculos.ListIndex = Me.PopVeiculos.FindItemData(PercursoAnterior.Veiculo.Id)
-		Me.SelAbastInicial.Text = Format(Abast.Litros(),"0.000") & " Litros"
+		If Not Abast Is Nothing And Abast.Litros() > 0 Then
+			Me.SelAbastInicial.Text = Format(Abast.Litros(),"0.000") & " Litros"
+		End If
 		Me.FieldDescricao.Text = PercursoAnterior.Descricao
 	End If
 End Sub

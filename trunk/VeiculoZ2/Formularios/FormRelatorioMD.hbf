@@ -23,8 +23,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>138</Left>
-      <Top>141</Top>
+      <Left>137</Left>
+      <Top>140</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoVoltar</Image>
@@ -87,7 +87,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>2</Left>
-      <Top>139</Top>
+      <Top>138</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>ImagemPesquisar</Image>
@@ -362,12 +362,21 @@ Private Sub btnPesquisar_PenDown(ByVal x As Integer, ByVal y As Integer)
 	Dim Percurso As clsPercurso
 	Veiculo = Me.popVeiculos.ItemData(Me.popVeiculos.ListIndex)
 	Percurso = RNFactory.RNPercursos().ObterMelhorDesempenhoPorVeiculo(Veiculo)
-	Me.FieldConsumo.Text = Percurso.ConsumoMedio()
-	Me.FieldData.Text = Format(Percurso.Abastecimento.Data,"shortdate")
-	Me.FieldKMs.Text = Percurso.KmPercorridos()
-	Me.FieldLitros.Text = Percurso.LitrosConsumidos()
-	Me.FieldPosto.Text = Percurso.Abastecimento.Empresa.Nome
-	Me.FieldTipo.Text = Percurso.Abastecimento.TipoCombustivel.Descricao
+	If Percurso Is Nothing Then
+		MsgBox("Não há abastecimentos suficientes para definir o Melhor Desempenho.")
+		Exit Sub
+	End If
+	If Percurso.Abastecimento Is Nothing Then
+		MsgBox("Não há abastecimentos suficientes para definir o Melhor Desempenho.")
+		Exit Sub
+	Else
+		Me.FieldConsumo.Text = Percurso.ConsumoMedio()
+		Me.FieldKMs.Text = Percurso.KmPercorridos()
+		Me.FieldLitros.Text = Percurso.LitrosConsumidos()
+		Me.FieldPosto.Text = Percurso.Abastecimento.Empresa.Nome
+		Me.FieldTipo.Text = Percurso.Abastecimento.TipoCombustivel.Descricao
+		Me.FieldData.Text = Format(Percurso.Abastecimento.Data,"shortdate")
+	End If
 End Sub
 
 Private Sub Picture3_PenDown(ByVal x As Integer, ByVal y As Integer)

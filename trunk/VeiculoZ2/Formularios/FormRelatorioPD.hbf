@@ -363,12 +363,21 @@ Private Sub btnPesquisar_PenDown(ByVal x As Integer, ByVal y As Integer)
 	Dim Percurso As clsPercurso
 	Veiculo = Me.popVeiculos.ItemData(Me.popVeiculos.ListIndex)
 	Percurso = RNFactory.RNPercursos().ObterPiorDesempenhoPorVeiculo(Veiculo)
-	Me.FieldConsumo.Text = Percurso.ConsumoMedio()
-	Me.FieldData.Text = Format(Percurso.Abastecimento.Data,"shortdate")
-	Me.FieldKMs.Text = Percurso.KmPercorridos()
-	Me.FieldLitros.Text = Percurso.LitrosConsumidos()
-	Me.FieldPosto.Text = Percurso.Abastecimento.Empresa.Nome
-	Me.FieldTipo.Text = Percurso.Abastecimento.TipoCombustivel.Descricao
+	If Percurso Is Nothing Then
+		MsgBox("Não há abastecimentos suficientes para definir o Pior Desempenho.")
+		Exit Sub
+	End If
+	If Percurso.Abastecimento Is Nothing Then
+		MsgBox("Não há abastecimentos suficientes para definir o Pior Desempenho.")
+		Exit Sub
+	Else
+		Me.FieldConsumo.Text = Percurso.ConsumoMedio()
+		Me.FieldKMs.Text = Percurso.KmPercorridos()
+		Me.FieldLitros.Text = Percurso.LitrosConsumidos()
+		Me.FieldPosto.Text = Percurso.Abastecimento.Empresa.Nome
+		Me.FieldTipo.Text = Percurso.Abastecimento.TipoCombustivel.Descricao
+		Me.FieldData.Text = Format(Percurso.Abastecimento.Data,"shortdate")
+	End If
 End Sub
 
 Private Sub Picture3_PenDown(ByVal x As Integer, ByVal y As Integer)

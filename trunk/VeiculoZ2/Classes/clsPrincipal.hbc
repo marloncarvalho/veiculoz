@@ -56,6 +56,6 @@ Private Sub Application_DisplayAlarm()
 End Sub
 
 Private Sub Application_AlarmTriggered(ByRef bPurge As Boolean)
-'	SystemSound(hbSoundAlarm)
+	SystemSound(hbSoundAlarm)
 End Sub]]></Source>
 </Class>
