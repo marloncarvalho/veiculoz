@@ -349,7 +349,8 @@
       <Below/>
     </Field>
   </Layout>
-  <Source xml:space="preserve"><![CDATA[Private Sub Form_Load()
+  <Source xml:space="preserve"><![CDATA[
+Private Sub Form_Load()
 	ObterVeiculos(Me.popVeiculos)
 End Sub
 

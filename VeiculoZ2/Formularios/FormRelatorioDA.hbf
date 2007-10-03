@@ -6,12 +6,12 @@
   <Extends>Form</Extends>
   <Locked>False</Locked>
   <Layout Target="Palm OS">
-    <Left>0</Left>
-    <Top>0</Top>
-    <Width>160</Width>
-    <Height>160</Height>
+    <Left>2</Left>
+    <Top>2</Top>
+    <Width>156</Width>
+    <Height>156</Height>
     <Caption/>
-    <Modal>False</Modal>
+    <Modal>True</Modal>
     <Help/>
     <DIA>0</DIA>
     <SaveBehind>False</SaveBehind>
@@ -24,8 +24,8 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>0</Left>
-      <Top>75</Top>
-      <Width>160</Width>
+      <Top>69</Top>
+      <Width>156</Width>
       <Height>51</Height>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
@@ -58,8 +58,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>126</Top>
+      <Left>-2</Left>
+      <Top>120</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -73,8 +73,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>140</Left>
-      <Top>145</Top>
+      <Left>136</Left>
+      <Top>139</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>BotaoVoltar</Image>
@@ -88,8 +88,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>74</Top>
+      <Left>-2</Left>
+      <Top>68</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -104,7 +104,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>99</Left>
-      <Top>45</Top>
+      <Top>40</Top>
       <Width>55</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -126,7 +126,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>78</Left>
-      <Top>45</Top>
+      <Top>40</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">até</Caption>
@@ -138,7 +138,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>5</Left>
-      <Top>45</Top>
+      <Top>40</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">De</Caption>
@@ -150,7 +150,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>19</Left>
-      <Top>45</Top>
+      <Top>40</Top>
       <Width>54</Width>
       <Height>12</Height>
       <Anchors>0</Anchors>
@@ -172,7 +172,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>38</Left>
-      <Top>28</Top>
+      <Top>24</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Informe o Período:</Caption>
@@ -184,7 +184,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>38</Left>
-      <Top>17</Top>
+      <Top>13</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Relatório de Despesas</Caption>
@@ -196,7 +196,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>7</Left>
-      <Top>17</Top>
+      <Top>13</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>ImagemRelatorios</Image>
@@ -211,7 +211,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>2</Left>
-      <Top>142</Top>
+      <Top>136</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>ImagemPesquisar</Image>
@@ -225,8 +225,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>122</Left>
-      <Top>144</Top>
+      <Left>118</Left>
+      <Top>137</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <NavFlags>0</NavFlags>
@@ -239,8 +239,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>62</Top>
+      <Left>-2</Left>
+      <Top>56</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -255,7 +255,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>3</Left>
-      <Top>63</Top>
+      <Top>57</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Posto</Caption>
@@ -267,7 +267,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>106</Left>
-      <Top>63</Top>
+      <Top>57</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Valor</Caption>
@@ -278,8 +278,8 @@
       <Index>0</Index>
       <Layer>0</Layer>
       <Tag/>
-      <Left>0</Left>
-      <Top>139</Top>
+      <Left>-2</Left>
+      <Top>133</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Image>LinhaSeparacaoSimples</Image>
@@ -294,7 +294,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>31</Left>
-      <Top>128</Top>
+      <Top>122</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">Gasto Total:</Caption>
@@ -306,7 +306,7 @@
       <Layer>0</Layer>
       <Tag/>
       <Left>96</Left>
-      <Top>128</Top>
+      <Top>122</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
       <Caption xml:space="preserve">...............................</Caption>
@@ -345,21 +345,6 @@
       <Above/>
       <Below/>
     </Popup>
-    <Picture>
-      <Name>Picture7</Name>
-      <Index>0</Index>
-      <Layer>0</Layer>
-      <Tag/>
-      <Left>0</Left>
-      <Top>13</Top>
-      <Anchors>0</Anchors>
-      <Visible>True</Visible>
-      <Image>LinhaSeparacaoSimples</Image>
-      <NavFlags>0</NavFlags>
-      <NavOrder/>
-      <Above/>
-      <Below/>
-    </Picture>
   </Layout>
   <Source xml:space="preserve"><![CDATA[' This file is part of VeículoZ.
 '
@@ -440,7 +425,6 @@ Private Sub btnPesquisar_PenDown(ByVal x As Integer, ByVal y As Integer)
 End Sub
 
 Private Sub Picture3_PenDown(ByVal x As Integer, ByVal y As Integer)
-	Dim Form As New FormInicial
-	Form.Show(hbFormModeless+hbFormGoto)
+	Unload(Me)
 End Sub]]></Source>
 </Form>
