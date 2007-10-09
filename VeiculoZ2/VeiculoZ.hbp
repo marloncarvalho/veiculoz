@@ -2,8 +2,8 @@
 <!-- Peter Holmes Consulting HB++ Project file -->
 <Project Version="2.50">
   <Name>VeiculoZ</Name>
-  <Configuration>Release</Configuration>
-  <BuildNumber>1263</BuildNumber>
+  <Configuration>Debug</Configuration>
+  <BuildNumber>1270</BuildNumber>
   <AutoIncrement>True</AutoIncrement>
   <Conduit/>
   <PackageBuilder/>
