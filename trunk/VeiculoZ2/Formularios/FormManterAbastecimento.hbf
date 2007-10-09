@@ -109,7 +109,7 @@
       <Underline>True</Underline>
       <SingleLine>True</SingleLine>
       <Align>0</Align>
-      <Editable>False</Editable>
+      <Editable>True</Editable>
       <AutoShift>True</AutoShift>
       <Numeric>False</Numeric>
       <MaxChar>80</MaxChar>
@@ -557,10 +557,6 @@ Private Sub clsFormManter_Validar(ByRef Objeto As clsObjetoGenerico, ByRef MsgEr
 		MsgErro = "Informe o Tipo de Combustível."
 		Exit Sub
 	End If
-	If Abast.ValorLitro = 0 Then
-		MsgErro = "Informe o Valor do Litro e o Valor Total."
-		Exit Sub
-	End If
 End Sub
 
 Private Sub clsFormManter_PreencherCampos(ByRef Objeto As clsObjetoGenerico)
@@ -647,6 +643,10 @@ Private Sub CalcularLitros()
 	Try
 		ValorLitro = CDbl(Replace(Me.FieldLitro.Text,",","."))
 		ValorTotal = CDbl(Replace(Me.FieldTotal.Text,",","."))
+		If ValorLitro <= 0 Or ValorTotal <= 0 Then
+			Me.FieldQuantidade.Text = 0
+			Exit Sub
+		End If
 		Qtd = ValorTotal / ValorLitro
 		Me.FieldQuantidade.Text = Format(Qtd,"0.000")
 	Catch
