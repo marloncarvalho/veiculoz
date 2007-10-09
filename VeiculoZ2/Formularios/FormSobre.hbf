@@ -63,7 +63,7 @@
       <Top>57</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
-      <Caption xml:space="preserve">Versão 2.0.1</Caption>
+      <Caption xml:space="preserve">Versão 2.0.2</Caption>
       <Font>Bold</Font>
     </Label>
     <Button>

@@ -215,7 +215,7 @@
       <Top>32</Top>
       <Anchors>0</Anchors>
       <Visible>True</Visible>
-      <Caption xml:space="preserve">Versão 2.0.1</Caption>
+      <Caption xml:space="preserve">Versão 2.0.2</Caption>
       <Font>Standard</Font>
     </Label>
     <Popup>
