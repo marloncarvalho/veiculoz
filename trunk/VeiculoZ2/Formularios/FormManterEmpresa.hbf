@@ -145,7 +145,7 @@
       <Editable>True</Editable>
       <AutoShift>True</AutoShift>
       <Numeric>False</Numeric>
-      <MaxChar>4</MaxChar>
+      <MaxChar>80</MaxChar>
       <Scrollbar/>
       <NavFlags>0</NavFlags>
       <NavOrder/>
@@ -219,7 +219,7 @@
       <Editable>True</Editable>
       <AutoShift>True</AutoShift>
       <Numeric>False</Numeric>
-      <MaxChar>10</MaxChar>
+      <MaxChar>50</MaxChar>
       <Scrollbar/>
       <NavFlags>0</NavFlags>
       <NavOrder/>
