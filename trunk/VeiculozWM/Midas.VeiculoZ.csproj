@@ -1,0 +1,252 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0978CD7B-170A-4AC3-9748-E2384F3329E1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Midas.VeiculoZ</RootNamespace>
+    <AssemblyName>Midas.VeiculoZ</AssemblyName>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PlatformFamilyName>PocketPC</PlatformFamilyName>
+    <PlatformID>b2c48bd2-963d-4549-9169-1fa021dce484</PlatformID>
+    <OSVersion>5.2</OSVersion>
+    <DeployDirSuffix>Midas.VeiculoZ</DeployDirSuffix>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <NativePlatformName>Windows Mobile 6 Professional SDK</NativePlatformName>
+    <FormFactorID>
+    </FormFactorID>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="Resco.SmartGrid.CF3, Version=6.6.0.0, Culture=neutral, PublicKeyToken=7444f602060105f9, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3be235df1c8d2ad3, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Conversores\AbastecimentoConversorDataReader.cs" />
+    <Compile Include="Conversores\AbastecimentoVisaoConversorDataReader.cs" />
+    <Compile Include="Conversores\DistribuidoraConversorDataReader.cs" />
+    <Compile Include="Conversores\PercursoConversorDataReader.cs" />
+    <Compile Include="Conversores\PercursoVisaoConversorDataReader.cs" />
+    <Compile Include="Conversores\PostoConversorDataReader.cs" />
+    <Compile Include="Conversores\TipoCombustivelConversorDataReader.cs" />
+    <Compile Include="Conversores\VeiculoConversorDataReader.cs" />
+    <Compile Include="Dados\IAbastecimentoDados.cs" />
+    <Compile Include="Dados\IPercursoDados.cs" />
+    <Compile Include="Dados\SQLServer\AbastecimentoDados.cs" />
+    <Compile Include="Dados\SQLServer\DistribuidoraDados.cs" />
+    <Compile Include="Dados\SQLServer\PercursoDados.cs" />
+    <Compile Include="Dados\SQLServer\PostoDados.cs" />
+    <Compile Include="Dados\SQLServer\TipoCombustivelDados.cs" />
+    <Compile Include="Dados\SQLServer\VeiculoDados.cs" />
+    <Compile Include="Forms\CadastroTiposCombustivel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CadastroTiposCombustivel.Designer.cs">
+      <DependentUpon>CadastroTiposCombustivel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CadastroVeiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CadastroVeiculos.Designer.cs">
+      <DependentUpon>CadastroVeiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CadastroPostos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CadastroPostos.Designer.cs">
+      <DependentUpon>CadastroPostos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CadastroDistribuidoras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CadastroDistribuidoras.Designer.cs">
+      <DependentUpon>CadastroDistribuidoras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CadastroAbastecimento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CadastroAbastecimento.Designer.cs">
+      <DependentUpon>CadastroAbastecimento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ConstrutorMenu.cs" />
+    <Compile Include="Forms\ListagemAbastecimentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListagemAbastecimentos.Designer.cs">
+      <DependentUpon>ListagemAbastecimentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ListagemDistribuidoras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListagemDistribuidoras.Designer.cs">
+      <DependentUpon>ListagemDistribuidoras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ListagemPostos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListagemPostos.Designer.cs">
+      <DependentUpon>ListagemPostos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ListagemVeiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListagemVeiculos.Designer.cs">
+      <DependentUpon>ListagemVeiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ListagemTiposCombustivel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ListagemTiposCombustivel.Designer.cs">
+      <DependentUpon>ListagemTiposCombustivel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IVeiculozFachada.cs" />
+    <Compile Include="Negocio\AbastecimentoNegocio.cs" />
+    <Compile Include="Negocio\CargaVeiculoz.cs" />
+    <Compile Include="Negocio\DistribuidoraNegocio.cs" />
+    <Compile Include="Negocio\NegocioFactory.cs" />
+    <Compile Include="Negocio\PercursoNegocio.cs" />
+    <Compile Include="Negocio\PostoNegocio.cs" />
+    <Compile Include="Negocio\TipoCombustivelNegocio.cs" />
+    <Compile Include="Negocio\VeiculosNegocio.cs" />
+    <Compile Include="Objetos\Abastecimento.cs" />
+    <Compile Include="Objetos\Distribuidora.cs" />
+    <Compile Include="Objetos\Motorista.cs" />
+    <Compile Include="Objetos\Percurso.cs" />
+    <Compile Include="Objetos\Posto.cs" />
+    <Compile Include="Objetos\Seguro.cs" />
+    <Compile Include="Objetos\TipoCombustivel.cs" />
+    <Compile Include="Objetos\Veiculo.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\CadastroTiposCombustivel.resx">
+      <DependentUpon>CadastroTiposCombustivel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CadastroVeiculos.resx">
+      <DependentUpon>CadastroVeiculos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CadastroPostos.resx">
+      <DependentUpon>CadastroPostos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CadastroDistribuidoras.resx">
+      <DependentUpon>CadastroDistribuidoras.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CadastroAbastecimento.resx">
+      <DependentUpon>CadastroAbastecimento.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListagemAbastecimentos.resx">
+      <DependentUpon>ListagemAbastecimentos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListagemDistribuidoras.resx">
+      <DependentUpon>ListagemDistribuidoras.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListagemPostos.resx">
+      <DependentUpon>ListagemPostos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListagemVeiculos.resx">
+      <DependentUpon>ListagemVeiculos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListagemTiposCombustivel.resx">
+      <DependentUpon>ListagemTiposCombustivel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recursos\ConstantesDados.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ConstantesDados.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Recursos\ConstantesDados.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConstantesDados.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Validador\DistribuidoraValidador.cs" />
+    <Compile Include="Validador\PercursoValidador.cs" />
+    <Compile Include="Validador\PostoValidador.cs" />
+    <Compile Include="VeiculozFachada.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Midas.Nucleo\Midas.Nucleo.csproj">
+      <Project>{879F2AD8-7752-4105-B421-DF2B723A3233}</Project>
+      <Name>Midas.Nucleo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
