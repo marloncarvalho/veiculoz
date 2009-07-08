@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AtualizarAbastecimento" xml:space="preserve">
+    <value>update abastecimento set idposto=@idposto, data=@data, observacoes=@observacoes, tanquecheio=@tanquecheio, idtipoabastecimento=@idtipoabastecimento, valor=@valor, valorlitro=@valorlitro where id = @id</value>
+  </data>
+  <data name="AtualizarDistribuidora" xml:space="preserve">
+    <value>update distribuidora set nome = @nome where id = @id</value>
+  </data>
+  <data name="AtualizarPercurso" xml:space="preserve">
+    <value>update percurso set odometroinicial = @odometroinicial, odometrofinal = @odometrofinal, idveiculo=@idveiculo, viagem=@viagem, idabastecimentoinicial=@idabastecimentoinicial, idabastecimentofinal=@idabastecimentofinal where id = @id</value>
+  </data>
+  <data name="AtualizarPosto" xml:space="preserve">
+    <value>update posto set idpessoajuridica=@idpessoajuridica, iddistribuidora=@iddistribuidora, idendereco=@idendereco, observacoes=@observacoes where id = @id</value>
+  </data>
+  <data name="AtualizarTipoCombustivel" xml:space="preserve">
+    <value>update tipocombustivel set nome = @nome where id = @id</value>
+  </data>
+  <data name="AtualizarVeiculo" xml:space="preserve">
+    <value>update veiculo set placa=@placa, renavam=@renavam, cor=@cor, modelo=@modelo, marca=@marca where id = @id</value>
+  </data>
+  <data name="ExcluirAbastecimento" xml:space="preserve">
+    <value>delete from abastecimento where id = @id</value>
+  </data>
+  <data name="ExcluirDistribuidora" xml:space="preserve">
+    <value>delete from distribuidora where id = @id</value>
+  </data>
+  <data name="ExcluirPercurso" xml:space="preserve">
+    <value>delete from percurso where id = @id</value>
+  </data>
+  <data name="ExcluirPosto" xml:space="preserve">
+    <value>delete from posto where id = @id</value>
+  </data>
+  <data name="ExcluirTipoCombustivel" xml:space="preserve">
+    <value>delete from tipocombustivel where id = @id</value>
+  </data>
+  <data name="ExcluirVeiculo" xml:space="preserve">
+    <value>delete from veiculo where id = @id</value>
+  </data>
+  <data name="InserirAbastecimento" xml:space="preserve">
+    <value>insert into abastecimento (idposto,data,observacoes,tanquecheio,idtipoabastecimento,valor,valorlitro) values (@idposto,@data,@observacoes,@tanquecheio,@idtipoabastecimento,@valor,@valorlitro)</value>
+  </data>
+  <data name="InserirDistribuidora" xml:space="preserve">
+    <value>insert into distribuidora (nome)values(@nome)</value>
+  </data>
+  <data name="InserirPercurso" xml:space="preserve">
+    <value>insert into percurso (odometroinicial,odometrofinal,idveiculo,viagem,idabastecimentoinicial,idabastecimentofinal) values (@odometroinicial,@odometrofinal,@idveiculo,@viagem,@idabastecimentoinicial,@idabastecimentofinal)</value>
+  </data>
+  <data name="InserirPosto" xml:space="preserve">
+    <value>insert into posto (idpessoajuridica,iddistribuidora, idendereco,observacoes) values (@idpessoajuridica, @iddistribuidora, @idendereco,@observacoes)</value>
+  </data>
+  <data name="InserirTipoCombustivel" xml:space="preserve">
+    <value>insert into tipocombustivel (nome) values (@nome)</value>
+  </data>
+  <data name="InserirVeiculo" xml:space="preserve">
+    <value>insert into veiculo(placa,renavam,cor,modelo,marca) values (@placa,@renavam,@cor,@modelo,@marca)</value>
+  </data>
+  <data name="SelecionarAbastecimento" xml:space="preserve">
+    <value>select * from abastecimento where id = @id</value>
+  </data>
+  <data name="SelecionarDistribuidora" xml:space="preserve">
+    <value>select * from distribuidora where id = @id</value>
+  </data>
+  <data name="SelecionarIdAbastecimentoFinalPercurso" xml:space="preserve">
+    <value>select idabastecimentofinal from percurso where id = @id</value>
+  </data>
+  <data name="SelecionarPercurso" xml:space="preserve">
+    <value>select id,odometroinicial,odometrofinal,idveiculo,viagem,idabastecimentoinicial,idabastecimentofinal from percurso where id = @id</value>
+  </data>
+  <data name="SelecionarPosto" xml:space="preserve">
+    <value>select id,iddistribuidora,idendereco,idpessoajuridica,observacoes from posto where id =@id</value>
+  </data>
+  <data name="SelecionarTipoCombustivel" xml:space="preserve">
+    <value>select * from tipocombustivel where id = @id</value>
+  </data>
+  <data name="SelecionarTodasDistribuidoras" xml:space="preserve">
+    <value>select * from distribuidora order by nome</value>
+  </data>
+  <data name="SelecionarTodosAbastecimentos" xml:space="preserve">
+    <value>select * from abastecimento order by data desc</value>
+  </data>
+  <data name="SelecionarTodosPercursos" xml:space="preserve">
+    <value>select id,odometroinicial,odometrofinal,idveiculo,viagem,idabastecimentoinicial,idabastecimentofinal from percurso order by id</value>
+  </data>
+  <data name="SelecionarTodosPostos" xml:space="preserve">
+    <value>select id,iddistribuidora,idendereco,idpessoajuridica,observacoes from posto order by id</value>
+  </data>
+  <data name="SelecionarTodosTiposCombustivel" xml:space="preserve">
+    <value>select * from tipocombustivel order by nome</value>
+  </data>
+  <data name="SelecionarTodosVeiculos" xml:space="preserve">
+    <value>select * from veiculo order by modelo</value>
+  </data>
+  <data name="SelecionarUltimoPercurso" xml:space="preserve">
+    <value>select * from percurso where id IN (select max(id) from percurso)</value>
+  </data>
+  <data name="SelecionarVeiculo" xml:space="preserve">
+    <value>select * from veiculo where id = @id</value>
+  </data>
+  <data name="TabelaAbastecimento" xml:space="preserve">
+    <value>create table abastecimento (id int identity(1,1) not null primary key, idposto int, data datetime, observacoes ntext, tanquecheio bit, idtipoabastecimento int, valor decimal, valorlitro decimal)</value>
+  </data>
+  <data name="TabelaDistribuidora" xml:space="preserve">
+    <value>create table distribuidora (id int identity(1,1) primary key, nome nvarchar(80))</value>
+  </data>
+  <data name="TabelaMarca" xml:space="preserve">
+    <value>create table marca (id int identity(1,1) not null primary key, nome nvarchar(50), logotipo image)</value>
+  </data>
+  <data name="TabelaPercurso" xml:space="preserve">
+    <value>create table percurso (id int identity(1,1) not null primary key, odometroinicial bigint, odometrofinal bigint, idveiculo int, viagem bit, idabastecimentoinicial int, idabastecimentofinal int)</value>
+  </data>
+  <data name="TabelaPosto" xml:space="preserve">
+    <value>create table posto (id int identity(1,1) not null primary key, iddistribuidora int, idendereco int, idpessoajuridica int, observacoes nvarchar(255))</value>
+  </data>
+  <data name="TabelaTipoCombustivel" xml:space="preserve">
+    <value>create table tipocombustivel (id int identity(1,1) not null primary key, nome nvarchar(50))</value>
+  </data>
+  <data name="TabelaVeiculo" xml:space="preserve">
+    <value>create table veiculo(id int identity(1,1), placa nvarchar(10), renavam nvarchar(20), cor nvarchar(20), modelo nvarchar(100), marca nvarchar(100))</value>
+  </data>
+</root>
